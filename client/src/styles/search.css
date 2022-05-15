@@ -87,117 +87,41 @@
     display: block;
 }
 
-/* עיצוב תמונות מונפשות */
-* {
-    box-sizing: border-box;
-}
 
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Slideshow container */
-.slideshow-container {
-    max-width: none;
+.mobile-container {
+    max-width: 480px;
+    margin: auto;
+    background-color: #555;
+    height: 500px;
+    color: white;
+    border-radius: 10px;
+  }
+  
+  .topnav {
+    overflow: hidden;
+    background-color: #333;
     position: relative;
-    margin: auto;
-}
-
-/* .slideshow-container:hover{
-    background-color: rgba(0,0,0,0.8);
-
-} */
-
-/* The dots/bullets/indicators */
-.slideshowDots {
-    text-align: center;
-}
-
-.slideshowDot {
-    height: 7px;
-    width: 7px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-}
-
-.slideshowDot.active {
-    background-color: #356D9C;
-}
-
-/* Add a background color to the active dot/circle */
-.active,
-.dot:hover {
-    background-color: #717171;
-}
-
-.explantion {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    background-color: #f7f7f7;
-    /* background-color: #ECECEC; */
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    /* margin: 10px; */
-}
-
-.title_Exp {
-    margin: auto;
-    color: #356D9C;
-    text-align: center;
-    vertical-align: inherit;
-    font-weight: bold;
-    margin-bottom: 0px;
-}
-
-.textExp {
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    font-size: 13px;
-    margin: 5px;
-    padding: 15px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-.btn_details {
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-.details {
-    border: 1.5px solid black;
-    background-color: white;
-    color: rgba(0, 0, 0, 0.65);
-    cursor: pointer;
-    border-radius: 3px 3px;
-    border-color: #ea6b4c;
-    padding-top: 0.5px;
-    padding-bottom: 0.5px;
-    padding-left: 15px;
-    padding-right: 15px;
-
-}
-
-.details:hover {
-    background-color: #356D9C;
-    border-color: #356D9C;
+  }
+  
+  .topnav #myLinks {
+    display: none;
+  }
+  
+  .topnav a {
     color: white;
-}
-
-.read-more-link {
-    color: white;
-}
-
-.extra-content {
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    font-size: 13px;
-    margin: 5px;
-    padding: 15px;
-}
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+  }
+  
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  
 
 /* סרגל תחתון */
 .navbar2 {
