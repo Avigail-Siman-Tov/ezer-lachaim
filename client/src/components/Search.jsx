@@ -2,6 +2,7 @@ import "../styles/search.css"
 import { Icon } from '@iconify/react';
 import { useEffect, useState } from "react";
 import { collection, doc, getDocs, query, setDoc } from "firebase/firestore";
+
 import { firestore } from "../firebase";
 
 export const Search = () => {
