@@ -13,16 +13,12 @@ export const Search = () => {
 
     useEffect(() => {
         console.log('mounted', callData)
-        // setDoc(doc(callsRef), {
-        //     date: '15-5-22',
-        //     city: 'tel-aviv'
-        // });
         getData();
     }, [])
 
     function sendCall () {
         setDoc(doc(callsRef), {
-            date: '15-5-22',
+            // date: '15-5-22',
             city: inputValue
         });
     }
@@ -91,9 +87,9 @@ export const Search = () => {
             <button onClick={sendCall}>send</button>
 
             {callData.map((object, index) => (
-                <div key={index}>
+                <div className="req" key={index}>
                     <div>{object.city + " " + object.date}</div>
-                    {/* <div>{object.date}</div> */}
+                    <div>{object.date}</div>
                 </div>
             ))}
         </div>
