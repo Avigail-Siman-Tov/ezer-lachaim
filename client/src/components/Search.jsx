@@ -68,8 +68,6 @@ export const Search = () => {
                 <img src="/logo_ezl.png" alt="Logo image" />
             </div>
 
-
-
             {/* <!-- סרגל תחתון --> */}
             <div className="navbar2">
                 <div className="flex-container">
