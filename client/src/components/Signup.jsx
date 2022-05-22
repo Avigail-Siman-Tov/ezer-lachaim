@@ -1,12 +1,23 @@
-// import React, { useRef } from "react";
+// import React, { useRef, useState } from "react";
 // import { Form, Buttom, Card } from "react-bootstrap"
-
-// import * as firebase from 'firebase/app';
+// import { useAuth } from "../contexts/AuthContext";
 
 // export default function Signup(){
 //     const emailRef = useRef()
 //     const passwordRef = useRef()
 //     const passwordConfirmRef = useRef()
+//     const { signup } = useAuth()
+//     const [error, setError] = useState('')
+
+//     function handleSubmit(e) {
+//         e.preventDefault()
+
+//         if (passwordRef.current.value !== passwordConfirmRef.current.value)
+//         {
+//             return setError('password do not match')
+//         }
+//         signup(emailRef.current.value, passwordRef.current.value)
+//     }
 
 //     return(
 //         <>
