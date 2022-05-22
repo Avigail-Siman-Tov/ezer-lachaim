@@ -4,6 +4,8 @@ import { HomePage } from './components/HomePage';
 import { Link } from "react-router-dom"
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Search } from './components/Search';
+import { Login } from './components/Login';
+
 import Signup from './components/Signup';
 
 function App() {
@@ -16,7 +18,7 @@ function App() {
           <Route path="/search" element={<Search />} />
           {/* <Route path="/signUp" element={<Signup />} /> */}
 
-          <Route path="" element={<HomePage />} />
+          <Route path="login" element={<Login />} />
           {/* <Route path="" element={<search />} /> */}
           {/* <Route path="search" element={<Search />} />
         <Route path="login" element={<Login />} />
