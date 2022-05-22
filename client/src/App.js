@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" exact element={<HomePage />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/signUp" element={<Signup />} />
+          {/* <Route path="/signUp" element={<Signup />} /> */}
 
           <Route path="" element={<HomePage />} />
           {/* <Route path="" element={<search />} /> */}
