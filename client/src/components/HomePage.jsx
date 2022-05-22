@@ -3,8 +3,6 @@ import { useEffect, useRef, useState } from "react"
 import "../styles/homePage.css"
 import { Icon } from '@iconify/react';
 
-// import {FaCaretDown} from "react-icons/fa"
-
 const IMAGES = ["/i1.jpg", "/i2.jpg", "/i3.jpg"];
 
 export const HomePage = () => {
@@ -49,10 +47,10 @@ export const HomePage = () => {
                         <Icon icon="ic:baseline-arrow-drop-down" />
                     </button>
                     <div className="dropdown-content">
-                        <a href="#1">מתנדב חדש</a>
-                        <a href="#2">מתנדב קיים</a>
-                        <a href="#3">חולה</a>
-                        <a href="#4">מנהל</a>
+                        <a href="/login">מתנדב חדש</a>
+                        <a href="/login">מתנדב קיים</a>
+                        <a href="/login">חולה</a>
+                        <a href="/login">מנהל</a>
                     </div>
                 </div>
                 <img src="/logo_ezl.png" alt="Logo image" />
