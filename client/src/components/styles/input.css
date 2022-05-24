@@ -1,0 +1,26 @@
+.input{
+    outline: none;
+    border: solid 2px var(--e-global-color-secondary);
+    height: 50px;
+    padding-right: 20px;
+    border-radius: 8px;
+    width: 100%;
+    
+}
+.input[type=date]{
+    color: var(--e-global-color-secondary);
+}
+.input::placeholder{
+    color: var(--e-global-color-secondary);
+}
+.error{
+    border-color: var(--e-global-color-6fff166d);
+    color: var(--e-global-color-6fff166d);
+}
+.error::placeholder{
+    color: var(--e-global-color-6fff166d);
+    
+}
+.input :hover{
+    border-color: black;
+}

@@ -1,12 +1,12 @@
 
-  input[type=text], input[type=password] {
+  /* input[type=text], input[type=password] {
     width: 80%;
     padding: 10px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #356D9C;
     box-sizing: border-box;
-  }
+  } */
 
   /* button {
     background-color: #356D9C;
@@ -82,7 +82,7 @@
         font-size: 11px
     }
   }*/
-  .userNamePassword
+  /* .userNamePassword
   {
     align-content: center;
     text-align: center;
@@ -104,4 +104,4 @@
      border: 1px #356D9C;
     
   }
-  
+   */
