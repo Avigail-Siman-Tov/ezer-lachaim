@@ -1,19 +1,19 @@
 import GenericForm from "../components/Generic-form";
-import "./styles/newVolunteer.css";
+import "../styles/newVolunteer.css";
 import Input from "../components/Input";
 import Button from "../components/Button";
-import ExistVolunteer2 from "./ExistVolunteer2";
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useState } from "react";
 
-function ExistVolunteer() {
+function Patient({ setShowSpinner }) {
     const [inputError, setInputError] = useState({
         nameInput: false,
         phoneNumInput: false,
         emailInput: false,
         passwordInput: false,
         confirmPasswordInput: false,
+        notesInput: false,
     });
     const userDetails = {
         name: "",
@@ -21,11 +21,12 @@ function ExistVolunteer() {
         email: "",
         password: "",
         confirmPassword: "",
+        notes: "",
     };
     return (
         <div className="img-background">
             <div className="form-wrapper">
-                <div className="title">הפרופיל שלי:</div>
+                <div className="title">טופס הצטרפות</div>
                 <Input
                     placeholder="שם פרטי ומשפחה"
                     hasError={inputError.nameInput}
@@ -54,10 +55,21 @@ function ExistVolunteer() {
                         userDetails.password = password;
                     }}
                 />
-                <Link to="/exist-volunteer2">
+                <Input
+                    placeholder="אימות סיסמא"
+                    hasError={inputError.confirmPasswordInput}
+                    changeHandler={(confirmPassword) => {
+                        userDetails.confirmPassword = confirmPassword;
+                    }}
+                />
+                <Input placeholder="הערות" />
+                <Link to="/patient">
                     <Button
-                        text="הבא"
+                        text="שלח"
                         clickHandler={() => {
+                            // Object.keys(inputError).forEach((key) => {
+                            //     inputError[key] = userDetails[]
+                            // })
                             setInputError({
                                 ...inputError,
                                 nameInput: !userDetails.name,
@@ -67,6 +79,9 @@ function ExistVolunteer() {
                                 confirmPasswordInput:
                                     !userDetails.confirmPassword,
                             });
+                            setShowSpinner(true);
+                            setTimeout(setShowSpinner.bind("", false), 3000);
+                            //TODO - http- backend (userDetails)
                         }}
                     />
                 </Link>
@@ -74,4 +89,4 @@ function ExistVolunteer() {
         </div>
     );
 }
-export default ExistVolunteer;
+export default Patient;

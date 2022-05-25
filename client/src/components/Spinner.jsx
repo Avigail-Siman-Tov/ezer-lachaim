@@ -1,4 +1,4 @@
-import "./styles/spinner.css";
+import "../styles/spinner.css";
 import { SpinnerCircular } from "spinners-react";
 
 function Spinner({}) {

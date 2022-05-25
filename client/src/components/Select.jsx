@@ -1,4 +1,4 @@
-import './styles/select.css';
+import '../styles/select.css';
 
 
 function Select({options,placeHolder, hasError,changeHandler}){

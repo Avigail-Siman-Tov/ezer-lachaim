@@ -1,32 +1,31 @@
 import GenericForm from "../components/Generic-form";
-import "./styles/newVolunteer.css";
+import "../styles/newVolunteer.css";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import NewVolunteerDetails from "./NewVolunteerDetails";
 import { useState } from "react";
 
-function Patient({ setShowSpinner }) {
+function NewVolunteer() {
     const [inputError, setInputError] = useState({
         nameInput: false,
         phoneNumInput: false,
         emailInput: false,
         passwordInput: false,
         confirmPasswordInput: false,
-        notesInput: false,
     });
     const userDetails = {
         name: "",
         phoneNum: "",
         email: "",
-        password: "",
+        Password: "",
         confirmPassword: "",
-        notes: "",
     };
     return (
         <div className="img-background">
             <div className="form-wrapper">
-                <div className="title">טופס הצטרפות</div>
+                <div className="title">טופס הצטרפות למתנדבים</div>
                 <Input
                     placeholder="שם פרטי ומשפחה"
                     hasError={inputError.nameInput}
@@ -62,31 +61,27 @@ function Patient({ setShowSpinner }) {
                         userDetails.confirmPassword = confirmPassword;
                     }}
                 />
-                <Input placeholder="הערות" />
-                <Link to="/patient">
+                <Link to="/new-volunteer-details">
                     <Button
-                        text="שלח"
+                        text="הבא"
                         clickHandler={() => {
-                            // Object.keys(inputError).forEach((key) => {
-                            //     inputError[key] = userDetails[]
-                            // })
                             setInputError({
                                 ...inputError,
                                 nameInput: !userDetails.name,
                                 phoneNumInput: !userDetails.phoneNum,
                                 emailInput: !userDetails.email,
-                                PasswordInput: !userDetails.password,
+                                PasswordInput: !userDetails.Password,
                                 confirmPasswordInput:
                                     !userDetails.confirmPassword,
                             });
-                            setShowSpinner(true);
-                            setTimeout(setShowSpinner.bind("", false), 3000);
-                            //TODO - http- backend (userDetails)
+                            
                         }}
                     />
                 </Link>
+
+                {/* <link to="/NewVolunteerDetails" > */}
             </div>
         </div>
     );
 }
-export default Patient;
+export default NewVolunteer;

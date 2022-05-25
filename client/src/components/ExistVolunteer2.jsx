@@ -1,5 +1,5 @@
 import GenericForm from "../components/Generic-form";
-import "./styles/newVolunteer.css";
+import "../styles/newVolunteer.css";
 import Select from "../components/Select";
 import Input from "../components/Input";
 import Button from "../components/Button";

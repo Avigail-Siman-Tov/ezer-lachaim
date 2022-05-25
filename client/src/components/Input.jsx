@@ -1,4 +1,4 @@
-import "./styles/input.css";
+import "../styles/input.css";
 
 function Input({ placeholder, hasError, changeHandler, type = "text" }) {
     return (

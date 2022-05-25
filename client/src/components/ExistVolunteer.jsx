@@ -1,13 +1,13 @@
 import GenericForm from "../components/Generic-form";
-import "./styles/newVolunteer.css";
+import "../styles/newVolunteer.css";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import ExistVolunteer2 from "./ExistVolunteer2";
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import NewVolunteerDetails from "./NewVolunteerDetails";
 import { useState } from "react";
 
-function NewVolunteer() {
+function ExistVolunteer() {
     const [inputError, setInputError] = useState({
         nameInput: false,
         phoneNumInput: false,
@@ -19,13 +19,13 @@ function NewVolunteer() {
         name: "",
         phoneNum: "",
         email: "",
-        Password: "",
+        password: "",
         confirmPassword: "",
     };
     return (
         <div className="img-background">
             <div className="form-wrapper">
-                <div className="title">טופס הצטרפות למתנדבים</div>
+                <div className="title">הפרופיל שלי:</div>
                 <Input
                     placeholder="שם פרטי ומשפחה"
                     hasError={inputError.nameInput}
@@ -54,14 +54,7 @@ function NewVolunteer() {
                         userDetails.password = password;
                     }}
                 />
-                <Input
-                    placeholder="אימות סיסמא"
-                    hasError={inputError.confirmPasswordInput}
-                    changeHandler={(confirmPassword) => {
-                        userDetails.confirmPassword = confirmPassword;
-                    }}
-                />
-                <Link to="/new-volunteer-details">
+                <Link to="/exist-volunteer2">
                     <Button
                         text="הבא"
                         clickHandler={() => {
@@ -70,18 +63,15 @@ function NewVolunteer() {
                                 nameInput: !userDetails.name,
                                 phoneNumInput: !userDetails.phoneNum,
                                 emailInput: !userDetails.email,
-                                PasswordInput: !userDetails.Password,
+                                PasswordInput: !userDetails.password,
                                 confirmPasswordInput:
                                     !userDetails.confirmPassword,
                             });
-                            
                         }}
                     />
                 </Link>
-
-                {/* <link to="/NewVolunteerDetails" > */}
             </div>
         </div>
     );
 }
-export default NewVolunteer;
+export default ExistVolunteer;

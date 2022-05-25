@@ -1,5 +1,5 @@
 import GenericForm from "../components/Generic-form";
-import "./styles/newVolunteerDetails.css";
+import "../styles/newVolunteerDetails.css";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import React from "react";
