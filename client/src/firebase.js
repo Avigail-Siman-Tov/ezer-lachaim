@@ -85,14 +85,14 @@ import {getFirestore} from 'firebase/firestore'
 // https://firebase.google.com/docs/web/setup#available-libraries 
  
 // Your web app's Firebase configuration 
-const firebaseConfig = { 
-  apiKey: "AIzaSyBqQyGHXMDao2Tik09iymaqNom8eVyXE8w", 
-  authDomain: "ezer-lachaim.firebaseapp.com", 
-  projectId: " ezer-lachaim", 
-  storageBucket: " ezer-lachaim.appspot.com", 
-  messagingSenderId: "77275033893", 
-  appId: "1:77275033893:web:fea0a2b5976d0993eb6acc" 
-}; 
+const firebaseConfig = {
+  apiKey: "AIzaSyBqQyGHXMDao2Tik09iymaqNom8eVyXE8w",
+  authDomain: "ezer-lachaim.firebaseapp.com",
+  projectId: "ezer-lachaim",
+  storageBucket: "ezer-lachaim.appspot.com",
+  messagingSenderId: "77275033893",
+  appId: "1:77275033893:web:fea0a2b5976d0993eb6acc"
+};
  
 // Initialize Firebase 
 const app = firebase.initializeApp(firebaseConfig); 

@@ -15,6 +15,7 @@ import Patient from "./components/Patient";
 import BookingShuttle from "./components/BookingShuttle";
 import Spinner from "./components/Spinner";
 import {Thanks} from './components/Thanks';
+import {Choose} from './components/Choose';
 // import { Navbar } from "./components/navbar";
 
 
@@ -27,6 +28,7 @@ import PrivateRoute from "./components/log_in/LoginComponent/PrivateRoute"
 import ForgotPassword from "./components/log_in/LoginComponent/ForgotPassword"
 import UpdateProfile from "./components/log_in/LoginComponent/UpdateProfile"
 import { AuthProvider } from './components/log_in/contexts/AuthContext';
+import { Seeck } from './components/Seeck';
 
 
 //for ambuger
@@ -76,6 +78,9 @@ function App() {
                 <Route exact path="/exist-volunteer2" element={<ExistVolunteer2 setShowSpinner={setShowSpinner} />} />
                 <Route exact path="/patient" element={<Patient />} />
                 <Route exact path="/bookingShuttle" setShowSpinner={setShowSpinner} element={<bookingShuttle />} />
+                <Route exact path="/choose" element={<Choose />} />
+                <Route path="search" element={<Search />} />
+                <Route exact path="/seeck" element={<Seeck />} />
               </Routes>
             </AuthProvider>
           </Router>

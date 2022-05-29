@@ -5,9 +5,7 @@ export const Login = () => {
         <div>
             <img id="reka" src="reka.jpg" />
             <div className="navbar">
-                <div NamclassName="dropdown">
                     <a href="#home">Home</a>
-                </div>
                 <img src="logo_ezl.png" alt="Logo image" />
 
             </div>

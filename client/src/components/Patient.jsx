@@ -5,6 +5,7 @@ import Button from "../components/Button";
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useState } from "react";
+import Navbar from "../components/Navbar";
 
 function Patient({ setShowSpinner }) {
     const [inputError, setInputError] = useState({
@@ -25,6 +26,7 @@ function Patient({ setShowSpinner }) {
     };
     return (
         <div className="img-background">
+            <Navbar/>
             <div className="form-wrapper">
                 <div className="title">טופס הצטרפות</div>
                 <Input

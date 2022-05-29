@@ -1,7 +1,8 @@
-
 /* עיצוב סרגל עליון */
-/* .navbar {
+.navbar {
     padding: auto;
+    height: 50px;
+    margin: auto;
     overflow: hidden;
     background-color: #ebe9eb;
 }
@@ -9,12 +10,17 @@
 .navbar img {
     float: left;
     display: block;
-    width: 70px;
+    width: 53px;
+    height: 53px;
     overflow: hidden;
-    padding: 5px;
+    /* padding-left: 5px; */
+    /* padding: 5px; */
+    /* /* margin-top: 0px; */
+    margin: 2px;
+
 }
 
-.navbar a {
+/* .navbar a {
     float: right;
     font-size: 16px;
     color: white;
@@ -22,3 +28,23 @@
     padding: 14px 16px;
     text-decoration: none;
 } */
+
+.btn_home {
+    color: #356d9c;
+    /* border-radius: 5px; */
+    /* width: 50px;
+    height: 40px; */
+    /* border: solid 2px #356d9c; */
+    /* background-color: #ebe9eb; */
+    /* border: none;
+    right: 0;
+    outline: none; */
+    /* padding: 14px 16px; */
+    /* margin-top: 5px;
+    margin-right: -100px; */
+}
+
+.btn_home:hover {
+    background-color: #356d9c;
+    color: #ffffff;
+}

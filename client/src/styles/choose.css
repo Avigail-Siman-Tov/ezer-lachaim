@@ -1,92 +1,80 @@
-
 * {
-    box-sizing: border-box;
-  }
- 
-  
-  /* Clearfix (clear floats) */
-  .row::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
- 
+  box-sizing: border-box;
+}
 
-  .picture {
 
-    position: relative;
-    /* width:130px; */
-    height:130px;
-    float: left;
-    width: 25%;
-    padding: 5px;
-    margin-top: 220px;
-    grid-gap: 20px;
-    margin-left:30px;
-  }
-  
-  .picture img {
-    width:200px;
-    height:300px;
-    float: left;
-    padding: 20px;
-    margin-left:-50px;
-    grid-gap: 20px;
-  }
-  
-  .picture .btnDetails {
-    position: absolute;
-    border: none;
-    /* top: 50%;
-    left: 50%; */
-    cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
-    font-size:30px;
- margin-left: -150px;
-    margin-top: 110px; 
-   direction: rtl;
-   /* margin-left: 100px;
-   margin-right: 100px; */
-   color: #356D9C;
-   background-repeat: repeat-y;
-   opacity: 0.5;
-  }
-  
-  .picture1 {
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 
-    position: relative;
-    /* width:130px; */
-    height:130px;
-    float: left;
-    width: 25%;
-    padding: 5px;
-    margin-top: 220px;
-    grid-gap: 20px;
-    margin-left:10px;
-  }
+
+.picture {
+
+  float: left;
+  width: 45%;
+
+}
+
+.picture img {
+  width:500px;
+  height: 200px;
+  float: left;
+  margin-left: 10px;
+  margin-top: 100px;
+}
+
+.picture .btnDetails {
+position:fixed;
+border: none;
+cursor: pointer;
+border-radius: 5px;
+color: black;
+text-align: center;
+font-size: 25px;
+direction: rtl;
+margin-right: 18px;
+margin-left: 18px;
+opacity: 0.5;
+margin-top: 130px;
+width: 30%;
+height: 30%;
+}
+
+
+.picture1 {
+
+  float: left;
+  width: 45%;
+
+}
+
+.picture1 img {
+
+  width:500px;
+  height: 200px;
+  float: left;
+  margin-left: 15px;
+  margin-top: 100px;
+}
+
+ .picture1 .btnTravel {
+  position:fixed;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  color: black;
+  text-align: center;
+  font-size: 25px;
+  direction: rtl;
+  margin-right: 18px;
+  margin-left: 18px;
+  opacity: 0.5;
+  margin-top: 130px;
+  width: 30%;
+  height: 30%;
+
   
-  .picture1 img {
-    width:200px;
-    height:300px;
-    float: left;
-    padding: 20px;
-    margin-left:30px;
-    grid-gap: 20px;
-  }
-  
-  .picture1 .btnTravel {
-    position: absolute;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    color: #356D9C;
-    text-align: center;
-    font-size:30px;
-   margin-left:-145px;
-   margin-top: 90px;
-   direction: rtl;
-   /* margin-right: 20px; */
-   background-repeat: repeat-y;
-   opacity: 0.5;
-  }
+}

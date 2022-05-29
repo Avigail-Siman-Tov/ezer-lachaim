@@ -6,6 +6,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import NewVolunteerDetails from "./NewVolunteerDetails";
 import { useState } from "react";
+import Navbar from "../components/Navbar";
 
 function NewVolunteer() {
     const [inputError, setInputError] = useState({
@@ -24,6 +25,7 @@ function NewVolunteer() {
     };
     return (
         <div className="img-background">
+            <Navbar/>
             <div className="form-wrapper">
                 <div className="title">טופס הצטרפות למתנדבים</div>
                 <Input

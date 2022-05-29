@@ -7,6 +7,7 @@ import ExistVolunteer from "./ExistVolunteer";
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useState } from "react";
+import Navbar from "../components/Navbar";
 
 function ExistVolunteer2({ setShowSpinner }) {
     const [inputError, setInputError] = useState({
@@ -27,6 +28,7 @@ function ExistVolunteer2({ setShowSpinner }) {
     };
     return (
         <div className="img-background">
+            <Navbar/>
             <div className="form-wrapper">
                 <Input
                     placeholder="עיר מגורים"

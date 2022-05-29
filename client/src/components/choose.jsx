@@ -1,23 +1,20 @@
 import "../styles/choose.css"
-export const choose = () => {
+import { Icon } from '@iconify/react';
+import Navbar from "../components/Navbar";
+
+export const Choose = () => {
 
     return (
         <div>
-            {/* <!-- סרגל עליון --> */}
-            <div className="navbar">
-                <div className="dropdown">
-                    <button className="btn1"><i className="fa fa-home"></i> Home</button>
-                </div>
-                <img src="logo_ezl.png" alt="Logo image" />
-            </div>
-
+            <Navbar/>
             <div className="row">
                 <div className="picture">
-                    <img src="Picture.jpg" alt="logo" />
+                    <img src="a.png" alt="logo" />
                     <button className="btnDetails">להזמנת נסיעה</button>
                 </div>
                 <div className="picture1">
-                    <img src="picture1.jpg" alt="logo" />
+                    {/* <Icon icon="healthicons:ui-user-profile-negative" color="#356d9c" className="profil" /> */}
+                    <img src="profil.png" alt="logo" />
                     <button class="btnTravel">להזנת נתונים אישיים</button>
                 </div>
             </div>
