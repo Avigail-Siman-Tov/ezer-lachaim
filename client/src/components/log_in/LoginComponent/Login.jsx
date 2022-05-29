@@ -10,18 +10,20 @@ export default function Login() {
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
+  const [message, setMessage] = useState("")
 
   async function handleSubmit(e) {
     e.preventDefault()
 
     try {
+      setMessage("")
       setError("")
       setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
-      navigate.push("/")
+      navigate("/")
     } 
-    catch {
-      setError("Failed to log in")
+    catch (e){
+      setError(e.message)
     }
 
     setLoading(false)
