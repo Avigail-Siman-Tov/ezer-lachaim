@@ -2,10 +2,10 @@ import GenericForm from "../components/Generic-form";
 import "../styles/newVolunteer.css";
 import Input from "../components/Input";
 import Button from "../components/Button";
-import ExistVolunteer2 from "./ExistVolunteer2";
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useState } from "react";
+import Navbar from "./Navbar";
 
 function ExistVolunteer() {
     const [inputError, setInputError] = useState({

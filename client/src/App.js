@@ -14,46 +14,70 @@ import ExistVolunteer2 from "./components/ExistVolunteer2";
 import Patient from "./components/Patient";
 import BookingShuttle from "./components/BookingShuttle";
 import Spinner from "./components/Spinner";
+// import { Navbar } from "./components/navbar";
 
-// import Signup from "./components/log_in/LoginComponent/Signup"
-// import { Container } from "react-bootstrap"
-// import { AuthProvider } from "../components/log_in/contexts/AuthContext"
-// import { BrowserRouter as Router } from "react-router-dom"
-// import Dashboard from "./components/log_in/LoginComponent/Dashboard"
-// import Login from "./components/log_in/LoginComponent/Login"
-// import PrivateRoute from "./components/log_in/LoginComponent/PrivateRoute"
-// import ForgotPassword from "./components/log_in/LoginComponent/ForgotPassword"
-// import UpdateProfile from "./components/log_in/LoginComponent/UpdateProfile"
 
+import Signup from "./components/log_in/LoginComponent/Signup"
+import { Container } from "react-bootstrap"
+import { BrowserRouter as Router } from "react-router-dom"
+import Dashboard from "./components/log_in/LoginComponent/Dashboard"
+import Login from "./components/log_in/LoginComponent/Login"
+import PrivateRoute from "./components/log_in/LoginComponent/PrivateRoute"
+import ForgotPassword from "./components/log_in/LoginComponent/ForgotPassword"
+import UpdateProfile from "./components/log_in/LoginComponent/UpdateProfile"
+import { AuthProvider } from './components/log_in/contexts/AuthContext';
+
+
+//for ambuger
+// const AppContainer = styled.div`
+//   width: 100%;
+//   height: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   background-color: rgba(15, 15, 15, 1);
+//   color: #fff;
+// `;
+
+// const InnerContainer = styled.div`
+//   width: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   padding: 2em;
+// `;
+
+// const SomeContent = styled.h2`
+//   color: #fff;
+// `;
 
 function App() {
-  const [showSpinner, setShowSpinner] = useState(false);
+  // const [showSpinner, setShowSpinner] = useState(false);
   return (
     <div className="App">
-      {/* <Container
-        className="d-flex align-items-center justify-content-center"
-        style={{ minHeight: "100vh" }}
-      >
-        <div className="w-100" style={{ maxWidth: "400px" }}>
           <Router>
             <AuthProvider>
               <Routes>
-                <PrivateRoute exact path="/" element={<Dashboard />} />
-                <PrivateRoute path="/update-profile" element={<UpdateProfile />} />
+                {/* <PrivateRoute exact path="/dashboard" element={<Dashboard />} />
+                <PrivateRoute path="/update-profile" element={<UpdateProfile />} /> */}
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
               </Routes>
             </AuthProvider>
           </Router>
-        </div>
-      </Container> */}
-      {showSpinner ? <Spinner /> : undefined}
-      <Navbar className="navbar" />
+      {/* {showSpinner ? <Spinner /> : undefined} */}
+      {/* <Navbar className="navbar" />
       <BrowserRouter>
         <Routes>
-          <Route path="/" exact element={<HomePage />} />
-          <Route path="/search" element={<Search />} />
+          {/* for ambuger */}
+          {/* <AppContainer>
+            <Navbar />
+            <InnerContainer>
+              <SomeContent>Some Content!</SomeContent>
+            </InnerContainer>
+          </AppContainer> */}
+         
           {/* <Route path="/signUp" element={<Signup />} /> */}
 
           {/* <Route path="/login" element={<Login />} /> */}
@@ -62,26 +86,14 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="filter" element={<Filter />} />
         <Route path="add-contact" element={<Add_contact />} /> */}
-          <Route exact path="new-volunteer" element={<NewVolunteer />} />
-          <Route
-            exact
-            path="new-volunteer-details"
-            element={<NewVolunteerDetails setShowSpinner={setShowSpinner} />}
-          />
-          <Route
-            exact
-            path="exist-volunteer"
-            element={<ExistVolunteer />}
-          />
-          <Route
-            exact
-            path="exist-volunteer2"
-            element={<ExistVolunteer2 setShowSpinner={setShowSpinner} />}
-          />
-          <Route exact path="patient" element={<Patient />} />
-          <Route exact path="bookingShuttle" setShowSpinner={setShowSpinner} element={<bookingShuttle />} />
+          {/* <Route exact path="/new-volunteer" element={<NewVolunteer />} />
+          <Route exact path="/new-volunteer-details" element={<NewVolunteerDetails setShowSpinner={setShowSpinner} />} />
+          <Route exact path="/exist-volunteer" element={<ExistVolunteer />} />
+          <Route exact path="/exist-volunteer2" element={<ExistVolunteer2 setShowSpinner={setShowSpinner} />} />
+          <Route exact path="/patient" element={<Patient />} />
+          <Route exact path="/bookingShuttle" setShowSpinner={setShowSpinner} element={<bookingShuttle />} />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </div>
   );
 }

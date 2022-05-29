@@ -2,6 +2,9 @@ import "../styles/search.css"
 import { Icon } from '@iconify/react';
 import { useEffect, useState } from "react";
 import { collection, doc, getDocs, query, setDoc } from "firebase/firestore";
+// import Card from "react-bootstrap/Card";
+import { Button } from 'react-bootstrap';
+import { Card } from "react-bootstrap"
 
 import { firestore } from "../firebase";
 
@@ -17,10 +20,15 @@ export const Search = () => {
         getData();
     }, [])
 
-    function sendCall () {
+    function sendCall() {
         setDoc(doc(callsRef), {
-            // date: '15-5-22',
-            city: inputValue
+
+            source: inputValue,
+            // destination: inputValue,
+            // date: inputValue,
+            // gender: inputValue,
+            // number_of_passengers: inputValue,
+            // car_type: inputValue
         });
     }
 
@@ -85,11 +93,44 @@ export const Search = () => {
             <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
             <button onClick={sendCall}>send</button>
 
+
             {callData.map((object, index) => (
-                <div className="req" key={index}>
-                    <div>{object.city + " " + object.date}</div>
-                    <div>{object.date}</div>
-                </div>
+                // <div className="req" key={index}>
+                //     <div>{object.source + " " + object.destination+ " "+ object.date+" "+object.gender+" "+object. number_of_passengers+" "+object.car_type}</div>
+                //     <div>{object.date}</div>
+                // </div>
+                <>
+                    <Card styles={{ card: { backgroundColor: 'red' }}}>
+                        <Card.Body>
+                            <div key={index}> 
+                            <div>{object.source}</div>
+                            </div> 
+                            {/* <div>{object.source + " " + object.destination + " " + object.date + " " + object.gender + " " + object.number_of_passengers + " " + object.car_type}</div> */}
+                        </Card.Body>
+                    </Card>
+                    <div className="w-100 text-center mt-2">
+                        <Button>
+                            שליחה
+                        </Button>
+                    </div>
+                </>
+
+                // <Card
+                // bg={variant.toLowerCase()}
+                // bg={object.toLowerCase()}
+                // key={index}
+                // text={object.toLowerCase() === 'light' ? 'dark' : 'white'}
+                // style={{ width: '18rem' }}
+                // className="mb-2"
+                // >
+                //     <Card.Header></Card.Header>
+                //     <Card.Body>
+                //         <Card.Title></Card.Title>
+                //         <Card.Text>
+                //             <div>{object.city + " " + object.date}</div>
+                //         </Card.Text>
+                //     </Card.Body>
+                // </Card>
             ))}
         </div>
     );

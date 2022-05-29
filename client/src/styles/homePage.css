@@ -231,5 +231,7 @@ img {
   
   .flex-container{
       display: flex;
-      padding-left: 28%;
+      /* justify-content: center; */
+      /* padding-left: 28%; */
   }
+  
