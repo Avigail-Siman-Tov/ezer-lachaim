@@ -67,7 +67,7 @@ function NewVolunteerDetails({ setShowSpinner }) {
             <Select options={["אשה", "גבר"]} placeHolder="מגדר" />
             <Input placeholder="הערות" />
             <div className="btn-wrapper">
-                <Link to="new-volunteer">
+                <Link to="/new-volunteer">
                     <Button text="הקודם" />
                 </Link>
                 <Link to="/new-volunteer-details">

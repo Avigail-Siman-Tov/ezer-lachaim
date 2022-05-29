@@ -14,6 +14,7 @@ import ExistVolunteer2 from "./components/ExistVolunteer2";
 import Patient from "./components/Patient";
 import BookingShuttle from "./components/BookingShuttle";
 import Spinner from "./components/Spinner";
+import {Thanks} from './components/Thanks';
 // import { Navbar } from "./components/navbar";
 
 
@@ -52,32 +53,55 @@ import { AuthProvider } from './components/log_in/contexts/AuthContext';
 // `;
 
 function App() {
-  // const [showSpinner, setShowSpinner] = useState(false);
+  const [showSpinner, setShowSpinner] = useState(false);
   return (
     <div className="App">
+
+      {showSpinner ? <Spinner /> : undefined}
+      <Container className="d-flex align-items-center justify-content-center"
+        style={{ minHeight: "100vh", alignContent: 'center' }}>
+        <div className="w-100">
           <Router>
             <AuthProvider>
               <Routes>
-                {/* <PrivateRoute exact path="/dashboard" element={<Dashboard />} />
-                <PrivateRoute path="/update-profile" element={<UpdateProfile />} /> */}
+                <Route exact path="/" element={<HomePage />} />
+                <Route exact path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route exact path="/thanks" element={<Thanks/>} />
+                <Route exact path="/new-volunteer" element={<NewVolunteer />} />
+                <Route exact path="/new-volunteer-details" element={<NewVolunteerDetails setShowSpinner={setShowSpinner} />} />
+                <Route exact path="/exist-volunteer" element={<ExistVolunteer />} />
+                <Route exact path="/exist-volunteer2" element={<ExistVolunteer2 setShowSpinner={setShowSpinner} />} />
+                <Route exact path="/patient" element={<Patient />} />
+                <Route exact path="/bookingShuttle" setShowSpinner={setShowSpinner} element={<bookingShuttle />} />
+              </Routes>
+            </AuthProvider>
+          </Router>
+        </div>
+      </Container>
+
+      {/* <Router>
+            <AuthProvider>
+              <Routes> */}
+      {/* <PrivateRoute exact path="/dashboard" element={<Dashboard />} />
+                <PrivateRoute path="/update-profile" element={<UpdateProfile />} /> */}
+      {/* <Route path="/signup" element={<Signup />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
               </Routes>
             </AuthProvider>
-          </Router>
-      {/* {showSpinner ? <Spinner /> : undefined} */}
-      {/* <Navbar className="navbar" />
-      <BrowserRouter>
-        <Routes>
-          {/* for ambuger */}
+          </Router> */}
+
+          {/* for ambuger
           {/* <AppContainer>
             <Navbar />
             <InnerContainer>
               <SomeContent>Some Content!</SomeContent>
             </InnerContainer>
           </AppContainer> */}
-         
+
           {/* <Route path="/signUp" element={<Signup />} /> */}
 
           {/* <Route path="/login" element={<Login />} /> */}
@@ -86,14 +110,7 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="filter" element={<Filter />} />
         <Route path="add-contact" element={<Add_contact />} /> */}
-          {/* <Route exact path="/new-volunteer" element={<NewVolunteer />} />
-          <Route exact path="/new-volunteer-details" element={<NewVolunteerDetails setShowSpinner={setShowSpinner} />} />
-          <Route exact path="/exist-volunteer" element={<ExistVolunteer />} />
-          <Route exact path="/exist-volunteer2" element={<ExistVolunteer2 setShowSpinner={setShowSpinner} />} />
-          <Route exact path="/patient" element={<Patient />} />
-          <Route exact path="/bookingShuttle" setShowSpinner={setShowSpinner} element={<bookingShuttle />} />
-        </Routes>
-      </BrowserRouter> */}
+
     </div>
   );
 }

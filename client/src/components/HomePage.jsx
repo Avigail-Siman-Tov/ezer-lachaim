@@ -47,10 +47,10 @@ export const HomePage = () => {
                         <Icon icon="ic:baseline-arrow-drop-down" />
                     </button>
                     <div className="dropdown-content">
-                        <a href="/login">מתנדב חדש</a>
+                        <a href="/thanks">מתנדב חדש</a>
                         <a href="/login">מתנדב קיים</a>
-                        <a href="/login">חולה</a>
-                        <a href="/login">מנהל</a>
+                        <a href="/login">מטופל</a>
+                        {/* <a href="/login">מנהל</a> */}
                     </div>
                 </div>
                 <img src="/logo_ezl.png" alt="Logo image" />
