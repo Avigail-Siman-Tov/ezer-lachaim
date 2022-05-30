@@ -24,6 +24,7 @@
   float: left;
   margin-left: 10px;
   margin-top: 100px;
+  border-radius: 5px;
 }
 
 .picture .btnDetails {
@@ -58,6 +59,7 @@ height: 30%;
   float: left;
   margin-left: 15px;
   margin-top: 100px;
+  border-radius: 5px;
 }
 
  .picture1 .btnTravel {

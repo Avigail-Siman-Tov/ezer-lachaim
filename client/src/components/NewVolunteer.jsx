@@ -8,6 +8,7 @@ import NewVolunteerDetails from "./NewVolunteerDetails";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 
+
 function NewVolunteer() {
     const [inputError, setInputError] = useState({
         nameInput: false,
@@ -24,64 +25,66 @@ function NewVolunteer() {
         confirmPassword: "",
     };
     return (
-        <div className="img-background">
-            <Navbar/>
-            <div className="form-wrapper">
-                <div className="title">טופס הצטרפות למתנדבים</div>
-                <Input
-                    placeholder="שם פרטי ומשפחה"
-                    hasError={inputError.nameInput}
-                    changeHandler={(name) => {
-                        userDetails.name = name;
-                    }}
-                />
-                <Input
-                    placeholder="טלפון/נייד"
-                    hasError={inputError.phoneNumInput}
-                    changeHandler={(phoneNum) => {
-                        userDetails.phoneNum = phoneNum;
-                    }}
-                />
-                <Input
-                    placeholder="אימייל"
-                    hasError={inputError.emailInput}
-                    changeHandler={(email) => {
-                        userDetails.email = email;
-                    }}
-                />
-                <Input
-                    placeholder="סיסמא"
-                    hasError={inputError.passwordInput}
-                    changeHandler={(password) => {
-                        userDetails.password = password;
-                    }}
-                />
-                <Input
-                    placeholder="אימות סיסמא"
-                    hasError={inputError.confirmPasswordInput}
-                    changeHandler={(confirmPassword) => {
-                        userDetails.confirmPassword = confirmPassword;
-                    }}
-                />
-                <Link to="/new-volunteer-details">
-                    <Button
-                        text="הבא"
-                        clickHandler={() => {
-                            setInputError({
-                                ...inputError,
-                                nameInput: !userDetails.name,
-                                phoneNumInput: !userDetails.phoneNum,
-                                emailInput: !userDetails.email,
-                                PasswordInput: !userDetails.Password,
-                                confirmPasswordInput:
-                                    !userDetails.confirmPassword,
-                            });
-                            
+        <div>
+            <Navbar />
+            <div style={{ backgroundImage: "url(/image-background.jpg)", minHeight: '100%', margin: 0 }}>
+                <div className="form-wrapper">
+                    <div className="title">טופס הצטרפות למתנדבים</div>
+                    <Input
+                        placeholder="שם פרטי ומשפחה"
+                        hasError={inputError.nameInput}
+                        changeHandler={(name) => {
+                            userDetails.name = name;
                         }}
                     />
-                </Link>
+                    <Input
+                        placeholder="טלפון/נייד"
+                        hasError={inputError.phoneNumInput}
+                        changeHandler={(phoneNum) => {
+                            userDetails.phoneNum = phoneNum;
+                        }}
+                    />
+                    <Input
+                        placeholder="אימייל"
+                        hasError={inputError.emailInput}
+                        changeHandler={(email) => {
+                            userDetails.email = email;
+                        }}
+                    />
+                    <Input
+                        placeholder="סיסמא"
+                        hasError={inputError.passwordInput}
+                        changeHandler={(password) => {
+                            userDetails.password = password;
+                        }}
+                    />
+                    <Input
+                        placeholder="אימות סיסמא"
+                        hasError={inputError.confirmPasswordInput}
+                        changeHandler={(confirmPassword) => {
+                            userDetails.confirmPassword = confirmPassword;
+                        }}
+                    />
+                    <Link to="/new-volunteer-details">
+                        <Button
+                            text="הבא"
+                            clickHandler={() => {
+                                setInputError({
+                                    ...inputError,
+                                    nameInput: !userDetails.name,
+                                    phoneNumInput: !userDetails.phoneNum,
+                                    emailInput: !userDetails.email,
+                                    PasswordInput: !userDetails.Password,
+                                    confirmPasswordInput:
+                                        !userDetails.confirmPassword,
+                                });
 
-                {/* <link to="/NewVolunteerDetails" > */}
+                            }}
+                        />
+                    </Link>
+
+                    {/* <link to="/NewVolunteerDetails" > */}
+                </div>
             </div>
         </div>
     );
