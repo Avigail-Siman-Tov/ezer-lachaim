@@ -2,3 +2,6 @@ body{
     margin: none;
     padding: none;
 }
+.form-wrapper {
+    height: 505px;
+}

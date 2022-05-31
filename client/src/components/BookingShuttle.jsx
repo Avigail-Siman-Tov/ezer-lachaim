@@ -4,10 +4,35 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import Select from "../components/Select";
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
+import { firestore } from "../firebase";
+import { collection, doc, getDocs, query, setDoc } from "firebase/firestore";
+import Navbar from "../components/Navbar";
 
 function BookingShuttle({ setShowSpinner }) {
+    // const callsRef = collection(firestore, "calls");
+    // const [inputValue_city, setInputValue_city] = useState("");
+    // const [inputValue_source, setInputValue_source] = useState("");
+    // const [inputValue_destination, setInputValue_destination] = useState("");
+    // const [inputValue_date, setInputValue_date] = useState("");
+    // const [inputValue_gender, setInputValue_gender] = useState("");
+    // const [inputValue_number_of_passengers, setInputValue_number_of_passengers] = useState("");
+    // const [inputValue_car_type, setInputValue_car_type] = useState("");
+
+    // function sendCall() {
+    //     setDoc(doc(callsRef), {
+    //         city: inputValue_city,
+    //         source: inputValue_source,
+    //         destination: inputValue_destination,
+    //         date: inputValue_date,
+    //         gender: inputValue_gender,
+    //         number_of_passengers: inputValue_number_of_passengers,
+    //         car_type: inputValue_car_type
+    //     })
+    //         .then(res => console.log(res))
+    //         .catch(err => console.log(err));
+    // }
     const [inputError, setInputError] = useState({
         carTypeInput: false,
         seatsNumInput: false,
@@ -26,6 +51,8 @@ function BookingShuttle({ setShowSpinner }) {
     };
 
     return (
+        <div>
+            <Navbar/>
         <div className="form-wrapper img-background">
             <div className="title"> הזמנת נסיעה</div>
             <div className="label">איזה רכב תצטרכו להסעה?</div>
@@ -101,6 +128,7 @@ function BookingShuttle({ setShowSpinner }) {
                     />
                 </Link>
             </div>
+        </div>
         </div>
     );
 }
