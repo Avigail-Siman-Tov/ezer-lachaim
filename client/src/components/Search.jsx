@@ -5,6 +5,11 @@ import { collection, doc, getDocs, query, setDoc } from "firebase/firestore";
 // import Card from "react-bootstrap/Card";
 import { Button } from 'react-bootstrap';
 import { Card } from "react-bootstrap"
+import { React } from "react";
+import Box_search from "../components/Box_search";
+import ReportWebVitals from './ReportWebVitals';
+import "../styles/box_search.css"
+
 
 import { firestore } from "../firebase";
 
@@ -44,42 +49,34 @@ export const Search = () => {
     // function closeRightMenu() {
     //     document.getElementById("rightMenu").style.display = "none";
     // }
+    const [inputText, setInputText] = useState("");
+    let inputHandler = (e) => {
+        //convert input text to lower case
+        var lowerCase = e.target.value.toLowerCase();
+        setInputText(lowerCase);
+    };
     return (
         // <!-- סרגל עליון -->
         <div>
             <div className="navbar">
-                {/* <div className="w3-sidebar" id="mySidebar">
-                    <button className="w3-bar-item w3-button w3-hide-large"
-                        onclick="w3_close()">Close &times;</button>
-                    <a href="#" className="w3-bar-item w3-button">Link 1</a>
-                    <a href="#" className="w3-bar-item w3-button">Link 2</a>
-                    <a href="#" className="w3-bar-item w3-button">Link 3</a>
-                </div> */}
-
-                {/* <div className="w3-main">
-                    <div className="w3-teal">
-                        <button className="w3-button w3-teal w3-xlarge w3-right w3-hide-large" onclick="w3_open()">&#9776;</button>
-                        <div className="w3-container">
-                            <h2>My Page</h2>
-                        </div>
-                    </div>
-
-                </div> */}
-{/* 
-                <div className="w3-sidebar w3-bar-block w3-card w3-animate-right" id="rightMenu">
-                    <button onclick="closeRightMenu()" className="w3-bar-item w3-button w3-large">Close &times;</button>
-                    <a href="#" className="w3-bar-item w3-button">Link 1</a>
-                    <a href="#" className="w3-bar-item w3-button">Link 2</a>
-                    <a href="#" className="w3-bar-item w3-button">Link 3</a>
-                </div>
-
-                <div className="w3-teal">
-                    <button className="w3-button w3-teal w3-xlarge w3-right" onclick="openRightMenu()">&#9776;</button>
-
-                </div> */}
                 <img src="/logo_ezl.png" alt="Logo image" />
             </div>
-
+            <form>
+                <label for="city">
+                    Your city
+                </label>
+                <input list="places" type="text" id="city" name="city" required autoComplete="off" pattern="Amsterdam|Berlin|Dublin|London|Paris" />
+                <datalist id="places">
+                    <option>Amsterdam</option>
+                    <option>Berlin</option>
+                    <option>Dublin</option>
+                    <option>London</option>
+                    <option>Paris</option>
+                </datalist>
+                <button>Submit</button>
+            </form>
+            {/* <Box_search /> */}
+            
             {/* <!-- סרגל תחתון --> */}
             <div className="navbar2">
                 <div className="flex-container">
@@ -99,8 +96,8 @@ export const Search = () => {
 
             {callData.map((object, index) => (
                 <div className="req" key={index}>
-                    <div>{object.source + " "  +
-                    object.destination+ " "+ object.date+" "+object.gender+" "+object. number_of_passengers+" "+object.car_type}</div>
+                    <div>{object.source + " " +
+                        object.destination + " " + object.date + " " + object.gender + " " + object.number_of_passengers + " " + object.car_type}</div>
                     <div>{object.date}</div>
                 </div>
                 // <>
