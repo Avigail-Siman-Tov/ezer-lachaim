@@ -28,72 +28,75 @@ function NewVolunteerDetails({ setShowSpinner }) {
     };
     return (
         <div>
-
-                <Navbar />
-                <div className="title">טופס הצטרפות למתנדבים</div>
-                <Input
-                    placeholder="עיר מגורים"
-                    hasError={inputError.cityInput}
-                    changeHandler={(city) => {
-                        userDetails.city = city;
-                    }}
-                />
-                <div className="label">איזה רכב יש ברשותך?</div>
-                <Select
-                    options={[
-                        "רכב פרטי",
-                        "רכב מסחרי",
-                        "רכה נכה",
-                        "משאית",
-                        "דו גלגלי",
-                        "אוטובוס",
-                    ]}
-                    placeHolder="בחירת סוג רכב"
-                    hasError={inputError.carTypeInput}
-                    changeHandler={(carType) => {
-                        userDetails.carType = carType;
-                    }}
-                />
-                <Input
-                    placeholder="מספר רכב"
-                    hasError={inputError.carNumInput}
-                    changeHandler={(carNum) => {
-                        userDetails.carNum = carNum;
-                    }}
-                />
-                <Input
-                    placeholder="מספר מקומות ישיבה"
-                    hasError={inputError.carNumInput}
-                    changeHandler={(carNum) => {
-                        userDetails.carNum = carNum;
-                    }}
-                />
-                <Select options={["אשה", "גבר"]} placeHolder="מגדר" />
-                <Input placeholder="הערות" />
-                <div className="btn-wrapper">
-                    <Link to="/new-volunteer">
-                        <Button text="הקודם" />
-                    </Link>
-                    <Link to="/new-volunteer-details">
-                        <Button
-                            text="שלח"
-                            clickHandler={() => {
-                                setInputError({
-                                    ...inputError,
-                                    cityInput: !userDetails.city,
-                                    carTypeInput: !userDetails.carType,
-                                    carNumInput: !userDetails.carNumber,
-                                    seatsNumInput: !userDetails.seatsNum,
-                                    sexInput: !userDetails.sex,
-                                });
-                                setShowSpinner(true);
-                                setTimeout(setShowSpinner.bind("", false), 3000);
-                                //TODO - http- backend (userDetails)
-                            }}
-                        />
-                    </Link>
+            <Navbar />
+            <div style={{ backgroundImage: "url(/image-background.jpg)", minHeight: '100%', margin: 0 }}>
+                <div className="form-wrapper">
+                    <div className="title">טופס הצטרפות למתנדבים</div>
+                    <Input
+                        placeholder="עיר מגורים"
+                        hasError={inputError.cityInput}
+                        changeHandler={(city) => {
+                            userDetails.city = city;
+                        }}
+                    />
+                    <div className="label">איזה רכב יש ברשותך?</div>
+                    <Select
+                        options={[
+                            "רכב פרטי",
+                            "רכב מסחרי",
+                            "רכה נכה",
+                            "משאית",
+                            "דו גלגלי",
+                            "אוטובוס",
+                        ]}
+                        placeHolder="בחירת סוג רכב"
+                        hasError={inputError.carTypeInput}
+                        changeHandler={(carType) => {
+                            userDetails.carType = carType;
+                        }}
+                    />
+                    <Input
+                        placeholder="מספר רכב"
+                        hasError={inputError.carNumInput}
+                        changeHandler={(carNum) => {
+                            userDetails.carNum = carNum;
+                        }}
+                    />
+                    <Input
+                        placeholder="מספר מקומות ישיבה"
+                        hasError={inputError.carNumInput}
+                        changeHandler={(carNum) => {
+                            userDetails.carNum = carNum;
+                        }}
+                    />
+                    <Select options={["אשה", "גבר"]} placeHolder="מגדר" />
+                    <Input placeholder="הערות" />
+                    <div className="btn-wrapper">
+                        <Link to="/new-volunteer">
+                            <Button text="הקודם" />
+                        </Link>
+                        <Link to="/new-volunteer-details">
+                            <Button
+                                text="שלח"
+                                clickHandler={() => {
+                                    setInputError({
+                                        ...inputError,
+                                        cityInput: !userDetails.city,
+                                        carTypeInput: !userDetails.carType,
+                                        carNumInput: !userDetails.carNumber,
+                                        seatsNumInput: !userDetails.seatsNum,
+                                        sexInput: !userDetails.sex,
+                                    });
+                                    setShowSpinner(true);
+                                    setTimeout(setShowSpinner.bind("", false), 3000);
+                                    //TODO - http- backend (userDetails)
+                                }}
+                            />
+                        </Link>
+                    </div>
                 </div>
             </div>
+        </div>
     );
 }
 export default NewVolunteerDetails;
