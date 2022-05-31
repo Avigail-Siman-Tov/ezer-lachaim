@@ -1,6 +1,6 @@
 import "../styles/choose.css"
 import { Icon } from '@iconify/react';
-import Navbar from "../components/Navbar";
+import Navbar from "./Navbar";
 
 export const Choose = () => {
 
