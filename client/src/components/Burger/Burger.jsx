@@ -1,6 +1,6 @@
 import React from 'react';
 import { bool, func } from 'prop-types';
-import { StyledBurger } from './Burger.styled';
+import { StyledBurger } from './Burger.style';
 
 const Burger = ({ open, setOpen, ...props }) => {
   
