@@ -2,13 +2,15 @@
     color: var(--e-global-color-31c6fe03)
 }
 .select{
-    outline: none;
+    /* outline: none; */
     border: solid 2px var(--e-global-color-secondary);
-    height: 55px;
-    padding-right: 20px;
+    /* height: 55px; */
+    /* padding-right: 20px; */
     border-radius: 8px; 
+    padding-top: 13px;
+    padding-bottom: 13px;
     color: var(--e-global-color-secondary);
-    width: 100%;
+    width: 93%;
 }
 .error{
     border-color: var(--e-global-color-6fff166d);

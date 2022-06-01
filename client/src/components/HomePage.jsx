@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react"
 import "../styles/homePage.css"
 import { Icon } from '@iconify/react';
 
-const IMAGES = ["/i1.jpg", "/i2.jpg", "/i3.jpg"];
+const IMAGES = ["/i1.jpg", "/i2.jpg", "/i3.jpg", "/i4.jpg", "/i5.jpg", "/i6.jpg"];
 
 export const HomePage = () => {
     const [readMore, setReadMore] = useState(false);
@@ -29,7 +29,10 @@ export const HomePage = () => {
 
     const extraContent = <div ref={extraaContentRef}>
         <br />
-        <img src="a.png" />
+        <br />
+        <img src="i7.jpg" />
+        <br />
+        <br />
         <div className="extra-content">
             באמצעות אגף ההסעות מתבצעות מידי יום עשרות נסיעות לבתי חולים ומרפאות.
             המתנדבים היקרים לוקחים את החולים ומבקריהם באמבולנסים וברכבים עד לבית חולים וחוסכים זמן יקר וחשוב.
@@ -37,13 +40,13 @@ export const HomePage = () => {
         </div>
     </div>
     const btn = readMore ? <button className="details" >הסתר פרטים<br></br><Icon icon="fa:angle-double-up" />
-    </button> : <button className="details">לפרטים נוספים<br></br> <Icon icon="fa:angle-double-down" /></button>
+    </button> : <button className="details">לפרטים נוספים<br></br><Icon icon="fa:angle-double-down" /></button>
     return (
         // <!-- סרגל עליון -->
         <div>
             <div className="navbar">
                 <div className="dropdown">
-                    <button className="dropbtn">כניסה
+                    <button className="dropbtnn">כניסה
                         <Icon icon="ic:baseline-arrow-drop-down" />
                     </button>
                     <div className="dropdown-content">
@@ -80,12 +83,10 @@ export const HomePage = () => {
                     <a className="read-more-link" onClick={contentButtonOnclick}><div>{btn}</div></a>
                     {readMore && extraContent}
                 </div>
-
-                {/* <Link to='/search'> רשימת מתנדבים</Link> */}
             </div>
 
             {/* <!-- סרגל תחתון --> */}
-            <div className="navbar2">
+            <div className="navbarr2">
                 <div className="flex-container">
                     <div>
                         <a href="mailto: info@ezla.org.il"><Icon icon="ci:mail-open" color="white" /></a>
@@ -98,16 +99,6 @@ export const HomePage = () => {
                     </div>
                 </div>
             </div>
-
-            {/* <div className="navbar_down">
-                <div className="navbar">
-                    <div className="icons">
-                        <a href="mailto: info@ezla.org.il"><Icon icon="ci:mail-open" color="white" /></a>
-                        <a href="tel:03-3-730-440"><Icon icon="bxs:phone" color="white" /></a>
-                        <a href=""><Icon icon="akar-icons:whatsapp-fill" color="white" /></a>
-                    </div>
-                </div>
-            </div> */}
         </div>
     );
 }
