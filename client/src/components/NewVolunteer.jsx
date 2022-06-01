@@ -101,10 +101,6 @@ function NewVolunteer() {
                         }}
                        
                     />
-                     {/* <input type="text" value={nameInput} onChange={(e) => setNameInput(e.target.value)} /> */}
-                    {/* <input type="text" value={phoneNumInput} onChange={(e) => setPhoneNumInput(e.target.value)} /> */}
-                    {/* <input type="text" value={emailInput} onChange={(e) => setEmailInput(e.target.value)} /> */}
-                    {/* <input type="text" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} /> */}
                   
                     <Link to="/new-volunteer-details">
                         <Button 
@@ -124,8 +120,6 @@ function NewVolunteer() {
                             }} 
                             />
                     </Link>                  
-
-                    {/* <link to="/NewVolunteerDetails" > */}
                 </div>
             </div>
         </div>

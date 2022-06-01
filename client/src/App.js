@@ -29,6 +29,7 @@ import ForgotPassword from "./components/log_in/LoginComponent/ForgotPassword"
 import UpdateProfile from "./components/log_in/LoginComponent/UpdateProfile"
 import { AuthProvider } from './components/log_in/contexts/AuthContext';
 import { Seeck } from './components/Seeck';
+import All_Hambuger from './components/All_Hambuger';
 
 
 //for ambuger
@@ -81,6 +82,7 @@ function App() {
                 <Route exact path="/choose" element={<Choose />} />
                 <Route path="search" element={<Search />} />
                 <Route exact path="/seeck" element={<Seeck />} />
+                <Route exact path="/all_Hambuger" element={<All_Hambuger />} />
               </Routes>
             </AuthProvider>
           </Router>

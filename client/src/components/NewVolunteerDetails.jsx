@@ -89,7 +89,6 @@ function NewVolunteerDetails({ setShowSpinner }) {
                                     });
                                     setShowSpinner(true);
                                     setTimeout(setShowSpinner.bind("", false), 3000);
-                                    //TODO - http- backend (userDetails)
                                 }}
                             />
                         </Link>

@@ -59,6 +59,7 @@ body {
     height: 42px;
     padding: 8px;
     width: 300px;
+    text-align: center;
   }
   
   .inputError {
