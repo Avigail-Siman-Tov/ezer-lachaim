@@ -12,7 +12,7 @@ body {
       monospace;
   }
   
-  button {
+  .btn_submit {
     background: white;
     border: 1px solid #3a0775;
     color: #3a0775;
@@ -23,7 +23,7 @@ body {
     transition: background-color 0.3s ease;
   }
   
-  button:hover {
+  .btn_submit:hover {
     background: #3a0775;
     color: white;
     cursor: pointer;

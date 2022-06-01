@@ -27,7 +27,6 @@ export const Search = () => {
 
 
     async function getData() {
-        console.log('function is happening')
         const dataArray = await getDocs(query(callsRef));
         dataArray.forEach(doc => {
             setCallData(prev => [...prev, doc.data()])
@@ -62,9 +61,6 @@ export const Search = () => {
                 <img src="/logo_ezl.png" alt="Logo image" />
             </div>
             <form>
-                <label for="city">
-                    Your city
-                </label>
                 <input list="places" type="text" id="city" name="city" required autoComplete="off" pattern="Amsterdam|Berlin|Dublin|London|Paris" />
                 <datalist id="places">
                     <option>Amsterdam</option>
@@ -73,7 +69,7 @@ export const Search = () => {
                     <option>London</option>
                     <option>Paris</option>
                 </datalist>
-                <button>Submit</button>
+                <button className="btn_submit">Submit</button>
             </form>
             {/* <Box_search /> */}
             
