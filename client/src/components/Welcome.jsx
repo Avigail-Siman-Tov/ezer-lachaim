@@ -1,12 +1,12 @@
-import "../styles/thanks.css"
-import Navbar from "../components/Navbar";
+import "../styles/welcome.css"
+import Navbar from "./Navbar";
 
-export const Thanks = () => {
+export const Welcome = () => {
   setTimeout(function () { window.location = "/new-volunteer" }, 1000);
   return (
     <div>
       <Navbar />
-      <div style={{ backgroundImage: "url(/image-background.jpg)", minHeight: '100%', margin: 0 }}>
+      <div>
         <div class="text">
           ברוך בואך!
         </div>

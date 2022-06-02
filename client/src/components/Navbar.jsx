@@ -14,17 +14,13 @@ function Navbar() {
             </div>
             
             {/* <!-- סרגל תחתון --> */}
-            <div className="navbar2">
-                <div className="flex-container">
-                    <div>
-                        <a href="mailto: info@ezla.org.il"><Icon icon="ci:mail-open" color="white" /></a>
-                    </div>
-                    <div>
-                        <a href="tel:03-3-730-440"><Icon icon="bxs:phone" color="white" /></a>
-                    </div>
-                    <div>
-                        <a href=""><Icon icon="akar-icons:whatsapp-fill" color="white" /></a>
-                    </div>
+            <div className="navbarr2">         
+                <div class="centered">
+                    <a href="" class="wh"><Icon icon="akar-icons:whatsapp-fill" /></a>
+                    <a href="tel:03-3-730-440" class="ph"><Icon icon="bxs:phone" /></a>
+                    <a href="mailto: info@ezla.org.il" class="ma"><Icon icon="ci:mail-open" /></a>
+                    <a href="https://www.ezla.org.il/" class="si"><Icon icon="dashicons:admin-site-alt2" /></a>
+                    <a href="https://www.facebook.com/ezer.lahaim/" class="fa"><Icon icon="cib:facebook-f" /></a>
                 </div>
             </div>
         </div>

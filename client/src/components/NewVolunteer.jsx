@@ -72,7 +72,7 @@ function NewVolunteer({ setShowSpinner }) {
     return (
         <div>
             <Navbar />
-            <div style={{ backgroundImage: "url(/image-background.jpg)", minHeight: '100%', margin: 0 }}>
+            <div>
                 <div className="form-wrapper">
                     <div className="title">טופס הצטרפות למתנדבים</div>
                     <input type="text" value={nameInput} onChange={(e) => setNameInput(e.target.value)} />
