@@ -9,9 +9,8 @@ import { React } from "react";
 import Box_search from "../components/Box_search";
 import ReportWebVitals from './ReportWebVitals';
 import "../styles/box_search.css"
-
-
 import { firestore } from "../firebase";
+import Navbar from "./Navbar";
 
 export const Search = () => {
 
@@ -57,36 +56,21 @@ export const Search = () => {
     return (
         // <!-- סרגל עליון -->
         <div>
-            <div className="navbar">
-                <img src="/logo_ezl.png" alt="Logo image" />
+            <Navbar />
+            <div className="container">
+                <form>
+                    <input list="places" type="text" id="city" name="city" required autoComplete="off" pattern="Amsterdam|Berlin|Dublin|London|Paris" />
+                    <datalist id="places">
+                        <option>Amsterdam</option>
+                        <option>Berlin</option>
+                        <option>Dublin</option>
+                        <option>London</option>
+                        <option>Paris</option>
+                    </datalist>
+                </form>
+                <button className="btn_submit"><Icon icon="akar-icons:search" /></button>
             </div>
-            <form>
-                <input list="places" type="text" id="city" name="city" required autoComplete="off" pattern="Amsterdam|Berlin|Dublin|London|Paris" />
-                <datalist id="places">
-                    <option>Amsterdam</option>
-                    <option>Berlin</option>
-                    <option>Dublin</option>
-                    <option>London</option>
-                    <option>Paris</option>
-                </datalist>
-                <button className="btn_submit">Submit</button>
-            </form>
             {/* <Box_search /> */}
-            
-            {/* <!-- סרגל תחתון --> */}
-            <div className="navbar2">
-                <div className="flex-container">
-                    <div>
-                        <a href="mailto: info@ezla.org.il"><Icon icon="ci:mail-open" color="white" /></a>
-                    </div>
-                    <div>
-                        <a href="tel:03-3-730-440"><Icon icon="bxs:phone" color="white" /></a>
-                    </div>
-                    <div>
-                        <a href=""><Icon icon="akar-icons:whatsapp-fill" color="white" /></a>
-                    </div>
-                </div>
-            </div>
 
 
 
