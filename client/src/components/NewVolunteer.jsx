@@ -10,6 +10,7 @@ import Navbar from "../components/Navbar";
 import { collection, doc, getDocs, query, setDoc } from "firebase/firestore";
 import { firestore } from "../firebase";
 import Select from "../components/Select";
+import { FaHome } from "react-icons/fa"
 
 function NewVolunteer({ setShowSpinner }) {
     const newVolunteerRef = collection(firestore, "newVolunteer");
@@ -71,7 +72,7 @@ function NewVolunteer({ setShowSpinner }) {
     // };
     return (
         <div>
-            <Navbar />
+            <Navbar/>
             <div>
                 <div className="form-wrapper">
                     <div className="title">טופס הצטרפות למתנדבים</div>

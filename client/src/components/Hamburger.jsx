@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 // import ImgUpload from "../components";
-
+import CardProfile from '@s-ui/react-card-profile'
 
 
 function Hamburger() {

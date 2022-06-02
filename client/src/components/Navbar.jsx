@@ -1,7 +1,7 @@
 import '../styles/navbar.css'
 import logo from '../logo_ezl.png'
 import { IconName } from "react-icons/di";
-import { FaHome } from "react-icons/fa"
+import { FaHome } from "react-icons/fa";
 import { Icon } from '@iconify/react';
 
 function Navbar() {
@@ -9,7 +9,7 @@ function Navbar() {
         // <!-- סרגל עליון -->
         <div>
             <div className="navbar">
-               <a href="/"> <div className="btn_home"><FaHome/>דף הבית </div></a>
+               {/* <a href="/"> <div className="btn_home"><FaHome/>דף הבית </div></a> */}
                 <img src="/logo_ezl.png" alt="Logo image" />
             </div>
             

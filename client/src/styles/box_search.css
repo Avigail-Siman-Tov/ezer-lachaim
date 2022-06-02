@@ -53,7 +53,7 @@ body {
   
   input {
     border: 1px solid #222;
-    border-radius: 0;
+    border-radius: 3px;
     box-sizing: border-box;
     display: block;
     height: 42px;

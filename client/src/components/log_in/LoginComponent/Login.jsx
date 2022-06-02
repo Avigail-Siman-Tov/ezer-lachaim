@@ -2,7 +2,9 @@ import React, { useRef, useState } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
-// import Navbar from "../components/Navbar";
+import Navbar from "../../Navbar";
+import "../../../styles/login.css"
+
 
 export default function Login() {
   const emailRef = useRef()
@@ -32,7 +34,7 @@ export default function Login() {
 
   return (
     <div>
-      {/* <Navbar/> */}
+      <Navbar/>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Log In</h2>

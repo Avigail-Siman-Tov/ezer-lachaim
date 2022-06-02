@@ -34,7 +34,7 @@ const card = (
       </Typography>
     </CardContent>
     <CardActions>
-      <Button size="small">Learn More</Button>
+      <Button size="small">מאשר</Button>
     </CardActions>
   </React.Fragment>
 );

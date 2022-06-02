@@ -12,6 +12,7 @@ import "../styles/box_search.css"
 import { firestore } from "../firebase";
 import Navbar from "./Navbar";
 import Hamburger from "./Hamburger";
+import Bull from "./Bull";
 
 export const Search = () => {
 
@@ -69,7 +70,7 @@ export const Search = () => {
                 </datalist>
                 <button className="btn_submit">Submit</button>
             </form>
-            
+            <Bull/>
             {callData.map((object, index) => (
                 <div className="req" key={index}>
                     <div>{object.source + " " +
