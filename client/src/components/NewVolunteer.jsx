@@ -13,8 +13,8 @@ import Select from "../components/Select";
 
 function NewVolunteer({ setShowSpinner }) {
     const newVolunteerRef = collection(firestore, "newVolunteer");
-    // const [callData, setCallData] = useState([]);
-    //  const [newVolunteerData, setnewVolunteerData] = useState([]);
+    const [callData, setCallData] = useState([]);
+     const [newVolunteerData, setnewVolunteerData] = useState([]);
     const [nameInput, setNameInput] = useState("");
     const [phoneNumInput, setPhoneNumInput] = useState("");
     const [emailInput, setEmailInput] = useState("");
@@ -41,7 +41,7 @@ function NewVolunteer({ setShowSpinner }) {
             .then(res => console.log(res))
             .catch(err => console.log(err));
     }
-
+    
     // const [inputError, setInputError] = useState({
     //     nameInput: false,
     //     phoneNumInput: false,
@@ -76,7 +76,6 @@ function NewVolunteer({ setShowSpinner }) {
                 <div className="form-wrapper">
                     <div className="title">טופס הצטרפות למתנדבים</div>
                     <input type="text" value={nameInput} onChange={(e) => setNameInput(e.target.value)} />
-
                     <Input type="text" value={nameInput}
 
                         placeholder="שם פרטי ומשפחה"
@@ -138,7 +137,8 @@ function NewVolunteer({ setShowSpinner }) {
                         //     userDetails.carType = carType;
                         // }}
                     />
-                    <Input value={carNumInput} onChange={(e) => setCarNumInput(e.target.value)}
+                    <Input 
+                    value={carNumInput} onChange={(e) => setCarNumInput(e.target.value)}
                         placeholder="מספר רכב"
                         // hasError={inputError.carNumInput}
                         // changeHandler={(carNum) => {
@@ -154,6 +154,7 @@ function NewVolunteer({ setShowSpinner }) {
                     />
                     <Select options={["אשה", "גבר"]} placeHolder="מגדר" />
                     <Input placeholder="הערות" value={genderInput} onChange={(e) => setGenderInput(e.target.value)} />
+                    <button onClick={sendNewVolunteer}>send</button>
                     <div className="btn-wrapper">
                         {/* <Link to="/new-volunteer">
                                 <Button text="הקודם" />
@@ -161,7 +162,7 @@ function NewVolunteer({ setShowSpinner }) {
                         {/* <Link to="/new-volunteer-details"> */}
                         {/* <Button */}
                         <div>
-                        <button onClick={sendNewVolunteer}>send</button>
+                       
 
                             {/* <Link to="/">שלח</Link> */}
                             {/* // clickHandler={() => {

@@ -9,7 +9,12 @@ import { React } from "react";
 import Box_search from "../components/Box_search";
 import ReportWebVitals from './ReportWebVitals';
 import "../styles/box_search.css"
-
+// import CCard from '@coreui/react/src/components/card/CCard'
+import { CCard } from '@coreui/react';
+import { CCardBody } from '@coreui/react';
+import { CCardText } from '@coreui/react';
+import { CCardTitle } from '@coreui/react';
+import { CButton } from '@coreui/react';
 
 import { firestore } from "../firebase";
 
@@ -72,7 +77,7 @@ export const Search = () => {
                 <button className="btn_submit">Submit</button>
             </form>
             {/* <Box_search /> */}
-            
+
             {/* <!-- סרגל תחתון --> */}
             <div className="navbar2">
                 <div className="flex-container">
@@ -96,39 +101,16 @@ export const Search = () => {
                         object.destination + " " + object.date + " " + object.gender + " " + object.number_of_passengers + " " + object.car_type}</div>
                     <div>{object.date}</div>
                 </div>
-                // <>
-                //     <Card styles={{ card: { backgroundColor: 'red' } }}>
-                //         <Card.Body>
-                //             <div key={index}>
-                //                 <div>{object.source}</div>
-                //             </div>
-                //             <div>{object.source + " " + object.destination + " " + object.date + " " + object.gender + " " + object.number_of_passengers + " " + object.car_type}</div>
-                //         </Card.Body>
-                //     </Card>
-                //     <div className="w-100 text-center mt-2">
-                //         <Button>
-                //             שליחה
-                //         </Button>
-                //     </div>
-                // </>
 
-                // <Card
-                // bg={variant.toLowerCase()}
-                // bg={object.toLowerCase()}
-                // key={index}
-                // text={object.toLowerCase() === 'light' ? 'dark' : 'white'}
-                // style={{ width: '18rem' }}
-                // className="mb-2"
-                // >
-                //     <Card.Header></Card.Header>
-                //     <Card.Body>
-                //         <Card.Title></Card.Title>
-                //         <Card.Text>
-                //             <div>{object.city + " " + object.date}</div>
-                //         </Card.Text>
-                //     </Card.Body>
-                // </Card>
             ))}
+
+            <CCard style={{ width: '18rem' }}>
+                <CCardBody>
+                    <CCardTitle>Special title treatment</CCardTitle>
+                    <CCardText>With supporting text below as a natural lead-in to additional content.</CCardText>
+                    <CButton href="#">Go somewhere</CButton>
+                </CCardBody>
+            </CCard>
         </div>
     );
 }
