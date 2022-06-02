@@ -32,30 +32,6 @@ import { AuthProvider } from './components/log_in/contexts/AuthContext';
 import { Seeck } from './components/Seeck';
 import All_Hambuger from './components/All_Hambuger';
 
-
-//for ambuger
-// const AppContainer = styled.div`
-//   width: 100%;
-//   height: 100%;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   background-color: rgba(15, 15, 15, 1);
-//   color: #fff;
-// `;
-
-// const InnerContainer = styled.div`
-//   width: 100%;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   padding: 2em;
-// `;
-
-// const SomeContent = styled.h2`
-//   color: #fff;
-// `;
-
 function App() {
   const [showSpinner, setShowSpinner] = useState(false);
   return (
@@ -91,35 +67,6 @@ function App() {
           </Router>
         </div>
       </Container>
-
-      {/* <Router>
-            <AuthProvider>
-              <Routes> */}
-      {/* <PrivateRoute exact path="/dashboard" element={<Dashboard />} />
-                <PrivateRoute path="/update-profile" element={<UpdateProfile />} /> */}
-      {/* <Route path="/signup" element={<Signup />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/forgot-password" element={<ForgotPassword />} />
-              </Routes>
-            </AuthProvider>
-          </Router> */}
-
-          {/* for ambuger
-          {/* <AppContainer>
-            <Navbar />
-            <InnerContainer>
-              <SomeContent>Some Content!</SomeContent>
-            </InnerContainer>
-          </AppContainer> */}
-
-          {/* <Route path="/signUp" element={<Signup />} /> */}
-
-          {/* <Route path="/login" element={<Login />} /> */}
-          {/* <Route path="" element={<search />} /> */}
-          {/* <Route path="search" element={<Search />} />
-        <Route path="login" element={<Login />} />
-        <Route path="filter" element={<Filter />} />
-        <Route path="add-contact" element={<Add_contact />} /> */}
 
     </div>
   );

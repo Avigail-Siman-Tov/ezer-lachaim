@@ -17,6 +17,7 @@ import { CCardTitle } from '@coreui/react';
 import { CButton } from '@coreui/react';
 
 import { firestore } from "../firebase";
+import Navbar from "./Navbar";
 
 export const Search = () => {
 
@@ -60,11 +61,8 @@ export const Search = () => {
         setInputText(lowerCase);
     };
     return (
-        // <!-- סרגל עליון -->
         <div>
-            <div className="navbar">
-                <img src="/logo_ezl.png" alt="Logo image" />
-            </div>
+            <Navbar/>
             <form>
                 <input list="places" type="text" id="city" name="city" required autoComplete="off" pattern="Amsterdam|Berlin|Dublin|London|Paris" />
                 <datalist id="places">
@@ -77,23 +75,13 @@ export const Search = () => {
                 <button className="btn_submit">Submit</button>
             </form>
             {/* <Box_search /> */}
-
-            {/* <!-- סרגל תחתון --> */}
-            <div className="navbar2">
-                <div className="flex-container">
-                    <div>
-                        <a href="mailto: info@ezla.org.il"><Icon icon="ci:mail-open" color="white" /></a>
-                    </div>
-                    <div>
-                        <a href="tel:03-3-730-440"><Icon icon="bxs:phone" color="white" /></a>
-                    </div>
-                    <div>
-                        <a href=""><Icon icon="akar-icons:whatsapp-fill" color="white" /></a>
-                    </div>
-                </div>
-            </div>
-
-
+            {/* <CCard style={{ width: '18rem' }}>
+                <CCardBody>
+                    <CCardTitle>Special title treatment</CCardTitle>
+                    <CCardText>With supporting text below as a natural lead-in to additional content.</CCardText>
+                    <CButton href="#">Go somewhere</CButton>
+                </CCardBody>
+            </CCard> */}
 
             {callData.map((object, index) => (
                 <div className="req" key={index}>
@@ -104,13 +92,6 @@ export const Search = () => {
 
             ))}
 
-            <CCard style={{ width: '18rem' }}>
-                <CCardBody>
-                    <CCardTitle>Special title treatment</CCardTitle>
-                    <CCardText>With supporting text below as a natural lead-in to additional content.</CCardText>
-                    <CButton href="#">Go somewhere</CButton>
-                </CCardBody>
-            </CCard>
         </div>
     );
 }
