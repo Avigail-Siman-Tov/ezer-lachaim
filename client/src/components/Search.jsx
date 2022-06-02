@@ -9,8 +9,6 @@ import { React } from "react";
 import Box_search from "../components/Box_search";
 import ReportWebVitals from './ReportWebVitals';
 import "../styles/box_search.css"
-
-
 import { firestore } from "../firebase";
 import Navbar from "./Navbar";
 import Hamburger from "./Hamburger";
