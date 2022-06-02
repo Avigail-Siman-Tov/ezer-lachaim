@@ -42,8 +42,6 @@ function Hamburger() {
 const Styles = {
   Wrapper: styled.main`
     display: flex;
-    background-color: #eeeeee;
-    height: 100vh;
   `
 };
 
@@ -59,7 +57,9 @@ const Navbar = {
     justify-content: space-between;
     align-items: center;
 
-    background-color: white;
+
+
+    // background-color: white;
 
     // 40em == 640px
     @media only screen and (max-width: 40em) {

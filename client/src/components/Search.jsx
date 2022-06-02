@@ -57,7 +57,7 @@ export const Search = () => {
     return (
         <div>
             <Hamburger/>
-            {/* <Navbar/> */}
+            <Navbar/>
             <form>
                 <input list="places" type="text" id="city" name="city" required autoComplete="off" pattern="Amsterdam|Berlin|Dublin|London|Paris" />
                 <datalist id="places">
