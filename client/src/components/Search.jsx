@@ -11,6 +11,7 @@ import ReportWebVitals from './ReportWebVitals';
 import "../styles/box_search.css"
 import { firestore } from "../firebase";
 import Navbar from "./Navbar";
+import Bull from "./Bull";
 
 export const Search = () => {
 
@@ -72,7 +73,7 @@ export const Search = () => {
             </div>
             {/* <Box_search /> */}
 
-
+            <Bull />
 
             {callData.map((object, index) => (
                 <div className="req" key={index}>
