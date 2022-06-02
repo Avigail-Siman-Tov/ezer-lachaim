@@ -4,20 +4,16 @@ import { useEffect, useState } from "react";
 import { collection, doc, getDocs, query, setDoc } from "firebase/firestore";
 // import Card from "react-bootstrap/Card";
 import { Button } from 'react-bootstrap';
-import { Card } from "react-bootstrap"
+import { Card } from "react-bootstrap";
 import { React } from "react";
 import Box_search from "../components/Box_search";
 import ReportWebVitals from './ReportWebVitals';
 import "../styles/box_search.css"
-// import CCard from '@coreui/react/src/components/card/CCard'
-import { CCard } from '@coreui/react';
-import { CCardBody } from '@coreui/react';
-import { CCardText } from '@coreui/react';
-import { CCardTitle } from '@coreui/react';
-import { CButton } from '@coreui/react';
+
 
 import { firestore } from "../firebase";
 import Navbar from "./Navbar";
+import Hamburger from "./Hamburger";
 
 export const Search = () => {
 
@@ -62,7 +58,8 @@ export const Search = () => {
     };
     return (
         <div>
-            <Navbar/>
+            <Hamburger/>
+            {/* <Navbar/> */}
             <form>
                 <input list="places" type="text" id="city" name="city" required autoComplete="off" pattern="Amsterdam|Berlin|Dublin|London|Paris" />
                 <datalist id="places">
@@ -74,15 +71,7 @@ export const Search = () => {
                 </datalist>
                 <button className="btn_submit">Submit</button>
             </form>
-            {/* <Box_search /> */}
-            {/* <CCard style={{ width: '18rem' }}>
-                <CCardBody>
-                    <CCardTitle>Special title treatment</CCardTitle>
-                    <CCardText>With supporting text below as a natural lead-in to additional content.</CCardText>
-                    <CButton href="#">Go somewhere</CButton>
-                </CCardBody>
-            </CCard> */}
-
+            
             {callData.map((object, index) => (
                 <div className="req" key={index}>
                     <div>{object.source + " " +
