@@ -14,7 +14,8 @@ import ExistVolunteer2 from "./components/ExistVolunteer2";
 import Patient from "./components/Patient";
 import BookingShuttle from "./components/BookingShuttle";
 import Spinner from "./components/Spinner";
-import {Thanks} from './components/Thanks';
+import {Welcome} from './components/Welcome';
+import {Welcome2} from './components/Welcome2';
 import {Choose} from './components/Choose';
 // import { Navbar } from "./components/navbar";
 
@@ -72,7 +73,9 @@ function App() {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/dashboard" element={<Dashboard />} />
-                <Route exact path="/thanks" element={<Thanks/>} />
+                <Route exact path="/welcome" element={<Welcome/>} />
+                <Route exact path="/login/welcome2" element={<Welcome2/>} />
+
                 <Route exact path="/new-volunteer" element={<NewVolunteer />} />
                 <Route exact path="/new-volunteer-details" element={<NewVolunteerDetails setShowSpinner={setShowSpinner} />} />
                 <Route exact path="/exist-volunteer" element={<ExistVolunteer />} />

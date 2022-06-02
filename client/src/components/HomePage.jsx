@@ -16,7 +16,7 @@ export const HomePage = () => {
         setCurrentImageIndex(currentIndex => currentIndex < IMAGES.length - 1 ? currentIndex + 1 : 0);
     }
 
-    function contentButtonOnclick () {
+    function contentButtonOnclick() {
         setReadMore(prev => !prev);
         // extraaContentRef.current?.scrollIntoView();
     }
@@ -50,9 +50,9 @@ export const HomePage = () => {
                         <Icon icon="ic:baseline-arrow-drop-down" />
                     </button>
                     <div className="dropdown-content">
-                        <a href="/thanks">מתנדב חדש</a>
+                        <a href="/welcome">מתנדב חדש</a>
                         <a href="/login">מתנדב קיים</a>
-                        <a href="/login">מטופל</a>
+                        <a href="/bookingShuttle">מטופל</a>
                         {/* <a href="/login">מנהל</a> */}
                     </div>
                 </div>
@@ -86,8 +86,19 @@ export const HomePage = () => {
             </div>
 
             {/* <!-- סרגל תחתון --> */}
-            <div className="navbarr2">
-                <div className="flex-container">
+            <div className="navbarr2">         
+                <div class="centered">
+                    <a href="" class="wh"><Icon icon="akar-icons:whatsapp-fill" /></a>
+                    <a href="tel:03-3-730-440" class="ph"><Icon icon="bxs:phone" /></a>
+                    <a href="mailto: info@ezla.org.il" class="ma"><Icon icon="ci:mail-open" /></a>
+                    <a href="https://www.ezla.org.il/" class="si"><Icon icon="dashicons:admin-site-alt2" /></a>
+                    <a href="https://www.facebook.com/ezer.lahaim/" class="fa"><Icon icon="cib:facebook-f" /></a>
+                </div>
+            </div>
+        </div>
+    );
+}
+       {/* <div className="flex-container">
                     <div>
                         <a href="mailto: info@ezla.org.il"><Icon icon="ci:mail-open" color="white" /></a>
                     </div>
@@ -97,8 +108,4 @@ export const HomePage = () => {
                     <div>
                         <a href=""><Icon icon="akar-icons:whatsapp-fill" color="white" /></a>
                     </div>
-                </div>
-            </div>
-        </div>
-    );
-}
+                </div> */}
