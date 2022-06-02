@@ -25,7 +25,6 @@ function Hamburger() {
 
       <Navbar.Wrapper>
         {/* <Navbar.Logo>Logo</Navbar.Logo> */}
-
         <HamburgerButton.Wrapper onClick={() => toggleDrawer(true)}>
           <HamburgerButton.Lines />
         </HamburgerButton.Wrapper>
@@ -66,7 +65,7 @@ const Navbar = {
     @media only screen and (max-width: 40em) {
       position: fixed;
       width: 100vw;
-      bottom: 0;
+      top: 0;
     }
   `,
   // Logo: styled.h1`
