@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled, { createGlobalStyle } from "styled-components";
+// import ImgUpload from "../components";
+
+
 
 function Hamburger() {
   const [openDrawer, toggleDrawer] = useState(false);
@@ -11,7 +14,6 @@ function Hamburger() {
       if (drawerRef.current && drawerRef.current.contains(event.target)) {
         return;
       }
-
       toggleDrawer(false);
     };
 
@@ -20,22 +22,21 @@ function Hamburger() {
   }, []);
 
   return (
+    
     <Styles.Wrapper>
       <CSSReset />
-
       <Navbar.Wrapper>
-        {/* <Navbar.Logo>Logo</Navbar.Logo> */}
         <HamburgerButton.Wrapper onClick={() => toggleDrawer(true)}>
           <HamburgerButton.Lines />
         </HamburgerButton.Wrapper>
-
         <Navbar.Items ref={drawerRef} openDrawer={openDrawer}>
           <Navbar.Item>Home</Navbar.Item>
-          <Navbar.Item>Blog</Navbar.Item>
+          {/* <Navbar.Item></Navbar.Item> */}
           <Navbar.Item>About</Navbar.Item>
         </Navbar.Items>
       </Navbar.Wrapper>
     </Styles.Wrapper>
+    
   );
 }
 
@@ -91,7 +92,7 @@ const Navbar = {
       transition: 0.2s ease-out;
 
       transform: ${({ openDrawer }) =>
-        openDrawer ? `translateX(0)` : `translateX(100%)`};
+      openDrawer ? `translateX(0)` : `translateX(100%)`};
     }
   `,
   Item: styled.li`
