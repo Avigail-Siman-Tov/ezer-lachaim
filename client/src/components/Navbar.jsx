@@ -1,7 +1,6 @@
 import '../styles/navbar.css'
-import logo from '../logo_ezl.png'
 import { IconName } from "react-icons/di";
-import { FaHome } from "react-icons/fa";
+// import { FaHome } from "react-icons/fa";
 import { Icon } from '@iconify/react';
 
 function Navbar() {
