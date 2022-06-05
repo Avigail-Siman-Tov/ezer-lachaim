@@ -45,6 +45,7 @@ export const Seeck = () => {
             <input type="text" value={inputValue_number_of_passengers} onChange={(e) => setInputValue_number_of_passengers(e.target.value)} />
             <input type="text" value={inputValue_car_type} onChange={(e) => setInputValue_car_type(e.target.value)} />
             <button onClick={sendCall}>send</button>
+            {/* console.log */}
         </div>
         </div>
         
