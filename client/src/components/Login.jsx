@@ -1,32 +1,32 @@
-// import "../styles/login.css"
+// // import "../styles/login.css"
 
-export const Login = () => {
-    return (
-        <div>
-            <img id="reka" src="reka.jpg" />
-            <div className="navbar">
-                    <a href="#home">Home</a>
-                <img src="logo_ezl.png" alt="Logo image" />
+// export const Login = () => {
+//     return (
+//         <div>
+//             <img id="reka" src="reka.jpg" />
+//             <div className="navbar">
+//                     <a href="#home">Home</a>
+//                 <img src="logo_ezl.png" alt="Logo image" />
 
-            </div>
+//             </div>
 
-            {/* <!-- תפריט בחירה--> */}
-            <div NamclassName="userNamePassword">
-                <div NamclassName="imgcontainer">
-                    <img src="img_avatar2.png" alt="Avatar" NamclassName="avatar" />
-                </div>
-                <label for="Email" id="email"></label>
-                <input type="text" placeholder="Enter E-mail" name="uname" required />
+//             {/* <!-- תפריט בחירה--> */}
+//             <div NamclassName="userNamePassword">
+//                 <div NamclassName="imgcontainer">
+//                     <img src="img_avatar2.png" alt="Avatar" NamclassName="avatar" />
+//                 </div>
+//                 <label for="Email" id="email"></label>
+//                 <input type="text" placeholder="Enter E-mail" name="uname" required />
 
-                <label for="psw" ></label>
-                <input type="password" placeholder="Enter Password" name="psw" />
+//                 <label for="psw" ></label>
+//                 <input type="password" placeholder="Enter Password" name="psw" />
 
-                <button type="submit" >submit</button>
-            </div>
+//                 <button type="submit" >submit</button>
+//             </div>
 
-            <div NamclassName="container">
-            </div>
-        </div>
+//             <div NamclassName="container">
+//             </div>
+//         </div>
 
-    );
-}
+//     );
+// }

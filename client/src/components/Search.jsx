@@ -60,13 +60,81 @@ export const Search = () => {
             <Hamburger/>
             <Navbar/>
             <form>
-                <input list="places" type="text" id="city" name="city" required autoComplete="off" pattern="Amsterdam|Berlin|Dublin|London|Paris" />
+                <input list="places" type="text" id="city" name="city" required autoComplete="off" pattern="|פתח תקווה|צפת|קנסווה|קריית ביאליק|קריית אונו|קריית מוצקין|קריית אתא|קריית גת|קריית ים| קריית שמונה|קריית מלאכי|ראש העין|ראשון לציון|רהט|רחובות|רמלה|רמת גן|רמת השרון|רעננה|שדרות|תל אביב יפו|שפרעם| עראבה|ערד|עפולה|כפר יונה|כפר סבא|כפר קאסם|כרמיאל|לוד|מגדל העמק|מודיעין מכבים רעות|אום אל פחם|אופקים|אור יהודה|אור עקיבא|אילת|אריאל|אשדוד|אשקלון|באר שבע|בית שאן|בית שמש|בת ים|גבעת שמואל|גבעתיים|דימונה|הרצליה|הוד השרון|חדרה |חולון|חיפה |טבריה|טייבה|טירה |טירת הכרמל|טמרה|יבנה|יהוד מונסון|יקנעם|ירושלים|מעלה אדומים|מעלות תרשיחא|נהריה|נתניה|נס ציונה|נוף הגליל|נצרת|נשר|נתיבות|סח'נין|עכו" />
                 <datalist id="places">
-                    <option>Amsterdam</option>
-                    <option>Berlin</option>
-                    <option>Dublin</option>
-                    <option>London</option>
-                    <option>Paris</option>
+                    <option>אום אל פחם</option>
+                    <option>אופקים</option>
+                    <option>אור יהודה</option>
+                    <option>אור עקיבא</option>
+                    <option>אילת</option>
+                    <option>אריאל</option>
+                    <option>אשדוד</option>
+                    <option>אשקלון</option>
+                    <option>באר שבע</option>
+                    <option>בית שאן</option>
+                    <option>בית שמש</option>
+                    <option>בת ים</option>
+                    <option>גבעת שמואל</option>
+                    <option>גבעתיים</option>
+                    <option>דימונה</option>
+                    <option>הוד השרון</option>
+                    <option>הרצליה</option>
+                    <option>חדרה </option>
+                    <option>חולון</option>
+                    <option>חיפה</option>
+                    <option>טבריה</option>
+                    <option>טייבה</option>
+                    <option>טירה</option>
+                    <option>טירת הכרמל</option>
+                    <option>טמרה</option>
+                    <option>יבנה</option>
+                    <option>יהוד מונסון</option>
+                    <option>יקנעם</option>
+                    <option>ירושלים</option>
+                    <option>כפר יונה</option>
+                    <option>כפר סבא</option>
+                    <option>כפר קאסם</option>
+                    <option>כרמיאל</option>
+                    <option>לוד</option>
+                    <option>מגדל העמק</option>
+                    <option>מודיעין מכבים רעות</option>
+                    <option>מעלה אדומים</option>
+                    <option>מעלות תרשיחא</option>
+                    <option>נהריה</option>
+                    <option>נוף הגליל</option>
+                    <option>נס ציונה</option>
+                    <option>נצרת</option>
+                    <option>נשר</option>
+                    <option>נתיבות</option>
+                    <option>נתניה</option>
+                    <option>סח'נין</option>
+                    <option>עכו</option>
+                    <option>עפולה</option>
+                    <option>עראבה</option>
+                    <option>ערד</option>
+                    <option>פתח תקווה</option>
+                    <option>צפת</option>
+                    <option>קלנסווה</option>
+                    <option>קריית אונו</option>
+                    <option>קריית אתא</option>
+                    <option>קריית ביאליק</option>
+                    <option>קריית גת</option>
+                    <option>קריית ים</option>
+                    <option>קריית מוצקין</option>
+                    <option>קריית מלאכי</option>
+                    <option>קריית שמונה</option>
+                    <option>ראש העין</option>
+                    <option>ראשון לציון</option>
+                    <option>רהט</option>
+                    <option>רחובות</option>
+                    <option>רמלה</option>
+                    <option>רמת גן </option>
+                    <option>רמת השרון</option>
+                    <option>רעננה</option>
+                    <option>שדרות</option>
+                    <option>שפרעם</option>
+                    <option>תל אביב יפו</option>
+
                 </datalist>
                 <button className="btn_submit">Submit</button>
             </form>

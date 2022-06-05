@@ -31,10 +31,12 @@ import UpdateProfile from "./components/log_in/LoginComponent/UpdateProfile"
 import { AuthProvider } from './components/log_in/contexts/AuthContext';
 import { Seeck } from './components/Seeck';
 
+
 function App() {
   const [showSpinner, setShowSpinner] = useState(false);
   return (
     <div className="App">
+      
 
       {showSpinner ? <Spinner /> : undefined}
       <Container className="d-flex align-items-center justify-content-center"
@@ -50,7 +52,7 @@ function App() {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route exact path="/welcome" element={<Welcome/>} />
                 <Route exact path="/login/welcome2" element={<Welcome2/>} />
-
+              
                 <Route exact path="/new-volunteer" element={<NewVolunteer />} />
                 <Route exact path="/new-volunteer-details" element={<NewVolunteerDetails setShowSpinner={setShowSpinner} />} />
                 <Route exact path="/exist-volunteer" element={<ExistVolunteer />} />
@@ -60,6 +62,7 @@ function App() {
                 <Route exact path="/choose" element={<Choose />} />
                 <Route path="search" element={<Search />} />
                 <Route exact path="/seeck" element={<Seeck />} />
+            
               </Routes>
             </AuthProvider>
           </Router>

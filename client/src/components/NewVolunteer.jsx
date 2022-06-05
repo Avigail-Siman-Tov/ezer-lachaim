@@ -115,13 +115,93 @@ function NewVolunteer({ setShowSpinner }) {
                         //     userDetails.confirmPassword = confirmPassword;
                         // }}
                     />
-                     <Input
+                  {/* <Input
                     placeholder="עיר מגורים" value={cityInput} onChange={(e) => setCityInput(e.target.value)}
-                    // hasError={inputError.cityInput}
-                    // changeHandler={(city) => {
-                    //     userDetails.city = city;
-                    // }}
-                />
+                     hasError={inputError.cityInput}
+                     changeHandler={(city) => {
+                         userDetails.city = city;
+                    }}
+                /> */}
+                <div className="label" >עיר מגורים</div>
+                    <Select
+                        options={[
+                           
+                        "אום אל פחם",
+                        "אופקים",
+                        "אור יהודה",
+                        "אור עקיבא",
+                        "אילת",
+                        "אריאל",
+                        "אשדוד",
+                        "אשקלון",
+                        "באר שבע",
+                            "בית שאן",
+                            "בית שמש",
+                            "בת ים",
+                            "גבעת שמואל",
+                            "גבעתיים",
+                            "דימונה",
+                            "הוד השרון",
+                            "הרצליה",
+                            "חדרה",
+                            "חולון",
+                            "חיפה",
+                            "טבריה",
+                            "טייבה",
+                            "טירה",
+                            "טירת הכרמל",
+                            "טמרה",
+                            "יבנה",
+                            "יהוד מונסון",
+                            "יקנעם",
+                            "ירושלים",
+                            "כפר יונה","כפר סבא",
+                            "כפר קאסם",
+                           "כרמיאל",
+                           "לוד",
+                           "מגדל העמק",
+                           "מודיעין מכבים רעות",
+                           "מעלה אדומים",
+                           "מעלות תרשיחא",
+                           "נהריה",
+                           "נוף הגליל",
+                           "נס ציונה",
+                           "נצרת",
+                           "נשר",
+                           "נתיבות",
+                           "נתניה",
+                           "סח'נין",
+                           "עכו",
+                           "עפולה",
+                           "עראבה",
+                           "ערד",
+                           "פתח תקווה",
+                           "צפת",
+                           "קלנסווה",
+                           "קריית אונו",
+                           "קריית אתא",
+                           "קריית ביאליק",
+                           "קריית גת",
+                  "קריית מוצקין",
+                  "קריית מלאכי",
+                  "קריית שמונה",
+                   "ראש העין",
+                  "ראשון לציון",
+                                "רהט",
+                                "רחובות",
+                                "רמלה",
+                                "רמת גן",
+                                "רמת השרון",
+                                "רעננה",
+                                "שדרות",
+                                "שפרעם",
+                                "תל אביב יפו",
+
+                           
+                        ]}
+                        placeHolder="בחירת עיר מגורים" value={cityInput} onChange={(e) => setCityInput(e.target.value)}
+                     
+                 />
                     <div className="label">איזה רכב יש ברשותך?</div>
                     <Select
                         options={[
@@ -132,6 +212,7 @@ function NewVolunteer({ setShowSpinner }) {
                             "דו גלגלי",
                             "אוטובוס",
                         ]}
+                
                         placeHolder="בחירת סוג רכב" value={carTypeInput} onChange={(e) => setCarTypeInput(e.target.value)}
                         // hasError={inputError.carTypeInput}
                         // changeHandler={(carType) => {
