@@ -13,108 +13,116 @@ import Select from "../components/Select";
 import { FaHome } from "react-icons/fa"
 
 function NewVolunteer({ setShowSpinner }) {
-    const newVolunteerRef = collection(firestore, "newVolunteer");
-    const [callData, setCallData] = useState([]);
-     const [newVolunteerData, setnewVolunteerData] = useState([]);
-    const [nameInput, setNameInput] = useState("");
-    const [phoneNumInput, setPhoneNumInput] = useState("");
-    const [emailInput, setEmailInput] = useState("");
-    const [passwordInput, setPasswordInput] = useState("");
-    const [cityInput, setCityInput] = useState("");
-    const [carTypeInput, setCarTypeInput] = useState("");
-    const [carNumInput, setCarNumInput] = useState("");
-    const [seatsNumInput, setSeatsNumInput] = useState("");
-    const [genderInput, setGenderInput] = useState("");
+    // const newVolunteerRef = collection(firestore, "newVolunteer");
+    // const [callData, setCallData] = useState([]);
+    //  const [newVolunteerData, setnewVolunteerData] = useState([]);
+    // const [nameInput, setNameInput] = useState("");
+    // const [phoneNumInput, setPhoneNumInput] = useState("");
+    // const [emailInput, setEmailInput] = useState("");
+    // const [passwordInput, setPasswordInput] = useState("");
+    // const [cityInput, setCityInput] = useState("");
+    // const [carTypeInput, setCarTypeInput] = useState("");
+    // const [carNumInput, setCarNumInput] = useState("");
+    // const [seatsNumInput, setSeatsNumInput] = useState("");
+    // const [genderInput, setGenderInput] = useState("");
 
 
-    function sendNewVolunteer() {
-        setDoc(doc(newVolunteerRef), {
-            name: nameInput,
-            phone: phoneNumInput,
-            email: emailInput,
-            password: passwordInput,
-            city: cityInput,
-            car_type: carTypeInput,
-            car_number: carNumInput,
-            number_of_seets: seatsNumInput,
-            gender: genderInput
-        })
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
-    }
+    // function sendNewVolunteer() {
+    //     setDoc(doc(newVolunteerRef), {
+    //         name: nameInput,
+    //         phone: phoneNumInput,
+    //         email: emailInput,
+    //         password: passwordInput,
+    //         city: cityInput,
+    //         car_type: carTypeInput,
+    //         car_number: carNumInput,
+    //         number_of_seets: seatsNumInput,
+    //         gender: genderInput
+    //     })
+    //         .then(res => console.log(res))
+    //         .catch(err => console.log(err));
+    // }
     
-    // const [inputError, setInputError] = useState({
-    //     nameInput: false,
-    //     phoneNumInput: false,
-    //     emailInput: false,
-    //     passwordInput: false,
-    //     confirmPasswordInput: false,
-    //     cityInput: false,
-    //     carTypeInput: false,
-    //     carNumInput: false,
-    //     seatsNumInput: false,
-    //     genderInput: false,
-    //     notesInput: false,
-    // });
+    const [inputError, setInputError] = useState({
+        nameInput: false,
+        phoneNumInput: false,
+        emailInput: false,
+        passwordInput: false,
+        confirmPasswordInput: false,
+        cityInput: false,
+        carTypeInput: false,
+        carNumInput: false,
+        seatsNumInput: false,
+        genderInput: false,
+        notesInput: false,
+    });
 
-    // const userDetails = {
-    //     name: "",
-    //     phoneNum: "",
-    //     email: "",
-    //     Password: "",
-    //     confirmPassword: "",
-    //     city: "",
-    //     carType: "",
-    //     carNum: "",
-    //     seatsNum: 0,
-    //     sex: "",
-    //     notes: "",
-    // };
+    const userDetails = {
+        name: "",
+        phoneNum: "",
+        email: "",
+        Password: "",
+        confirmPassword: "",
+        city: "",
+        carType: "",
+        carNum: "",
+        seatsNum: 0,
+        sex: "",
+        notes: "",
+    };
     return (
         <div>
             <Navbar/>
             <div>
                 <div className="form-wrapper">
                     <div className="title">טופס הצטרפות למתנדבים</div>
-                    <input type="text" value={nameInput} onChange={(e) => setNameInput(e.target.value)} />
-                    <Input type="text" value={nameInput}
-
+                    {/* <input type="text" value={nameInput} onChange={(e) => setNameInput(e.target.value)} /> */}
+                    {/* <br></br> */}
+                    <Input 
+                    // type="text" 
+                        // value={nameInput}
+                        // onChange={(e) => setNameInput(e.target.value)}
                         placeholder="שם פרטי ומשפחה"
-                        // hasError={inputError.nameInput}
-                        // changeHandler={(name) => {
-                        //     userDetails.name = name;
-                        // }}
-                        onChange={(e) => setNameInput(e.target.value)}
+                        hasError={inputError.nameInput}
+                        changeHandler={(name) => {
+                            userDetails.name = name;
+                        }}
+                        // onChange={(e) => setNameInput(e.target.value)}
                     />
-                    <Input type="text" value={phoneNumInput} onChange={(e) => setPhoneNumInput(e.target.value)}
-                        placeholder="טלפון/נייד"
-                        // hasError={inputError.phoneNumInput}
-                        // changeHandler={(phoneNum) => {
-                        //     userDetails.phoneNum = phoneNum;
-                        // }}
+                    <Input 
+                    // type="text" 
+                        // value={phoneNumInput} 
                         // onChange={(e) => setPhoneNumInput(e.target.value)}
+                        placeholder="טלפון/נייד"
+                        hasError={inputError.phoneNumInput}
+                        changeHandler={(phoneNum) => {
+                            userDetails.phoneNum = phoneNum;
+                        }}
                     />
-                    <Input value={emailInput} onChange={(e) => setEmailInput(e.target.value)}
+                    <Input 
+                    // value={emailInput} onChange={(e) => setEmailInput(e.target.value)}
                         placeholder="אימייל"
-                        // hasError={inputError.emailInput}
-                        // changeHandler={(email) => {
-                        //     userDetails.email = email;
-                        // }}
+                        hasError={inputError.emailInput}
+                        changeHandler={(email) => {
+                            userDetails.email = email;
+                        }}
                     />
                     <Input
-                        placeholder="סיסמא" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)}
-                        // hasError={inputError.passwordInput}
-                        // changeHandler={(password) => {
-                        //     userDetails.password = password;
-                        // }}
+                        placeholder="סיסמא" 
+                        // value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)}
+                        hasError={inputError.passwordInput}
+                        changeHandler={(password) => {
+                            userDetails.password = password;
+                        }}
                     />
                     <Input
                         placeholder="אימות סיסמא"
-                        // hasError={inputError.confirmPasswordInput}
-                        // changeHandler={(confirmPassword) => {
-                        //     userDetails.confirmPassword = confirmPassword;
-                        // }}
+                        hasError={inputError.confirmPasswordInput}
+                        changeHandler={(confirmPassword) => {
+                            userDetails.confirmPassword = confirmPassword;
+                        }}
                     />
+<<<<<<< HEAD
                   {/* <Input
                     placeholder="עיר מגורים" value={cityInput} onChange={(e) => setCityInput(e.target.value)}
                      hasError={inputError.cityInput}
@@ -202,6 +210,16 @@ function NewVolunteer({ setShowSpinner }) {
                         placeHolder="בחירת עיר מגורים" value={cityInput} onChange={(e) => setCityInput(e.target.value)}
                      
                  />
+=======
+                     <Input
+                    placeholder="עיר מגורים" 
+                    // value={cityInput} onChange={(e) => setCityInput(e.target.value)}
+                    hasError={inputError.cityInput}
+                    changeHandler={(city) => {
+                        userDetails.city = city;
+                    }}
+                />
+>>>>>>> main
                     <div className="label">איזה רכב יש ברשותך?</div>
                     <Select
                         options={[
@@ -212,54 +230,61 @@ function NewVolunteer({ setShowSpinner }) {
                             "דו גלגלי",
                             "אוטובוס",
                         ]}
+<<<<<<< HEAD
                 
                         placeHolder="בחירת סוג רכב" value={carTypeInput} onChange={(e) => setCarTypeInput(e.target.value)}
                         // hasError={inputError.carTypeInput}
                         // changeHandler={(carType) => {
                         //     userDetails.carType = carType;
                         // }}
+=======
+                        placeHolder="בחירת סוג רכב" 
+                        // value={carTypeInput} onChange={(e) => setCarTypeInput(e.target.value)}
+                        hasError={inputError.carTypeInput}
+                        changeHandler={(carType) => {
+                            userDetails.carType = carType;
+                        }}
+>>>>>>> main
                     />
                     <Input 
-                    value={carNumInput} onChange={(e) => setCarNumInput(e.target.value)}
+                    // value={carNumInput} onChange={(e) => setCarNumInput(e.target.value)}
                         placeholder="מספר רכב"
-                        // hasError={inputError.carNumInput}
-                        // changeHandler={(carNum) => {
-                        //     userDetails.carNum = carNum;
-                        // }}
+                        hasError={inputError.carNumInput}
+                        changeHandler={(carNum) => {
+                            userDetails.carNum = carNum;
+                        }}
                     />
-                    <Input value={seatsNumInput} onChange={(e) => setSeatsNumInput(e.target.value)}
+                    <Input 
+                    // value={seatsNumInput} onChange={(e) => setSeatsNumInput(e.target.value)}
                         placeholder="מספר מקומות ישיבה"
-                        // hasError={inputError.carNumInput}
-                        // changeHandler={(carNum) => {
-                        //     userDetails.carNum = carNum;
-                        // }}
+                        hasError={inputError.carNumInput}
+                        changeHandler={(carNum) => {
+                            userDetails.carNum = carNum;
+                        }}
                     />
                     <Select options={["אשה", "גבר"]} placeHolder="מגדר" />
-                    <Input placeholder="הערות" value={genderInput} onChange={(e) => setGenderInput(e.target.value)} />
-                    <button onClick={sendNewVolunteer}>send</button>
-                    <div className="btn-wrapper">
-                        {/* <Link to="/new-volunteer">
-                                <Button text="הקודם" />
-                            </Link> */}
-                        {/* <Link to="/new-volunteer-details"> */}
-                        {/* <Button */}
-                        <div>
-                       
+                    <Input placeholder="הערות" />
+                     {/* value={genderInput} onChange={(e) => setGenderInput(e.target.value)}  */}
+                    {/* <button onClick={sendNewVolunteer}>send</button> */}
+                    <Link to="/new-volunteer">
+                            <Button
+                                text="שלח"
+                                clickHandler={() => {
+                                    setInputError({
+                                        ...inputError,
+                                        cityInput: !userDetails.city,
+                                        carTypeInput: !userDetails.carType,
+                                        carNumInput: !userDetails.carNumber,
+                                        seatsNumInput: !userDetails.seatsNum,
+                                        sexInput: !userDetails.sex,
+                                    });
+                                    setShowSpinner(true);
+                                    setTimeout(setShowSpinner.bind("", false), 3000);
+                                }}
+                            />
+                        </Link>
 
-                            {/* <Link to="/">שלח</Link> */}
-                            {/* // clickHandler={() => {
-                            //     setInputError({
-                            //         ...inputError,
-                            //         cityInput: !userDetails.city,
-                            //         carTypeInput: !userDetails.carType,
-                            //         carNumInput: !userDetails.carNumber,
-                            //         seatsNumInput: !userDetails.seatsNum,
-                            //         genderInput: !userDetails.sex,
-                            //     });
-                            //     setShowSpinner(true);
-                            //     setTimeout(setShowSpinner.bind("", false), 3000);
-                            // }} */}
-                        </div>
+
                          {/* /> */}
                         {/* <input type="text" value={nameInput} onChange={(e) => setNameInput(e.target.value)} /> */}
                         {/* <input type="text" value={phoneNumInput} onChange={(e) => setPhoneNumInput(e.target.value)} /> */}
@@ -286,7 +311,6 @@ function NewVolunteer({ setShowSpinner }) {
                     // </Link>                  
 
                     // <link to="/NewVolunteerDetails" > */}
-                    </div>
                 </div>
             </div>
         </div>

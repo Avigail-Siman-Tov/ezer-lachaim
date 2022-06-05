@@ -11,21 +11,25 @@ import ReportWebVitals from './ReportWebVitals';
 import "../styles/box_search.css"
 import { firestore } from "../firebase";
 import Navbar from "./Navbar";
-import Hamburger from "./Hamburger";
 import Bull from "./Bull";
+import Hamburger from "./Hamburger";
+// import Bull from "./Bull";
 
 export const Search = () => {
 
     const [callData, setCallData] = useState([]);
     const [inputValue, setInputValue] = useState("");
+    const [blogs, Setblogs] = useState("");
+    const [search, setSearch] = useState("");
+    const [filter, setFilter] = useState('');
 
     const callsRef = collection(firestore, "calls");
+    // const queryRef = citiesRef.where('state', '==', '');
 
-    useEffect(() => {
-        console.log('mounted', callData)
-        getData();
-    }, [])
-
+    //     const querySnapshot = await db.collectionGroup('landmarks').where('type', '==', 'museum').get();
+    // querySnapshot.forEach((doc) => {
+    //   console.log(doc.id, ' => ', doc.data());
+    // });index.js
 
     async function getData() {
         const dataArray = await getDocs(query(callsRef));
@@ -34,14 +38,20 @@ export const Search = () => {
         })
     }
 
-    function myFunction() {
-        var x = document.getElementById("myLinks");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        } else {
-            x.style.display = "block";
-        }
-    }
+    useEffect(() => {
+        // console.log('mounted', callData)
+        return () => getData();
+    }, []) 
+
+    // function myFunction() {
+    //     var x = document.getElementById("myLinks");
+    //     if (x.style.display === "block") {
+    //         x.style.display = "none";
+    //     } else {
+    //         x.style.display = "block";
+    //     }
+    // }
+
     // function openRightMenu() {
     //     document.getElementById("rightMenu").style.display = "block";
     // }
@@ -49,18 +59,49 @@ export const Search = () => {
     // function closeRightMenu() {
     //     document.getElementById("rightMenu").style.display = "none";
     // }
-    const [inputText, setInputText] = useState("");
-    let inputHandler = (e) => {
-        //convert input text to lower case
-        var lowerCase = e.target.value.toLowerCase();
-        setInputText(lowerCase);
-    };
+    // const [inputText, setInputText] = useState("");
+    // let inputHandler = (e) => {
+    //     //convert input text to lower case
+    //     var lowerCase = e.target.value.toLowerCase();
+    //     setInputText(lowerCase);
+    // };
+
+    const searchText = (event) => {
+        setFilter(event.target.value);
+    }
+
+    let dataSearch = callData.filter(item => {
+        return Object.keys(item).some(key =>
+            item[key].toString().toLowerCase().includes(filter.toString().toLowerCase())
+        )
+    })
+    // const SearchBlog=(e)=>{
+    //     e.preventDefault();
+    //     Setblogs(blogs.filter((blog)=>
+    //         blogs.Title.toLowerCase().includes(search.toLocaleLowerCase) || blogs.Body.toLowerCase().includes(search.toLocaleLowerCase)
+    //         ));
+    // };
+
     return (
         <div>
+<<<<<<< HEAD
             <Hamburger/>
             <Navbar/>
             <form>
                 <input list="places" type="text" id="city" name="city" required autoComplete="off" pattern="|פתח תקווה|צפת|קנסווה|קריית ביאליק|קריית אונו|קריית מוצקין|קריית אתא|קריית גת|קריית ים| קריית שמונה|קריית מלאכי|ראש העין|ראשון לציון|רהט|רחובות|רמלה|רמת גן|רמת השרון|רעננה|שדרות|תל אביב יפו|שפרעם| עראבה|ערד|עפולה|כפר יונה|כפר סבא|כפר קאסם|כרמיאל|לוד|מגדל העמק|מודיעין מכבים רעות|אום אל פחם|אופקים|אור יהודה|אור עקיבא|אילת|אריאל|אשדוד|אשקלון|באר שבע|בית שאן|בית שמש|בת ים|גבעת שמואל|גבעתיים|דימונה|הרצליה|הוד השרון|חדרה |חולון|חיפה |טבריה|טייבה|טירה |טירת הכרמל|טמרה|יבנה|יהוד מונסון|יקנעם|ירושלים|מעלה אדומים|מעלות תרשיחא|נהריה|נתניה|נס ציונה|נוף הגליל|נצרת|נשר|נתיבות|סח'נין|עכו" />
+=======
+            <Hamburger />
+            <Navbar />
+
+            <form
+            // onSubmit={(e)=>(SearchBlog(e))}
+            >
+                <input type="text" value={filter} onChange={searchText.bind(this)} />
+                {/* <input onChange={(e)=>{setSearch(e.target.value)}}/>
+                <button type="submit">Search</button> */}
+
+                {/* <input list="places" type="text" id="city" name="city" required autoComplete="off" pattern="Amsterdam|Berlin|Dublin|London|Paris" />
+>>>>>>> main
                 <datalist id="places">
                     <option>אום אל פחם</option>
                     <option>אופקים</option>
@@ -136,18 +177,17 @@ export const Search = () => {
                     <option>תל אביב יפו</option>
 
                 </datalist>
-                <button className="btn_submit">Submit</button>
+                <button className="btn_submit">Submit</button> */}
             </form>
-            <Bull/>
-            {callData.map((object, index) => (
+            {/* <Bull/> */}
+            {dataSearch.map((object, index) => (
                 <div className="req" key={index}>
-                    <div>{object.source + " " +
-                        object.destination + " " + object.date + " " + object.gender + " " + object.number_of_passengers + " " + object.car_type}</div>
-                    <div>{object.date}</div>
+                    <div>
+                        {object.city + " " + object.source + " " + object.destination + " " + object.date + " " + object.gender + " " + object.number_of_passengers + " " + object.car_type}
+                    </div>
+                    {/* <div>{object.date}</div> */}
                 </div>
-
             ))}
-
         </div>
     );
 }
