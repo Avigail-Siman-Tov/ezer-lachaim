@@ -137,10 +137,10 @@
 /* margin-top: 70px; */
 /* } */
 .remember {
-  margin-top: 20px;
+  margin-top: 15px;
   color: #356d9c;
-  margin-left: 20px;
-/* text-align: left; */
+  /* margin-left: 20px; */
+text-align: center;
 
 }
 .picprofil{

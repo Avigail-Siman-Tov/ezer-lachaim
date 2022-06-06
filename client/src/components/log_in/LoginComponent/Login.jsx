@@ -67,7 +67,11 @@ export default function Login() {
             placeholder="Password:"  type="text"
           />
          </div>
+         
           <button className="submitBtn" disabled={loading}>Log In</button>
+          <div className="remember">
+            <Link to="/forgot-password">שכחתי סיסמה</Link>
+          </div>
           {/* <Button disabled={loading} className="w-100" type="submit">
             Log In
           </Button> */}
@@ -75,12 +79,10 @@ export default function Login() {
 
         {/* </Card.Body>
       </Card> */}
-      <div className="signUp">
+      {/* <div className="signUp">
         אין לך חשבון? <Link to="/signup">Sign Up</Link>
-      </div>
-      <div className="remember">
-            <Link to="/forgot-password">שכחתי סיסמה</Link>
-          </div>
+      </div> */}
+     
     </div>
     // </div>
   )
