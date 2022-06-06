@@ -122,7 +122,6 @@ function NewVolunteer({ setShowSpinner }) {
                             userDetails.confirmPassword = confirmPassword;
                         }}
                     />
-<<<<<<< HEAD
                   {/* <Input
                     placeholder="עיר מגורים" value={cityInput} onChange={(e) => setCityInput(e.target.value)}
                      hasError={inputError.cityInput}
@@ -207,19 +206,12 @@ function NewVolunteer({ setShowSpinner }) {
 
                            
                         ]}
-                        placeHolder="בחירת עיר מגורים" value={cityInput} onChange={(e) => setCityInput(e.target.value)}
+                        placeHolder="בחירת עיר מגורים" 
+                        // value={cityInput} onChange={(e) => setCityInput(e.target.value)}
                      
                  />
-=======
-                     <Input
-                    placeholder="עיר מגורים" 
-                    // value={cityInput} onChange={(e) => setCityInput(e.target.value)}
-                    hasError={inputError.cityInput}
-                    changeHandler={(city) => {
-                        userDetails.city = city;
-                    }}
-                />
->>>>>>> main
+
+        
                     <div className="label">איזה רכב יש ברשותך?</div>
                     <Select
                         options={[
@@ -230,21 +222,16 @@ function NewVolunteer({ setShowSpinner }) {
                             "דו גלגלי",
                             "אוטובוס",
                         ]}
-<<<<<<< HEAD
+
                 
-                        placeHolder="בחירת סוג רכב" value={carTypeInput} onChange={(e) => setCarTypeInput(e.target.value)}
+                        placeHolder="בחירת סוג רכב" 
+                        // value={carTypeInput} onChange={(e) => setCarTypeInput(e.target.value)}
                         // hasError={inputError.carTypeInput}
                         // changeHandler={(carType) => {
                         //     userDetails.carType = carType;
                         // }}
-=======
-                        placeHolder="בחירת סוג רכב" 
-                        // value={carTypeInput} onChange={(e) => setCarTypeInput(e.target.value)}
-                        hasError={inputError.carTypeInput}
-                        changeHandler={(carType) => {
-                            userDetails.carType = carType;
-                        }}
->>>>>>> main
+
+                
                     />
                     <Input 
                     // value={carNumInput} onChange={(e) => setCarNumInput(e.target.value)}

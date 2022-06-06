@@ -5,12 +5,12 @@ body{
 .form-wrapper {
     height: 970px;
 }
-<<<<<<< HEAD
+/* 
 .label {
-    position: relative;
+    position: calc(50px,40px);
 
 }
-/* .select-items {
+.label-items {
     position: absolute;
     background-color: DodgerBlue;
     top: 100%;
@@ -24,8 +24,15 @@ body{
     border: 1px solid transparent;
     border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
     cursor: pointer;
-  } */
-=======
+  }
+  .select-hide {
+    display: none;
+  }
+  .label select {
+    display: none;
+  }*/
+  
+ 
 
 .dropbtnn {
     height: 75px;
@@ -38,7 +45,7 @@ body{
     padding: 14px 19px;
     /* margin-top: 20px; */
     background-color: inherit;
-    font-family: inherit;
+    /* font-family: inherit; */
 }
 
 .navbar a:hover,
@@ -46,4 +53,4 @@ body{
     background-color: #356D9C;
     color: white;
 }
->>>>>>> main
+
