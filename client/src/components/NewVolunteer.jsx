@@ -13,9 +13,13 @@ import Select from "../components/Select";
 import { FaHome } from "react-icons/fa"
 
 function NewVolunteer({ setShowSpinner }) {
-    // const newVolunteerRef = collection(firestore, "newVolunteer");
+    const newVolunteerRef = collection(firestore, "newVolunteer");
+    const [inputValue, setInputValue] = useState({ name: "", phone: "", email: "", password: "", city: "", carType: "", carNumber: "", number_of_seets: "", gender: "" });
+    const { name, phone, email, password, city, carType, carNumber, number_of_seets, gender } = inputValue;
+    
     // const [callData, setCallData] = useState([]);
     //  const [newVolunteerData, setnewVolunteerData] = useState([]);
+
     // const [nameInput, setNameInput] = useState("");
     // const [phoneNumInput, setPhoneNumInput] = useState("");
     // const [emailInput, setEmailInput] = useState("");
@@ -26,22 +30,30 @@ function NewVolunteer({ setShowSpinner }) {
     // const [seatsNumInput, setSeatsNumInput] = useState("");
     // const [genderInput, setGenderInput] = useState("");
 
+    const handleChange = (e) => {
+        const { name, value} = e.target;
+        setInputValue((prev) => ({
+          ...prev,
+          [name]: value,
+        }));
+        console.log(inputValue);
+      };
 
-    // function sendNewVolunteer() {
-    //     setDoc(doc(newVolunteerRef), {
-    //         name: nameInput,
-    //         phone: phoneNumInput,
-    //         email: emailInput,
-    //         password: passwordInput,
-    //         city: cityInput,
-    //         car_type: carTypeInput,
-    //         car_number: carNumInput,
-    //         number_of_seets: seatsNumInput,
-    //         gender: genderInput
-    //     })
-    //         .then(res => console.log(res))
-    //         .catch(err => console.log(err));
-    // }
+    function sendNewVolunteer() {
+        setDoc(doc(newVolunteerRef), {
+            name: inputValue,
+            // phone:  inputValue,
+            // email:  inputValue,
+            // password:  inputValue,
+            // city:  inputValue,
+            // car_type:  inputValue,
+            // car_number:  inputValue,
+            // number_of_seets:  inputValue,
+            // gender:  inputValue
+        })
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    }
     
     const [inputError, setInputError] = useState({
         nameInput: false,
@@ -76,59 +88,75 @@ function NewVolunteer({ setShowSpinner }) {
             <div>
                 <div className="form-wrapper">
                     <div className="title">טופס הצטרפות למתנדבים</div>
-                    {/* <input type="text" value={nameInput} onChange={(e) => setNameInput(e.target.value)} /> */}
-                    {/* <br></br> */}
+                
                     <Input 
-                    // type="text" 
-                        // value={nameInput}
-                        // onChange={(e) => setNameInput(e.target.value)}
-                        placeholder="שם פרטי ומשפחה"
-                        hasError={inputError.nameInput}
-                        changeHandler={(name) => {
-                            userDetails.name = name;
-                        }}
-                        // onChange={(e) => setNameInput(e.target.value)}
+                        type="text"
+                        value={name}
+                        placeholder="Product Name"
+                        name="name"
+                        onChange={handleChange}                   
+                        // placeholder="שם פרטי ומשפחה"
+                        // hasError={inputError.nameInput}
+                        // changeHandler={(name) => {
+                        //     userDetails.name = name;
+                        // }}
                     />
                     <Input 
-                    // type="text" 
-                        // value={phoneNumInput} 
-                        // onChange={(e) => setPhoneNumInput(e.target.value)}
-                        placeholder="טלפון/נייד"
-                        hasError={inputError.phoneNumInput}
-                        changeHandler={(phoneNum) => {
-                            userDetails.phoneNum = phoneNum;
-                        }}
+                        type="text"
+                        value={phone}
+                        placeholder="Product Name"
+                        name="phone"
+                        onChange={handleChange}    
+                        // placeholder="טלפון/נייד"
+                        // hasError={inputError.phoneNumInput}
+                        // changeHandler={(phoneNum) => {
+                        //     userDetails.phoneNum = phoneNum;
+                        // }}
                     />
                     <Input 
-                    // value={emailInput} onChange={(e) => setEmailInput(e.target.value)}
-                        placeholder="אימייל"
-                        hasError={inputError.emailInput}
-                        changeHandler={(email) => {
-                            userDetails.email = email;
-                        }}
+                        type="text"
+                        value={email}
+                        placeholder="Product Name"
+                        name="email"
+                        onChange={handleChange}    
+                        // placeholder="אימייל"
+                        // hasError={inputError.emailInput}
+                        // changeHandler={(email) => {
+                        //     userDetails.email = email;
+                        // }}
                     />
                     <Input
-                        placeholder="סיסמא" 
-                        // value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)}
-                        hasError={inputError.passwordInput}
-                        changeHandler={(password) => {
-                            userDetails.password = password;
-                        }}
+                         type="text"
+                         value={password}
+                         placeholder="Product Name"
+                         name="password"
+                         onChange={handleChange}  
+                        // placeholder="סיסמא" 
+                        // hasError={inputError.passwordInput}
+                        // changeHandler={(password) => {
+                        //     userDetails.password = password;
+                        // }}
                     />
                     <Input
+                         
                         placeholder="אימות סיסמא"
-                        hasError={inputError.confirmPasswordInput}
-                        changeHandler={(confirmPassword) => {
-                            userDetails.confirmPassword = confirmPassword;
-                        }}
+                        // hasError={inputError.confirmPasswordInput}
+                        // changeHandler={(confirmPassword) => {
+                        //     userDetails.confirmPassword = confirmPassword;
+                        // }}
                     />
                      <Input
-                    placeholder="עיר מגורים" 
-                    // value={cityInput} onChange={(e) => setCityInput(e.target.value)}
-                    hasError={inputError.cityInput}
-                    changeHandler={(city) => {
-                        userDetails.city = city;
-                    }}
+                      type="text"
+                      value={city}
+                      placeholder="Product Name"
+                      name="city"
+                      onChange={handleChange}  
+                    // placeholder="עיר מגורים" 
+                    // // value={cityInput} onChange={(e) => setCityInput(e.target.value)}
+                    // hasError={inputError.cityInput}
+                    // changeHandler={(city) => {
+                    //     userDetails.city = city;
+                    // }}
                 />
                     <div className="label">איזה רכב יש ברשותך?</div>
                     <Select
@@ -140,30 +168,43 @@ function NewVolunteer({ setShowSpinner }) {
                             "דו גלגלי",
                             "אוטובוס",
                         ]}
-                        placeHolder="בחירת סוג רכב" 
-                        // value={carTypeInput} onChange={(e) => setCarTypeInput(e.target.value)}
-                        hasError={inputError.carTypeInput}
-                        changeHandler={(carType) => {
-                            userDetails.carType = carType;
-                        }}
+                        type="text"
+                        value={carType}
+                        placeholder="Product Name"
+                        name="carType"
+                        onChange={handleChange}  
+                        // placeHolder="בחירת סוג רכב" 
+                        // hasError={inputError.carTypeInput}
+                        // changeHandler={(carType) => {
+                        //     userDetails.carType = carType;
+                        // }}
                     />
                     <Input 
-                    // value={carNumInput} onChange={(e) => setCarNumInput(e.target.value)}
-                        placeholder="מספר רכב"
-                        hasError={inputError.carNumInput}
-                        changeHandler={(carNum) => {
-                            userDetails.carNum = carNum;
-                        }}
+                     type="text"
+                     value={carNumber}
+                     placeholder="Product Name"
+                     name="carNumber"
+                     onChange={handleChange}  
+                        // placeholder="מספר רכב"
+                        // hasError={inputError.carNumInput}
+                        // changeHandler={(carNum) => {
+                        //     userDetails.carNum = carNum;
+                        // }}
                     />
                     <Input 
-                    // value={seatsNumInput} onChange={(e) => setSeatsNumInput(e.target.value)}
-                        placeholder="מספר מקומות ישיבה"
-                        hasError={inputError.carNumInput}
-                        changeHandler={(carNum) => {
-                            userDetails.carNum = carNum;
-                        }}
+                     type="text"
+                     value={number_of_seets}
+                     placeholder="Product Name"
+                     name="number_of_seets"
+                     onChange={handleChange}  
+                        // placeholder="מספר מקומות ישיבה"
+                        // hasError={inputError.carNumInput}
+                        // changeHandler={(carNum) => {
+                        //     userDetails.carNum = carNum;
+                        // }}
                     />
                     <Select options={["אשה", "גבר"]} placeHolder="מגדר" />
+
                     <Input placeholder="הערות" />
                      {/* value={genderInput} onChange={(e) => setGenderInput(e.target.value)}  */}
                     {/* <button onClick={sendNewVolunteer}>send</button> */}
@@ -185,7 +226,7 @@ function NewVolunteer({ setShowSpinner }) {
                             />
                         </Link>
 
-
+                        <button onClick={sendNewVolunteer}>send</button>
                          {/* /> */}
                         {/* <input type="text" value={nameInput} onChange={(e) => setNameInput(e.target.value)} /> */}
                         {/* <input type="text" value={phoneNumInput} onChange={(e) => setPhoneNumInput(e.target.value)} /> */}
@@ -436,47 +477,6 @@ export default NewVolunteer;
 //                     <Input value={emailInput} onChange={(e) => setEmailInput(e.target.value)}
 //                         placeholder="אימייל"
 //                         hasError={inputError.emailInput}
-//                         changeHandler={(email) => {
-//                             userDetails.email = email;
-//                         }}
-//                     />
-//                     <Input
-//                         placeholder="סיסמא" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)}
-//                         hasError={inputError.passwordInput}
-//                         changeHandler={(password) => {
-//                             userDetails.password = password;
-//                         }}
-//                     />
-//                     <Input 
-//                         placeholder="אימות סיסמא"
-//                         hasError={inputError.confirmPasswordInput}
-//                         changeHandler={(confirmPassword) => {
-//                             userDetails.confirmPassword = confirmPassword;
-//                         }}
-                       
-//                     />
-                  
-//                     <Link to="/new-volunteer-details">
-//                         <Button 
-//                         text="הבא"
-                            
-//                             clickHandler={() => {
-//                                 setInputError({
-//                                     ...inputError,
-//                                     nameInput: !userDetails.name,
-//                                     phoneNumInput: !userDetails.phoneNum,
-//                                     emailInput: !userDetails.email,
-//                                     PasswordInput: !userDetails.Password,
-//                                     confirmPasswordInput:
-//                                         !userDetails.confirmPassword,
-//                                 });
 
-//                             }} 
-//                             />
-//                     </Link>                  
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// }
-// export default NewVolunteer;
+
+  
