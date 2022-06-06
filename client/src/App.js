@@ -10,7 +10,7 @@ import NewVolunteer from "./components/NewVolunteer";
 import NewVolunteerDetails from "./components/NewVolunteerDetails";
 import Navbar from "./components/Navbar";
 import ExistVolunteer from "./components/ExistVolunteer";
-import ExistVolunteer2 from "./components/ExistVolunteer2";
+// import ExistVolunteer2 from "./components/ExistVolunteer2";
 import Patient from "./components/Patient";
 import BookingShuttle from "./components/BookingShuttle";
 import Spinner from "./components/Spinner";
@@ -30,6 +30,7 @@ import ForgotPassword from "./components/log_in/LoginComponent/ForgotPassword"
 import UpdateProfile from "./components/log_in/LoginComponent/UpdateProfile"
 import { AuthProvider } from './components/log_in/contexts/AuthContext';
 import { Seeck } from './components/Seeck';
+import  Profil  from './components/Profil';
 
 
 function App() {
@@ -56,12 +57,13 @@ function App() {
                 <Route exact path="/new-volunteer" element={<NewVolunteer />} />
                 <Route exact path="/new-volunteer-details" element={<NewVolunteerDetails setShowSpinner={setShowSpinner} />} />
                 <Route exact path="/exist-volunteer" element={<ExistVolunteer />} />
-                <Route exact path="/exist-volunteer2" element={<ExistVolunteer2 setShowSpinner={setShowSpinner} />} />
+                {/* <Route exact path="/exist-volunteer2" element={<ExistVolunteer2 setShowSpinner={setShowSpinner} />} /> */}
                 <Route exact path="/patient" element={<Patient />} />
                 <Route exact path="/bookingShuttle" setShowSpinner={setShowSpinner} element={<BookingShuttle />} />
                 <Route exact path="/choose" element={<Choose />} />
                 <Route path="search" element={<Search />} />
                 <Route exact path="/seeck" element={<Seeck />} />
+                <Route exact path="/profil" element={<Profil />} />
             
               </Routes>
             </AuthProvider>

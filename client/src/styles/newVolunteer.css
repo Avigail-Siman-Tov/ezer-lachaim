@@ -6,10 +6,10 @@ body{
     height: 970px;
 }
 .label {
-    position: relative;
+    position: calc(50px,40px);
 
 }
-/* .select-items {
+.label-items {
     position: absolute;
     background-color: DodgerBlue;
     top: 100%;
@@ -23,4 +23,4 @@ body{
     border: 1px solid transparent;
     border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
     cursor: pointer;
-  } */
+  } 

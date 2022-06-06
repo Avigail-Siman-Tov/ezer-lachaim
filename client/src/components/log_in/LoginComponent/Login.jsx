@@ -56,7 +56,8 @@ export default function Login() {
               </Form.Group> */}
          <div className="inputLog">
           <Input 
-            placeholder="Email:" type="text"
+ 
+            placeholder="Email:"  type="email" name="email"
           />
           {/* <Form.Group id="password">
                 <Form.Label>Password</Form.Label>
@@ -66,21 +67,22 @@ export default function Login() {
             placeholder="Password:"  type="text"
           />
          </div>
+         
+          <button className="submitBtn" disabled={loading}>Log In</button>
           <div className="remember">
-
             <Link to="/forgot-password">שכחתי סיסמה</Link>
           </div>
-        
-          <Button disabled={loading} className="w-100" type="submit">
+          {/* <Button disabled={loading} className="w-100" type="submit">
             Log In
-          </Button>
+          </Button> */}
           {/* </Form> */}
 
         {/* </Card.Body>
       </Card> */}
-      <div className="w-100 text-center mt-2">
-        {/* Need an account? <Link to="/signup">Sign Up</Link> */}
-      </div>
+      {/* <div className="signUp">
+        אין לך חשבון? <Link to="/signup">Sign Up</Link>
+      </div> */}
+     
     </div>
     // </div>
   )

@@ -137,31 +137,33 @@
 /* margin-top: 70px; */
 /* } */
 .remember {
-  margin-top: 20px;
+  margin-top: 15px;
   color: #356d9c;
-  margin-left: 20px;
-text-align: left;
+  /* margin-left: 20px; */
+text-align: center;
+
 }
 .picprofil{
   height: 140px;
   width: 140px;
   margin-top: -600px;
   margin-right: 130px;
-  /* margin-bottom: 250px;
-} */
 }
 .inputLog{
   margin-top: 580px;
-  margin-right: 30px;
+  margin-right: 60px;
+  width: 300px;
 
 }
-/* .submitBut{
+.submitBtn{
   color: #ffffff;
   border-radius: 20px;
-  width: 80px;
+  width: 150px;
   height: 40px;
   border: solid 2px #356d9c;
   background-color:#356d9c;
-
-} */
+}
+.signUp{
+margin-top: 6px;
+}
 
