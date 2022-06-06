@@ -92,10 +92,9 @@ function NewVolunteer({ setShowSpinner }) {
                     <Input 
                         type="text"
                         value={name}
-                        placeholder="Product Name"
+                        placeholder="שם פרטי ומשפחה"
                         name="name"
                         onChange={handleChange}                   
-                        // placeholder="שם פרטי ומשפחה"
                         // hasError={inputError.nameInput}
                         // changeHandler={(name) => {
                         //     userDetails.name = name;
@@ -104,10 +103,9 @@ function NewVolunteer({ setShowSpinner }) {
                     <Input 
                         type="text"
                         value={phone}
-                        placeholder="Product Name"
+                        placeholder="טלפון/נייד"
                         name="phone"
                         onChange={handleChange}    
-                        // placeholder="טלפון/נייד"
                         // hasError={inputError.phoneNumInput}
                         // changeHandler={(phoneNum) => {
                         //     userDetails.phoneNum = phoneNum;
@@ -116,10 +114,9 @@ function NewVolunteer({ setShowSpinner }) {
                     <Input 
                         type="text"
                         value={email}
-                        placeholder="Product Name"
+                        placeholder="אימייל"
                         name="email"
                         onChange={handleChange}    
-                        // placeholder="אימייל"
                         // hasError={inputError.emailInput}
                         // changeHandler={(email) => {
                         //     userDetails.email = email;
@@ -128,10 +125,9 @@ function NewVolunteer({ setShowSpinner }) {
                     <Input
                          type="text"
                          value={password}
-                         placeholder="Product Name"
+                         placeholder="סיסמא" 
                          name="password"
                          onChange={handleChange}  
-                        // placeholder="סיסמא" 
                         // hasError={inputError.passwordInput}
                         // changeHandler={(password) => {
                         //     userDetails.password = password;
@@ -145,19 +141,97 @@ function NewVolunteer({ setShowSpinner }) {
                         //     userDetails.confirmPassword = confirmPassword;
                         // }}
                     />
-                     <Input
-                      type="text"
-                      value={city}
-                      placeholder="Product Name"
-                      name="city"
-                      onChange={handleChange}  
-                    // placeholder="עיר מגורים" 
-                    // // value={cityInput} onChange={(e) => setCityInput(e.target.value)}
-                    // hasError={inputError.cityInput}
-                    // changeHandler={(city) => {
-                    //     userDetails.city = city;
-                    // }}
-                />
+                  {/* <Input
+                    placeholder="עיר מגורים" value={cityInput} onChange={(e) => setCityInput(e.target.value)}
+                     hasError={inputError.cityInput}
+                     changeHandler={(city) => {
+                         userDetails.city = city;
+                    }}
+                /> */}
+                <div className="label" >עיר מגורים</div>
+                    <Select
+                        options={[
+                           
+                        "אום אל פחם",
+                        "אופקים",
+                        "אור יהודה",
+                        "אור עקיבא",
+                        "אילת",
+                        "אריאל",
+                        "אשדוד",
+                        "אשקלון",
+                        "באר שבע",
+                            "בית שאן",
+                            "בית שמש",
+                            "בת ים",
+                            "גבעת שמואל",
+                            "גבעתיים",
+                            "דימונה",
+                            "הוד השרון",
+                            "הרצליה",
+                            "חדרה",
+                            "חולון",
+                            "חיפה",
+                            "טבריה",
+                            "טייבה",
+                            "טירה",
+                            "טירת הכרמל",
+                            "טמרה",
+                            "יבנה",
+                            "יהוד מונסון",
+                            "יקנעם",
+                            "ירושלים",
+                            "כפר יונה","כפר סבא",
+                            "כפר קאסם",
+                           "כרמיאל",
+                           "לוד",
+                           "מגדל העמק",
+                           "מודיעין מכבים רעות",
+                           "מעלה אדומים",
+                           "מעלות תרשיחא",
+                           "נהריה",
+                           "נוף הגליל",
+                           "נס ציונה",
+                           "נצרת",
+                           "נשר",
+                           "נתיבות",
+                           "נתניה",
+                           "סח'נין",
+                           "עכו",
+                           "עפולה",
+                           "עראבה",
+                           "ערד",
+                           "פתח תקווה",
+                           "צפת",
+                           "קלנסווה",
+                           "קריית אונו",
+                           "קריית אתא",
+                           "קריית ביאליק",
+                           "קריית גת",
+                  "קריית מוצקין",
+                  "קריית מלאכי",
+                  "קריית שמונה",
+                   "ראש העין",
+                  "ראשון לציון",
+                                "רהט",
+                                "רחובות",
+                                "רמלה",
+                                "רמת גן",
+                                "רמת השרון",
+                                "רעננה",
+                                "שדרות",
+                                "שפרעם",
+                                "תל אביב יפו",
+
+                           
+                        ]}
+                        type="text"
+                        value={city}
+                        placeHolder="בחירת עיר מגורים" 
+                        name="city"
+                        onChange={handleChange}    
+                     
+                 />
                     <div className="label">איזה רכב יש ברשותך?</div>
                     <Select
                         options={[
@@ -170,10 +244,9 @@ function NewVolunteer({ setShowSpinner }) {
                         ]}
                         type="text"
                         value={carType}
-                        placeholder="Product Name"
+                        placeHolder="בחירת סוג רכב" 
                         name="carType"
-                        onChange={handleChange}  
-                        // placeHolder="בחירת סוג רכב" 
+                        onChange={handleChange} 
                         // hasError={inputError.carTypeInput}
                         // changeHandler={(carType) => {
                         //     userDetails.carType = carType;
@@ -182,10 +255,9 @@ function NewVolunteer({ setShowSpinner }) {
                     <Input 
                      type="text"
                      value={carNumber}
-                     placeholder="Product Name"
+                     placeholder="מספר רכב"
                      name="carNumber"
                      onChange={handleChange}  
-                        // placeholder="מספר רכב"
                         // hasError={inputError.carNumInput}
                         // changeHandler={(carNum) => {
                         //     userDetails.carNum = carNum;
@@ -194,10 +266,9 @@ function NewVolunteer({ setShowSpinner }) {
                     <Input 
                      type="text"
                      value={number_of_seets}
-                     placeholder="Product Name"
+                    placeholder="מספר מקומות ישיבה"
                      name="number_of_seets"
                      onChange={handleChange}  
-                        // placeholder="מספר מקומות ישיבה"
                         // hasError={inputError.carNumInput}
                         // changeHandler={(carNum) => {
                         //     userDetails.carNum = carNum;

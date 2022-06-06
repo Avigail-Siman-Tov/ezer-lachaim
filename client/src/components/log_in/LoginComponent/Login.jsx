@@ -4,8 +4,13 @@ import { useAuth } from "../contexts/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
 import Navbar from "../../Navbar";
 import "../../../styles/login.css"
-
-
+import Input from "../../../components/Input";
+// import {Navbar} from "../components/Navbar";
+// import styles from '../css/login.css'
+import { IconName } from "react-icons/di";
+import { FaHome } from "react-icons/fa";
+import { Icon } from '@iconify/react';
+// import { IoPerson } from 'react-icons/fa'
 export default function Login() {
   const emailRef = useRef()
   const passwordRef = useRef()
@@ -24,8 +29,8 @@ export default function Login() {
       setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
       navigate("/login/welcome2")
-    } 
-    catch (e){
+    }
+    catch (e) {
       setError(e.message)
     }
 
@@ -34,32 +39,49 @@ export default function Login() {
 
   return (
     <div>
-      <Navbar/>
-      <Card>
-        <Card.Body>
-          <h2 className="text-center mb-4">Log In</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
-            </Form.Group>
-            <Form.Group id="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" ref={passwordRef} required />
-            </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
-              Log In
-            </Button>
-          </Form>
-          <div className="w-100 text-center mt-3">
-            <Link to="/forgot-password">Forgot Password?</Link>
+      <Navbar />
+      {/* <div style={{ backgroundImage: "url(/image-background.jpg)", minHeight: '100%', margin: 0 }}> */}
+      <div className="form-wrapper1"></div>
+      {/* <Card>
+        <Card.Body> */}
+          <div className="picprofil">
+            <img src="/profil.png" alt="profil" />
           </div>
-        </Card.Body>
-      </Card>
+          <h2 className="text-center">Log In</h2>
+          {error && <Alert variant="danger">{error}</Alert>}
+          {/* <Form onSubmit={handleSubmit}>
+              <Form.Group id="email">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" ref={emailRef} required />
+              </Form.Group> */}
+         <div className="inputLog">
+          <Input 
+            placeholder="Email:" type="text"
+          />
+          {/* <Form.Group id="password">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" ref={passwordRef} required />
+              </Form.Group> */}
+          <Input
+            placeholder="Password:"  type="text"
+          />
+         </div>
+          <div className="remember">
+
+            <Link to="/forgot-password">שכחתי סיסמה</Link>
+          </div>
+        
+          <Button disabled={loading} className="w-100" type="submit">
+            Log In
+          </Button>
+          {/* </Form> */}
+
+        {/* </Card.Body>
+      </Card> */}
       <div className="w-100 text-center mt-2">
         {/* Need an account? <Link to="/signup">Sign Up</Link> */}
       </div>
     </div>
+    // </div>
   )
 }
