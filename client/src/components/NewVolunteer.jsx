@@ -6,6 +6,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import NewVolunteerDetails from "./NewVolunteerDetails";
 import { useState } from "react";
+import { useAuth } from "./log_in/contexts/AuthContext"
 import Navbar from "../components/Navbar";
 import { collection, doc, getDocs, query, setDoc } from "firebase/firestore";
 import { firestore } from "../firebase";
@@ -13,6 +14,7 @@ import Select from "../components/Select";
 import { FaHome } from "react-icons/fa"
 
 function NewVolunteer({ setShowSpinner }) {
+    const {signup} = useAuth();
     const newVolunteerRef = collection(firestore, "newVolunteer");
     const [inputValue, setInputValue] = useState({ name: "", phone: "", email: "", password: "", city: "", carType: "", carNumber: "", number_of_seets: "", gender: "" });
     const { name, phone, email, password, city, carType, carNumber, number_of_seets, gender } = inputValue;
@@ -39,20 +41,18 @@ function NewVolunteer({ setShowSpinner }) {
         console.log(inputValue);
       };
 
-    function sendNewVolunteer() {
-        setDoc(doc(newVolunteerRef), {
-            name: inputValue,
-            // phone:  inputValue,
-            // email:  inputValue,
-            // password:  inputValue,
-            // city:  inputValue,
-            // car_type:  inputValue,
-            // car_number:  inputValue,
-            // number_of_seets:  inputValue,
-            // gender:  inputValue
-        })
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+    async function sendNewVolunteer() {
+        try{
+        console.log("before");
+        const res = await signup(inputValue.email, inputValue.password);
+        console.log("res", res);
+        await setDoc(doc(firestore, "newVolunteer", res.user.uid), inputValue,
+        )
+            // .then(res => console.log(res))
+            // .catch(err => console.log(err));
+        } catch(err) {
+            console.log(err)
+        }
     }
     
     const [inputError, setInputError] = useState({
@@ -85,7 +85,7 @@ function NewVolunteer({ setShowSpinner }) {
     return (
         <div>
              <div className="navbar">
-                 <a href="/"> <div className="btn_home"><FaHome/>דף הבית </div></a>
+                 <a href="/"> <div className="btn_home"><FaHome/>Home </div></a>
                  <img src="/logo_ezl.png" alt="Logo image" />
             </div>
             <Navbar/>
@@ -233,8 +233,7 @@ function NewVolunteer({ setShowSpinner }) {
                         value={city}
                         placeHolder="בחירת עיר מגורים" 
                         name="city"
-                        onChange={handleChange}    
-                     
+                        onChange={handleChange}     
                  />
                     <div className="label">איזה רכב יש ברשותך?</div>
                     <Select

@@ -6,6 +6,9 @@ import Navbar from "../../Navbar";
 import "../../../styles/login.css"
 import { FaHome } from "react-icons/fa"
 import { Icon } from '@iconify/react';
+import { firestore } from "../../../firebase";
+import { collection, doc, getDocs, query, setDoc, getDoc } from "firebase/firestore";
+
 
 export default function Login() {
   const emailRef = useRef()
@@ -23,7 +26,10 @@ export default function Login() {
       setMessage("")
       setError("")
       setLoading(true)
-      await login(emailRef.current.value, passwordRef.current.value)
+      const res = await login(emailRef.current.value, passwordRef.current.value)
+      console.log(res.user.uid)
+      const volunteerRef = doc(firestore, "newVolunteer", res.user.uid);
+      const docSnap = await getDoc(volunteerRef);
       navigate("/login/welcome2")
     }
     catch (e) {
@@ -37,7 +43,7 @@ export default function Login() {
   return (
     <div>
       <div className="navbar">
-        <a href="/"> <div className="btn_home"><FaHome />דף הבית </div></a>
+        <a href="/"> <div className="btn_home"><FaHome />Home </div></a>
         <img src="/logo_ezl.png" alt="Logo image" />
       </div>
       <Navbar />

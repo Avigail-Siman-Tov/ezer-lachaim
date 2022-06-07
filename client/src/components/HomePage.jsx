@@ -53,7 +53,7 @@ export const HomePage = () => {
                     <div className="dropdown-content">
                         <a href="/welcome">מתנדב חדש</a>
                         <a href="/login">מתנדב קיים</a>
-                        <a href="/bookingShuttle">מטופל</a>
+                        <a href="/BookingShuttle">מטופל</a>
                         {/* <a href="/login">מנהל</a> */}
                     </div>
                 </div>

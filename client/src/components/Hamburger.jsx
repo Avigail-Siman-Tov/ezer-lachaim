@@ -30,9 +30,9 @@ function Hamburger() {
           <HamburgerButton.Lines />
         </HamburgerButton.Wrapper>
         <Navbar.Items ref={drawerRef} openDrawer={openDrawer}>
-          <Navbar.Item>Home</Navbar.Item>
           {/* <Navbar.Item></Navbar.Item> */}
-          <Navbar.Item>About</Navbar.Item>
+          <Navbar.Item><a href="profil"> <div className="home_hamburger"> הפרטים שלי</div></a></Navbar.Item>
+          <Navbar.Item><a href="/"> <div className="home_hamburger">Home </div></a></Navbar.Item>
         </Navbar.Items>
       </Navbar.Wrapper>
     </Styles.Wrapper>
