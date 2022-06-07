@@ -1,19 +1,15 @@
+import "../styles/box_search.css"
+import { firestore } from "../firebase";
+import Navbar from "./Navbar";
+import Hamburger from "./Hamburger";
 import "../styles/search.css"
-import { Icon } from '@iconify/react';
 import { useEffect, useState } from "react";
 import { collection, doc, getDocs, query, setDoc } from "firebase/firestore";
 // import Card from "react-bootstrap/Card";
 import { Button } from 'react-bootstrap';
 import { Card } from "react-bootstrap";
 import { React } from "react";
-import Box_search from "../components/Box_search";
-import ReportWebVitals from './ReportWebVitals';
-import "../styles/box_search.css"
-import { firestore } from "../firebase";
-import Navbar from "./Navbar";
-import Bull from "./Bull";
-import Hamburger from "./Hamburger";
-// import Bull from "./Bull";
+
 
 export const Search = () => {
 
@@ -24,12 +20,12 @@ export const Search = () => {
     const [filter, setFilter] = useState('');
 
     const callsRef = collection(firestore, "calls");
-    // const queryRef = citiesRef.where('state', '==', '');
+    // const queryRef = citiesRef.where('state', '==', ''); 
 
-    //     const querySnapshot = await db.collectionGroup('landmarks').where('type', '==', 'museum').get();
-    // querySnapshot.forEach((doc) => {
-    //   console.log(doc.id, ' => ', doc.data());
-    // });index.js
+    //     const querySnapshot = await db.collectionGroup('landmarks').where('type', '==', 'museum').get(); 
+    // querySnapshot.forEach((doc) => { 
+    //   console.log(doc.id, ' => ', doc.data()); 
+    // });index.js 
 
     async function getData() {
         const dataArray = await getDocs(query(callsRef));
@@ -39,32 +35,31 @@ export const Search = () => {
     }
 
     useEffect(() => {
-        // console.log('mounted', callData)
         return () => getData();
-    }, []) 
+    }, [])
 
-    // function myFunction() {
-    //     var x = document.getElementById("myLinks");
-    //     if (x.style.display === "block") {
-    //         x.style.display = "none";
-    //     } else {
-    //         x.style.display = "block";
-    //     }
-    // }
+    // function myFunction() { 
+    //     var x = document.getElementById("myLinks"); 
+    //     if (x.style.display === "block") { 
+    //         x.style.display = "none"; 
+    //     } else { 
+    //         x.style.display = "block"; 
+    //     } 
+    // } 
 
-    // function openRightMenu() {
-    //     document.getElementById("rightMenu").style.display = "block";
-    // }
+    // function openRightMenu() { 
+    //     document.getElementById("rightMenu").style.display = "block"; 
+    // } 
 
-    // function closeRightMenu() {
-    //     document.getElementById("rightMenu").style.display = "none";
-    // }
-    // const [inputText, setInputText] = useState("");
-    // let inputHandler = (e) => {
-    //     //convert input text to lower case
-    //     var lowerCase = e.target.value.toLowerCase();
-    //     setInputText(lowerCase);
-    // };
+    // function closeRightMenu() { 
+    //     document.getElementById("rightMenu").style.display = "none"; 
+    // } 
+    // const [inputText, setInputText] = useState(""); 
+    // let inputHandler = (e) => { 
+    //     //convert input text to lower case 
+    //     var lowerCase = e.target.value.toLowerCase(); 
+    //     setInputText(lowerCase); 
+    // }; 
 
     const searchText = (event) => {
         setFilter(event.target.value);
@@ -75,19 +70,25 @@ export const Search = () => {
             item[key].toString().toLowerCase().includes(filter.toString().toLowerCase())
         )
     })
-    // const SearchBlog=(e)=>{
-    //     e.preventDefault();
-    //     Setblogs(blogs.filter((blog)=>
-    //         blogs.Title.toLowerCase().includes(search.toLocaleLowerCase) || blogs.Body.toLowerCase().includes(search.toLocaleLowerCase)
-    //         ));
-    // };
+    // const SearchBlog=(e)=>{ 
+    //     e.preventDefault(); 
+    //     Setblogs(blogs.filter((blog)=> 
+    //         blogs.Title.toLowerCase().includes(search.toLocaleLowerCase) || blogs.Body.toLowerCase().includes(search.toLocaleLowerCase) 
+    //         )); 
+    // }; 
 
     return (
         <div>
-            <Hamburger/>
-            <Navbar/>
-            <form>
-                <input list="places" type="text" id="city" name="city" required autoComplete="off" pattern="|פתח תקווה|צפת|קנסווה|קריית ביאליק|קריית אונו|קריית מוצקין|קריית אתא|קריית גת|קריית ים| קריית שמונה|קריית מלאכי|ראש העין|ראשון לציון|רהט|רחובות|רמלה|רמת גן|רמת השרון|רעננה|שדרות|תל אביב יפו|שפרעם| עראבה|ערד|עפולה|כפר יונה|כפר סבא|כפר קאסם|כרמיאל|לוד|מגדל העמק|מודיעין מכבים רעות|אום אל פחם|אופקים|אור יהודה|אור עקיבא|אילת|אריאל|אשדוד|אשקלון|באר שבע|בית שאן|בית שמש|בת ים|גבעת שמואל|גבעתיים|דימונה|הרצליה|הוד השרון|חדרה |חולון|חיפה |טבריה|טייבה|טירה |טירת הכרמל|טמרה|יבנה|יהוד מונסון|יקנעם|ירושלים|מעלה אדומים|מעלות תרשיחא|נהריה|נתניה|נס ציונה|נוף הגליל|נצרת|נשר|נתיבות|סח'נין|עכו" />
+            <Hamburger />
+             <div className="navbar">
+                <img src="/logo_ezl.png" alt="Logo image" />
+            </div>
+            <Navbar />
+
+            <form
+            // onSubmit={(e)=>(SearchBlog(e))} 
+            >
+                <input placeholder="הזן עיר לחיפוש" list="places" type="text" id="city" name="city" value={filter} onChange={searchText.bind(this)} required autoComplete="off" pattern="|פתח תקווה|צפת|קנסווה|קריית ביאליק|קריית אונו|קריית מוצקין|קריית אתא|קריית גת|קריית ים| קריית שמונה|קריית מלאכי|ראש העין|ראשון לציון|רהט|רחובות|רמלה|רמת גן|רמת השרון|רעננה|שדרות|תל אביב |שפרעם| עראבה|ערד|עפולה|כפר יונה|כפר סבא|כפר קאסם|כרמיאל|לוד|מגדל העמק|מודיעין מכבים רעות|אום אל פחם|אופקים|אור יהודה|אור עקיבא|אילת|אריאל|אשדוד|אשקלון|באר שבע|בית שאן|בית שמש|בת ים|גבעת שמואל|גבעתיים|דימונה|הרצליה|הוד השרון|חדרה |חולון|חיפה |טבריה|טייבה|טירה |טירת הכרמל|טמרה|יבנה|יהוד מונסון|יקנעם|ירושלים|מעלה אדומים|מעלות תרשיחא|נהריה|נתניה|נס ציונה|נוף הגליל|נצרת|נשר|נתיבות|סח'נין|עכו" />
                 <datalist id="places">
                     <option>אום אל פחם</option>
                     <option>אופקים</option>
@@ -160,10 +161,10 @@ export const Search = () => {
                     <option>רעננה</option>
                     <option>שדרות</option>
                     <option>שפרעם</option>
-                    <option>תל אביב יפו</option>
+                    <option>תל אביב</option>
 
                 </datalist>
-                <button className="btn_submit">Submit</button> 
+                {/* <button className="btn_submit">Submit</button> */}
             </form>
             {/* <Bull/> */}
             {dataSearch.map((object, index) => (

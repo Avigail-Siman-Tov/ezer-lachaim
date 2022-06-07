@@ -7,15 +7,15 @@ function Navbar() {
     return (
         // <!-- סרגל עליון -->
         <div>
-            <div className="navbar">
-               {/* <a href="/"> <div className="btn_home"><FaHome/>דף הבית </div></a> */}
+            {/* <div className="navbar">
+               <a href="/"> <div className="btn_home"><FaHome/>דף הבית </div></a>
                 <img src="/logo_ezl.png" alt="Logo image" />
-            </div>
+            </div> */}
             
             {/* <!-- סרגל תחתון --> */}
             <div className="navbarr2">         
                 <div className="centered">
-                    <a href="" className="wh"><Icon icon="akar-icons:whatsapp-fill" /></a>
+                    <a href="https://wa.me/033730440" class="whatsapp_float" target="_blank" rel="noopener noreferrer" className="wh"><Icon icon="akar-icons:whatsapp-fill" /></a>
                     <a href="tel:03-3-730-440" className="ph"><Icon icon="bxs:phone" /></a>
                     <a href="mailto: info@ezla.org.il" className="ma"><Icon icon="ci:mail-open" /></a>
                     <a href="https://www.ezla.org.il/" className="si"><Icon icon="dashicons:admin-site-alt2" /></a>

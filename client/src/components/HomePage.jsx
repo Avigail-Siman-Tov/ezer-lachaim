@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react"
 import "../styles/homePage.css"
 import { Icon } from '@iconify/react';
+import Navbar from "./Navbar";
 
 const IMAGES = ["/i1.jpg", "/i2.jpg", "/i3.jpg", "/i4.jpg", "/i5.jpg", "/i6.jpg"];
 
@@ -85,16 +86,7 @@ export const HomePage = () => {
                 </div>
             </div>
 
-            {/* <!-- סרגל תחתון --> */}
-            <div className="navbarr2">         
-                <div class="centered">
-                    <a href="" class="wh"><Icon icon="akar-icons:whatsapp-fill" /></a>
-                    <a href="tel:03-3-730-440" class="ph"><Icon icon="bxs:phone" /></a>
-                    <a href="mailto: info@ezla.org.il" class="ma"><Icon icon="ci:mail-open" /></a>
-                    <a href="https://www.ezla.org.il/" class="si"><Icon icon="dashicons:admin-site-alt2" /></a>
-                    <a href="https://www.facebook.com/ezer.lahaim/" class="fa"><Icon icon="cib:facebook-f" /></a>
-                </div>
-            </div>
+            <Navbar/>
         </div>
     );
 }

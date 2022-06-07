@@ -6,6 +6,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
+import { FaHome } from "react-icons/fa"
 
 function Patient({ setShowSpinner }) {
     const [inputError, setInputError] = useState({
@@ -26,6 +27,10 @@ function Patient({ setShowSpinner }) {
     };
     return (
         <div className="img-background">
+            <div className="navbar">
+                 <a href="/"> <div className="btn_home"><FaHome/>דף הבית </div></a>
+                 <img src="/logo_ezl.png" alt="Logo image" />
+            </div>
             <Navbar/>
             <div className="form-wrapper">
                 <div className="title">טופס הצטרפות</div>

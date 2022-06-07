@@ -7,8 +7,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Select from "../components/Select";
-
-
+import { FaHome } from "react-icons/fa"
+import { Icon } from '@iconify/react';
 
 
 
@@ -41,6 +41,11 @@ function ExistVolunteer({setShowSpinner} ) {
     };
     return (
         <div className="img-background">
+            <div className="navbar">
+            {/* <FaHome/> */}
+                 <a href="/"> <div className="btn_home"><Icon icon="fa:angle-right" /> Home </div></a>
+                 <img src="/logo_ezl.png" alt="Logo image" />
+            </div>
             <Navbar/>
             <div className="form-wrapper">
                 <div className="title">הפרטים שלי:</div>

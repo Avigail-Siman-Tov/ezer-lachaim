@@ -9,6 +9,7 @@ import { useState } from "react";
 import { firestore } from "../firebase";
 import { collection, doc, getDocs, query, setDoc } from "firebase/firestore";
 import Navbar from "../components/Navbar";
+import { FaHome } from "react-icons/fa"
 
 function BookingShuttle({ setShowSpinner }) {
     // const callsRef = collection(firestore, "calls");
@@ -52,6 +53,10 @@ function BookingShuttle({ setShowSpinner }) {
 
     return (
         <div>
+            <div className="navbar">
+                 <a href="/"> <div className="btn_home"><FaHome/>דף הבית </div></a>
+                 <img src="/logo_ezl.png" alt="Logo image" />
+            </div>
             <Navbar/>
         <div className="form-wrapper img-background">
             <div className="title"> הזמנת נסיעה</div>
