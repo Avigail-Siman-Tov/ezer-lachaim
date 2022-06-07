@@ -63,8 +63,7 @@ function App() {
                 <Route exact path="/choose" element={<Choose />} />
                 <Route path="search" element={<Search />} />
                 <Route exact path="/seeck" element={<Seeck />} />
-                <Route exact path="/profil" element={<Profil />} />
-            
+                <Route exact path="/profil" element={<Profil />} />            
               </Routes>
             </AuthProvider>
           </Router>

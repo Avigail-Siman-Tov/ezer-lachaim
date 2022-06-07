@@ -3,9 +3,9 @@ import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
 import Navbar from "../../Navbar";
-// import "../../../styles/login.css"
+import "../../../styles/login.css"
 import { FaHome } from "react-icons/fa"
-
+import { Icon } from '@iconify/react';
 
 export default function Login() {
   const emailRef = useRef()
@@ -25,9 +25,10 @@ export default function Login() {
       setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
       navigate("/login/welcome2")
-    } 
-    catch (e){
-      setError(e.message)
+    }
+    catch (e) {
+      setError("סיסמא לא חוקית או משתמש לא קיים במערכת")
+      // setError(e.message)
     }
 
     setLoading(false)
@@ -39,31 +40,39 @@ export default function Login() {
         <a href="/"> <div className="btn_home"><FaHome />דף הבית </div></a>
         <img src="/logo_ezl.png" alt="Logo image" />
       </div>
-      <Navbar/>
-      <Card>
-        <Card.Body>
-          <h2 className="text-center mb-4">Log In</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
-            </Form.Group>
-            <Form.Group id="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" ref={passwordRef} required />
-            </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
-              Log In
-            </Button>
-          </Form>
-          <div className="w-100 text-center mt-3">
-            <Link to="/forgot-password">Forgot Password?</Link>
-          </div>
-        </Card.Body>
-      </Card>
-      <div className="w-100 text-center mt-2">
-        {/* Need an account? <Link to="/signup">Sign Up</Link> */}
+      <Navbar />
+      <div className="allLogin">
+        <Icon className="profileImg" icon="healthicons:ui-user-profile" color="#6c6c6c" />      <Card>
+          <Card.Body>
+            <h2 className="enter">שלום!</h2>
+            <h4 className="enter">נא להקיש כתובת מייל וסיסמא להתחברות</h4>
+            {error && <Alert variant="danger">{error}</Alert>}
+            <Form onSubmit={handleSubmit}>
+              <Form.Group id="email">
+                {/* <Form.Label>Email</Form.Label> */}
+                <br />
+                {/* <br /> */}
+                <Icon icon="bxs:lock" color="#6c6c6c" />
+                <input className="designInput" placeholder="Enter your email" type="email" ref={emailRef} required />
+              </Form.Group>
+              <Form.Group id="password">
+                {/* <Form.Label>Password</Form.Label> */}
+                <Icon icon="bi:person" color="#6c6c6c" />
+                <input className="designInput" placeholder="Enter your password" type="password" ref={passwordRef} required />
+              </Form.Group>
+              <div className="remmeber">
+                <Link to="/forgot-password">?forget password</Link>
+              </div>
+              <button disabled={loading} className="submitBtn" type="submit">
+                Log In
+              </button>
+            </Form>
+
+          </Card.Body>
+        </Card>
+        {/* <div className="w-100 text-center mt-2">
+            Need an account? <Link to="/signup">Sign Up</Link>
+          </div> */}
       </div>
     </div>
   )

@@ -104,7 +104,7 @@
     
   }
    */
-.form-wrapper1 {
+/* .form-wrapper1 {
   height: 830px;
   width: 70px;
 }
@@ -112,10 +112,8 @@
 .text-center {
   text-align: center;
   margin-top: -600px;
-  /* margin-bottom: -150px; */
   margin-left: auto;
-  /* background-color: red; */
-}
+} */
 
 /* .email {
   outline: none;
@@ -136,14 +134,14 @@
   /* background-color: red; */
 /* margin-top: 70px; */
 /* } */
-.remember {
+
+
+/* .remember {
   margin-top: 15px;
   color: #356d9c;
-  /* margin-left: 20px; */
 text-align: center;
-
-}
-.picprofil{
+} */
+/* .picprofil{
   height: 140px;
   width: 140px;
   margin-top: -600px;
@@ -154,16 +152,67 @@ text-align: center;
   margin-right: 60px;
   width: 300px;
 
+} */
+.enter{
+  color: #356d9c;
 }
 .submitBtn{
   color: #ffffff;
   border-radius: 20px;
-  width: 150px;
+  width: 250px;
   height: 40px;
   border: solid 2px #356d9c;
   background-color:#356d9c;
+  margin: 15px;
 }
-.signUp{
-margin-top: 6px;
+a {
+  color: #356d9c;
+}
+a:link {
+  text-decoration: none;
 }
 
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+.designInput {
+  all:unset;
+  width: 250px;
+  padding: 10px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid #356d9c;
+}
+
+.profileImg {
+  width: 120px;
+  height: 120px;
+}
+/* .remmeber {
+  text-align: right;
+} */
+
+.allLogin {
+margin-top: 70px;
+}
+
+input[type="email"] {
+  text-align: left;
+}
+input[type="password"] {
+  text-align: left;
+}
+
+.remmeber {
+  margin-left: 150px;
+}

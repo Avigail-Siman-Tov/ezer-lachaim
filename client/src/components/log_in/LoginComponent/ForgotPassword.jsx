@@ -2,6 +2,9 @@ import React, { useRef, useState } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { Link } from "react-router-dom"
+import Navbar from "../../Navbar";
+import { FaHome } from "react-icons/fa"
+import "../../../styles/login.css"
 
 export default function ForgotPassword() {
   const emailRef = useRef()
@@ -18,8 +21,8 @@ export default function ForgotPassword() {
       setError("")
       setLoading(true)
       await resetPassword(emailRef.current.value)
-      setMessage("Check your inbox for further instructions")
-    } catch(e) {
+      setMessage("בדוק את תיבת הדואר הנכנס שלך להנחיות נוספות")
+    } catch (e) {
       setError(e.message)
     }
 
@@ -28,27 +31,35 @@ export default function ForgotPassword() {
 
   return (
     <>
-      <Card>
-        <Card.Body>
-          <h2 className="text-center mb-4">Password Reset</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
-          {message && <Alert variant="success">{message}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
-            </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
-              Reset Password
-            </Button>
-          </Form>
-          <div className="w-100 text-center mt-3">
-            <Link to="/login">Login</Link>
-          </div>
-        </Card.Body>
-      </Card>
-      <div className="w-100 text-center mt-2">
-        {/* Need an account? <Link to="/signup">Sign Up</Link> */}
+      <div className="navbar">
+        <a href="/"> <div className="btn_home"><FaHome />דף הבית </div></a>
+        <img src="/logo_ezl.png" alt="Logo image" />
+      </div>
+      <Navbar />
+      <div className="allLogin">
+        <Card>
+          <Card.Body>
+            <h2 className="enter">עדכון סיסמא</h2>
+            {error && <Alert variant="danger">{error}</Alert>}
+            {message && <Alert variant="success">{message}</Alert>}
+            <Form onSubmit={handleSubmit}>
+              <Form.Group id="email">
+                {/* <Form.Label>Email</Form.Label> */}
+                <input className="designInput" placeholder="Enter your email" type="email" ref={emailRef} required />
+                {/* <Form.Control type="email" ref={emailRef} required /> */}
+              </Form.Group>
+              <Button disabled={loading} className="submitBtn" type="submit">
+                Reset Password
+              </Button>
+            </Form>
+            <div className="w-100 text-center mt-3">
+              <Link to="/login">Login</Link>
+            </div>
+          </Card.Body>
+        </Card>
+        <div className="w-100 text-center mt-2">
+          {/* Need an account? <Link to="/signup">Sign Up</Link> */}
+        </div>
       </div>
     </>
   )

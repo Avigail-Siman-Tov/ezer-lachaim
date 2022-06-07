@@ -18,6 +18,5 @@
     color: var(--e-global-color-6fff166d);
 }
 .error::placeholder{
-    color: var(--e-global-color-6fff166d);
-    
+    color: var(--e-global-color-6fff166d);    
 }
