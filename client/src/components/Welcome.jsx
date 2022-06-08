@@ -34,7 +34,7 @@ export const Welcome = () => {
       <Navbar />
       <div>
         <div id="tsparticles"></div>
-        <div class="text">
+        <div className="text">
           ברוך בואך!
         </div>
       </div>

@@ -170,7 +170,7 @@ export const Search = () => {
             {dataSearch.map((object, index) => (
                 <div className="req" key={index}>
                     <div>
-                        {object.source + " " + object.destination + " " + object.city + " " + object.date + " " + object.gender + " " + object.number_of_passengers + " " + object.car_type}
+                        {object.address_source + " " + object.address_destination + " " + object.city + " " + object.date + " " + object.gender + " " + object.number_of_passengers + " " + object.car_type}
                     </div>
                     {/* <div>{object.source}</div> */}
                 </div>

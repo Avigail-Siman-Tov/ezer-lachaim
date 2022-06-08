@@ -12,7 +12,7 @@ export const Welcome2 = () => {
             </div>
       <Navbar />
       <div>
-        <div class="text">
+        <div className="text">
           ברוך בואך!
         </div>
       </div>

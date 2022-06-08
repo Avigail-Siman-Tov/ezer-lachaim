@@ -15,7 +15,7 @@ export const Choose = () => {
                 <div className="picture1">
                     {/* <Icon icon="healthicons:ui-user-profile-negative" color="#356d9c" className="profil" /> */}
                     <img src="profil.png" alt="logo" />
-                    <button class="btnTravel">להזנת נתונים אישיים</button>
+                    <button className="btnTravel">להזנת נתונים אישיים</button>
                 </div>
             </div>
 

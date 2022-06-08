@@ -16,8 +16,8 @@ import { FaHome } from "react-icons/fa"
 function NewVolunteer({ setShowSpinner }) {
     const {signup} = useAuth();
     const newVolunteerRef = collection(firestore, "newVolunteer");
-    const [inputValue, setInputValue] = useState({ name: "", phone: "", email: "", password: "", city: "", carType: "", carNumber: "", number_of_seets: "", gender: "" });
-    const { name, phone, email, password, city, carType, carNumber, number_of_seets, gender } = inputValue;
+    const [inputValue, setInputValue] = useState({ name: "", phone: "", email: "", password: "", city: "", carType: "", carNumber: "", number_of_seets: "", gender: "",remarks: "" });
+    const { name, phone, email, password, city, carType, carNumber, number_of_seets, gender,remarks } = inputValue;
     
     // const [callData, setCallData] = useState([]);
     //  const [newVolunteerData, setnewVolunteerData] = useState([]);
@@ -279,7 +279,13 @@ function NewVolunteer({ setShowSpinner }) {
                     />
                     <Select options={["אשה", "גבר"]} placeHolder="מגדר" />
 
-                    <Input placeholder="הערות" />
+                    <Input 
+                    type="text"
+                    value={remarks}
+                    placeholder="הערות" 
+                    name="remarks"
+                    onChange={handleChange}  
+                    />
                      {/* value={genderInput} onChange={(e) => setGenderInput(e.target.value)}  */}
                     {/* <button onClick={sendNewVolunteer}>send</button> */}
                     <Link to="/new-volunteer">

@@ -12,128 +12,246 @@ import Navbar from "../components/Navbar";
 import { FaHome } from "react-icons/fa"
 
 function BookingShuttle({ setShowSpinner }) {
-    // const callsRef = collection(firestore, "calls");
-    // const [inputValue_city, setInputValue_city] = useState("");
-    // const [inputValue_source, setInputValue_source] = useState("");
-    // const [inputValue_destination, setInputValue_destination] = useState("");
-    // const [inputValue_date, setInputValue_date] = useState("");
-    // const [inputValue_gender, setInputValue_gender] = useState("");
-    // const [inputValue_number_of_passengers, setInputValue_number_of_passengers] = useState("");
-    // const [inputValue_car_type, setInputValue_car_type] = useState("");
-
-    // function sendCall() {
-    //     setDoc(doc(callsRef), {
-    //         city: inputValue_city,
-    //         source: inputValue_source,
-    //         destination: inputValue_destination,
-    //         date: inputValue_date,
-    //         gender: inputValue_gender,
-    //         number_of_passengers: inputValue_number_of_passengers,
-    //         car_type: inputValue_car_type
-    //     })
-    //         .then(res => console.log(res))
-    //         .catch(err => console.log(err));
-    // }
-    const [inputError, setInputError] = useState({
-        carTypeInput: false,
-        seatsNumInput: false,
-        startingPointInput: false,
-        destinationAddressInput: false,
-        dateInput: false,
-        sexInput: false,
-    });
-    const userDetails = {
-        carType: "",
-        seatsNum: 0,
-        startingPoint: "",
-        destinationAddress: "",
-        date: "",
-        sex: "",
+    const callsRef = collection(firestore, "calls");
+    const [inputValue, setInputValue] = useState({ name: "", phone: "", city: "", address_source: "", address_destination: "", date: "", gender: "", number_of_passengers: "", carType: "" });
+    const { name, phone, city, address_source, address_destination, date, gender, number_of_passengers, carType } = inputValue;
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setInputValue((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+        console.log(inputValue);
     };
+    function sendCall() {
+        setDoc(doc(callsRef), inputValue, {
+        })
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    }
+    // const [inputError, setInputError] = useState({
+    //     carTypeInput: false,
+    //     seatsNumInput: false,
+    //     startingPointInput: false,
+    //     destinationAddressInput: false,
+    //     dateInput: false,
+    //     sexInput: false,
+    // });
+    // const userDetails = {
+    //     carType: "",
+    //     seatsNum: 0,
+    //     startingPoint: "",
+    //     destinationAddress: "",
+    //     date: "",
+    //     sex: "",
+    // };
 
     return (
         <div>
             <div className="navbar">
-                 <a href="/"> <div className="btn_home"><FaHome/>Home </div></a>
-                 <img src="/logo_ezl.png" alt="Logo image" />
+                <a href="/"> <div className="btn_home"><FaHome />Home </div></a>
+                <img src="/logo_ezl.png" alt="Logo image" />
             </div>
-            <Navbar/>
-        <div className="form-wrapper img-background">
-            <div className="title"> הזמנת נסיעה</div>
-            <div className="label">איזה רכב תצטרכו להסעה?</div>
-            {
+            <Navbar />
+            <div className="form-wrapper img-background">
+                <div className="title"> הזמנת נסיעה</div>
+                <Input
+                    type="text"
+                    value={name}
+                    name="name"
+                    onChange={handleChange}
+                    placeholder="שם פרטי ומשפחה"
+                />
+                <Input
+                    type="text"
+                    value={phone}
+                    placeholder="טלפון/נייד"
+                    name="phone"
+                    onChange={handleChange}
+                />
+                <div className="label">איזה רכב תצטרכו להסעה?</div>
+                {
+                    <Select
+                        options={[
+                            "רכב פרטי",
+                            "רכב מסחרי",
+                            "רכה נכה",
+                            "משאית",
+                            "דו גלגלי",
+                            "אוטובוס",
+                        ]}
+                        type="text"
+                        value={carType}
+                        placeHolder="בחירת סוג רכב"
+                        name="carType"
+                        onChange={handleChange}
+                    // hasError={inputError.carTypeInput}
+                    // changeHandler={(carType) => {
+                    //     userDetails.carType = carType;
+                    // }}
+                    />
+                }
+                <div className="label" >עיר מגורים</div>
                 <Select
                     options={[
-                        "רכב פרטי",
-                        "רכב מסחרי",
-                        "רכה נכה",
-                        "משאית",
-                        "דו גלגלי",
-                        "אוטובוס",
-                        "לא משנה לי",
+
+                        "אום אל פחם",
+                        "אופקים",
+                        "אור יהודה",
+                        "אור עקיבא",
+                        "אילת",
+                        "אריאל",
+                        "אשדוד",
+                        "אשקלון",
+                        "באר שבע",
+                        "בית שאן",
+                        "בית שמש",
+                        "בת ים",
+                        "גבעת שמואל",
+                        "גבעתיים",
+                        "דימונה",
+                        "הוד השרון",
+                        "הרצליה",
+                        "חדרה",
+                        "חולון",
+                        "חיפה",
+                        "טבריה",
+                        "טייבה",
+                        "טירה",
+                        "טירת הכרמל",
+                        "טמרה",
+                        "יבנה",
+                        "יהוד מונסון",
+                        "יקנעם",
+                        "ירושלים",
+                        "כפר יונה", "כפר סבא",
+                        "כפר קאסם",
+                        "כרמיאל",
+                        "לוד",
+                        "מגדל העמק",
+                        "מודיעין מכבים רעות",
+                        "מעלה אדומים",
+                        "מעלות תרשיחא",
+                        "נהריה",
+                        "נוף הגליל",
+                        "נס ציונה",
+                        "נצרת",
+                        "נשר",
+                        "נתיבות",
+                        "נתניה",
+                        "סח'נין",
+                        "עכו",
+                        "עפולה",
+                        "עראבה",
+                        "ערד",
+                        "פתח תקווה",
+                        "צפת",
+                        "קלנסווה",
+                        "קריית אונו",
+                        "קריית אתא",
+                        "קריית ביאליק",
+                        "קריית גת",
+                        "קריית מוצקין",
+                        "קריית מלאכי",
+                        "קריית שמונה",
+                        "ראש העין",
+                        "ראשון לציון",
+                        "רהט",
+                        "רחובות",
+                        "רמלה",
+                        "רמת גן",
+                        "רמת השרון",
+                        "רעננה",
+                        "שדרות",
+                        "שפרעם",
+                        "תל אביב יפו",
+
+
                     ]}
-                    placeHolder="בחירת סוג רכב"
+                    type="text"
+                    value={city}
+                    placeHolder="בחירת עיר מגורים"
+                    name="city"
+                    onChange={handleChange}
                 />
-            }
-            <Input
-                placeholder=" מספר מקומות ישיבה להסעה"
-                hasError={inputError.seatsNumInput}
-                changeHandler={(seatsNum) => {
-                    userDetails.seatsNum = seatsNum;
-                }}
-            />
-            <Input
-                placeholder="מיקומך הנוכחי"
-                hasError={inputError.startingPointInput}
-                changeHandler={(startingPoint) => {
-                    userDetails.startingPoint = startingPoint;
-                }}
-            />
-            <Input
-                placeholder="כתובת יעד"
-                hasError={inputError.destinationAddressInput}
-                changeHandler={(destinationAddress) => {
-                    userDetails.destinationAddress = destinationAddress;
-                }}
-            />
-            <div className="label">בחירת תאריך לנסיעה:</div>
-            <Input
-                type="date"
-                hasError={inputError.dateInput}
-                changeHandler={(date) => {
-                    userDetails.date = date;
-                }}
-            />
-            <Select
-                options={["אשה", "גבר", "לא משנה לי"]}
-                placeHolder="?האם ישנה העדפה למגדר המתנדב"
-            />
-            <div className="btn-wrapper">
-                <Link to="/BookingShuttle">
-                    <Button
-                        text="שלח"
-                        clickHandler={() => {
-                            // Object.keys(inputError).forEach((key) => {
-                            //     inputError[key] = userDetails[]
-                            // })
-                            setInputError({
-                                ...inputError,
-                                carTypeInput: !userDetails.carType,
-                                seatsNumInput: !userDetails.seatsNum,
-                                startingPointInput: !userDetails.startingPoint,
-                                destinationAddressInput:
-                                    !userDetails.destinationAddress,
-                                dateInput: !userDetails.date,
-                                sexInput: !userDetails.sex,
-                            });
-                            setShowSpinner(true);
-                            setTimeout(setShowSpinner.bind("", false), 3000);
-                            //TODO - http- backend (userDetails)
-                        }}
-                    />
-                </Link>
+                <Input
+                    type="text"
+                    value={address_source}
+                    placeholder="כתובת מקור"
+                    name="address_source"
+                    onChange={handleChange}
+                // hasError={inputError.startingPointInput}
+                // changeHandler={(startingPoint) => {
+                //     userDetails.startingPoint = startingPoint;
+                // }}
+                />
+                <Input
+                    type="text"
+                    value={address_destination}
+                    name="address_destination"
+                    onChange={handleChange}
+                    placeholder="כתובת יעד"
+                // hasError={inputError.destinationAddressInput}
+                // changeHandler={(destinationAddress) => {
+                //     userDetails.destinationAddress = destinationAddress;
+                // }}
+                />
+                <Input
+                    type="text"
+                    value={number_of_passengers}
+                    name="number_of_passengers"
+                    onChange={handleChange}
+                    placeholder=" מספר מקומות ישיבה להסעה"
+                // hasError={inputError.seatsNumInput}
+                // changeHandler={(seatsNum) => {
+                //     userDetails.seatsNum = seatsNum;
+                // }}
+                />
+
+                <div className="label">בחירת תאריך לנסיעה:</div>
+                <Input
+                    type="date"
+                    value={date}
+                    name="date"
+                    onChange={handleChange}
+                    placeholder=" מספר מקומות ישיבה להסעה"
+                // hasError={inputError.dateInput}
+                // changeHandler={(date) => {
+                //     userDetails.date = date;
+                // }}
+                />
+                <Select
+                    options={["אשה", "גבר", "לא משנה לי"]}
+                    placeHolder="?האם ישנה העדפה למגדר המתנדב"
+                />
+
+                <div className="btn-wrapper">
+                    <Link to="/BookingShuttle">
+                        <Button
+                            text="שלח"
+                            clickHandler={() => {
+                                // Object.keys(inputError).forEach((key) => {
+                                //     inputError[key] = userDetails[]
+                                // })
+                                // setInputError({
+                                //     ...inputError,
+                                //     carTypeInput: !userDetails.carType,
+                                //     seatsNumInput: !userDetails.seatsNum,
+                                //     startingPointInput: !userDetails.startingPoint,
+                                //     destinationAddressInput:
+                                //         !userDetails.destinationAddress,
+                                //     dateInput: !userDetails.date,
+                                //     sexInput: !userDetails.sex,
+                                // });
+                                // setShowSpinner(true);
+                                // setTimeout(setShowSpinner.bind("", false), 3000);
+                                //TODO - http- backend (userDetails)
+                            }}
+                        />
+                    </Link>
+                    <button onClick={sendCall}>send</button>
+                </div>
             </div>
-        </div>
         </div>
     );
 }
