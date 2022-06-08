@@ -7,16 +7,26 @@ import NewVolunteerDetails from "./NewVolunteerDetails";
 import { useState } from "react";
 import { useAuth } from "./log_in/contexts/AuthContext"
 import Navbar from "../components/Navbar";
-import { collection, doc, getDocs, query, setDoc } from "firebase/firestore";
+import { collection, doc, setDoc } from "firebase/firestore";
 import { firestore } from "../firebase";
 import Select from "../components/Select";
 import { FaHome } from "react-icons/fa"
+// import { useRef, useState } from "react"
+// import { useNavigate } from "react-router-dom"
+
 
 function NewVolunteer({ setShowSpinner }) {
     const {signup} = useAuth();
     const newVolunteerRef = collection(firestore, "newVolunteer");
-    const [inputValue, setInputValue] = useState({ name: "", phone: "", email: "", password: "", city: "", carType: "", carNumber: "", number_of_seets: "", gender: "",remarks: "" });
-    const { name, phone, email, password, city, carType, carNumber, number_of_seets, gender,remarks } = inputValue;
+    const [inputValue, setInputValue] = useState({ name: "", phone: "", email: "", password: "", confirm_password: "", city: "", carType: "", carNumber: "", number_of_seets: "", gender: "",remarks: "" });
+    const { name, phone, email, password,confirm_password, city, carType, carNumber, number_of_seets, gender,remarks } = inputValue;
+
+    // const emailRef = useRef()
+    // const passwordRef = useRef()
+    // const passwordConfirmRef = useRef()
+    // const [error, setError] = useState("")
+    // const [loading, setLoading] = useState(false)
+    // const navigate = useNavigate()
     
     const handleChange = (e) => {
         const { name, value} = e.target;
@@ -37,6 +47,15 @@ function NewVolunteer({ setShowSpinner }) {
         } catch(err) {
             console.log(err)
         }
+    }
+   
+    async function handleSubmit() {
+        console.log("I am here")
+        // e.preventDefault()
+        if (inputValue.password !== inputValue.confirm_password) {
+          console.log("Passwords do not match")
+        }
+        // setLoading(false)
     }
     
     const [inputError, setInputError] = useState({
@@ -76,7 +95,6 @@ function NewVolunteer({ setShowSpinner }) {
             <div>
                 <div className="form-wrapper">
                     <div className="title">טופס הצטרפות למתנדבים</div>
-                
                     <Input 
                         type="text"
                         value={name}
@@ -111,7 +129,7 @@ function NewVolunteer({ setShowSpinner }) {
                         // }}
                     />
                     <Input
-                         type="text"
+                         type="password"
                          value={password}
                          placeholder="סיסמא" 
                          name="password"
@@ -122,8 +140,13 @@ function NewVolunteer({ setShowSpinner }) {
                         // }}
                     />
                     <Input
-                         
-                        placeholder="אימות סיסמא"
+                    type="password"
+                    // value={confirm_password}
+                    placeholder="אימות סיסמא"
+                    name="confirm_password"
+                    onChange={handleChange}  
+                    onSubmit={handleSubmit}
+                        // onChange={handleSubmit} 
                         // hasError={inputError.confirmPasswordInput}
                         // changeHandler={(confirmPassword) => {
                         //     userDetails.confirmPassword = confirmPassword;

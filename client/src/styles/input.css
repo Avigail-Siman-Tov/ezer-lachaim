@@ -27,3 +27,6 @@
 .input :hover{
     border-color: black;
 }
+.input[type=password]{
+    text-align: right;
+}

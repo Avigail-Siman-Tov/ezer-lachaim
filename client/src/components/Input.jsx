@@ -1,6 +1,6 @@
 import "../styles/input.css";
 
-function Input({ value, label, name, placeholder, type, onChange,hasError }) {
+function Input({ value, name, placeholder, type, onChange,hasError }) {
     return (
         <input
             type={type}
