@@ -1,5 +1,3 @@
-
-
 const ImgUpload = ({
     onChange,
     src

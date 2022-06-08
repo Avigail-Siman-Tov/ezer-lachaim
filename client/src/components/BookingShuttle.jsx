@@ -1,4 +1,3 @@
-import GenericForm from "../components/Generic-form";
 import "../styles/newVolunteer.css";
 import Input from "../components/Input";
 import Button from "../components/Button";
@@ -7,7 +6,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { firestore } from "../firebase";
-import { collection, doc, getDocs, query, setDoc } from "firebase/firestore";
+import { collection, doc, setDoc } from "firebase/firestore";
 import Navbar from "../components/Navbar";
 import { FaHome } from "react-icons/fa"
 
@@ -229,27 +228,27 @@ function BookingShuttle({ setShowSpinner }) {
                     <Link to="/BookingShuttle">
                         <Button
                             text="שלח"
-                            clickHandler={() => {
-                                // Object.keys(inputError).forEach((key) => {
-                                //     inputError[key] = userDetails[]
-                                // })
-                                // setInputError({
-                                //     ...inputError,
-                                //     carTypeInput: !userDetails.carType,
-                                //     seatsNumInput: !userDetails.seatsNum,
-                                //     startingPointInput: !userDetails.startingPoint,
-                                //     destinationAddressInput:
-                                //         !userDetails.destinationAddress,
-                                //     dateInput: !userDetails.date,
-                                //     sexInput: !userDetails.sex,
-                                // });
-                                // setShowSpinner(true);
-                                // setTimeout(setShowSpinner.bind("", false), 3000);
-                                //TODO - http- backend (userDetails)
-                            }}
+                            onClick={sendCall}
+                            // clickHandler={() => {
+                            //     Object.keys(inputError).forEach((key) => {
+                            //         inputError[key] = userDetails[]
+                            //     })
+                            //     setInputError({
+                            //         ...inputError,
+                            //         carTypeInput: !userDetails.carType,
+                            //         seatsNumInput: !userDetails.seatsNum,
+                            //         startingPointInput: !userDetails.startingPoint,
+                            //         destinationAddressInput:
+                            //             !userDetails.destinationAddress,
+                            //         dateInput: !userDetails.date,
+                            //         sexInput: !userDetails.sex,
+                            //     });
+                            //     setShowSpinner(true);
+                            //     setTimeout(setShowSpinner.bind("", false), 3000);
+                            //     TODO - http- backend (userDetails)
+                            // }}
                         />
                     </Link>
-                    <button onClick={sendCall}>send</button>
                 </div>
             </div>
         </div>

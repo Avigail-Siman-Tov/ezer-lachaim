@@ -166,13 +166,11 @@ export const Search = () => {
                 </datalist>
                 {/* <button className="btn_submit">Submit</button> */}
             </form>
-            {/* <Bull/> */}
             {dataSearch.map((object, index) => (
                 <div className="req" key={index}>
                     <div>
                         {object.address_source + " " + object.address_destination + " " + object.city + " " + object.date + " " + object.gender + " " + object.number_of_passengers + " " + object.car_type}
                     </div>
-                    {/* <div>{object.source}</div> */}
                 </div>
             ))}
         </div>

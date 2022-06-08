@@ -1,4 +1,3 @@
-import GenericForm from "../components/Generic-form";
 import "../styles/newVolunteer.css";
 import Input from "../components/Input";
 import Button from "../components/Button";
@@ -19,19 +18,6 @@ function NewVolunteer({ setShowSpinner }) {
     const [inputValue, setInputValue] = useState({ name: "", phone: "", email: "", password: "", city: "", carType: "", carNumber: "", number_of_seets: "", gender: "",remarks: "" });
     const { name, phone, email, password, city, carType, carNumber, number_of_seets, gender,remarks } = inputValue;
     
-    // const [callData, setCallData] = useState([]);
-    //  const [newVolunteerData, setnewVolunteerData] = useState([]);
-
-    // const [nameInput, setNameInput] = useState("");
-    // const [phoneNumInput, setPhoneNumInput] = useState("");
-    // const [emailInput, setEmailInput] = useState("");
-    // const [passwordInput, setPasswordInput] = useState("");
-    // const [cityInput, setCityInput] = useState("");
-    // const [carTypeInput, setCarTypeInput] = useState("");
-    // const [carNumInput, setCarNumInput] = useState("");
-    // const [seatsNumInput, setSeatsNumInput] = useState("");
-    // const [genderInput, setGenderInput] = useState("");
-
     const handleChange = (e) => {
         const { name, value} = e.target;
         setInputValue((prev) => ({
@@ -48,8 +34,6 @@ function NewVolunteer({ setShowSpinner }) {
         console.log("res", res);
         await setDoc(doc(firestore, "newVolunteer", res.user.uid), inputValue,
         )
-            // .then(res => console.log(res))
-            // .catch(err => console.log(err));
         } catch(err) {
             console.log(err)
         }
@@ -286,32 +270,26 @@ function NewVolunteer({ setShowSpinner }) {
                     name="remarks"
                     onChange={handleChange}  
                     />
-                     {/* value={genderInput} onChange={(e) => setGenderInput(e.target.value)}  */}
-                    {/* <button onClick={sendNewVolunteer}>send</button> */}
                     <Link to="/new-volunteer">
                             <Button
                                 text="שלח"
-                                clickHandler={() => {
-                                    setInputError({
-                                        ...inputError,
-                                        cityInput: !userDetails.city,
-                                        carTypeInput: !userDetails.carType,
-                                        carNumInput: !userDetails.carNumber,
-                                        seatsNumInput: !userDetails.seatsNum,
-                                        sexInput: !userDetails.sex,
-                                    });
-                                    setShowSpinner(true);
-                                    setTimeout(setShowSpinner.bind("", false), 3000);
-                                }}
+                                onClick={sendNewVolunteer}
+                                // clickHandler={() => {
+                                //     setInputError({
+                                //         ...inputError,
+                                //         cityInput: !userDetails.city,
+                                //         carTypeInput: !userDetails.carType,
+                                //         carNumInput: !userDetails.carNumber,
+                                //         seatsNumInput: !userDetails.seatsNum,
+                                //         sexInput: !userDetails.sex,
+                                //     });
+                                //     setShowSpinner(true);
+                                //     setTimeout(setShowSpinner.bind("", false), 3000);
+                                // }}
                             />
                         </Link>
-
-                        <button onClick={sendNewVolunteer}>send</button>
                          {/* /> */}
-                        {/* <input type="text" value={nameInput} onChange={(e) => setNameInput(e.target.value)} /> */}
-                        {/* <input type="text" value={phoneNumInput} onChange={(e) => setPhoneNumInput(e.target.value)} /> */}
-                        {/* <input type="text" value={emailInput} onChange={(e) => setEmailInput(e.target.value)} /> */}
-                        {/* <input type="text" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} /> */}
+                      
 
                         {/* // <Link to="/new-volunteer-details">
                     //     <Button 

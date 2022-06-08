@@ -1,10 +1,10 @@
 import '../styles/button.css';
 
 
-function Button({text, clickHandler }){
+function Button({text, onClick }){
    
     return (
-    <button className='btn'  onClick={clickHandler}>
+    <button className='btn'  onClick={onClick}>
         {text}
     </button>
     );
