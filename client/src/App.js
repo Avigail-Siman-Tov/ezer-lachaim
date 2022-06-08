@@ -17,7 +17,6 @@ import Spinner from "./components/Spinner";
 import {Welcome} from './components/Welcome';
 import {Welcome2} from './components/Welcome2';
 import {Choose} from './components/Choose';
-// import { Navbar } from "./components/navbar";
 
 
 import Signup from "./components/log_in/LoginComponent/Signup"

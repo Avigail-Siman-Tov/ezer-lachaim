@@ -2,7 +2,7 @@ import "../styles/newVolunteer.css";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 import NewVolunteerDetails from "./NewVolunteerDetails";
 import { useState } from "react";
 import { useAuth } from "./log_in/contexts/AuthContext"

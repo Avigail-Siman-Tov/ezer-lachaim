@@ -1,5 +1,4 @@
 import "../styles/choose.css"
-import { Icon } from '@iconify/react';
 import Navbar from "./Navbar";
 
 export const Choose = () => {

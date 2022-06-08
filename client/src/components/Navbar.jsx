@@ -1,6 +1,4 @@
 import '../styles/navbar.css'
-import { IconName } from "react-icons/di";
-// import { FaHome } from "react-icons/fa";
 import { Icon } from '@iconify/react';
 
 function Navbar() {

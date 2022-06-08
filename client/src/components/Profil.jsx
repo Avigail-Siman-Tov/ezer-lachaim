@@ -1,16 +1,9 @@
 import "../styles/profil.css";
-// import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import { collection, doc, getDocs, query, setDoc, getDoc } from "firebase/firestore";
-import { firestore } from "../firebase";
-import Select from "../components/Select";
 import { FaHome } from "react-icons/fa"
 import { Icon } from '@iconify/react';
 import React, { useRef, useState } from "react"
-import { useAuth } from "../contexts/AuthContext"
-import { useNavigate } from "react-router-dom"
-
 
 
 function Profil() {

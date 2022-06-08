@@ -1,6 +1,5 @@
 import '../styles/button.css';
 
-
 function Button({text, onClick }){
    
     return (

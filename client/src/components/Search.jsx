@@ -5,9 +5,6 @@ import Hamburger from "./Hamburger";
 import "../styles/search.css"
 import { useEffect, useState } from "react";
 import { collection, doc, getDocs, query, setDoc } from "firebase/firestore";
-// import Card from "react-bootstrap/Card";
-import { Button } from 'react-bootstrap';
-import { Card } from "react-bootstrap";
 import { React } from "react";
 
 

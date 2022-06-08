@@ -1,10 +1,7 @@
 import "../styles/search.css"
-import { Icon } from '@iconify/react';
 import { useEffect, useState } from "react";
 import { collection, doc, getDocs, query, setDoc } from "firebase/firestore";
 // import Card from "react-bootstrap/Card";
-import { Button } from 'react-bootstrap';
-import { Card } from "react-bootstrap"
 import Navbar from "../components/Navbar";
 
 import { firestore } from "../firebase";

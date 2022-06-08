@@ -1,4 +1,3 @@
-import GenericForm from "../components/Generic-form";
 import "../styles/newVolunteer.css";
 import Input from "../components/Input";
 import Button from "../components/Button";

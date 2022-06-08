@@ -1,4 +1,3 @@
-import GenericForm from "../components/Generic-form";
 import "../styles/newVolunteer.css";
 import Input from "../components/Input";
 import Button from "../components/Button";
@@ -8,9 +7,6 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Select from "../components/Select";
 import { FaHome } from "react-icons/fa"
-import { Icon } from '@iconify/react';
-
-
 
 function ExistVolunteer({setShowSpinner} ) {
     const [inputError, setInputError] = useState({
