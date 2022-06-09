@@ -16,7 +16,13 @@ import BookingShuttle from "./components/BookingShuttle";
 import Spinner from "./components/Spinner";
 import {Welcome} from './components/Welcome';
 import {Welcome2} from './components/Welcome2';
+<<<<<<< Updated upstream
 // import Cards from './components/Cards';
+=======
+import {Choose} from './components/Choose';
+// import {Accept} from './components/Accept';
+// import { Navbar } from "./components/navbar";
+>>>>>>> Stashed changes
 
 
 import Signup from "./components/log_in/LoginComponent/Signup"
@@ -48,11 +54,12 @@ function App() {
                 <Route exact path="/" element={<HomePage />} />
                 <Route exact path="/login" element={<Login />} />
                 {/* <Route path="/signup" element={<Signup />} /> */}
+              
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route exact path="/welcome" element={<Welcome/>} />
                 <Route exact path="/login/welcome2" element={<Welcome2/>} />
-              
+                {/* <Route exact path="/accept" element={<Accept />} /> */}
                 <Route exact path="/new-volunteer" element={<NewVolunteer />} />
                 <Route exact path="/new-volunteer-details" element={<NewVolunteerDetails setShowSpinner={setShowSpinner} />} />
                 <Route exact path="/exist-volunteer" element={<ExistVolunteer />} />

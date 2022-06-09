@@ -56,7 +56,7 @@ function Profil() {
                         <button className="btn_edit"><Icon icon="fa6-solid:pen" color="white" />עריכה</button>
 
                     </Link>
-
+    
 
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import "../styles/newVolunteer.css";
+// import "../styles/bookingShuttle.css";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import Select from "../components/Select";
@@ -22,6 +23,7 @@ function BookingShuttle({ setShowSpinner }) {
         }));
         console.log(inputValue);
     };
+<<<<<<< Updated upstream
     function sendCall() {
         setDoc(doc(callsRef), inputValue, {
         })
@@ -44,8 +46,17 @@ function BookingShuttle({ setShowSpinner }) {
     //     date: "",
     //     sex: "",
     // };
+=======
+    // function ani(){
+    //     document.getElementById('plane').className ='animation';
+    // }
+    // function anitwo(){
+    //     document.getElementById('bg').className ='animation2';
+    // }
+>>>>>>> Stashed changes
 
     return (
+        
         <div>
             <div className="navbar">
                 <a href="/"> <div className="btn_home"><FaHome />Home </div></a>
@@ -54,6 +65,7 @@ function BookingShuttle({ setShowSpinner }) {
             <Navbar />
             <div className="form-wrapper img-background">
                 <div className="title"> הזמנת נסיעה</div>
+<<<<<<< Updated upstream
                 <Input
                     type="text"
                     value={name}
@@ -68,6 +80,8 @@ function BookingShuttle({ setShowSpinner }) {
                     name="phone"
                     onChange={handleChange}
                 />
+=======
+>>>>>>> Stashed changes
                 <div className="label">איזה רכב תצטרכו להסעה?</div>
                 {
                     <Select
@@ -78,6 +92,7 @@ function BookingShuttle({ setShowSpinner }) {
                             "משאית",
                             "דו גלגלי",
                             "אוטובוס",
+<<<<<<< Updated upstream
                         ]}
                         type="text"
                         value={carType}
@@ -253,5 +268,78 @@ function BookingShuttle({ setShowSpinner }) {
             </div>
         </div>
     );
+=======
+                            "לא משנה לי",
+                        ]}
+                        placeHolder="בחירת סוג רכב"
+                    />
+                }
+                <Input
+                    placeholder=" מספר מקומות ישיבה להסעה"
+                    hasError={inputError.seatsNumInput}
+                    changeHandler={(seatsNum) => {
+                        userDetails.seatsNum = seatsNum;
+                    }}
+                />
+                <Input
+                    placeholder="מיקומך הנוכחי"
+                    hasError={inputError.startingPointInput}
+                    changeHandler={(startingPoint) => {
+                        userDetails.startingPoint = startingPoint;
+                    }}
+                />
+                <Input
+                    placeholder="כתובת יעד"
+                    hasError={inputError.destinationAddressInput}
+                    changeHandler={(destinationAddress) => {
+                        userDetails.destinationAddress = destinationAddress;
+                    }}
+                />
+                <div className="label">בחירת תאריך לנסיעה:</div>
+                <Input
+                    type="date"
+                    hasError={inputError.dateInput}
+                    changeHandler={(date) => {
+                        userDetails.date = date;
+                    }}
+                />
+                <Select
+                    options={["אשה", "גבר", "לא משנה לי"]}
+                    placeHolder="?האם ישנה העדפה למגדר המתנדב"
+                />
+
+                {/* <button class="btn btn-inside btn-boarder"><img src="https://i.cloudup.com/gBzAn-oW_S-2000x2000.png" width="64px" height="64px" id="plane"/></button>
+                <div class="bg"><img src="https://i.cloudup.com/2ZAX3hVsBE-3000x3000.png" id="bg" width="32px" height="32px" style="opacity:0;"/></div></div>
+                <div class="around around-boarder" onclick="ani(); anitwo();"> */}
+                    <div className="btn-wrapper">
+                        <Link to="/BookingShuttle">
+                            <Button
+                                text="שלח"
+
+                                clickHandler={() => {
+                                    // Object.keys(inputError).forEach((key) => {
+                                    //     inputError[key] = userDetails[]
+                                    // })
+                                    setInputError({
+                                        ...inputError,
+                                        carTypeInput: !userDetails.carType,
+                                        seatsNumInput: !userDetails.seatsNum,
+                                        startingPointInput: !userDetails.startingPoint,
+                                        destinationAddressInput:
+                                            !userDetails.destinationAddress,
+                                        dateInput: !userDetails.date,
+                                        sexInput: !userDetails.sex,
+                                    });
+                                    setShowSpinner(true);
+                                    setTimeout(setShowSpinner.bind("", false), 3000);
+                                    //TODO - http- backend (userDetails)
+                                }}
+                            />
+                        </Link>
+                    </div>
+                </div>
+            </div>
+            );
+>>>>>>> Stashed changes
 }
 export default BookingShuttle;
