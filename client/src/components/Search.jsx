@@ -6,8 +6,7 @@ import "../styles/search.css"
 import { useEffect, useState } from "react";
 import { collection, doc, getDocs, query, setDoc } from "firebase/firestore";
 import { React } from "react";
-
-
+import { Button } from "bootstrap";
 
 export const Search = () => {
 
@@ -82,6 +81,7 @@ export const Search = () => {
                 <img src="/logo_ezl.png" alt="Logo image" />
             </div>
             <Navbar />
+            <div className="allPage">
 
             <form
             // onSubmit={(e)=>(SearchBlog(e))} 
@@ -163,14 +163,19 @@ export const Search = () => {
 
                 </datalist>
                 {/* <button className="btn_submit">Submit</button> */}
+                {/* <input type="text" name="search" placeholder="Search.."/> */}
+
             </form>
             {dataSearch.map((object, index) => (
                 <div className="req" key={index}>
                     <div>
-                        {object.address_source + " " + object.address_destination + " " + object.city + " " + object.date + " " + object.gender + " " + object.number_of_passengers + " " + object.car_type}
-                    </div>
+                        {"מקור:  " + object.address_source + " יעד:  " + object.address_destination + " עיר:  " + object.city + " תאריך:  " + object.date + " מגדר:  " + object.gender + " מספר נוסעים:  " + object.number_of_passengers + " סוג רכב:  " + object.car_type}
+                        <br />
+                        <button className="btn">לקחתי</button>
+                    </div>                   
                 </div>
             ))}
+            </div>
         </div>
     );
 }

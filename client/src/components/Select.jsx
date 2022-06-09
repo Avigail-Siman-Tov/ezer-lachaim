@@ -21,4 +21,3 @@ function Select({ options, placeHolder, hasError, changeHandler ,onChange,type,n
     )
 }
 export default Select;
-

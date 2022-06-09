@@ -10,6 +10,11 @@
     text-align: right;
     line-height: 10;   
 }
+
+.input[type=password]{
+    text-align: right;
+}
+
 .input[type=date]{
     color: var(--e-global-color-secondary);
 }
