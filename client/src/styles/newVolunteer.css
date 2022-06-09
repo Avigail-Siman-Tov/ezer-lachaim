@@ -11,7 +11,12 @@ body {
     position: calc(50px, 40px);
 
 }
-
+.title1{
+    color:#356D9C;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+}
 .label-items {
     position: absolute;
     background-color: DodgerBlue;

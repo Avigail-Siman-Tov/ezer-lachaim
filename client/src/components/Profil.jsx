@@ -53,7 +53,7 @@ function Profil() {
                         <p className="detail"> מגדר:</p>
                     </div>
                     <Link to="/exist-volunteer">
-                        <button className="btn_edit"><Icon icon="fa6-solid:pen" color="white" />עריכה</button>
+                        <button className="btn_edit"><Icon icon="fa6-solid:pen" color="white" /> עריכה </button>
 
                     </Link>
     

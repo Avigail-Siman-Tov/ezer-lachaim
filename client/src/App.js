@@ -16,13 +16,7 @@ import BookingShuttle from "./components/BookingShuttle";
 import Spinner from "./components/Spinner";
 import {Welcome} from './components/Welcome';
 import {Welcome2} from './components/Welcome2';
-<<<<<<< Updated upstream
 // import Cards from './components/Cards';
-=======
-import {Choose} from './components/Choose';
-// import {Accept} from './components/Accept';
-// import { Navbar } from "./components/navbar";
->>>>>>> Stashed changes
 
 
 import Signup from "./components/log_in/LoginComponent/Signup"

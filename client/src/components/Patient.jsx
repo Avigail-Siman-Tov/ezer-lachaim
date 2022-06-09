@@ -68,7 +68,7 @@ function Patient({ setShowSpinner }) {
                         userDetails.confirmPassword = confirmPassword;
                     }}
                 />
-                <Input placeholder="הערות" />
+                {/* <Input placeholder="הערות" /> */}
                 <Link to="/patient">
                     <Button
                         text="שלח"

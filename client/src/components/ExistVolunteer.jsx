@@ -58,7 +58,7 @@ function ExistVolunteer({setShowSpinner} ) {
                         userDetails.phoneNum = phoneNum;
                     }}
                 />
-                <Input
+                {/* <Input
                     placeholder="אימייל"
                     hasError={inputError.emailInput}
                     changeHandler={(email) => {
@@ -72,7 +72,7 @@ function ExistVolunteer({setShowSpinner} ) {
                         userDetails.password = password;
                     }}
                 
-                />
+                /> */}
                   {/* <Input
                     placeholder="עיר מגורים" value={cityInput} onChange={(e) => setCityInput(e.target.value)}
                      hasError={inputError.cityInput}
@@ -80,7 +80,7 @@ function ExistVolunteer({setShowSpinner} ) {
                          userDetails.city = city;
                     }}
                 /> */}
-                <div className="label" >עיר מגורים</div>
+                <div className="label" ></div>
                     <Select
                         options={[
                            
@@ -92,9 +92,13 @@ function ExistVolunteer({setShowSpinner} ) {
                         "אריאל",
                         "אשדוד",
                         "אשקלון",
+                        "באקה אל-גרבייה",
+                        "באר יעקב",
                         "באר שבע",
+                        "ביתר עלית",
                             "בית שאן",
                             "בית שמש",
+                            "בני ברק",
                             "בת ים",
                             "גבעת שמואל",
                             "גבעתיים",
@@ -104,6 +108,7 @@ function ExistVolunteer({setShowSpinner} ) {
                             "חדרה",
                             "חולון",
                             "חיפה",
+                            "חריש",
                             "טבריה",
                             "טייבה",
                             "טירה",
@@ -119,6 +124,7 @@ function ExistVolunteer({setShowSpinner} ) {
                            "לוד",
                            "מגדל העמק",
                            "מודיעין מכבים רעות",
+                           "מע'אר",
                            "מעלה אדומים",
                            "מעלות תרשיחא",
                            "נהריה",
@@ -140,6 +146,7 @@ function ExistVolunteer({setShowSpinner} ) {
                            "קריית אתא",
                            "קריית ביאליק",
                            "קריית גת",
+                           "קריית ים",
                   "קריית מוצקין",
                   "קריית מלאכי",
                   "קריית שמונה",
@@ -174,13 +181,13 @@ function ExistVolunteer({setShowSpinner} ) {
                     ]}
                     placeHolder="בחירת סוג רכב"
                 />
-                <Input
+                {/* <Input
                     placeholder="מספר רכב"
                     hasError={inputError.carNumInput}
                     changeHandler={(carNum) => {
                         userDetails.carNum = carNum;
                     }}
-                />
+                /> */}
                 <Input
                     placeholder="מספר מקומות ישיבה"
                     hasError={inputError.carNumInput}
@@ -188,7 +195,7 @@ function ExistVolunteer({setShowSpinner} ) {
                         userDetails.carNum = carNum;
                     }}
                 />
-                <Input placeholder="הערות" />
+                {/* <Input placeholder="הערות" /> */}
                 <div className="btn-wrapper">
                     {/* <Link to="/exist-volunteer">
                         <Button text="הקודם" />
