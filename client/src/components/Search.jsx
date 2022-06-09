@@ -6,8 +6,7 @@ import "../styles/search.css"
 import { useEffect, useState } from "react";
 import { collection, doc, getDocs, query, setDoc } from "firebase/firestore";
 import { React } from "react";
-
-
+import { Button } from "bootstrap";
 
 export const Search = () => {
 
@@ -82,10 +81,12 @@ export const Search = () => {
                 <img src="/logo_ezl.png" alt="Logo image" />
             </div>
             <Navbar />
+            <div className="allPage">
 
             <form
             // onSubmit={(e)=>(SearchBlog(e))} 
             >
+                
                 <input placeholder="הזן עיר לחיפוש" list="places" type="text" id="city" name="city" value={filter} onChange={searchText.bind(this)} required autoComplete="off" pattern="|פתח תקווה|צפת|קנסווה|קריית ביאליק|קריית אונו|קריית מוצקין|קריית אתא|קריית גת|קריית ים| קריית שמונה|קריית מלאכי|ראש העין|ראשון לציון|רהט|רחובות|רמלה|רמת גן|רמת השרון|רעננה|שדרות|תל אביב |שפרעם| עראבה|ערד|עפולה|כפר יונה|כפר סבא|כפר קאסם|כרמיאל|לוד|מגדל העמק|מודיעין מכבים רעות|אום אל פחם|אופקים|אור יהודה|אור עקיבא|אילת|אריאל|אשדוד|אשקלון|באר שבע|בית שאן|בית שמש|בת ים|גבעת שמואל|גבעתיים|דימונה|הרצליה|הוד השרון|חדרה |חולון|חיפה |טבריה|טייבה|טירה |טירת הכרמל|טמרה|יבנה|יהוד מונסון|יקנעם|ירושלים|מעלה אדומים|מעלות תרשיחא|נהריה|נתניה|נס ציונה|נוף הגליל|נצרת|נשר|נתיבות|סח'נין|עכו" />
                 <datalist id="places">
                     <option>אום אל פחם</option>
@@ -163,14 +164,19 @@ export const Search = () => {
 
                 </datalist>
                 {/* <button className="btn_submit">Submit</button> */}
+                {/* <input type="text" name="search" placeholder="Search.."/> */}
+
             </form>
             {dataSearch.map((object, index) => (
                 <div className="req" key={index}>
                     <div>
-                        {object.address_source + " " + object.address_destination + " " + object.city + " " + object.date + " " + object.gender + " " + object.number_of_passengers + " " + object.car_type}
-                    </div>
+                        {"מקור:  " + object.address_source + " יעד:  " + object.address_destination + " עיר:  " + object.city + " תאריך:  " + object.date + " מגדר:  " + object.gender + " מספר נוסעים:  " + object.number_of_passengers + " סוג רכב:  " + object.car_type}
+                        <br />
+                        <button className="btn">לקחתי</button>
+                    </div>                   
                 </div>
             ))}
+            </div>
         </div>
     );
 }

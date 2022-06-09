@@ -11,7 +11,7 @@ import { collection, doc, setDoc } from "firebase/firestore";
 import { firestore } from "../firebase";
 import Select from "../components/Select";
 import { FaHome } from "react-icons/fa"
-// import { useRef, useState } from "react"
+import { useRef } from "react"
 // import { useNavigate } from "react-router-dom"
 
 
@@ -28,6 +28,12 @@ function NewVolunteer({ setShowSpinner }) {
     // const [loading, setLoading] = useState(false)
     // const navigate = useNavigate()
     
+    const emailRef = useRef()
+    const passwordRef = useRef()
+    const passwordConfirmRef = useRef()
+    const [error, setError] = useState('')
+    const [loading, setLoading] = useState(false)
+
     const handleChange = (e) => {
         const { name, value} = e.target;
         setInputValue((prev) => ({
@@ -58,6 +64,27 @@ function NewVolunteer({ setShowSpinner }) {
         // setLoading(false)
     }
     
+    async function handleSubmit(e) {
+        e.preventDefault()
+
+        if (passwordRef.current.value !== passwordConfirmRef.current.value)
+        {
+            return setError('password do not match')
+        }
+
+        try
+        {
+            setError("")
+            setLoading(true)
+            await signup(emailRef.current.value, passwordRef.current.value)
+        }
+        catch
+        {
+            setError('failed to create an account')
+        }
+        setLoading(false)
+    }
+
     const [inputError, setInputError] = useState({
         nameInput: false,
         phoneNumInput: false,

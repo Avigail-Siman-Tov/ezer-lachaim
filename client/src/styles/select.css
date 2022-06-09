@@ -12,6 +12,10 @@
     color: var(--e-global-color-secondary);
     width: 93%;
     line-height: 10;   
+    padding: 3px;
+}
+.select option{
+    width: 100%;
 }
 .error{
     border-color: var(--e-global-color-6fff166d);
