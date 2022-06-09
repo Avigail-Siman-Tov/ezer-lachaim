@@ -44,7 +44,6 @@ function App() {
           <Router>
             <AuthProvider>
               <Routes>
-                {/* <Cards/> */}
                 <Route exact path="/" element={<HomePage />} />
                 <Route exact path="/login" element={<Login />} />
                 {/* <Route path="/signup" element={<Signup />} /> */}
