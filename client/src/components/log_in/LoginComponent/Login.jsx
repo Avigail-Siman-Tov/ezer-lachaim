@@ -64,7 +64,7 @@ export default function Login() {
               <Form.Group id="password">
                 {/* <Form.Label>Password</Form.Label> */}
                 <Icon icon="bi:person" color="#6c6c6c" />
-                <input className="designInput" placeholder="Enter your password" type="password" ref={passwordRef} required />
+                <input className="designInput" placeholder="Enter your password" type="password"  ref={passwordRef} required />
               </Form.Group>
               <div className="remmeber">
                 <Link to="/forgot-password">?forget password</Link>
