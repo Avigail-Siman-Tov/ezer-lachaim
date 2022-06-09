@@ -275,7 +275,7 @@ function NewVolunteer({ setShowSpinner }) {
                         name="city"
                         onChange={handleChange}     
                  />
-                    <div className="label">איזה רכב יש ברשותך?</div>
+                    <div className="label"></div>
                     <Select
                         options={[
                             "רכב פרטי",

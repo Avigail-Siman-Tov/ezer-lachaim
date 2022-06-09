@@ -17,4 +17,3 @@ function Select({ options, placeHolder, hasError, changeHandler }) {
     )
 }
 export default Select;
-

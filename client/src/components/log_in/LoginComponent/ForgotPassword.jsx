@@ -53,7 +53,8 @@ export default function ForgotPassword() {
               </Button>
             </Form>
             <div className="w-100 text-center mt-3">
-              <Link to="/login">Login</Link>
+              <div>להתחברות מחדש לחץ</div>
+              <Link to="/login">כאן</Link>
             </div>
           </Card.Body>
         </Card>
