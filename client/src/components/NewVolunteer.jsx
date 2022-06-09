@@ -35,8 +35,16 @@ function NewVolunteer({ setShowSpinner }) {
           [name]: value,
         }));
         console.log(inputValue);
-      };
+    };
 
+    async function handleSubmit() {
+        console.log("I am here")
+        // e.preventDefault()
+        if (inputValue.password !== inputValue.confirm_password) {
+          console.log("Passwords do not match")
+        }
+        // setLoading(false)
+    }
     async function sendNewVolunteer() {
         try{
         console.log("before");
@@ -49,14 +57,7 @@ function NewVolunteer({ setShowSpinner }) {
         }
     }
    
-    async function handleSubmit() {
-        console.log("I am here")
-        // e.preventDefault()
-        if (inputValue.password !== inputValue.confirm_password) {
-          console.log("Passwords do not match")
-        }
-        // setLoading(false)
-    }
+    
     
     const [inputError, setInputError] = useState({
         nameInput: false,
@@ -252,8 +253,8 @@ function NewVolunteer({ setShowSpinner }) {
                             "דו גלגלי",
                             "אוטובוס",
                         ]}
-                        type="text"
-                        value={carType}
+                        type="option"
+                        // value={carType}
                         placeHolder="בחירת סוג רכב" 
                         name="carType"
                         onChange={handleChange} 
