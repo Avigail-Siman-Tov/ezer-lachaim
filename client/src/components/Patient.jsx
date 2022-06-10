@@ -5,9 +5,13 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
-import { FaHome } from "react-icons/fa"
+import { FaHome } from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Patient({ setShowSpinner }) {
+    const notify = () => toast.success("הזמנתך התקבלה במידה ויימצא מתנדב הוא יצוראיתך קשר בהקדם " ,{position: "top-center" ,autoClose: 5000,hideProgressBar: false,closeOnClick: true,pauseOnHover: true, draggable: true,progress: undefined,});
     const [inputError, setInputError] = useState({
         nameInput: false,
         phoneNumInput: false,
@@ -69,9 +73,9 @@ function Patient({ setShowSpinner }) {
                     }}
                 />
                 {/* <Input placeholder="הערות" /> */}
-                <Link to="/patient">
+                <Link to="/">
                     <Button
-                        text="שלח"
+                        text="שלח" onClick={notify}
                         clickHandler={() => {
                             // Object.keys(inputError).forEach((key) => {
                             //     inputError[key] = userDetails[]
@@ -89,7 +93,7 @@ function Patient({ setShowSpinner }) {
                             setTimeout(setShowSpinner.bind("", false), 3000);
                             //TODO - http- backend (userDetails)
                         }}
-                    />
+                    />  <ToastContainer/>
                 </Link>
             </div>
         </div>

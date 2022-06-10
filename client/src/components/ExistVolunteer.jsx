@@ -7,8 +7,17 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Select from "../components/Select";
 import { FaHome } from "react-icons/fa"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ExistVolunteer({setShowSpinner} ) {
+   
+    const notify = () => toast.success("!פרטיך עודכנו בהצלחה" ,{position: "top-center",autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,});
     const [inputError, setInputError] = useState({
         nameInput: false,
         phoneNumInput: false,
@@ -49,6 +58,10 @@ function ExistVolunteer({setShowSpinner} ) {
                     hasError={inputError.nameInput}
                     changeHandler={(name) => {
                         userDetails.name = name;
+                        // hasError={inputError.nameInput}
+                        // changeHandler={(name) => {
+                        //     userDetails.name = name;
+                        // }}
                     }}
                 />
                 <Input
@@ -56,6 +69,10 @@ function ExistVolunteer({setShowSpinner} ) {
                     hasError={inputError.phoneNumInput}
                     changeHandler={(phoneNum) => {
                         userDetails.phoneNum = phoneNum;
+                         // hasError={inputError.phoneNumInput}
+                        // changeHandler={(phoneNum) => {
+                        //     userDetails.phoneNum = phoneNum;
+                        // }}
                     }}
                 />
                 {/* <Input
@@ -166,6 +183,14 @@ function ExistVolunteer({setShowSpinner} ) {
                         ]}
                         placeHolder="בחירת עיר מגורים" 
                         // value={cityInput} onChange={(e) => setCityInput(e.target.value)}
+                        // type="text"
+                        // value={city}
+                        // name="city"
+                        // onChange={handleChange}   
+                         // hasError={inputError.cityInput}
+                        // changeHandler={(city) => {
+                        //     userDetails.city = city;
+                        // }}
                      
                  />
 
@@ -193,6 +218,10 @@ function ExistVolunteer({setShowSpinner} ) {
                     hasError={inputError.carNumInput}
                     changeHandler={(carNum) => {
                         userDetails.carNum = carNum;
+                         // hasError={inputError.carNumInput}
+                        // changeHandler={(carNum) => {
+                        //     userDetails.carNum = carNum;
+                        // }}
                     }}
                 />
                 {/* <Input placeholder="הערות" /> */}
@@ -200,8 +229,8 @@ function ExistVolunteer({setShowSpinner} ) {
                     {/* <Link to="/exist-volunteer">
                         <Button text="הקודם" />
                     </Link> */}
-                    <Link to="/exist-volunteer">
-                        <Button
+                    <Link to="/search">
+                        <Button onClick={notify}
                             text="שמירה"
                             clickHandler={() => {
                                 // Object.keys(inputError).forEach((key) => {
@@ -223,7 +252,7 @@ function ExistVolunteer({setShowSpinner} ) {
                                 );
                                 //TODO - http- backend (userDetails)
                             }}
-                        />
+                             />   <ToastContainer/>
                     </Link>
                 </div>
                 {/* <Link to="/exist-volunteer2">

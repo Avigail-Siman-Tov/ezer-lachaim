@@ -29,13 +29,15 @@ import ForgotPassword from "./components/log_in/LoginComponent/ForgotPassword"
 import UpdateProfile from "./components/log_in/LoginComponent/UpdateProfile"
 import { AuthProvider } from './components/log_in/contexts/AuthContext';
 import  Profil  from './components/Profil';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [showSpinner, setShowSpinner] = useState(false);
   return (
     <div className="App">
       
-
+      <ToastContainer/> 
       {showSpinner ? <Spinner /> : undefined}
       <Container className="d-flex align-items-center justify-content-center"
         style={{ minHeight: "100vh", alignContent: 'center' }}>

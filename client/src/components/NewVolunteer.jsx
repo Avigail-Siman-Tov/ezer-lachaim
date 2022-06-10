@@ -12,14 +12,18 @@ import { firestore } from "../firebase";
 import Select from "../components/Select";
 import { FaHome } from "react-icons/fa"
 import { useRef } from "react"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // import { useNavigate } from "react-router-dom"
 
 
 function NewVolunteer({ setShowSpinner }) {
-    const {signup} = useAuth();
+    const notify = () => toast.success("!פרטיך נשמרו בהצלחה! מודים על הצטרפותך " ,{position: "top-center",autoClose: 5000,hideProgressBar: false,closeOnClick: true,pauseOnHover: true, draggable: true,progress: undefined,});
+    const { signup } = useAuth();
     const newVolunteerRef = collection(firestore, "newVolunteer");
-    const [inputValue, setInputValue] = useState({ name: "", phone: "", email: "", password: "", confirm_password: "", city: "", carType: "", carNumber: "", number_of_seets: "", gender: "",remarks: "" });
-    const { name, phone, email, password,confirm_password, city, carType, carNumber, number_of_seets, gender,remarks } = inputValue;
+    const [inputValue, setInputValue] = useState({ name: "", phone: "", email: "", password: "", confirm_password: "", city: "", carType: "", carNumber: "", number_of_seets: "", gender: "", remarks: "" });
+    const { name, phone, email, password, confirm_password, city, carType, carNumber, number_of_seets, gender, remarks } = inputValue;
 
     // const emailRef = useRef()
     // const passwordRef = useRef()
@@ -27,7 +31,7 @@ function NewVolunteer({ setShowSpinner }) {
     // const [error, setError] = useState("")
     // const [loading, setLoading] = useState(false)
     // const navigate = useNavigate()
-    
+
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
@@ -35,25 +39,37 @@ function NewVolunteer({ setShowSpinner }) {
     const [loading, setLoading] = useState(false)
 
     const handleChange = (e) => {
-        const { name, value} = e.target;
+        const { name, value } = e.target;
         setInputValue((prev) => ({
-          ...prev,
-          [name]: value,
+            ...prev,
+            [name]: value,
         }));
         console.log(inputValue);
       };
 
+<<<<<<< Updated upstream
+=======
+    async function handleSubmit() {
+        console.log("I am here")
+        // e.preventDefault()
+        if (inputValue.password !== inputValue.confirm_password) {
+            console.log("Passwords do not match")
+        }
+        // setLoading(false)
+    }
+>>>>>>> Stashed changes
     async function sendNewVolunteer() {
-        try{
-        console.log("before");
-        const res = await signup(inputValue.email, inputValue.password);
-        console.log("res", res);
-        await setDoc(doc(firestore, "newVolunteer", res.user.uid), inputValue,
-        )
-        } catch(err) {
+        try {
+            console.log("before");
+            const res = await signup(inputValue.email, inputValue.password);
+            console.log("res", res);
+            await setDoc(doc(firestore, "newVolunteer", res.user.uid), inputValue,
+            )
+        } catch (err) {
             console.log(err)
         }
     }
+<<<<<<< Updated upstream
    
     async function handleSubmit() {
         console.log("I am here")
@@ -64,16 +80,19 @@ function NewVolunteer({ setShowSpinner }) {
         // setLoading(false)
     }
     
+=======
+
+
+
+>>>>>>> Stashed changes
     async function handleSubmit(e) {
         e.preventDefault()
 
-        if (passwordRef.current.value !== passwordConfirmRef.current.value)
-        {
+        if (passwordRef.current.value !== passwordConfirmRef.current.value) {
             return setError('password do not match')
         }
 
-        try
-        {
+        try {
             setError("")
             setLoading(true)
             await signup(emailRef.current.value, passwordRef.current.value)
@@ -114,79 +133,88 @@ function NewVolunteer({ setShowSpinner }) {
     };
     return (
         <div>
-             <div className="navbar">
-                 <a href="/"> <div className="btn_home"><FaHome/>Home </div></a>
-                 <img src="/logo_ezl.png" alt="Logo image" />
+            <div className="navbar">
+                <a href="/"> <div className="btn_home"><FaHome />Home </div></a>
+                <img src="/logo_ezl.png" alt="Logo image" />
             </div>
-            <Navbar/>
+            <Navbar />
             <div>
                 <div className="form-wrapper">
+<<<<<<< Updated upstream
                     <div className="title">טופס הצטרפות למתנדבים</div>
                     <Input 
+=======
+                    <div className="title1">טופס הצטרפות למתנדבים</div>
+                    <Input
+>>>>>>> Stashed changes
                         type="text"
                         value={name}
                         placeholder="שם פרטי ומשפחה"
                         name="name"
-                        onChange={handleChange}                   
-                        // hasError={inputError.nameInput}
-                        // changeHandler={(name) => {
-                        //     userDetails.name = name;
-                        // }}
+                        onChange={handleChange}
+                    // hasError={inputError.nameInput}
+                    // changeHandler={(name) => {
+                    //     userDetails.name = name;
+                    // }}
                     />
-                    <Input 
+                    <Input
                         type="text"
                         value={phone}
                         placeholder="טלפון/נייד"
                         name="phone"
-                        onChange={handleChange}    
-                        // hasError={inputError.phoneNumInput}
-                        // changeHandler={(phoneNum) => {
-                        //     userDetails.phoneNum = phoneNum;
-                        // }}
+                        onChange={handleChange}
+                    // hasError={inputError.phoneNumInput}
+                    // changeHandler={(phoneNum) => {
+                    //     userDetails.phoneNum = phoneNum;
+                    // }}
                     />
-                    <Input 
+                    <Input
                         type="text"
                         value={email}
                         placeholder="אימייל"
                         name="email"
-                        onChange={handleChange}    
-                        // hasError={inputError.emailInput}
-                        // changeHandler={(email) => {
-                        //     userDetails.email = email;
-                        // }}
+                        onChange={handleChange}
+                    // hasError={inputError.emailInput}
+                    // changeHandler={(email) => {
+                    //     userDetails.email = email;
+                    // }}
                     />
                     <Input
-                         type="password"
-                         value={password}
-                         placeholder="סיסמא" 
-                         name="password"
-                         onChange={handleChange}  
-                        // hasError={inputError.passwordInput}
-                        // changeHandler={(password) => {
-                        //     userDetails.password = password;
-                        // }}
+                        type="password"
+                        value={password}
+                        placeholder="סיסמא"
+                        name="password"
+                        onChange={handleChange}
+                    // hasError={inputError.passwordInput}
+                    // changeHandler={(password) => {
+                    //     userDetails.password = password;
+                    // }}
                     />
                     <Input
-                    type="password"
-                    // value={confirm_password}
-                    placeholder="אימות סיסמא"
-                    name="confirm_password"
-                    onChange={handleChange}  
-                    onSubmit={handleSubmit}
-                        // onChange={handleSubmit} 
-                        // hasError={inputError.confirmPasswordInput}
-                        // changeHandler={(confirmPassword) => {
-                        //     userDetails.confirmPassword = confirmPassword;
-                        // }}
+                        type="password"
+                        // value={confirm_password}
+                        placeholder="אימות סיסמא"
+                        name="confirm_password"
+                        onChange={handleChange}
+                        onSubmit={handleSubmit}
+                    // onChange={handleSubmit} 
+                    // hasError={inputError.confirmPasswordInput}
+                    // changeHandler={(confirmPassword) => {
+                    //     userDetails.confirmPassword = confirmPassword;
+                    // }}
                     />
-                  {/* <Input
+                    {/* <Input
                     placeholder="עיר מגורים" value={cityInput} onChange={(e) => setCityInput(e.target.value)}
                      hasError={inputError.cityInput}
                      changeHandler={(city) => {
                          userDetails.city = city;
                     }}
                 /> */}
+<<<<<<< Updated upstream
                 <div className="label" >עיר מגורים</div>
+=======
+                    <div className="label" ></div>
+>>>>>>> Stashed changes
                     <Select
                         options={[
                            
@@ -201,6 +229,10 @@ function NewVolunteer({ setShowSpinner }) {
                         "באר שבע",
                             "בית שאן",
                             "בית שמש",
+<<<<<<< Updated upstream
+=======
+                            "בני ברק",
+>>>>>>> Stashed changes
                             "בת ים",
                             "גבעת שמואל",
                             "גבעתיים",
@@ -261,15 +293,26 @@ function NewVolunteer({ setShowSpinner }) {
                                 "שפרעם",
                                 "תל אביב יפו",
 
-                           
+
                         ]}
                         type="text"
                         value={city}
-                        placeHolder="בחירת עיר מגורים" 
+                        placeHolder="בחירת עיר מגורים"
                         name="city"
+<<<<<<< Updated upstream
                         onChange={handleChange}     
                  />
                     <div className="label">איזה רכב יש ברשותך?</div>
+=======
+                        onChange={handleChange}
+                    // hasError={inputError.cityInput}
+                    // changeHandler={(city) => {
+                    //     userDetails.city = city;
+                    // }}
+
+                    />
+                    <div className="label"></div>
+>>>>>>> Stashed changes
                     <Select
                         options={[
                             "רכב פרטי",
@@ -279,15 +322,21 @@ function NewVolunteer({ setShowSpinner }) {
                             "דו גלגלי",
                             "אוטובוס",
                         ]}
+<<<<<<< Updated upstream
                         type="text"
                         value={carType}
                         placeHolder="בחירת סוג רכב" 
+=======
+                        type="option"
+                        // value={carType}
+                        placeHolder="בחירת סוג רכב"
+>>>>>>> Stashed changes
                         name="carType"
-                        onChange={handleChange} 
-                        // hasError={inputError.carTypeInput}
-                        // changeHandler={(carType) => {
-                        //     userDetails.carType = carType;
-                        // }}
+                        onChange={handleChange}
+                    // hasError={inputError.carTypeInput}
+                    // changeHandler={(carType) => {
+                    //     userDetails.carType = carType;
+                    // }}
                     />
                     <Input 
                      type="text"
@@ -299,6 +348,7 @@ function NewVolunteer({ setShowSpinner }) {
                         // changeHandler={(carNum) => {
                         //     userDetails.carNum = carNum;
                         // }}
+<<<<<<< Updated upstream
                     />
                     <Input 
                      type="text"
@@ -310,6 +360,19 @@ function NewVolunteer({ setShowSpinner }) {
                         // changeHandler={(carNum) => {
                         //     userDetails.carNum = carNum;
                         // }}
+=======
+                    /> */}
+                    <Input
+                        type="text"
+                        value={number_of_seets}
+                        placeholder="מספר מקומות ישיבה"
+                        name="number_of_seets"
+                        onChange={handleChange}
+                    // hasError={inputError.carNumInput}
+                    // changeHandler={(carNum) => {
+                    //     userDetails.carNum = carNum;
+                    // }}
+>>>>>>> Stashed changes
                     />
                     <Select options={["אשה", "גבר"]} placeHolder="מגדר" />
 
@@ -319,6 +382,7 @@ function NewVolunteer({ setShowSpinner }) {
                     placeholder="הערות" 
                     name="remarks"
                     onChange={handleChange}  
+<<<<<<< Updated upstream
                     />
                     <Link to="/new-volunteer">
                             <Button
@@ -340,13 +404,39 @@ function NewVolunteer({ setShowSpinner }) {
                         </Link>
                          {/* /> */}
                       
+=======
+                    /> */}
+                    <Link to="/login">
+                        <Button
+                            text="שלח" 
+                            onClick={notify}
+                            // onClick={sendNewVolunteer}
+                        // clickHandler={() => {
+                        //     setInputError({
+                        //         ...inputError,
+                        //         cityInput: !userDetails.city,
+                        //         carTypeInput: !userDetails.carType,
+                        //         carNumInput: !userDetails.carNumber,
+                        //         seatsNumInput: !userDetails.seatsNum,
+                        //         sexInput: !userDetails.sex,
+                        //     });
+                        //     setShowSpinner(true);
+                        //     setTimeout(setShowSpinner.bind("", false), 3000);
+                        // }}
+                        />
+                        <ToastContainer/>
+                    </Link>
+                 
+                    {/* /> */}
 
-                        {/* // <Link to="/new-volunteer-details">
+>>>>>>> Stashed changes
+
+                    {/* // <Link to="/new-volunteer-details">
                     //     <Button 
                     //     text="הבא" */}
 
-                        {/* //         clickHandler={() => { */}
-                        {/* //             setInputError({
+                    {/* //         clickHandler={() => { */}
+                    {/* //             setInputError({
                     //                 ...inputError,
                     //                 nameInput: !userDetails.name,
                     //                 phoneNumInput: !userDetails.phoneNum,
