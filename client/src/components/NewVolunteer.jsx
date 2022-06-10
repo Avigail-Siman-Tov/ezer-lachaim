@@ -47,17 +47,6 @@ function NewVolunteer({ setShowSpinner }) {
         console.log(inputValue);
       };
 
-<<<<<<< Updated upstream
-=======
-    async function handleSubmit() {
-        console.log("I am here")
-        // e.preventDefault()
-        if (inputValue.password !== inputValue.confirm_password) {
-            console.log("Passwords do not match")
-        }
-        // setLoading(false)
-    }
->>>>>>> Stashed changes
     async function sendNewVolunteer() {
         try {
             console.log("before");
@@ -69,7 +58,6 @@ function NewVolunteer({ setShowSpinner }) {
             console.log(err)
         }
     }
-<<<<<<< Updated upstream
    
     async function handleSubmit() {
         console.log("I am here")
@@ -80,11 +68,6 @@ function NewVolunteer({ setShowSpinner }) {
         // setLoading(false)
     }
     
-=======
-
-
-
->>>>>>> Stashed changes
     async function handleSubmit(e) {
         e.preventDefault()
 
@@ -140,13 +123,8 @@ function NewVolunteer({ setShowSpinner }) {
             <Navbar />
             <div>
                 <div className="form-wrapper">
-<<<<<<< Updated upstream
                     <div className="title">טופס הצטרפות למתנדבים</div>
                     <Input 
-=======
-                    <div className="title1">טופס הצטרפות למתנדבים</div>
-                    <Input
->>>>>>> Stashed changes
                         type="text"
                         value={name}
                         placeholder="שם פרטי ומשפחה"
@@ -210,11 +188,7 @@ function NewVolunteer({ setShowSpinner }) {
                          userDetails.city = city;
                     }}
                 /> */}
-<<<<<<< Updated upstream
                 <div className="label" >עיר מגורים</div>
-=======
-                    <div className="label" ></div>
->>>>>>> Stashed changes
                     <Select
                         options={[
                            
@@ -229,10 +203,6 @@ function NewVolunteer({ setShowSpinner }) {
                         "באר שבע",
                             "בית שאן",
                             "בית שמש",
-<<<<<<< Updated upstream
-=======
-                            "בני ברק",
->>>>>>> Stashed changes
                             "בת ים",
                             "גבעת שמואל",
                             "גבעתיים",
@@ -299,20 +269,9 @@ function NewVolunteer({ setShowSpinner }) {
                         value={city}
                         placeHolder="בחירת עיר מגורים"
                         name="city"
-<<<<<<< Updated upstream
                         onChange={handleChange}     
                  />
                     <div className="label">איזה רכב יש ברשותך?</div>
-=======
-                        onChange={handleChange}
-                    // hasError={inputError.cityInput}
-                    // changeHandler={(city) => {
-                    //     userDetails.city = city;
-                    // }}
-
-                    />
-                    <div className="label"></div>
->>>>>>> Stashed changes
                     <Select
                         options={[
                             "רכב פרטי",
@@ -322,15 +281,9 @@ function NewVolunteer({ setShowSpinner }) {
                             "דו גלגלי",
                             "אוטובוס",
                         ]}
-<<<<<<< Updated upstream
                         type="text"
                         value={carType}
                         placeHolder="בחירת סוג רכב" 
-=======
-                        type="option"
-                        // value={carType}
-                        placeHolder="בחירת סוג רכב"
->>>>>>> Stashed changes
                         name="carType"
                         onChange={handleChange}
                     // hasError={inputError.carTypeInput}
@@ -348,7 +301,6 @@ function NewVolunteer({ setShowSpinner }) {
                         // changeHandler={(carNum) => {
                         //     userDetails.carNum = carNum;
                         // }}
-<<<<<<< Updated upstream
                     />
                     <Input 
                      type="text"
@@ -360,19 +312,6 @@ function NewVolunteer({ setShowSpinner }) {
                         // changeHandler={(carNum) => {
                         //     userDetails.carNum = carNum;
                         // }}
-=======
-                    /> */}
-                    <Input
-                        type="text"
-                        value={number_of_seets}
-                        placeholder="מספר מקומות ישיבה"
-                        name="number_of_seets"
-                        onChange={handleChange}
-                    // hasError={inputError.carNumInput}
-                    // changeHandler={(carNum) => {
-                    //     userDetails.carNum = carNum;
-                    // }}
->>>>>>> Stashed changes
                     />
                     <Select options={["אשה", "גבר"]} placeHolder="מגדר" />
 
@@ -382,12 +321,11 @@ function NewVolunteer({ setShowSpinner }) {
                     placeholder="הערות" 
                     name="remarks"
                     onChange={handleChange}  
-<<<<<<< Updated upstream
                     />
-                    <Link to="/new-volunteer">
+                    <Link to="/login">
                             <Button
-                                text="שלח"
-                                onClick={sendNewVolunteer}
+                                text="שלח" onClick={notify}
+                                // onClick={sendNewVolunteer}
                                 // clickHandler={() => {
                                 //     setInputError({
                                 //         ...inputError,
@@ -400,36 +338,10 @@ function NewVolunteer({ setShowSpinner }) {
                                 //     setShowSpinner(true);
                                 //     setTimeout(setShowSpinner.bind("", false), 3000);
                                 // }}
-                            />
+                            /><ToastContainer/>
                         </Link>
                          {/* /> */}
                       
-=======
-                    /> */}
-                    <Link to="/login">
-                        <Button
-                            text="שלח" 
-                            onClick={notify}
-                            // onClick={sendNewVolunteer}
-                        // clickHandler={() => {
-                        //     setInputError({
-                        //         ...inputError,
-                        //         cityInput: !userDetails.city,
-                        //         carTypeInput: !userDetails.carType,
-                        //         carNumInput: !userDetails.carNumber,
-                        //         seatsNumInput: !userDetails.seatsNum,
-                        //         sexInput: !userDetails.sex,
-                        //     });
-                        //     setShowSpinner(true);
-                        //     setTimeout(setShowSpinner.bind("", false), 3000);
-                        // }}
-                        />
-                        <ToastContainer/>
-                    </Link>
-                 
-                    {/* /> */}
-
->>>>>>> Stashed changes
 
                     {/* // <Link to="/new-volunteer-details">
                     //     <Button 
