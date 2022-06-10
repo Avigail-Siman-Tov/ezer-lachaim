@@ -19,7 +19,6 @@ import {Welcome2} from './components/Welcome2';
 // import Cards from './components/Cards';
 // import { Example } from './components/Example';
 
-
 import Signup from "./components/log_in/LoginComponent/Signup"
 import { Container } from "react-bootstrap"
 import { BrowserRouter as Router } from "react-router-dom"
@@ -30,7 +29,6 @@ import ForgotPassword from "./components/log_in/LoginComponent/ForgotPassword"
 import UpdateProfile from "./components/log_in/LoginComponent/UpdateProfile"
 import { AuthProvider } from './components/log_in/contexts/AuthContext';
 import  Profil  from './components/Profil';
-
 
 function App() {
   const [showSpinner, setShowSpinner] = useState(false);

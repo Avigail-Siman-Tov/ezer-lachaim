@@ -15,9 +15,15 @@
     line-height: 10;   
     padding: 3px;
 }
-.select option{
-    width: 100%;
+/* .select option{
+    width: 10%;
+} */
+
+#widthTempOption { 
+    display : none;
+    /* width: 10%; */
 }
+
 .error{
     border-color: var(--e-global-color-6fff166d);
     color: var(--e-global-color-6fff166d);

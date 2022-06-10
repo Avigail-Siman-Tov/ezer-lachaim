@@ -12,7 +12,7 @@ function Select({ options, placeHolder, hasError, changeHandler ,onChange,type,n
         >
             name={name};
             value={value}
-            <option className={`placeholder ${hasError ? "error" : ""}`}
+            <option id="widthTempOption" className={`placeholder ${hasError ? "error" : ""}`}
                 value={placeHolder}>{placeHolder}</option>
             {options.map((element, index) => (
                 <option key={index} value={element}>{element}</option>
