@@ -32,10 +32,12 @@ function Hamburger() {
         </HamburgerButton.Wrapper>
         {/* <Navbar.Item> <div className="has">  */}
         <Navbar.Items ref={drawerRef} openDrawer={openDrawer}>
-          {/* <Navbar.Item></Navbar.Item> */}
-          <Navbar.Item><a href="/"> <div className="home_hamburger" ><Icon icon="bi:person-circle" color="#356d9c" inline={true} /> שם </div></a></Navbar.Item>
-          <Navbar.Item><a href="/"> <div className="home_hamburger" ><Icon icon="arcticons:google-mail" color="#356d9c" inline={true} />  מייל </div></a></Navbar.Item>
+        <Navbar.Item> <div className="img_hamburger1">
+          <Navbar.Item> <div className="img_hamburgerup"><Icon icon="healthicons:ui-user-profile" color="#ebe9eb" width="80" height="80"/> </div></Navbar.Item>
+          <Navbar.Item><a href="/login"> <div className="home_hamburgerup" ><Icon icon="bi:person-circle" color="#ebe9eb" inline={true} /> שם </div></a></Navbar.Item>
+          <Navbar.Item><a href="/"> <div className="home_hamburgerup" ><Icon icon="arcticons:google-mail" color="#ebe9eb" inline={true} />  מייל </div></a></Navbar.Item>
           <Navbar.Item> <div className="line"></div></Navbar.Item>
+          </div></Navbar.Item>
           <Navbar.Item><a href="profil"> <div className="home_hamburger" ><Icon icon="et:profile-male" color="#356d9c" /> לאזור האישי </div></a></Navbar.Item>
           <Navbar.Item><a href="/"> <div className="home_hamburger"><Icon icon="uit:signout" color="#356d9c" rotate={2} inline={true} /> התנתקות </div></a></Navbar.Item>
         
@@ -61,7 +63,7 @@ const Navbar = {
     display: flex;
     justify-content: space-between;
     align-items: center;
-   
+  
 
 
 
@@ -71,6 +73,7 @@ const Navbar = {
     @media only screen and (max-width: 40em) {
       position: fixed;
       width: 100%;
+      
       top: 0;
     }
   `,
@@ -88,13 +91,13 @@ const Navbar = {
       right: 0;
       top: 0;
       height: 100%;
-      witgh: 90%
+      witgh: 95%
    
       flex-direction: column;
-
+  
       background-color: #ebe9eb;
-      padding: 1rem 2rem;
-   
+      // padding: 10rem 2rem;
+      
 
       transition: 0.2s ease-out;
 
