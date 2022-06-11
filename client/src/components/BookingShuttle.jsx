@@ -178,7 +178,7 @@ function BookingShuttle({ setShowSpinner }) {
                     ]}
                     type="text"
                     value={city}
-                    placeHolder="בחירת עיר מגורים"
+                    placeHolder="העיר בה אתה נמצא"
                     name="city"
                     onChange={handleChange}
                 />

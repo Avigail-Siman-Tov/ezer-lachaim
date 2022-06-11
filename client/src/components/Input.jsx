@@ -1,4 +1,6 @@
 import "../styles/input.css";
+import ReactDOM from 'react-dom/client';
+
 
 function Input({ value, name, placeholder, type, onChange,hasError }) {
     return (
@@ -8,6 +10,7 @@ function Input({ value, name, placeholder, type, onChange,hasError }) {
             name={name}
             placeholder={placeholder}
             onChange={onChange}
+            
             // onChange={(event) => {
             //     const newValue = event.target.value;
             //     changeHandler && changeHandler(newValue);

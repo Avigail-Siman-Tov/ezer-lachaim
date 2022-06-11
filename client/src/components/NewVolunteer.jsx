@@ -7,12 +7,22 @@ import NewVolunteerDetails from "./NewVolunteerDetails";
 import { useState } from "react";
 import { useAuth } from "./log_in/contexts/AuthContext"
 import Navbar from "../components/Navbar";
-import { collection, doc, setDoc } from "firebase/firestore";
 import { firestore } from "../firebase";
 import Select from "../components/Select";
 import { FaHome } from "react-icons/fa"
 import { useRef } from "react"
 // import { useNavigate } from "react-router-dom"
+// import alert from 'alert'
+// import { Form, Button, Card, Alert } from "react-bootstrap"
+import { collection, doc, getDocs, query, setDoc, getDoc } from "firebase/firestore";
+import Alert from "react-bootstrap";
+
+
+
+
+
+
+
 
 
 function NewVolunteer({ setShowSpinner }) {
@@ -52,14 +62,24 @@ function NewVolunteer({ setShowSpinner }) {
         // setLoading(false)
     }
     async function sendNewVolunteer() {
+        var validation = true;
         try{
         console.log("before");
+       validation = false        
+        
+
         const res = await signup(inputValue.email, inputValue.password);
         console.log("res", res);
-        await setDoc(doc(firestore, "newVolunteer", res.user.uid), inputValue,
-        )
+    
+        // await setDoc(doc(firestore, "newVolunteer", res.user.uid), inputValue,
+        
+        // console.log("res isssssssss: "+res.user.uid)
         } catch(err) {
-            console.log(err)
+            // <Alert severity="error">This is an error alert — check it out!</Alert>
+            // alert("סיסמא חייבת להכיל לפחות 6 תווים!")
+            alert(err)
+
+
         }
     }
    

@@ -34,7 +34,7 @@ export default function Login() {
     }
     catch (e) {
       setError("סיסמא לא חוקית או משתמש לא קיים במערכת")
-      // setError(e.message)
+      //  setError(e.message)
     }
 
     setLoading(false)
