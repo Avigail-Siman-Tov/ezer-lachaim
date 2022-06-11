@@ -15,6 +15,8 @@ import { useRef } from "react"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
+
 // import { useNavigate } from "react-router-dom"
 
 
@@ -330,20 +332,23 @@ function NewVolunteer({ setShowSpinner }) {
                     />
                     <Link to="/login">
                             <Button
-                                text="שלח" onClick={notify}
-                                // onClick={sendNewVolunteer}
-                                // clickHandler={() => {
-                                //     setInputError({
-                                //         ...inputError,
-                                //         cityInput: !userDetails.city,
-                                //         carTypeInput: !userDetails.carType,
-                                //         carNumInput: !userDetails.carNumber,
-                                //         seatsNumInput: !userDetails.seatsNum,
-                                //         sexInput: !userDetails.sex,
-                                //     });
-                                //     setShowSpinner(true);
-                                //     setTimeout(setShowSpinner.bind("", false), 3000);
-                                // }}
+                                text="שלח" 
+                                onClick={() => {
+                                   notify();
+                                    sendNewVolunteer();
+                                  }}
+                                // {/* // clickHandler={() => {
+                                // //     setInputError({
+                                // //         ...inputError,
+                                // //         cityInput: !userDetails.city,
+                                // //         carTypeInput: !userDetails.carType,
+                                // //         carNumInput: !userDetails.carNumber,
+                                // //         seatsNumInput: !userDetails.seatsNum,
+                                // //         sexInput: !userDetails.sex,
+                                // //     });
+                                // //     setShowSpinner(true);
+                                // //     setTimeout(setShowSpinner.bind("", false), 3000);
+                                // // }} */}
                             /><ToastContainer/>
                         </Link>
                          {/* /> */}

@@ -14,7 +14,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function BookingShuttle({ setShowSpinner }) {
-    const notify = () => toast.success("הזמנתך התקבלה במידה ויימצא מתנדב הוא יצוראיתך קשר בהקדם " ,{position: "top-center" ,autoClose: 5000,hideProgressBar: false,closeOnClick: true,pauseOnHover: true, draggable: true,progress: undefined,});
+    const notify = () => toast.success("הזמנתך התקבלה במידה ויימצא מתנדב הוא יצוראיתך קשר בהקדם ", { position: "top-center", autoClose: 5000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, });
     const callsRef = collection(firestore, "calls");
     const [inputValue, setInputValue] = useState({ name: "", phone: "", city: "", address_source: "", address_destination: "", date: "", gender: "", number_of_passengers: "", carType: "" });
     const { name, phone, city, address_source, address_destination, date, gender, number_of_passengers, carType } = inputValue;
@@ -50,7 +50,7 @@ function BookingShuttle({ setShowSpinner }) {
     // };
 
     return (
-        
+
         <div>
             <div className="navbar">
                 <a href="/"> <div className="btn_home"><FaHome />Home </div></a>
@@ -114,7 +114,7 @@ function BookingShuttle({ setShowSpinner }) {
                         "בית שאן",
                         "בית שמש",
                         "בני ברק",
-                        "בת ים", 
+                        "בת ים",
                         "גבעת שמואל",
                         "גבעתיים",
                         "דימונה",
@@ -239,27 +239,31 @@ function BookingShuttle({ setShowSpinner }) {
                 <div className="btn-wrapper">
                     <Link to="/login">
                         <Button
-                            text="שלח" onClick={notify}
-                            // onClick={sendCall}
-                            // clickHandler={() => {
-                            //     Object.keys(inputError).forEach((key) => {
-                            //         inputError[key] = userDetails[]
-                            //     })
-                            //     setInputError({
-                            //         ...inputError,
-                            //         carTypeInput: !userDetails.carType,
-                            //         seatsNumInput: !userDetails.seatsNum,
-                            //         startingPointInput: !userDetails.startingPoint,
-                            //         destinationAddressInput:
-                            //             !userDetails.destinationAddress,
-                            //         dateInput: !userDetails.date,
-                            //         sexInput: !userDetails.sex,
-                            //     });
-                            //     setShowSpinner(true);
-                            //     setTimeout(setShowSpinner.bind("", false), 3000);
-                            //     TODO - http- backend (userDetails)
-                            // }}
-                        /><ToastContainer/>
+                            text="שלח"
+                            onClick={() => {
+                                notify();
+                                sendCall();
+                            }}
+                        // onClick={sendCall}
+                        // clickHandler={() => {
+                        //     Object.keys(inputError).forEach((key) => {
+                        //         inputError[key] = userDetails[]
+                        //     })
+                        //     setInputError({
+                        //         ...inputError,
+                        //         carTypeInput: !userDetails.carType,
+                        //         seatsNumInput: !userDetails.seatsNum,
+                        //         startingPointInput: !userDetails.startingPoint,
+                        //         destinationAddressInput:
+                        //             !userDetails.destinationAddress,
+                        //         dateInput: !userDetails.date,
+                        //         sexInput: !userDetails.sex,
+                        //     });
+                        //     setShowSpinner(true);
+                        //     setTimeout(setShowSpinner.bind("", false), 3000);
+                        //     TODO - http- backend (userDetails)
+                        // }}
+                        /><ToastContainer />
                     </Link>
                 </div>
             </div>

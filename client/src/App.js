@@ -17,7 +17,7 @@ import Spinner from "./components/Spinner";
 import {Welcome} from './components/Welcome';
 import {Welcome2} from './components/Welcome2';
 // import Cards from './components/Cards';
-// import { Example } from './components/Example';
+import { Example } from './components/Example';
 
 import Signup from "./components/log_in/LoginComponent/Signup"
 import { Container } from "react-bootstrap"
@@ -62,7 +62,7 @@ function App() {
                 <Route exact path="/bookingShuttle" setShowSpinner={setShowSpinner} element={<BookingShuttle />} />
                 <Route path="search" element={<Search />} />
                 <Route exact path="/profil" element={<Profil />} />    
-                {/* <Route exact path="/example" element={<Example />} />         */}
+                <Route exact path="/example" element={<Example />} />        
               </Routes>
             </AuthProvider>
           </Router>
