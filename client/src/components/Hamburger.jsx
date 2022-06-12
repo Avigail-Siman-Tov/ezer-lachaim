@@ -72,8 +72,8 @@ function Hamburger() {
 
           </div></Navbar.Item>
           
-          <Navbar.Item><a href="profil"> <div className="home_hamburger" ><Icon icon="et:profile-male" color="#356d9c" /> לאזור האישי </div></a></Navbar.Item>
-          <Navbar.Item><a href="/"> <div className="home_hamburger"><Icon icon="uit:signout" color="#356d9c" rotate={2} inline={true} /> התנתקות </div></a></Navbar.Item>
+          <Navbar.Item><a href="profil"> <div className="home_hamburger" ><Icon icon="et:profile-male" className="space" color="#356d9c" /> לאזור האישי </div></a></Navbar.Item>
+          <Navbar.Item><a href="/"> <div className="home_hamburger"><Icon icon="uit:signout"  className="space" color="#356d9c" rotate={2} inline={true} /> התנתקות </div></a></Navbar.Item>
 
         </Navbar.Items>
         
