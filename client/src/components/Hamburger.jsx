@@ -1,10 +1,36 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import "../styles/hamburger.css";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { useAuth } from "./log_in/contexts/AuthContext"
+import { firestore } from "../firebase";
+
 
 // import ImgUpload from "../components";
 import { Icon } from '@iconify/react';
 function Hamburger() {
+  const profileDetailsRef = collection(firestore, "newVolunteer");
+  const { currentUser, logout } = useAuth();
+  const [profileDetails, setProfileDetails] = useState([]);
+
+
+  async function getData() {
+    // const dataArray = await getDocs(query(callsRef));
+
+    var q = query(profileDetailsRef, where('email', '==', currentUser.email));
+    const snapshot = await getDocs(q);
+
+    snapshot.forEach(doc => {
+      setProfileDetails(prev => [...prev, doc.data()])
+    })
+
+  }
+
+  useEffect(() => {
+    return () => getData();
+  }, [])
+
+
   const [openDrawer, toggleDrawer] = useState(false);
   const drawerRef = useRef(null);
 
@@ -23,7 +49,7 @@ function Hamburger() {
 
   return (
 
-    
+
     <Styles.Wrapper>
       <CSSReset />
       <Navbar.Wrapper>
@@ -39,14 +65,16 @@ function Hamburger() {
           {/* <Navbar.Item> <div className="line"></div></Navbar.Item> */}
          
           </div></Navbar.Item>
-          <Navbar.Item><a href="profil"> <div className="home_hamburger" ><Icon icon="et:profile-male"  className="space" color="#356d9c" /> לאזור האישי </div></a></Navbar.Item>
-          <Navbar.Item><a href="/"> <div className="home_hamburger"><Icon icon="uit:signout"  className="space" color="#356d9c" rotate={2} inline={true} /> התנתקות </div></a></Navbar.Item>
-        
+          
+          <Navbar.Item><a href="profil"> <div className="home_hamburger" ><Icon icon="et:profile-male" color="#356d9c" /> לאזור האישי </div></a></Navbar.Item>
+          <Navbar.Item><a href="/"> <div className="home_hamburger"><Icon icon="uit:signout" color="#356d9c" rotate={2} inline={true} /> התנתקות </div></a></Navbar.Item>
+
         </Navbar.Items>
-       
+        
+
       </Navbar.Wrapper>
     </Styles.Wrapper>
-    
+
   );
 }
 
