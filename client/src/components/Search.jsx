@@ -37,7 +37,7 @@ export const Search = () => {
     }
 
     useEffect(() => {
-        return () => getData();
+        return () => getData();  
     }, [])
 
     // function myFunction() { 

@@ -52,7 +52,7 @@ function BookingShuttle() {
     return (
         <div>
             <div className="navbar">
-                <a href="/"> <div className="btn_home"><FaHome />Home </div></a>
+                <a href="/"> <div className="btn_home"><FaHome className="spaceB" />Home </div></a>
                 <img src="/logo_ezl.png" alt="Logo image" />
             </div>
             <Navbar />
@@ -180,7 +180,7 @@ function BookingShuttle() {
                     ]}
                     type="text"
                     value={city}
-                    placeHolder="בחירת עיר מגורים"
+                    placeHolder="העיר בה אתה נמצא"
                     name="city"
                     onChange={handleChange}
                 />

@@ -1,4 +1,6 @@
 import "../styles/input.css";
+import ReactDOM from 'react-dom/client';
+
 
 function Input({ value, name, placeholder, type, onChange, hasError }) {
     return (

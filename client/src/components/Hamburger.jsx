@@ -1,10 +1,36 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import "../styles/hamburger.css";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { useAuth } from "./log_in/contexts/AuthContext"
+import { firestore } from "../firebase";
+
 
 // import ImgUpload from "../components";
 import { Icon } from '@iconify/react';
 function Hamburger() {
+  const profileDetailsRef = collection(firestore, "newVolunteer");
+  const { currentUser, logout } = useAuth();
+  const [profileDetails, setProfileDetails] = useState([]);
+
+
+  async function getData() {
+    // const dataArray = await getDocs(query(callsRef));
+
+    var q = query(profileDetailsRef, where('email', '==', currentUser.email));
+    const snapshot = await getDocs(q);
+
+    snapshot.forEach(doc => {
+      setProfileDetails(prev => [...prev, doc.data()])
+    })
+
+  }
+
+  useEffect(() => {
+    return () => getData();
+  }, [])
+
+
   const [openDrawer, toggleDrawer] = useState(false);
   const drawerRef = useRef(null);
 
@@ -23,7 +49,7 @@ function Hamburger() {
 
   return (
 
-    
+
     <Styles.Wrapper>
       <CSSReset />
       <Navbar.Wrapper>
@@ -32,20 +58,29 @@ function Hamburger() {
         </HamburgerButton.Wrapper>
         {/* <Navbar.Item> <div className="has">  */}
         <Navbar.Items ref={drawerRef} openDrawer={openDrawer}>
-        <Navbar.Item> <div className="img_hamburger1">
-          <Navbar.Item> <div className="img_hamburgerup"><Icon icon="healthicons:ui-user-profile" color="#ebe9eb" width="80" height="80"/> </div></Navbar.Item>
-          <Navbar.Item><div className="home_hamburgerup" ><Icon icon="bi:person-circle" color="#ebe9eb" inline={true} /> שם </div></Navbar.Item>
-          <Navbar.Item><div className="home_hamburgerup" ><Icon icon="arcticons:google-mail" color="#ebe9eb" inline={true} />  מייל </div></Navbar.Item>
-          <Navbar.Item> <div className="line"></div></Navbar.Item>
+          <Navbar.Item> <div className="img_hamburger1">
+
+            <Navbar.Item> <div className="img_hamburgerup"><Icon icon="healthicons:ui-user-profile" color="#ebe9eb" width="80" height="80" /> </div></Navbar.Item>
+            {profileDetails.map((object, index) => (
+            <div key={index}>
+            <Navbar.Item><a href="/login"> <div className="home_hamburgerup" >  {object.name}</div></a></Navbar.Item>
+            <Navbar.Item><a href="/"> <div className="home_hamburgerup" >  {object.email} </div></a></Navbar.Item>
+            <Navbar.Item> <div className="line"></div></Navbar.Item>
+                                         
+            </div>
+                        ))}
+
           </div></Navbar.Item>
+          
           <Navbar.Item><a href="profil"> <div className="home_hamburger" ><Icon icon="et:profile-male" color="#356d9c" /> לאזור האישי </div></a></Navbar.Item>
           <Navbar.Item><a href="/"> <div className="home_hamburger"><Icon icon="uit:signout" color="#356d9c" rotate={2} inline={true} /> התנתקות </div></a></Navbar.Item>
-        
+
         </Navbar.Items>
-       
+        
+
       </Navbar.Wrapper>
     </Styles.Wrapper>
-    
+
   );
 }
 

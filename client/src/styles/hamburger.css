@@ -29,16 +29,20 @@
     right: 0%
     
   }
+
   .img_hamburger1{
     width: 335px;
     height: 200px;
     text-indent: 20px;
     background-color: #356d9c;
-   margin-top: 0px;
+   margin-top: -10px;
     padding-top: 0px; 
     top:0%;
   }
- 
+.space{
+
+  margin-left: 15px;
+}
   .home_hamburgerup{
     color: white;
     width: 200px;

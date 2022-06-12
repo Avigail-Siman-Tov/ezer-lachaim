@@ -225,3 +225,6 @@ input[type="password"] {
 b {
   color: rgb(13, 13, 228);
 }
+.spaceB{
+  margin-left: 5px;
+}

@@ -47,7 +47,6 @@ function NewVolunteer() {
             ...prev,
             [name]: value,
         }));
-        console.log(inputValue);
       };
 
     async function sendNewVolunteer() {
@@ -118,7 +117,7 @@ function NewVolunteer() {
     return (
         <div>
             <div className="navbar">
-                <a href="/"> <div className="btn_home"><FaHome />Home </div></a>
+                <a href="/"> <div className="btn_home"><FaHome  className="spaceB"/>Home </div></a>
                 <img src="/logo_ezl.png" alt="Logo image" />
             </div>
             <Navbar />
@@ -299,7 +298,7 @@ function NewVolunteer() {
                     //     userDetails.carType = carType;
                     // }}
                     />
-                    <Input 
+                    {/* <Input 
                      type="text"
                      value={carNumber}
                      placeholder="מספר רכב"
@@ -309,7 +308,7 @@ function NewVolunteer() {
                         // changeHandler={(carNum) => {
                         //     userDetails.carNum = carNum;
                         // }}
-                    />
+                    /> */}
                     <Input 
                      type="text"
                      value={number_of_seets}
@@ -323,19 +322,21 @@ function NewVolunteer() {
                     />
                     <Select options={["אשה", "גבר"]} placeHolder="מגדר" />
 
-                    <Input 
+                    {/* <Input 
                     type="text"
                     value={remarks}
                     placeholder="הערות" 
                     name="remarks"
                     onChange={handleChange}  
-                    />
+                    /> */}
                     <Link to="/login">
                             <Button
                                 text="שלח" 
                                 onClick={() => {
                                    notify();
                                     sendNewVolunteer();
+                                    console.log(inputValue);
+
                                   }}
                                 // {/* // clickHandler={() => {
                                 // //     setInputError({

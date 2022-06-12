@@ -34,7 +34,7 @@ export default function Login() {
     }
     catch (e) {
       setError("סיסמא לא חוקית או משתמש לא קיים במערכת")
-      // setError(e.message)
+      //  setError(e.message)
     }
 
     setLoading(false)
@@ -43,12 +43,13 @@ export default function Login() {
   return (
     <div>
       <div className="navbar">
-        <a href="/"> <div className="btn_home"><FaHome />Home </div></a>
+        <a href="/"> <div className="btn_home"><FaHome className="spaceB" />Home </div></a>
         <img src="/logo_ezl.png" alt="Logo image" />
       </div>
       <Navbar />
       <div className="allLogin">
-        <Icon className="profileImg" icon="healthicons:ui-user-profile" color="#6c6c6c" />      <Card>
+        <Icon className="profileImg" icon="healthicons:ui-user-profile" color="#6c6c6c" />
+              <Card>
           <Card.Body>
             <h2 className="enter">שלום!</h2>
             <h4 className="enter">נא להקיש כתובת מייל וסיסמא להתחברות</h4>
