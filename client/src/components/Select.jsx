@@ -9,9 +9,9 @@ function Select({ options, placeHolder, hasError, changeHandler, onChange, type,
                 //     changeHandler && changeHandler(newValue);
                 // }}
                 onChange={onChange}
-            >
-                name={name};
+                name={name}
                 value={value}
+            >
                 <option id="widthTempOption" className={`placeholder ${hasError ? "error" : ""}`}
                     value={placeHolder}>{placeHolder}</option>
                 {options.map((element, index) => (

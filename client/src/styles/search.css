@@ -1,21 +1,25 @@
-/* .allPage {
-  /* padding: 15px; */
-/* } */ 
+.image_travel {
 
-.flex-container{
-    display: flex;
-    padding-left: 28%;
 }
 
-/* .image_travel {
-  opacity: 80%;
-} */
+.box-search {
+  width: 100%;
+  margin-bottom: 30px;
+  border: 1.5px solid #808080;
+  text-align: right;
+  padding-right: 35px;
+  font-size: 15px;
+}
+
+#city{
+  background-image: url('searchImg.png');
+  background-position: 4px 4px; 
+  background-repeat: no-repeat;
+}
 
 /* calls */
 .req
 {
-  display: flex;
-  flex-direction: column;
   background-color: rgb(255, 255, 255);
   margin: 0;
 }
@@ -25,53 +29,18 @@
   border-style: solid;
   border-color: #ebe9eb;
   /* border-color: #6c6c6c; */
-
   border-width: 3px;
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);    width: 100%; */
-  /* margin: 10px; */
   margin-top: 5px;
   margin-bottom: 5px;
-  /* text-align: center; */
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 35px;
+  padding-right: 35px;
   text-align: right;
   line-height: 50px;
-  font-size: 14px;
-}
-
-.box-search {
-  width: 100%;
-  display: inline-block;
-  /* margin-top: 30px; */
-  margin-bottom: 30px;
-  border: 1.5px solid #6c6c6c;
-  /* left: auto; */
-  text-align: right;
-  padding-right: 7px;
-    /* margin: .4rem 0; */
-}
-
-/* input::-webkit-calendar-picker-indicator {
-  display: none;
-} */
-
-
-#city{
-  /* width: 130px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px; */
-  /* background-color: white; */
-  background-image: url('search_img.png');
-  
-  background-position: 4px 4px; 
-  background-repeat: no-repeat;
-  /* padding: 12px 20px 12px 40px; */
-  /* -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out; */
+  font-size: 16px;
+  font-family: sans-serif;
+  line-height: 40px;
 }
 
 .tab {
@@ -80,8 +49,7 @@
 }
 
 .btn_take{
-  /* margin-left: 75%; */
-    margin-right: 75%;
+  margin-right: 75%;
   margin-top: 15px;
   color: #ffffff;
   border-radius: 20px;
@@ -92,11 +60,14 @@
 }
 
 .btn_take:hover {
-/* background-color:#ffffff;
-  color: #356d9c; */
   opacity: 0.7;
 }
 
+.flex {
+  display: flex;
+  display: inline;
+}
 
-
-  
+.det {
+  font-weight: bold;
+}
