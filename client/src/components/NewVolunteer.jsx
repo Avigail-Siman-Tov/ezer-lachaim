@@ -14,13 +14,8 @@ import { FaHome } from "react-icons/fa"
 import { useRef } from "react"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-<<<<<<< Updated upstream
 import { Example } from "./Example";
 
-=======
-import "../styles/spinner.css";
-import { SpinnerCircular } from "spinners-react";
->>>>>>> Stashed changes
 
 
 // import { useNavigate } from "react-router-dom"
@@ -131,7 +126,7 @@ function NewVolunteer({ setShowSpinner }) {
             <Navbar />
             <div>
                 <div className="form-wrapper">
-                    <div className="title">טופס הצטרפות למתנדבים</div>
+                    <div className="title1">טופס הצטרפות למתנדבים</div>
                     {/* <Example/> */}
                     <Input 
                         type="text"
