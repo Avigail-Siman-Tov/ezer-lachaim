@@ -8,9 +8,11 @@
 }
 
 .image_travel {
-  opacity: 80%;
+  /* opacity: 80%; */
 }
-
+.yu{
+  margin-left: 10px;
+}
 /* calls */
 .req
 {
@@ -72,6 +74,13 @@
   /* padding: 12px 20px 12px 40px; */
   /* -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out; */
+}
+.word{
+  margin-left: 5px;
+}
+.tab {
+  display: inline-block;
+  margin-left: 40px;
 }
 
 

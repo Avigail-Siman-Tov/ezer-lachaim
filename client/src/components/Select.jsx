@@ -23,6 +23,7 @@ function Select({ options, placeHolder, hasError, changeHandler, onChange, type,
             {/* </FormControl> */}
         </div>
     )
+    
 }
 export default Select;
 

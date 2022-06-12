@@ -34,8 +34,8 @@ function Hamburger() {
         <Navbar.Items ref={drawerRef} openDrawer={openDrawer}>
         <Navbar.Item> <div className="img_hamburger1">
           <Navbar.Item> <div className="img_hamburgerup"><Icon icon="healthicons:ui-user-profile" color="#ebe9eb" width="80" height="80"/> </div></Navbar.Item>
-          <Navbar.Item><a href="/login"> <div className="home_hamburgerup" ><Icon icon="bi:person-circle" color="#ebe9eb" inline={true} /> שם </div></a></Navbar.Item>
-          <Navbar.Item><a href="/"> <div className="home_hamburgerup" ><Icon icon="arcticons:google-mail" color="#ebe9eb" inline={true} />  מייל </div></a></Navbar.Item>
+          <Navbar.Item><div className="home_hamburgerup" ><Icon icon="bi:person-circle" color="#ebe9eb" inline={true} /> שם </div></Navbar.Item>
+          <Navbar.Item><div className="home_hamburgerup" ><Icon icon="arcticons:google-mail" color="#ebe9eb" inline={true} />  מייל </div></Navbar.Item>
           <Navbar.Item> <div className="line"></div></Navbar.Item>
           </div></Navbar.Item>
           <Navbar.Item><a href="profil"> <div className="home_hamburger" ><Icon icon="et:profile-male" color="#356d9c" /> לאזור האישי </div></a></Navbar.Item>

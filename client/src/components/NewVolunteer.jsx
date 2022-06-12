@@ -599,5 +599,3 @@ export default NewVolunteer;
 //                         placeholder="אימייל"
 //                         hasError={inputError.emailInput}
 
-
-  

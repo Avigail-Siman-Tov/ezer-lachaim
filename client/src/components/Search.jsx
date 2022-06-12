@@ -12,8 +12,6 @@ import { Form } from "react-bootstrap"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
-
 export const Search = () => {
     const notify = () => toast.success("תודה שלקחת את הנסיעה! פרטי החולה נשלחו אליך במייל ", { position: "top-center", autoClose: 5000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, });
 
@@ -92,7 +90,7 @@ export const Search = () => {
                 <form
                 // onSubmit={(e)=>(SearchBlog(e))} 
                 >
-                    {/* <img className="image_travel" src="i7.jpg" /> */}
+                    <img className="image_travel" src="i7.jpg" />
                     {/* <Form.Group id="search_input">
                         <Icon icon="fluent:search-square-24-filled"  color="#ea6b4c" width="100" height="100" /> */}
                     <input className="box-search " placeholder="הזן עיר לחיפוש" list="places" type="text" id="city" name="search" value={filter} onChange={searchText.bind(this)} required autoComplete="off" pattern="בני ברק|באר יעקב|קריית ים|באקה אל-גרבייה|ביתר עילית|מע'אר|חריש|פתח תקווה|צפת|קנסווה|קריית ביאליק|קריית אונו|קריית מוצקין|קריית אתא|קריית גת|קריית ים| קריית שמונה|קריית מלאכי|ראש העין|ראשון לציון|רהט|רחובות|רמלה|רמת גן|רמת השרון|רעננה|שדרות|תל אביב |שפרעם| עראבה|ערד|עפולה|כפר יונה|כפר סבא|כפר קאסם|כרמיאל|לוד|מגדל העמק|מודיעין מכבים רעות|אום אל פחם|אופקים|אור יהודה|אור עקיבא|אילת|אריאל|אשדוד|אשקלון|באר שבע|בית שאן|בית שמש|בת ים|גבעת שמואל|גבעתיים|דימונה|הרצליה|הוד השרון|חדרה |חולון|חיפה |טבריה|טייבה|טירה |טירת הכרמל|טמרה|יבנה|יהוד מונסון|יקנעם|ירושלים|מעלה אדומים|מעלות תרשיחא|נהריה|נתניה|נס ציונה|נוף הגליל|נצרת|נשר|נתיבות|סח'נין|עכו" />
@@ -187,10 +185,10 @@ export const Search = () => {
                 {dataSearch.map((object, index) => (
                  <div className="req" key={index}>
                         <div>
-                            {"מקור:  " + object.address_source + " יעד:  " + object.address_destination + " עיר:  " + object.city + " תאריך:  " + object.date + " מגדר:  " + object.gender + " מספר נוסעים:  " + object.number_of_passengers + " סוג רכב:  " + object.car_type}
-                            <br />
+                            <div>{"מקור:"+ object.address_source} <span class="tab"></span> { "יעד:"+ object.address_destination } <span class="tab"></span> {" עיר:  " + object.city } <span class="tab"></span> <br/>  {" מגדר:  " + object.gender } <span class="tab"></span>{" מספר נוסעים:  " + object.number_of_passengers } <span class="tab"></span> {" סוג רכב:  " + object.car_type} <span class="tab"></span> {" תאריך:  " + object.date } </div>
                             <button className="btn"   onClick={notify}>לקחתי </button>
                         </div>
+                       
                     </div>
                 ))} 
 
