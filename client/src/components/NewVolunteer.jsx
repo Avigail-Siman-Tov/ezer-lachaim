@@ -124,7 +124,6 @@ function NewVolunteer() {
             <div>
                 <div className="form-wrapper">
                     <div className="title">טופס הצטרפות למתנדבים</div>
-                    <Example/>
                     <Input 
                         type="text"
                         value={name}

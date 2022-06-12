@@ -184,10 +184,8 @@ export const Search = () => {
                 </form>
                 {dataSearch.map((object, index) => (
                  <div className="req" key={index}>
-                   
                         <div>
-                            {"  מקור:   " + object.address_source + " יעד:  " + object.address_destination + " עיר:  " + object.city + " תאריך:  " + object.date + " מגדר:  " + object.gender + " מספר נוסעים:  " + object.number_of_passengers + " סוג רכב:  " + object.car_type}
-                            <br />
+                            <div>{"מקור:" +" " + object.address_source} <span class="tab"></span> { "יעד:" +" " + object.address_destination } <span class="tab"></span> {" עיר:  " +" " + object.city } <span class="tab"></span>   {" מגדר:  "+" "  + object.gender } <span class="tab"></span> <br/>{" מספר נוסעים:  "+" "  + object.number_of_passengers } <span class="tab"></span> {" סוג רכב:  "+" "  + object.car_type} <span class="tab"></span> {" תאריך:  "+" "  + object.date } </div>
                             <button className="btn"   onClick={notify}>לקחתי </button>
                         </div>
                        
