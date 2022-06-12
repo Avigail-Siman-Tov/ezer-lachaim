@@ -17,7 +17,7 @@ import Spinner from "./components/Spinner";
 import {Welcome} from './components/Welcome';
 import {Welcome2} from './components/Welcome2';
 // import Cards from './components/Cards';
-
+import { Example } from './components/Example';
 
 import Signup from "./components/log_in/LoginComponent/Signup"
 import { Container } from "react-bootstrap"
@@ -29,14 +29,15 @@ import ForgotPassword from "./components/log_in/LoginComponent/ForgotPassword"
 import UpdateProfile from "./components/log_in/LoginComponent/UpdateProfile"
 import { AuthProvider } from './components/log_in/contexts/AuthContext';
 import  Profil  from './components/Profil';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [showSpinner, setShowSpinner] = useState(false);
   return (
     <div className="App">
       
-
+      <ToastContainer/> 
       {showSpinner ? <Spinner /> : undefined}
       <Container className="d-flex align-items-center justify-content-center"
         style={{ minHeight: "100vh", alignContent: 'center' }}>
@@ -60,7 +61,8 @@ function App() {
                 <Route exact path="/patient" element={<Patient />} />
                 <Route exact path="/bookingShuttle" setShowSpinner={setShowSpinner} element={<BookingShuttle />} />
                 <Route path="search" element={<Search />} />
-                <Route exact path="/profil" element={<Profil />} />            
+                <Route exact path="/profil" element={<Profil />} />    
+                <Route exact path="/example" element={<Example />} />        
               </Routes>
             </AuthProvider>
           </Router>

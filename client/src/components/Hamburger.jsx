@@ -1,8 +1,36 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled, { createGlobalStyle } from "styled-components";
-// import ImgUpload from "../components";
+import "../styles/hamburger.css";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { useAuth } from "./log_in/contexts/AuthContext"
+import { firestore } from "../firebase";
 
+
+// import ImgUpload from "../components";
+import { Icon } from '@iconify/react';
 function Hamburger() {
+  const profileDetailsRef = collection(firestore, "newVolunteer");
+  const { currentUser, logout } = useAuth();
+  const [profileDetails, setProfileDetails] = useState([]);
+
+
+  async function getData() {
+    // const dataArray = await getDocs(query(callsRef));
+
+    var q = query(profileDetailsRef, where('email', '==', currentUser.email));
+    const snapshot = await getDocs(q);
+
+    snapshot.forEach(doc => {
+      setProfileDetails(prev => [...prev, doc.data()])
+    })
+
+  }
+
+  useEffect(() => {
+    return () => getData();
+  }, [])
+
+
   const [openDrawer, toggleDrawer] = useState(false);
   const drawerRef = useRef(null);
 
@@ -20,21 +48,39 @@ function Hamburger() {
   }, []);
 
   return (
-    
+
+
     <Styles.Wrapper>
       <CSSReset />
       <Navbar.Wrapper>
         <HamburgerButton.Wrapper onClick={() => toggleDrawer(true)}>
           <HamburgerButton.Lines />
         </HamburgerButton.Wrapper>
+        {/* <Navbar.Item> <div className="has">  */}
         <Navbar.Items ref={drawerRef} openDrawer={openDrawer}>
-          {/* <Navbar.Item></Navbar.Item> */}
-          <Navbar.Item><a href="profil"> <div className="home_hamburger"> לאזור האישי</div></a></Navbar.Item>
-          <Navbar.Item><a href="/"> <div className="home_hamburger">התנתקות </div></a></Navbar.Item>
+          <Navbar.Item> <div className="img_hamburger1">
+
+            <Navbar.Item> <div className="img_hamburgerup"><Icon icon="healthicons:ui-user-profile" color="#ebe9eb" width="80" height="80" /> </div></Navbar.Item>
+            {profileDetails.map((object, index) => (
+            <div key={index}>
+            <Navbar.Item><a href="/login"> <div className="home_hamburgerup" >  {object.name}</div></a></Navbar.Item>
+            <Navbar.Item><a href="/"> <div className="home_hamburgerup" >  {object.email} </div></a></Navbar.Item>
+            <Navbar.Item> <div className="line"></div></Navbar.Item>
+                                         
+            </div>
+                        ))}
+
+          </div></Navbar.Item>
+          
+          <Navbar.Item><a href="profil"> <div className="home_hamburger" ><Icon icon="et:profile-male" color="#356d9c" /> לאזור האישי </div></a></Navbar.Item>
+          <Navbar.Item><a href="/"> <div className="home_hamburger"><Icon icon="uit:signout" color="#356d9c" rotate={2} inline={true} /> התנתקות </div></a></Navbar.Item>
+
         </Navbar.Items>
+        
+
       </Navbar.Wrapper>
     </Styles.Wrapper>
-    
+
   );
 }
 
@@ -47,14 +93,12 @@ const Styles = {
 const Navbar = {
   Wrapper: styled.nav`
     flex: 1;
-
     align-self: flex-start;
-
-    padding: 1rem 3rem;
-
+    padding: 2rem 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+  
 
 
 
@@ -63,7 +107,8 @@ const Navbar = {
     // 40em == 640px
     @media only screen and (max-width: 40em) {
       position: fixed;
-      width: 100vw;
+      width: 100%;
+      
       top: 0;
     }
   `,
@@ -73,19 +118,21 @@ const Navbar = {
   // `,
   Items: styled.ul`
     display: flex;
-    list-style: none;
-
+   
+    flex-direction: column;
+  
     @media only screen and (max-width: 40em) {
       position: fixed;
       right: 0;
       top: 0;
-
       height: 100%;
-
+      witgh: 95%
+   
       flex-direction: column;
-
-      background-color: white;
-      padding: 1rem 2rem;
+  
+      background-color: #ebe9eb;
+      // padding: 10rem 2rem;
+      
 
       transition: 0.2s ease-out;
 
@@ -94,11 +141,14 @@ const Navbar = {
     }
   `,
   Item: styled.li`
+  list-style: none;
     padding: 0 1rem;
+    
+    
     cursor: pointer;
-
     @media only screen and (max-width: 40em) {
       padding: 1rem 0;
+
     }
   `
 };
@@ -109,7 +159,7 @@ const HamburgerButton = {
     width: 3rem;
     position: relative;
     font-size: 12px;
-
+    color:#356d9c;
     display: none;
 
     @media only screen and (max-width: 40em) {
@@ -153,6 +203,7 @@ const HamburgerButton = {
     &:after {
       /* Move bottom line below center line */
       top: -0.8rem;
+      
     }
 
     &:before {

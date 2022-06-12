@@ -48,7 +48,8 @@ export default function Login() {
       </div>
       <Navbar />
       <div className="allLogin">
-        <Icon className="profileImg" icon="healthicons:ui-user-profile" color="#6c6c6c" />      <Card>
+        <Icon className="profileImg" icon="healthicons:ui-user-profile" color="#6c6c6c" />
+              <Card>
           <Card.Body>
             <h2 className="enter">שלום!</h2>
             <h4 className="enter">נא להקיש כתובת מייל וסיסמא להתחברות</h4>
@@ -64,7 +65,7 @@ export default function Login() {
               <Form.Group id="password">
                 {/* <Form.Label>Password</Form.Label> */}
                 <Icon icon="bi:person" color="#6c6c6c" />
-                <input className="designInput" placeholder="Enter your password" type="password" ref={passwordRef} required />
+                <input className="designInput" placeholder="Enter your password" type="password"  ref={passwordRef} required />
               </Form.Group>
               <div className="remmeber">
                 <Link to="/forgot-password">?forget password</Link>

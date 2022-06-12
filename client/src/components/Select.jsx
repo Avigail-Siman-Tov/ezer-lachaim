@@ -1,8 +1,8 @@
 import '../styles/select.css';
 
-function Select({ options, placeHolder, hasError, changeHandler ,onChange,type,name,value}) {
+function Select({ options, placeHolder, hasError, changeHandler, onChange, type, name, value }) {
     return (
-        <select className='select' defaultValue={placeHolder}
+        <select className='select' defaultValue={placeHolder} 
             // onChange={(event) => {
             //     changeHandler(event.target.value)
             //     const newValue = event.target.value;
@@ -12,7 +12,7 @@ function Select({ options, placeHolder, hasError, changeHandler ,onChange,type,n
         >
             name={name};
             value={value}
-            <option className={`placeholder ${hasError ? "error" : ""}`}
+            <option id="widthTempOption" className={`placeholder ${hasError ? "error" : ""}`}
                 value={placeHolder}>{placeHolder}</option>
             {options.map((element, index) => (
                 <option key={index} value={element}>{element}</option>
@@ -21,3 +21,4 @@ function Select({ options, placeHolder, hasError, changeHandler ,onChange,type,n
     )
 }
 export default Select;
+

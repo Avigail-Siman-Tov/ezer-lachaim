@@ -1,9 +1,8 @@
-* {
+/* * {
   box-sizing: border-box;
 }
 
 
-/* Clearfix (clear floats) */
 .row::after {
   content: "";
   clear: both;
@@ -79,4 +78,4 @@ height: 30%;
   height: 30%;
 
   
-}
+} */

@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from "react"
 import "../styles/homePage.css"
 import { Icon } from '@iconify/react';
@@ -101,3 +100,4 @@ export const HomePage = () => {
                         <a href=""><Icon icon="akar-icons:whatsapp-fill" color="white" /></a>
                     </div>
                 </div> */}
+

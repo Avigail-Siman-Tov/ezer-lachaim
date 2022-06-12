@@ -52,15 +52,11 @@ export default function ForgotPassword() {
                 Reset Password
               </Button>
             </Form>
-            <div className="w-100 text-center mt-3">
-              <div>להתחברות מחדש לחץ</div>
-              <Link to="/login">כאן</Link>
+            <div className="login_again">
+              <div>להתחברות מחדש לחץ<Link to="/login"><b>   כאן</b></Link></div>
             </div>
           </Card.Body>
         </Card>
-        <div className="w-100 text-center mt-2">
-          {/* Need an account? <Link to="/signup">Sign Up</Link> */}
-        </div>
       </div>
     </>
   )
