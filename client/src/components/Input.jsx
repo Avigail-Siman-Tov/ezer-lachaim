@@ -2,6 +2,7 @@ import "../styles/input.css";
 
 function Input({ value, name, placeholder, type, onChange,hasError }) {
     return (
+     
         <input
             type={type}
             value={value}
@@ -14,6 +15,7 @@ function Input({ value, name, placeholder, type, onChange,hasError }) {
             // }}
             className={`input ${hasError ? "error" : ""}`}
         />
+     
     );
 }
 export default Input;
