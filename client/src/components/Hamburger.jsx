@@ -36,7 +36,8 @@ function Hamburger() {
           <Navbar.Item> <div className="img_hamburgerup">< Icon  icon="healthicons:ui-user-profile" color="#ebe9eb" width="80" height="80"  /></div></Navbar.Item>
           <Navbar.Item><div className="home_hamburgerup" > <Icon icon="bi:person-circle" className="space" color="#ebe9eb" inline={true}/>  שם</div></Navbar.Item>
           <Navbar.Item><div className="home_hamburgerup" ><Icon icon="arcticons:google-mail"  className="space" color="#ebe9eb" inline={true} />  מייל </div></Navbar.Item>
-          <Navbar.Item> <div className="line"></div></Navbar.Item>
+          {/* <Navbar.Item> <div className="line"></div></Navbar.Item> */}
+         
           </div></Navbar.Item>
           <Navbar.Item><a href="profil"> <div className="home_hamburger" ><Icon icon="et:profile-male"  className="space" color="#356d9c" /> לאזור האישי </div></a></Navbar.Item>
           <Navbar.Item><a href="/"> <div className="home_hamburger"><Icon icon="uit:signout"  className="space" color="#356d9c" rotate={2} inline={true} /> התנתקות </div></a></Navbar.Item>
@@ -91,8 +92,7 @@ const Navbar = {
       right: 0;
       top: 0;
       height: 100%;
-      witgh: 95%
-   
+      witgh: 95%;
       flex-direction: column;
   
       background-color: #ebe9eb;
