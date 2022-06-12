@@ -2,6 +2,7 @@ import '../styles/select.css';
 
 function Select({ options, placeHolder, hasError, changeHandler, onChange, type, name, value }) {
     return (
+    
         <select className='select' defaultValue={placeHolder} 
             // onChange={(event) => {
             //     changeHandler(event.target.value)
@@ -18,7 +19,9 @@ function Select({ options, placeHolder, hasError, changeHandler, onChange, type,
                 <option key={index} value={element}>{element}</option>
             ))}
         </select>
+    
     )
+    
 }
 export default Select;
 

@@ -1,9 +1,13 @@
 .home_hamburger{
     text-align: right;
-flex-direction: column;
-text-indent: 20px;
-    
+    flex-direction: column;
+    text-indent: 20px;    
 }
+/* .healthicons:ui-user-profile fa-fw{
+  border: 1px solid silver;
+    border-radius: 0.25em;
+     padding: 0.5em;
+} */
 /* .has{
     height: 30px;
     display: flex;
@@ -25,19 +29,26 @@ text-indent: 20px;
     right: 0%
     
   }
+
   .img_hamburger1{
     width: 335px;
     height: 200px;
     text-indent: 20px;
     background-color: #356d9c;
-    /* margin-right: 10px;
-    padding-top: 10px; */
+   margin-top: -10px;
+    padding-top: 0px; 
+    top:0%;
   }
+.space{
+
+  margin-left: 15px;
+}
   .home_hamburgerup{
     color: white;
     width: 200px;
     text-align: right;
   }
+  
   /* .img_hamburgerup{
     color: white;
     width: 300px;

@@ -119,13 +119,13 @@ function NewVolunteer({ setShowSpinner }) {
     return (
         <div>
             <div className="navbar">
-                <a href="/"> <div className="btn_home"><FaHome />Home </div></a>
+                <a href="/"> <div className="btn_home"><FaHome  className="spaceB"/>Home </div></a>
                 <img src="/logo_ezl.png" alt="Logo image" />
             </div>
             <Navbar />
             <div>
                 <div className="form-wrapper">
-                    <div className="title">טופס הצטרפות למתנדבים</div>
+                    <div className="title1">טופס הצטרפות למתנדבים</div>
                     {/* <Example/> */}
                     <Input 
                         type="text"

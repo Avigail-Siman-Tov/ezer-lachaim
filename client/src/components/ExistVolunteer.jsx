@@ -25,7 +25,8 @@ function ExistVolunteer({ setShowSpinner }) {
     const { currentUser, logout } = useAuth();
     const [name, setName] = useState("");
     const [existVolunteer, setExistVolunteer] = useState([]);
-
+    import "../styles/spinner.css";
+    import { SpinnerCircular } from "spinners-react";
    
     async function getData() {
         // const dataArray = await getDocs(query(callsRef));

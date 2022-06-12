@@ -11,6 +11,7 @@
     padding-bottom: 13px; */
     color: var(--e-global-color-secondary);
     width: 93%;
+    /* margin-right: 0px; */
     padding: 3px;
     line-height: 10;   
 }
@@ -18,10 +19,10 @@
     width: 10%;
 } */
 
-#widthTempOption { 
+/* #widthTempOption { 
     display : none;
-    /* width: 10%; */
-}
+    width: 10%;
+} */
 
 .error{
     border-color: var(--e-global-color-6fff166d);
