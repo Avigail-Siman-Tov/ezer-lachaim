@@ -16,17 +16,18 @@ import React, { useEffect } from "react"
 import NewVolunteer from "./NewVolunteer";
 // import "../styles/input2.css";
 // import "../styles/select2.css";
+import "../styles/spinner.css";
+import { SpinnerCircular } from "spinners-react";
+
+
 
  
 
 
 function ExistVolunteer({ setShowSpinner }) {
     const existVolunteerRef = collection(firestore, "newVolunteer");
-    const { currentUser, logout } = useAuth();
-    const [name, setName] = useState("");
+    const { currentUser } = useAuth();
     const [existVolunteer, setExistVolunteer] = useState([]);
-    import "../styles/spinner.css";
-    import { SpinnerCircular } from "spinners-react";
    
     async function getData() {
         // const dataArray = await getDocs(query(callsRef));
