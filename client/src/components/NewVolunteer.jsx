@@ -44,6 +44,7 @@ function NewVolunteer({ setShowSpinner }) {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+        console.log(name, value)
         setInputValue((prev) => ({
             ...prev,
             [name]: value,
@@ -62,30 +63,26 @@ function NewVolunteer({ setShowSpinner }) {
             console.log(err)
         }
     }
-   
-    async function handleSubmit() {
-        console.log("I am here")
-        // e.preventDefault()
-        if (inputValue.password !== inputValue.confirm_password) {
-          console.log("Passwords do not match")
-        }
-        // setLoading(false)
-    }
+
     
     async function handleSubmit(e) {
         e.preventDefault()
+        console.log(inputValue)
 
-        if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-            return setError('password do not match')
+        if (inputValue.password !== inputValue.confirm_password) {
+            setError('password do not match')
+            return
         }
 
         try {
             setError("")
             setLoading(true)
             await signup(emailRef.current.value, passwordRef.current.value)
+            await sendNewVolunteer();
+            notify();
         }
-        catch
-        {
+        catch (err){
+            console.log(err)
             setError('failed to create an account')
         }
         setLoading(false)
@@ -120,6 +117,7 @@ function NewVolunteer({ setShowSpinner }) {
     };
     return (
         <div>
+            <div>{error}</div>
             <div className="navbar">
                 <a href="/"> <div className="btn_home"><FaHome className="spaceB" />Home </div></a>
                 <img src="/logo_ezl.png" alt="Logo image" />
@@ -179,7 +177,6 @@ function NewVolunteer({ setShowSpinner }) {
                         placeholder="אימות סיסמא"
                         name="confirm_password"
                         onChange={handleChange}
-                        onSubmit={handleSubmit}
                     // onChange={handleSubmit} 
                     // hasError={inputError.confirmPasswordInput}
                     // changeHandler={(confirmPassword) => {
@@ -336,10 +333,7 @@ function NewVolunteer({ setShowSpinner }) {
                     <Link to="/login">
                             <Button
                                 text="שלח" 
-                                onClick={() => {
-                                   notify();
-                                    sendNewVolunteer();
-                                  }}
+                                onClick={handleSubmit}
                                 // {/* // clickHandler={() => {
                                 // //     setInputError({
                                 // //         ...inputError,
