@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 
 function Input({ value, name, placeholder, type, onChange, hasError }) {
     return (
-        <div>
+        
             <input
                 type={type}
                 value={value}
@@ -17,7 +17,6 @@ function Input({ value, name, placeholder, type, onChange, hasError }) {
                 // }}
                 className={`input ${hasError ? "error" : ""}`}
             />
-        </div>
     );
 }
 export default Input;

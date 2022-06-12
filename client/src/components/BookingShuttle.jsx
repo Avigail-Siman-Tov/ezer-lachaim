@@ -14,7 +14,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // function BookingShuttle({ setShowSpinner }) {
 function BookingShuttle() {
-    const notify = () => toast.success("הזמנתך התקבלה במידה ויימצא מתנדב הוא יצוראיתך קשר בהקדם ", { position: "top-center", autoClose: 5000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, });
+    const notify = () => toast.success("הזמנתך התקבלה במידה ויימצא מתנדב הוא יצור איתך קשר בהקדם ", { position: "top-center", autoClose: 5000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, });
     const callsRef = collection(firestore, "calls");
     const [inputValue, setInputValue] = useState({ name: "", phone: "", city: "", address_source: "", address_destination: "", date: "", gender: "", number_of_passengers: "", carType: "" });
     const { name, phone, city, address_source, address_destination, date, gender, number_of_passengers, carType } = inputValue;
@@ -57,7 +57,7 @@ function BookingShuttle() {
             </div>
             <Navbar />
             <div className="form-wrapper img-background">
-                <div className="title"> הזמנת נסיעה</div>
+                <div className="title1"> הזמנת נסיעה</div>
                 <Input
                     type="text"
                     value={name}

@@ -73,12 +73,14 @@
   /* -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out; */
 }
-.word{
-  margin-left: 5px;
-}
+
 .tab {
   display: inline-block;
   margin-left: 10px;
+}
+
+.btn_take{
+  margin-left: 75%;
 }
 
 

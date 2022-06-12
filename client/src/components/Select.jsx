@@ -2,8 +2,6 @@ import '../styles/select.css';
 
 function Select({ options, placeHolder, hasError, changeHandler, onChange, type, name, value }) {
     return (
-        <div>
-            {/* <FormControl sx={{ m: 1, width: 300, mt: 3 }}></FormControl> */}
             <select className='select' defaultValue={placeHolder}
                 // onChange={(event) => {
                 //     changeHandler(event.target.value)
@@ -20,8 +18,6 @@ function Select({ options, placeHolder, hasError, changeHandler, onChange, type,
                     <option key={index} value={element}>{element}</option>
                 ))}
             </select>
-            {/* </FormControl> */}
-        </div>
     )
     
 }
