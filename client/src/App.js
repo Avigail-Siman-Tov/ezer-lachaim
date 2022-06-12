@@ -55,7 +55,7 @@ function App() {
                 <Route exact path="/login/welcome2" element={<Welcome2/>} />
                 {/* <Route exact path="/accept" element={<Accept />} /> */}
                 <Route exact path="/new-volunteer" element={<NewVolunteer />} />
-                <Route exact path="/new-volunteer-details" element={<NewVolunteerDetails setShowSpinner={setShowSpinner} />} />
+                {/* <Route exact path="/new-volunteer-details" element={<NewVolunteerDetails setShowSpinner={setShowSpinner} />} /> */}
                 <Route exact path="/exist-volunteer" element={<ExistVolunteer />} />
                 {/* <Route exact path="/exist-volunteer2" element={<ExistVolunteer2 setShowSpinner={setShowSpinner} />} /> */}
                 <Route exact path="/patient" element={<Patient />} />

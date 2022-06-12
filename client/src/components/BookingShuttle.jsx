@@ -12,8 +12,8 @@ import Navbar from "../components/Navbar";
 import { FaHome } from "react-icons/fa";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-function BookingShuttle({ setShowSpinner }) {
+// function BookingShuttle({ setShowSpinner }) {
+function BookingShuttle() {
     const notify = () => toast.success("הזמנתך התקבלה במידה ויימצא מתנדב הוא יצוראיתך קשר בהקדם ", { position: "top-center", autoClose: 5000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, });
     const callsRef = collection(firestore, "calls");
     const [inputValue, setInputValue] = useState({ name: "", phone: "", city: "", address_source: "", address_destination: "", date: "", gender: "", number_of_passengers: "", carType: "" });
@@ -50,7 +50,6 @@ function BookingShuttle({ setShowSpinner }) {
     // };
 
     return (
-
         <div>
             <div className="navbar">
                 <a href="/"> <div className="btn_home"><FaHome />Home </div></a>

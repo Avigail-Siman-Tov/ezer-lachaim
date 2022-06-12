@@ -10,17 +10,12 @@
     /* padding-top: 13px;
     padding-bottom: 13px; */
     color: var(--e-global-color-secondary);
-    width: 93%;
+    /* width: 93%; */
     padding: 3px;
-    line-height: 10;   
+    /* line-height: 10;    */
 }
-/* .select option{
-    width: 10%;
-} */
-
-#widthTempOption { 
-    display : none;
-    /* width: 10%; */
+.select option{
+    /* width: 93%; */
 }
 
 .error{

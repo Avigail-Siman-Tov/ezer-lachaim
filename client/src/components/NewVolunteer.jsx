@@ -14,13 +14,14 @@ import { FaHome } from "react-icons/fa"
 import { useRef } from "react"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Example } from "./Example";
 
 
 
 // import { useNavigate } from "react-router-dom"
 
-
-function NewVolunteer({ setShowSpinner }) {
+// function NewVolunteer({ setShowSpinner }) {
+function NewVolunteer() {
     const notify = () => toast.success("!פרטיך נשמרו בהצלחה! מודים על הצטרפותך " ,{position: "top-center",autoClose: 5000,hideProgressBar: false,closeOnClick: true,pauseOnHover: true, draggable: true,progress: undefined,});
     const { signup } = useAuth();
     const newVolunteerRef = collection(firestore, "newVolunteer");
@@ -61,61 +62,59 @@ function NewVolunteer({ setShowSpinner }) {
         }
     }
    
-    async function handleSubmit() {
-        console.log("I am here")
-        // e.preventDefault()
-        if (inputValue.password !== inputValue.confirm_password) {
-          console.log("Passwords do not match")
-        }
-        // setLoading(false)
-    }
+    // async function handleSubmit() {
+    //     console.log("I am here")
+    //     if (inputValue.password !== inputValue.confirm_password) {
+    //       console.log("Passwords do not match")
+    //     }
+    // }
     
-    async function handleSubmit(e) {
-        e.preventDefault()
+    // async function handleSubmit(e) {
+    //     e.preventDefault()
 
-        if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-            return setError('password do not match')
-        }
+    //     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+    //         return setError('password do not match')
+    //     }
 
-        try {
-            setError("")
-            setLoading(true)
-            await signup(emailRef.current.value, passwordRef.current.value)
-        }
-        catch
-        {
-            setError('failed to create an account')
-        }
-        setLoading(false)
-    }
+    //     try {
+    //         setError("")
+    //         setLoading(true)
+    //         await signup(emailRef.current.value, passwordRef.current.value)
+    //     }
+    //     catch
+    //     {
+    //         setError('failed to create an account')
+    //     }
+    //     setLoading(false)
+    // }
 
-    const [inputError, setInputError] = useState({
-        nameInput: false,
-        phoneNumInput: false,
-        emailInput: false,
-        passwordInput: false,
-        confirmPasswordInput: false,
-        cityInput: false,
-        carTypeInput: false,
-        carNumInput: false,
-        seatsNumInput: false,
-        genderInput: false,
-        notesInput: false,
-    });
+    // const [inputError, setInputError] = useState({
+    //     nameInput: false,
+    //     phoneNumInput: false,
+    //     emailInput: false,
+    //     passwordInput: false,
+    //     confirmPasswordInput: false,
+    //     cityInput: false,
+    //     carTypeInput: false,
+    //     carNumInput: false,
+    //     seatsNumInput: false,
+    //     genderInput: false,
+    //     notesInput: false,
+    // });
 
-    const userDetails = {
-        name: "",
-        phoneNum: "",
-        email: "",
-        Password: "",
-        confirmPassword: "",
-        city: "",
-        carType: "",
-        carNum: "",
-        seatsNum: 0,
-        sex: "",
-        notes: "",
-    };
+    // const userDetails = {
+    //     name: "",
+    //     phoneNum: "",
+    //     email: "",
+    //     Password: "",
+    //     confirmPassword: "",
+    //     city: "",
+    //     carType: "",
+    //     carNum: "",
+    //     seatsNum: 0,
+    //     sex: "",
+    //     notes: "",
+    // };
     return (
         <div>
             <div className="navbar">
@@ -126,6 +125,7 @@ function NewVolunteer({ setShowSpinner }) {
             <div>
                 <div className="form-wrapper">
                     <div className="title">טופס הצטרפות למתנדבים</div>
+                    <Example/>
                     <Input 
                         type="text"
                         value={name}
@@ -176,7 +176,7 @@ function NewVolunteer({ setShowSpinner }) {
                         placeholder="אימות סיסמא"
                         name="confirm_password"
                         onChange={handleChange}
-                        onSubmit={handleSubmit}
+                        // onSubmit={handleSubmit}
                     // onChange={handleSubmit} 
                     // hasError={inputError.confirmPasswordInput}
                     // changeHandler={(confirmPassword) => {
@@ -277,7 +277,7 @@ function NewVolunteer({ setShowSpinner }) {
                         value={city}
                         placeHolder="בחירת עיר מגורים"
                         name="city"
-                        onChange={handleChange}     
+                        // onChange={handleChange}     
                  />
                     <div className="label">איזה רכב יש ברשותך?</div>
                     <Select
@@ -293,7 +293,7 @@ function NewVolunteer({ setShowSpinner }) {
                         value={carType}
                         placeHolder="בחירת סוג רכב" 
                         name="carType"
-                        onChange={handleChange}
+                        // onChange={handleChange}
                     // hasError={inputError.carTypeInput}
                     // changeHandler={(carType) => {
                     //     userDetails.carType = carType;
