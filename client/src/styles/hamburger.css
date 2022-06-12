@@ -1,8 +1,7 @@
 .home_hamburger{
     text-align: right;
-flex-direction: column;
-text-indent: 20px;
-    
+    flex-direction: column;
+    text-indent: 20px;    
 }
 /* .has{
     height: 30px;
@@ -38,6 +37,7 @@ text-indent: 20px;
     width: 200px;
     text-align: right;
   }
+  
   /* .img_hamburgerup{
     color: white;
     width: 300px;

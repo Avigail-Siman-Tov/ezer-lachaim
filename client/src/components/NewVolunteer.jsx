@@ -14,6 +14,7 @@ import { FaHome } from "react-icons/fa"
 import { useRef } from "react"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Example } from "./Example";
 
 
 
@@ -126,6 +127,7 @@ function NewVolunteer({ setShowSpinner }) {
             <div>
                 <div className="form-wrapper">
                     <div className="title">טופס הצטרפות למתנדבים</div>
+                    {/* <Example/> */}
                     <Input 
                         type="text"
                         value={name}
@@ -599,5 +601,3 @@ export default NewVolunteer;
 //                         placeholder="אימייל"
 //                         hasError={inputError.emailInput}
 
-
-  
