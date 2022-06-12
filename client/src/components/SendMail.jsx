@@ -13,11 +13,11 @@ export const SendMail = (props) => {
     const sendEmail = (e) => {
         e.preventDefault();
 
-        emailjs.sendForm('service_z788roe', 'template_a2saktz', e.target, 'yFg-PVFetaA058RjuYdDL')
+        emailjs.sendForm('service_z788roe', 'template_a2saktz', e.target, 'acdyoJK5z31WA9GiR')
             .then((result) => {
                 console.log(result.text);
                 alert("ההודעה נשלחה בהצלחה", result.text);
-                navigate("/home-page");
+                navigate("/");
             }, (error) => {
                 console.log(error.text);
                 alert("ארעה שגיאה נסה שנית", error.text);
