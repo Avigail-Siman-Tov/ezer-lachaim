@@ -20,8 +20,13 @@ background-color:#356d9c;
   height: 40px;
   border: solid 2px #356d9c;
   background-color: #356d9c;
+<<<<<<< Updated upstream
  /* display: inline-block; */
+=======
+  /* margin-left: 300px; */
+>>>>>>> Stashed changes
   /* margin-bottom: 50px; */
+  /* position: relative; */
 }
 
 .btn:hover {
