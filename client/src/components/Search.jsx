@@ -12,8 +12,6 @@ import { Form } from "react-bootstrap"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
-
 export const Search = () => {
     const notify = () => toast.success("תודה שלקחת את הנסיעה! פרטי החולה נשלחו אליך במייל ", { position: "top-center", autoClose: 5000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, });
 
@@ -186,11 +184,13 @@ export const Search = () => {
                 </form>
                 {dataSearch.map((object, index) => (
                  <div className="req" key={index}>
+                   
                         <div>
-                            {"מקור:  " + object.address_source + " יעד:  " + object.address_destination + " עיר:  " + object.city + " תאריך:  " + object.date + " מגדר:  " + object.gender + " מספר נוסעים:  " + object.number_of_passengers + " סוג רכב:  " + object.car_type}
+                            {"  מקור:   " + object.address_source + " יעד:  " + object.address_destination + " עיר:  " + object.city + " תאריך:  " + object.date + " מגדר:  " + object.gender + " מספר נוסעים:  " + object.number_of_passengers + " סוג רכב:  " + object.car_type}
                             <br />
                             <button className="btn"   onClick={notify}>לקחתי </button>
                         </div>
+                       
                     </div>
                 ))} 
 

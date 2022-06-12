@@ -1,11 +1,9 @@
 import "../styles/welcome.css"
 import Navbar from "./Navbar";
 import { FaHome } from "react-icons/fa"
-import { ISourceOptions, Particles, Main } from "react-tsparticles";
 // import Particles from "react-tsparticles";
 // import Main from "react-tsparticles";
 // import {Particles, ISourceOptions, Main } from "react-tsparticles";
-import { loadSeaAnemonePreset } from "tsparticles-preset-sea-anemone";
 
 export const Welcome = () => {
   setTimeout(function () { window.location = "/new-volunteer" }, 1000);
@@ -33,8 +31,7 @@ export const Welcome = () => {
       </div>
       <Navbar />
       <div>
-        <div id="tsparticles"></div>
-        <div class="text">
+        <div className="text">
           ברוך בואך!
         </div>
       </div>

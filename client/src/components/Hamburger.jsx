@@ -126,8 +126,7 @@ const Navbar = {
       right: 0;
       top: 0;
       height: 100%;
-      witgh: 95%
-   
+      witgh: 95%;
       flex-direction: column;
   
       background-color: #ebe9eb;

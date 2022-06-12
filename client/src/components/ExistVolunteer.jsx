@@ -87,13 +87,7 @@ function ExistVolunteer({ setShowSpinner }) {
     };
     // console.log(existVolunteer.email)
     return (
-
-
-        <div className="img-background">
-
-            {/* <button title="Submit" onClick={() => changeDetails()} /> */}
-            {/* <button title="Fetch data" onClick={() => fetchUserDetails()} /> */}
-
+        <div className>
             <div className="navbar">
                 <a href="/"> <div className="btn_home"><FaHome /> Home </div></a>
                 <img src="/logo_ezl.png" alt="Logo image" />

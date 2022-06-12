@@ -4,6 +4,7 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+// import '../styles/select.css';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -12,6 +13,7 @@ const MenuProps = {
     style: {
       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
       width: 250,
+    
     },
   },
 };
@@ -29,14 +31,14 @@ const names = [
   'Kelly Snyder',
 ];
 
-function getStyles(name, personName, theme) {
-  return {
-    fontWeight:
-      personName.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
-  };
-}
+// function getStyles(name, personName, theme) {
+//   return {
+//     fontWeight:
+//       personName.indexOf(name) === -1
+//         ? theme.typography.fontWeightRegular
+//         : theme.typography.fontWeightMedium,
+//   };
+// }
 
 export function Example() {
   const theme = useTheme();
@@ -56,8 +58,8 @@ export function Example() {
     <div>
       <FormControl sx={{ m: 1, width: 300, mt: 3 }}>
         <Select
-          multiple
-          displayEmpty
+          // multiple
+          // displayEmpty
           value={personName}
           onChange={handleChange}
           input={<OutlinedInput />}
@@ -78,7 +80,7 @@ export function Example() {
             <MenuItem
               key={name}
               value={name}
-              style={getStyles(name, personName, theme)}
+              // style={getStyles(name, personName, theme)}
             >
               {name}
             </MenuItem>

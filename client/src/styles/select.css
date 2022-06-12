@@ -10,19 +10,13 @@
     /* padding-top: 13px;
     padding-bottom: 13px; */
     color: var(--e-global-color-secondary);
-    width: 93%;
-    /* margin-right: 0px; */
+    /* width: 93%; */
     padding: 3px;
-    line-height: 10;   
+    /* line-height: 10;    */
 }
-/* .select option{
-    width: 10%;
-} */
-
-/* #widthTempOption { 
-    display : none;
-    width: 10%;
-} */
+.select option{
+    /* width: 93%; */
+}
 
 .error{
     border-color: var(--e-global-color-6fff166d);
