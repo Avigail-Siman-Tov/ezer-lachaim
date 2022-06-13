@@ -1,5 +1,5 @@
 import "../styles/newVolunteer.css";
-// import "../styles/bookingShuttle.css";
+import "../styles/bookingShuttle.css";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import Select from "../components/Select";
@@ -224,12 +224,19 @@ function BookingShuttle() {
                     value={date}
                     name="date"
                     onChange={handleChange}
-                    placeholder=" מספר מקומות ישיבה להסעה"
+                    placeholder="תאריך"
                 // hasError={inputError.dateInput}
                 // changeHandler={(date) => {
                 //     userDetails.date = date;
                 // }}
                 />
+                <Input 
+                type="time" 
+                 name="appt"
+                 min="09:00" max="18:00" required
+                 />
+
+
                 <Select
                     options={["אשה", "גבר", "לא משנה לי"]}
                     placeHolder="האם ישנה העדפה למגדר המתנדב?"
