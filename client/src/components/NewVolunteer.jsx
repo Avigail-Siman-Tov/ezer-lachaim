@@ -53,7 +53,7 @@ function NewVolunteer({ setShowSpinner }) {
         console.log(inputValue)
 
         if (inputValue.password !== inputValue.confirm_password) {
-            setError('password do not match')
+            setError('סיסמא לא תואמת')
             return
         }
 
@@ -116,7 +116,7 @@ function NewVolunteer({ setShowSpinner }) {
     };
     return (
         <div>
-            <div>{error}</div>
+            {/* <div>{error}</div> */}
             <div className="navbar">
                 <a href="/"> <div className="btn_home"><FaHome className="spaceB" />Home </div></a>
                 <img src="/logo_ezl.png" alt="Logo image" />
@@ -170,7 +170,8 @@ function NewVolunteer({ setShowSpinner }) {
                     //     userDetails.password = password;
                     // }}
                     />
-                    <Input
+                     <div className="error">
+                        <Input
                         type="password"
                         // value={confirm_password}
                         placeholder="אימות סיסמא"
@@ -182,6 +183,7 @@ function NewVolunteer({ setShowSpinner }) {
                     //     userDetails.confirmPassword = confirmPassword;
                     // }}
                     />
+                   {error}</div>
                     {/* <Input
                     placeholder="עיר מגורים" value={cityInput} onChange={(e) => setCityInput(e.target.value)}
                      hasError={inputError.cityInput}
