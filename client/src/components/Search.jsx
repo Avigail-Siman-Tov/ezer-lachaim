@@ -253,6 +253,7 @@ export const Search = () => {
                             </div>
                             <button className="btn_take" onClick={() => notify(object.id)}>לקחתי </button>
                         </div>
+                        <button className="btn_take" onClick={() => notify(object.id)}>לקחתי </button>
                     </div>
                 </div>
             ))

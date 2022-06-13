@@ -32,10 +32,10 @@
   border-width: 3px;
   margin-top: 5px;
   margin-bottom: 5px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 25px;
+  padding-bottom: 25px;
   padding-left: 35px;
-  padding-right: 35px;
+  padding-right: 50px;
   text-align: right;
   line-height: 50px;
   font-size: 16px;
@@ -48,7 +48,7 @@
 }
 
 .right {
-  margin-left: 100px;
+  margin-left: 30px;
 }
 
 .tab {
@@ -57,7 +57,7 @@
 }
 
 .btn_take{
-  margin-right: 45%;
+  margin-right: 72%;
   margin-top: 15px;
   color: #ffffff;
   border-radius: 20px;
