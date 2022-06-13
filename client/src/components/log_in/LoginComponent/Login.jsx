@@ -52,19 +52,19 @@ export default function Login() {
               <Card>
           <Card.Body>
             <h2 className="enter">שלום!</h2>
-            <h4 className="enter">נא להקיש כתובת מייל וסיסמא להתחברות</h4>
-            {error && <Alert variant="danger">{error}</Alert>}
+            <h4 className="enter1">נא להקיש כתובת מייל וסיסמא להתחברות</h4>
+            <div className="error1">{error && <Alert variant="danger">{error}</Alert>}</div>
             <Form onSubmit={handleSubmit}>
               <Form.Group id="email">
                 {/* <Form.Label>Email</Form.Label> */}
                 <br />
                 {/* <br /> */}
-                <Icon icon="bxs:lock" color="#6c6c6c" />
+                <Icon icon="bxs:lock" color="#ea6b4c" />
                 <input className="designInput" placeholder="Enter your email" type="email" ref={emailRef} required />
               </Form.Group>
               <Form.Group id="password">
                 {/* <Form.Label>Password</Form.Label> */}
-                <Icon icon="bi:person" color="#6c6c6c" />
+                <Icon icon="bi:person" color="#ea6b4c" />
                 <input className="designInput" placeholder="Enter your password" type="password"  ref={passwordRef} required />
               </Form.Group>
               <div className="remmeber">

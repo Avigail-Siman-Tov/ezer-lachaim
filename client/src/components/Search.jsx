@@ -11,10 +11,15 @@ import { Icon } from '@iconify/react';
 import { Form } from "react-bootstrap"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link, Navigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import emailjs from '@emailjs/browser';
+
 
 
 
 export const Search = () => {
+
     const notify = async (id) => {
         const res = await deleteDoc(doc(firestore, "calls", id));
         console.log(res)
@@ -23,14 +28,35 @@ export const Search = () => {
             prev.splice(index, 1);
             return [...prev];
         })
+        // sendEmail();
         toast.success("תודה שלקחת את הנסיעה! פרטי החולה נשלחו אליך במייל ", { position: "top-center", autoClose: 5000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, });
     }
+
+    const navigate = useNavigate();
+
+    const sendEmail = (e) => {
+        console.log("I am here");
+        e.preventDefault();
+        console.log("after");
+        emailjs.sendForm('service_z788roe', 'template_a2saktz', e.target, 'acdyoJK5z31WA9GiR')
+            .then((result) => {
+                console.log(result.text);
+                alert("ההודעה נשלחה בהצלחה", result.text);
+                navigate("/");
+            }, (error) => {
+                console.log(error.text);
+                alert("ארעה שגיאה נסה שנית", error.text);
+
+            });
+        e.target.reset()
+    };
 
     const [callData, setCallData] = useState([]);
     const [inputValue, setInputValue] = useState("");
     const [blogs, Setblogs] = useState("");
     const [search, setSearch] = useState("");
     const [filter, setFilter] = useState('');
+
 
     const callsRef = collection(firestore, "calls");
 
@@ -40,17 +66,31 @@ export const Search = () => {
     // querySnapshot.forEach((doc) => { 
     //   console.log(doc.id, ' => ', doc.data()); 
     // });index.js 
-
+   
     async function getData() {
         const dataArray = await getDocs(query(callsRef));
         dataArray.forEach(doc => {
-            setCallData(prev => [...prev, {...doc.data(), id: doc.id}])
+            setCallData(prev => [...prev, { ...doc.data(), id: doc.id }])
         })
     }
 
     useEffect(() => {
         return () => getData();
     }, [])
+    
+    // const newVolunteerRef = collection(firestore, "newVolunteer");
+    // const [detailsOfPatient, SetDetailsOfPatient] = useState([]);
+    // async function getData() {
+    //     var q = query(newVolunteerRef, where('email', '==', currentUser.email));
+    //     const snapshot = await getDocs();
+    //     snapshot.forEach(doc => {
+    //         SetDetailsOfPatient(prev => [...prev, doc.data()])
+    //     })
+    // }
+
+    // useEffect(() => {
+    //     return () => getData();
+    // }, [])
 
     // function myFunction() { 
     //     var x = document.getElementById("myLinks"); 
@@ -93,6 +133,7 @@ export const Search = () => {
 
     return (
         <div>
+            <div className="screen">
             <Hamburger />
             <div className="navbar">
                 <img src="/logo_ezl.png" alt="Logo image" />
@@ -193,37 +234,71 @@ export const Search = () => {
             {dataSearch.map((object, index) => (
                 <div className="req" key={index}>
                     <div>
-                        <div className="flex">
-                            <div className="det">{"שם מלא: "}</div>
+                        <div className="flex-container">
+                            <div className="right">
+                                <div className="flex">
+                                    <div className="det">{"שם מלא:"}</div><span class="tab"></span>{object.name}
+                                </div>
+                                <div className="flex">
+                                    <div className="det">{"טלפון:"}</div><span class="tab"></span>{object.phone}
+                                </div>
+                                <div className="flex">
+                                    <div className="det">{"מקור:"}</div><span class="tab"></span>{object.address_source}
+                                </div>
+                                <div className="flex">
+                                    <div className="det">{"יעד:"}</div><span class="tab"></span>{object.address_destination}
+                                </div>
+                                <div className="flex">
+                                    <div className="det">{" עיר:"}</div><span class="tab"></span>{object.city}
+                                </div>
+                            </div>
+                            <div className="left">
+                                <div className="flex">
+                                    <div className="det">{" מגדר:"}</div><span class="tab"></span>{object.gender}
+                                </div>
+                                <div className="flex">
+                                    <div className="det">{" מספר נוסעים:"}</div><span class="tab"></span>{object.number_of_passengers}
+                                </div>
+                                <div className="flex">
+                                    <div className="det">{" סוג רכב:"}</div><span class="tab"></span>{object.carType}
+                                </div>
+                                <div className="flex">
+                                    <div className="det">{" תאריך:"}</div><span class="tab"></span>{object.date}
+                                </div>
+                                <div className="flex">
+                                    <div className="det">{"שעה:"}</div><span class="tab"></span>{object.hour}
+                                </div>
+                            </div>
                         </div>
-                        <div className="flex">
-                            <div className="det">{"טלפון: "}</div>
-                            <div className="det">{"מקור: "}</div>
-                            {object.address_source}
-                            <span class="tab"></span>
-                            <div className="det">{"יעד: "}</div>
-                            {object.address_destination}
-                            <span class="tab"></span>
-                            <div className="det">{" עיר: "}</div>
-                            {object.city}
-                            <span class="tab"></span>
-                            <div className="det">{" מגדר:  "}</div> 
-                            {object.gender}
-                            <span class="tab"></span>
-                            <div className="det">{" מספר נוסעים:  "}</div>
-                            {object.number_of_passengers}
-                            <span class="tab"></span>
-                            <div className="det">{" סוג רכב:  "}</div>
-                            {object.car_type}
-                            <span class="tab"></span>
-                            <div className="det">{" תאריך:  "}</div>
-                            <div className="det">{"שעה: "}</div>
-                            {object.date}
+                        <div className='container'>
+                            <form onSubmit={sendEmail}>
+                                {/* <div className="detailsPtient">
+                                    {dataSearch.map((object, index) => (
+                                        <div key={index}>
+                                            {"שם פרטי:  " + object.name}
+                                            <br />
+                                            {"טלפון/נייד:  " + object.phone}
+                                            <br />
+                                            {"סוג רכב:  " + object.carType}
+                                            <br />
+                                            {"מספר מקומות ישיבה:  " + object.number_of_seets}
+                                            <br />
+                                            {"מגדר:  " + object.gender}
+
+                                        </div>
+                                    ))}
+                                </div> */}
+                                <button className="btn_take" onClick={() => notify(object.id)}>לקחתי </button>
+
+                            </form>
+
                         </div>
-                        <button className="btn_take" onClick={() => notify(object.id)}>לקחתי </button>
+
                     </div>
                 </div>
-            ))}
-        </div>
+            ))
+            }
+            </div>
+        </div >
     );
 }

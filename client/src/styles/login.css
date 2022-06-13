@@ -1,161 +1,13 @@
-/* input[type=text], input[type=password] {
-    width: 80%;
-    padding: 10px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #356D9C;
-    box-sizing: border-box;
-  } */
-
-/* button {
-    background-color: #356D9C;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 40%;
-  }
-
-  button:hover {
-    opacity: 0.8;
-  }
-  
-  .imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-    position: relative;
-  }
-  span.psw {
-    float: right;
-    padding-top: 16px;
-  } */
-
-
-
-/* עיצוב סרגל עליון */
-/* .navbar {
-    padding: auto;
-    margin: auto;
-    overflow: hidden;
-    background-color: #ebe9eb;
-    height: 10%;
-  }
- 
-  .navbar img {
-    float: left;
-    display: block;
-    width: 45px;
-    overflow: hidden;
-    padding: 5px;
-  }
-  .navbar a:hover,
-  .dropdown:hover .dropbtn {
-      background-color: #356D9C;
-      color: white;
-  }
- 
- 
-  .navbar a {
-    float: right;
-    font-size: 16px;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  } */
-
-/*  @keyframes fade {
-    from {
-        opacity: .4
-    }
- 
-    to {
-        opacity: 1
-    }
-  }*/
-
-/* On smaller screens, decrease text size */
-/* @media only screen and (max-width: 300px) {
-    .text {
-        font-size: 11px
-    }
-  }*/
-/* .userNamePassword
-  {
-    align-content: center;
-    text-align: center;
-    vertical-align: middle; 
-
-    width: 100%;
-    margin-top: 20%;
-    height: 100%;
-  }
-  #reka{
-      z-index: -1;
-      position: absolute;
-      width: 400%;
-      height: 150%;   
-      opacity: 50%;
-  }
-
-  ::placeholder{
-     border: 1px #356D9C;
-    
-  }
-   */
-/* .form-wrapper1 {
-  height: 830px;
-  width: 70px;
-}
-
-.text-center {
-  text-align: center;
-  margin-top: -600px;
-  margin-left: auto;
-} */
-
-/* .email {
-  outline: none;
-  border: solid 2px var(--e-global-color-secondary);
-  height: 50px;
-  /* padding: 10px; */
-  /* padding-right: 20px; */
-  /* border-radius: 8px; */
-  /* padding-bottom: 2px; */
-  /* width: 93%;
-  text-align: right;
-  line-height: 10;
-  margin-top:300px;
-
-} */ 
-
-/* .w-100{
-  /* background-color: red; */
-/* margin-top: 70px; */
-/* } */
-
-
-/* .remember {
-  margin-top: 15px;
-  color: #356d9c;
-text-align: center;
-} */
-/* .picprofil{
-  height: 140px;
-  width: 140px;
-  margin-top: -600px;
-  margin-right: 130px;
-}
-.inputLog{
-  margin-top: 580px;
-  margin-right: 60px;
-  width: 300px;
-
-} */
 .enter{
   color: #356d9c;
+  font-size: 20px;
 }
+
+.enter1{
+  color: #356d9c;
+  font-size: 15px;
+}
+
 .submitBtn{
   color: #ffffff;
   border-radius: 20px;
@@ -227,4 +79,10 @@ b {
 }
 .spaceB{
   margin-left: 5px;
+}
+
+.error1 {
+  color: var(--e-global-color-6fff166d);
+  text-align: center;
+  /* padding-right: 50%; */
 }

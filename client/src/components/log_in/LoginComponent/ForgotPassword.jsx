@@ -23,7 +23,7 @@ export default function ForgotPassword() {
       await resetPassword(emailRef.current.value)
       setMessage("בדוק את תיבת הדואר הנכנס שלך להנחיות נוספות")
     } catch (e) {
-      setError(e.message)
+      setError("משתמש לא קיים במערכת")
     }
 
     setLoading(false)
@@ -40,8 +40,8 @@ export default function ForgotPassword() {
         <Card>
           <Card.Body>
             <h2 className="enter">עדכון סיסמא</h2>
-            {error && <Alert variant="danger">{error}</Alert>}
-            {message && <Alert variant="success">{message}</Alert>}
+            <div className="error1">{error && <Alert variant="danger">{error}</Alert>}</div>
+            <div className="error1">{message && <Alert variant="success">{message}</Alert>}</div>
             <Form onSubmit={handleSubmit}>
               <Form.Group id="email">
                 {/* <Form.Label>Email</Form.Label> */}

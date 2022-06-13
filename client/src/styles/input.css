@@ -22,12 +22,14 @@
     color: var(--e-global-color-secondary);
 }
 .error{
+    margin-right: 25px;
+    text-align: right;
+    width: 100%;
     border-color: var(--e-global-color-6fff166d);
     color: var(--e-global-color-6fff166d);
 }
 .error::placeholder{
     color: var(--e-global-color-6fff166d);
-    
 }
 .input :hover{
     border-color: black;
@@ -41,3 +43,4 @@ input:focus {
 .input[type=password]{
     text-align: right;
 }
+

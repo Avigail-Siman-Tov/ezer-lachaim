@@ -18,7 +18,7 @@ import {Welcome} from './components/Welcome';
 import {Welcome2} from './components/Welcome2';
 // import Cards from './components/Cards';
 import { Example } from './components/Example';
-
+// import { SendMail } from './components/SendMail';
 import Signup from "./components/log_in/LoginComponent/Signup"
 import { Container } from "react-bootstrap"
 import { BrowserRouter as Router } from "react-router-dom"
@@ -51,8 +51,9 @@ function App() {
               
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/dashboard" element={<Dashboard />} />
-                <Route exact path="/welcome" element={<Welcome/>} />
-                <Route exact path="/login/welcome2" element={<Welcome2/>} />
+                {/* <Route exact path="/welcome" element={<Welcome/>} /> */}
+                <Route exact path="/welcome2" element={<Welcome2/>} />
+                {/* <Route exact path="/login/welcome2" element={<Welcome2/>} /> */}
                 {/* <Route exact path="/accept" element={<Accept />} /> */}
                 <Route exact path="/new-volunteer" element={<NewVolunteer />} />
                 {/* <Route exact path="/new-volunteer-details" element={<NewVolunteerDetails setShowSpinner={setShowSpinner} />} /> */}
@@ -61,6 +62,7 @@ function App() {
                 <Route exact path="/patient" element={<Patient />} />
                 <Route exact path="/bookingShuttle" setShowSpinner={setShowSpinner} element={<BookingShuttle />} />
                 <Route path="search" element={<Search />} />
+                {/* <Route path="/send-mail" element={<SendMail/>} /> */}
                 <Route exact path="/profil" element={<Profil />} />    
                 <Route exact path="/example" element={<Example />} />        
               </Routes>
