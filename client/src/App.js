@@ -51,8 +51,9 @@ function App() {
               
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/dashboard" element={<Dashboard />} />
-                <Route exact path="/welcome" element={<Welcome/>} />
-                <Route exact path="/login/welcome2" element={<Welcome2/>} />
+                {/* <Route exact path="/welcome" element={<Welcome/>} /> */}
+                <Route exact path="/welcome2" element={<Welcome2/>} />
+                {/* <Route exact path="/login/welcome2" element={<Welcome2/>} /> */}
                 {/* <Route exact path="/accept" element={<Accept />} /> */}
                 <Route exact path="/new-volunteer" element={<NewVolunteer />} />
                 {/* <Route exact path="/new-volunteer-details" element={<NewVolunteerDetails setShowSpinner={setShowSpinner} />} /> */}

@@ -230,13 +230,14 @@ function BookingShuttle() {
                 //     userDetails.date = date;
                 // }}
                 />
+                <div className="label">בחירת שעה לנסיעה:</div>
                 <Input 
                 type="time" 
                  min="09:00" max="18:00" required
                  value={hour}
                  name="hour"
                  onChange={handleChange}
-                 placeholder="hour"
+                 placeholder="שעה"
                  />
 
 

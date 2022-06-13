@@ -1,40 +1,23 @@
-import "../styles/welcome.css"
-import Navbar from "./Navbar";
-import { FaHome } from "react-icons/fa"
-// import Particles from "react-tsparticles";
-// import Main from "react-tsparticles";
-// import {Particles, ISourceOptions, Main } from "react-tsparticles";
+// import "../styles/welcome.css"
+// import Navbar from "./Navbar";
+// import { FaHome } from "react-icons/fa"
 
-export const Welcome = () => {
-  setTimeout(function () { window.location = "/new-volunteer" }, 1000);
-  // const options: ISourceOptions = {
-  //   preset: "seaAnemone",
-  // };
-  // const initialize = (instance: Main) => {
-  //   loadSeaAnemonePreset(instance);
-  // };
-
-  // return <Particles options={options} init={initialize} />;
-  // tsParticles.load("tsparticles", {
-  //   preset: "seaAnemone",
-  //   particles: {
-  //     move: {
-  //       speed: 2
-  //     }
-  //   }
-  // });
-  return (
-    <div>
-      <div className="navbar">
-        <a href="/"> <div className="btn_home"><FaHome />Home </div></a>
-        <img src="/logo_ezl.png" alt="Logo image" />
-      </div>
-      <Navbar />
-      <div>
-        <div className="text">
-          ברוך בואך!
-        </div>
-      </div>
-    </div>
-  );
-}
+// export const Welcome = () => {
+//   setTimeout(function () { window.location = "/new-volunteer" }, 2000);
+//   return (
+//     <div>
+//       <div className="navbar">
+//         <a href="/"> <div className="btn_home"><FaHome />Home </div></a>
+//         <img src="/logo_ezl.png" alt="Logo image" />
+//       </div>
+//       <Navbar />
+//       <div class="container">
+//         <div class="row">
+//           <div class="col-md-12 text-center">
+//             <h3 class="animate-charcter"> ברוך בואך</h3>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }

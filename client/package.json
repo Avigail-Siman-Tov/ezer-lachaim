@@ -35,6 +35,7 @@
     "spinners-react": "^1.0.7",
     "start": "^5.1.0",
     "styled-components": "^5.3.5",
+    "tsparticles": "^2.0.6",
     "tsparticles-preset-sea-anemone": "^2.0.6",
     "tsparticles-shape-confetti": "^1.14.2",
     "web-vitals": "^2.1.4",

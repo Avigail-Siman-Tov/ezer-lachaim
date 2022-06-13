@@ -19,6 +19,7 @@ import emailjs from '@emailjs/browser';
 
 
 export const Search = () => {
+
     const notify = async (id) => {
         const res = await deleteDoc(doc(firestore, "calls", id));
         console.log(res)
@@ -28,34 +29,34 @@ export const Search = () => {
             return [...prev];
         })
         // sendEmail();
-        // sendEmail();
         toast.success("תודה שלקחת את הנסיעה! פרטי החולה נשלחו אליך במייל ", { position: "top-center", autoClose: 5000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, });
     }
 
     const navigate = useNavigate();
 
-    // const sendEmail = (e) => {
-    //     console.log("I am here");
-    //     e.preventDefault();
+    const sendEmail = (e) => {
+        console.log("I am here");
+        e.preventDefault();
+        console.log("after");
+        emailjs.sendForm('service_z788roe', 'template_a2saktz', e.target, 'acdyoJK5z31WA9GiR')
+            .then((result) => {
+                console.log(result.text);
+                alert("ההודעה נשלחה בהצלחה", result.text);
+                navigate("/");
+            }, (error) => {
+                console.log(error.text);
+                alert("ארעה שגיאה נסה שנית", error.text);
 
-    //     emailjs.sendForm('service_z788roe', 'template_a2saktz', e.target, 'acdyoJK5z31WA9GiR')
-    //         .then((result) => {
-    //             console.log(result.text);
-    //             alert("ההודעה נשלחה בהצלחה", result.text);
-    //             navigate("/");
-    //         }, (error) => {
-    //             console.log(error.text);
-    //             alert("ארעה שגיאה נסה שנית", error.text);
-
-    //         });
-    //         e.target.reset()
-    // };
+            });
+        e.target.reset()
+    };
 
     const [callData, setCallData] = useState([]);
     const [inputValue, setInputValue] = useState("");
     const [blogs, Setblogs] = useState("");
     const [search, setSearch] = useState("");
     const [filter, setFilter] = useState('');
+
 
     const callsRef = collection(firestore, "calls");
 
@@ -65,7 +66,7 @@ export const Search = () => {
     // querySnapshot.forEach((doc) => { 
     //   console.log(doc.id, ' => ', doc.data()); 
     // });index.js 
-
+   
     async function getData() {
         const dataArray = await getDocs(query(callsRef));
         dataArray.forEach(doc => {
@@ -76,6 +77,20 @@ export const Search = () => {
     useEffect(() => {
         return () => getData();
     }, [])
+    
+    // const newVolunteerRef = collection(firestore, "newVolunteer");
+    // const [detailsOfPatient, SetDetailsOfPatient] = useState([]);
+    // async function getData() {
+    //     var q = query(newVolunteerRef, where('email', '==', currentUser.email));
+    //     const snapshot = await getDocs();
+    //     snapshot.forEach(doc => {
+    //         SetDetailsOfPatient(prev => [...prev, doc.data()])
+    //     })
+    // }
+
+    // useEffect(() => {
+    //     return () => getData();
+    // }, [])
 
     // function myFunction() { 
     //     var x = document.getElementById("myLinks"); 
@@ -118,6 +133,7 @@ export const Search = () => {
 
     return (
         <div>
+            <div className="screen">
             <Hamburger />
             <div className="navbar">
                 <img src="/logo_ezl.png" alt="Logo image" />
@@ -215,7 +231,6 @@ export const Search = () => {
                 {/* <button className="btn_submit">Submit</button> */}
                 {/* <input type="text" name="search" placeholder="Search.."/> */}
             </form>
-     
             {dataSearch.map((object, index) => (
                 <div className="req" key={index}>
                     <div>
@@ -255,11 +270,35 @@ export const Search = () => {
                                 </div>
                             </div>
                         </div>
-                        <button className="btn_take" onClick={() => notify(object.id)}>לקחתי </button>
+                        <div className='container'>
+                            <form onSubmit={sendEmail}>
+                                {/* <div className="detailsPtient">
+                                    {dataSearch.map((object, index) => (
+                                        <div key={index}>
+                                            {"שם פרטי:  " + object.name}
+                                            <br />
+                                            {"טלפון/נייד:  " + object.phone}
+                                            <br />
+                                            {"סוג רכב:  " + object.carType}
+                                            <br />
+                                            {"מספר מקומות ישיבה:  " + object.number_of_seets}
+                                            <br />
+                                            {"מגדר:  " + object.gender}
+
+                                        </div>
+                                    ))}
+                                </div> */}
+                                <button className="btn_take" onClick={() => notify(object.id)}>לקחתי </button>
+
+                            </form>
+
+                        </div>
+
                     </div>
                 </div>
             ))
             }
+            </div>
         </div >
     );
 }
