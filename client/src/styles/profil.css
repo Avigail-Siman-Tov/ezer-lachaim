@@ -36,3 +36,7 @@
 .spaceB{
     margin-left: 5px;
   }
+  .tab{
+    display: inline-block;
+    margin-left: 3px;
+  }
