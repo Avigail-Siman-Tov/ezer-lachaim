@@ -11,6 +11,10 @@ import { Icon } from '@iconify/react';
 import { Form } from "react-bootstrap"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link, Navigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import emailjs from '@emailjs/browser';
+
 
 
 
@@ -23,8 +27,29 @@ export const Search = () => {
             prev.splice(index, 1);
             return [...prev];
         })
+        // sendEmail();
+        // sendEmail();
         toast.success("תודה שלקחת את הנסיעה! פרטי החולה נשלחו אליך במייל ", { position: "top-center", autoClose: 5000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, });
     }
+
+    const navigate = useNavigate();
+
+    // const sendEmail = (e) => {
+    //     console.log("I am here");
+    //     e.preventDefault();
+
+    //     emailjs.sendForm('service_z788roe', 'template_a2saktz', e.target, 'acdyoJK5z31WA9GiR')
+    //         .then((result) => {
+    //             console.log(result.text);
+    //             alert("ההודעה נשלחה בהצלחה", result.text);
+    //             navigate("/");
+    //         }, (error) => {
+    //             console.log(error.text);
+    //             alert("ארעה שגיאה נסה שנית", error.text);
+
+    //         });
+    //         e.target.reset()
+    // };
 
     const [callData, setCallData] = useState([]);
     const [inputValue, setInputValue] = useState("");
@@ -190,16 +215,17 @@ export const Search = () => {
                 {/* <button className="btn_submit">Submit</button> */}
                 {/* <input type="text" name="search" placeholder="Search.."/> */}
             </form>
+     
             {dataSearch.map((object, index) => (
                 <div className="req" key={index}>
                     <div>
                         <div className="flex-container">
                             <div className="right">
                                 <div className="flex">
-                                    <div className="det">{"שם מלא:"}</div><span class="tab"></span>
+                                    <div className="det">{"שם מלא:"}</div><span class="tab"></span>{object.name}
                                 </div>
                                 <div className="flex">
-                                    <div className="det">{"טלפון:"}</div><span class="tab"></span>
+                                    <div className="det">{"טלפון:"}</div><span class="tab"></span>{object.phone}
                                 </div>
                                 <div className="flex">
                                     <div className="det">{"מקור:"}</div><span class="tab"></span>{object.address_source}
@@ -219,13 +245,13 @@ export const Search = () => {
                                     <div className="det">{" מספר נוסעים:"}</div><span class="tab"></span>{object.number_of_passengers}
                                 </div>
                                 <div className="flex">
-                                    <div className="det">{" סוג רכב:"}</div><span class="tab"></span>{object.car_type}
+                                    <div className="det">{" סוג רכב:"}</div><span class="tab"></span>{object.carType}
                                 </div>
                                 <div className="flex">
                                     <div className="det">{" תאריך:"}</div><span class="tab"></span>{object.date}
                                 </div>
                                 <div className="flex">
-                                    <div className="det">{"שעה:"}</div><span class="tab"></span>
+                                    <div className="det">{"שעה:"}</div><span class="tab"></span>{object.hour}
                                 </div>
                             </div>
                         </div>

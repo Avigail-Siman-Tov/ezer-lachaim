@@ -16,8 +16,8 @@ import 'react-toastify/dist/ReactToastify.css';
 function BookingShuttle() {
     const notify = () => toast.success("הזמנתך התקבלה במידה ויימצא מתנדב הוא יצור איתך קשר בהקדם ", { position: "top-center", autoClose: 5000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, });
     const callsRef = collection(firestore, "calls");
-    const [inputValue, setInputValue] = useState({ name: "", phone: "", city: "", address_source: "", address_destination: "", date: "", gender: "", number_of_passengers: "", carType: "" });
-    const { name, phone, city, address_source, address_destination, date, gender, number_of_passengers, carType } = inputValue;
+    const [inputValue, setInputValue] = useState({ name: "", phone: "", city: "", address_source: "", address_destination: "", date: "",hour: "", gender: "", number_of_passengers: "", carType: "" });
+    const { name, phone, city, address_source, address_destination, date,hour, gender, number_of_passengers, carType } = inputValue;
     const handleChange = (e) => {
         const { name, value } = e.target;
         setInputValue((prev) => ({
@@ -232,13 +232,20 @@ function BookingShuttle() {
                 />
                 <Input 
                 type="time" 
-                 name="appt"
                  min="09:00" max="18:00" required
+                 value={hour}
+                 name="hour"
+                 onChange={handleChange}
+                 placeholder="hour"
                  />
 
 
                 <Select
                     options={["אשה", "גבר", "לא משנה לי"]}
+                    type="text"
+                    value={gender}
+                    name="gender"
+                    onChange={handleChange}
                     placeHolder="האם ישנה העדפה למגדר המתנדב?"
                 />
 

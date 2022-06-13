@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@coreui/react": "^4.2.2",
+    "@emailjs/browser": "^3.6.2",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@mobiscroll/react-lite": "^4.10.9",

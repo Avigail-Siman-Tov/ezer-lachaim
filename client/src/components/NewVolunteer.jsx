@@ -48,7 +48,6 @@ function NewVolunteer({ setShowSpinner }) {
         }));
         console.log(inputValue);
     };
-
     async function handleSubmit(e) {
         e.preventDefault()
         console.log(inputValue)
