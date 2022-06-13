@@ -236,7 +236,7 @@ function BookingShuttle() {
                 />
 
                 <div className="btn-wrapper">
-                    <Link to="/login">
+                    <Link to="/">
                         <Button
                             text="שלח"
                             onClick={() => {
