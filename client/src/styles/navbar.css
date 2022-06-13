@@ -35,10 +35,10 @@
 .navbarr2 {
     overflow: hidden;
     background-color: #ffffff;
-    /* border-top: 0.5px solid #a1a1a1; */
     position: fixed;
     bottom: 0;
     width: 100%;
+    box-shadow: 0 0 10px #c0c0c0;
 }
 
 div.centered {
