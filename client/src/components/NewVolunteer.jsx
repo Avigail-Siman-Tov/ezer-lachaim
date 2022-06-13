@@ -3,7 +3,7 @@ import "../styles/newVolunteer.css";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, Navigate } from "react-router-dom";
 import NewVolunteerDetails from "./NewVolunteerDetails";
 import { useState } from "react";
 import { useAuth } from "./log_in/contexts/AuthContext"
@@ -16,6 +16,8 @@ import { useRef } from "react"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Example } from "./Example";
+import { useNavigate } from "react-router-dom"
+
 
 
 
@@ -32,15 +34,10 @@ function NewVolunteer({ setShowSpinner }) {
     // const emailRef = useRef()
     // const passwordRef = useRef()
     // const passwordConfirmRef = useRef()
-    // const [error, setError] = useState("")
-    // const [loading, setLoading] = useState(false)
-    // const navigate = useNavigate()
-
-    const emailRef = useRef()
-    const passwordRef = useRef()
-    const passwordConfirmRef = useRef()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
+    const navigate = useNavigate()
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -51,10 +48,34 @@ function NewVolunteer({ setShowSpinner }) {
         }));
         console.log(inputValue);
     };
+    async function handleSubmit(e) {
+        e.preventDefault()
+        console.log(inputValue)
+
+        if (inputValue.password !== inputValue.confirm_password) {
+            setError('password do not match')
+            return
+        }
+
+        // 6 תווים
+
+        try {
+            setError("")
+            setLoading(true)
+            // await signup(emailRef.current.value, passwordRef.current.value)
+            await sendNewVolunteer();
+            notify();
+            navigate("/login")
+        }
+        catch (err) {
+            console.log(err)
+            setError('failed to create an account')
+        }
+        setLoading(false)
+    }
 
     async function sendNewVolunteer() {
         try {
-            console.log("before");
             const res = await signup(inputValue.email, inputValue.password);
             console.log("res", res);
             await setDoc(doc(firestore, "newVolunteer", res.user.uid), inputValue,
@@ -65,28 +86,6 @@ function NewVolunteer({ setShowSpinner }) {
     }
 
 
-    async function handleSubmit(e) {
-        e.preventDefault()
-        console.log(inputValue)
-
-        if (inputValue.password !== inputValue.confirm_password) {
-            setError('password do not match')
-            return
-        }
-
-        try {
-            setError("")
-            setLoading(true)
-            // await signup(emailRef.current.value, passwordRef.current.value)
-            await sendNewVolunteer();
-            notify();
-        }
-        catch (err) {
-            console.log(err)
-            setError('failed to create an account')
-        }
-        setLoading(false)
-    }
 
     const [inputError, setInputError] = useState({
         nameInput: false,
@@ -119,7 +118,7 @@ function NewVolunteer({ setShowSpinner }) {
         <div>
             <div>{error}</div>
             <div className="navbar">
-                <a href="/"> <div className="btn_home"><FaHome />Home </div></a>
+                <a href="/"> <div className="btn_home"><FaHome className="spaceB" />Home </div></a>
                 <img src="/logo_ezl.png" alt="Logo image" />
             </div>
             <Navbar />
@@ -270,8 +269,6 @@ function NewVolunteer({ setShowSpinner }) {
                             "שדרות",
                             "שפרעם",
                             "תל אביב יפו",
-
-
                         ]}
                         type="text"
                         value={city}
@@ -321,12 +318,13 @@ function NewVolunteer({ setShowSpinner }) {
                     //     userDetails.carNum = carNum;
                     // }}
                     />
-                    <Select options={["אשה", "גבר"]}
-                        type="text"
-                        value={gender}
-                        name="gender"
-                        onChange={handleChange}
-                        placeHolder="מגדר" />
+                    <Select options={["אשה", "גבר"]}                    
+                    placeHolder="מגדר"
+                    type="text"
+                    value={gender}
+                    name="gender"    
+                    onChange={handleChange}
+                     />
 
                     <Input
                         type="text"
@@ -335,7 +333,7 @@ function NewVolunteer({ setShowSpinner }) {
                         name="remarks"
                         onChange={handleChange}
                     />
-                    <Link to="/login">
+                    {/* <Link to="/login"> */}
                         <Button
                             text="שלח"
                             onClick={handleSubmit}
@@ -352,7 +350,7 @@ function NewVolunteer({ setShowSpinner }) {
                         // //     setTimeout(setShowSpinner.bind("", false), 3000);
                         // // }} */}
                         /><ToastContainer />
-                    </Link>
+                    {/* </Link> */}
                     {/* /> */}
 
 
@@ -383,10 +381,3 @@ function NewVolunteer({ setShowSpinner }) {
 }
 
 export default NewVolunteer;
-
-
-
-
-
-
-

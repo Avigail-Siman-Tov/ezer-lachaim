@@ -13,11 +13,14 @@ background-color:#356d9c;
 } */
 
 .btn {
-  margin-top: 15px;
+  /* margin-right: 75%;
+  margin-top: 15px; */
   color: #ffffff;
   border-radius: 20px;
   width: 80px;
   height: 40px;
+  /* margin-left:30%; */
+  margin-right: 0%;
   border: solid 2px #356d9c;
   background-color: #356d9c;
  /* display: inline-block; */
