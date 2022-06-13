@@ -23,18 +23,20 @@ export const Welcome = () => {
   //     }
   //   }
   // });
-  return (
-    <div>
-      <div className="navbar">
-        <a href="/"> <div className="btn_home"><FaHome />Home </div></a>
-        <img src="/logo_ezl.png" alt="Logo image" />
-      </div>
-      <Navbar />
-      <div>
-        <div className="text">
-          ברוך בואך!
-        </div>
-      </div>
-    </div>
-  );
+  //   return (
+  //     <div>
+  //       <div className="navbar">
+  //         <a href="/"> <div className="btn_home"><FaHome />Home </div></a>
+  //         <img src="/logo_ezl.png" alt="Logo image" />
+  //       </div>
+  //       <Navbar />
+  //       <div>
+  //         <div className="text">
+  //           ברוך בואך!
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+
+  
 }
