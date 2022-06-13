@@ -43,13 +43,21 @@
   line-height: 40px;
 }
 
+.flex-container {
+  display: flex;
+}
+
+.right {
+  margin-left: 100px;
+}
+
 .tab {
-  display: inline-block;
-  margin-left: 10px;
+  /* display: inline-block; */
+  margin-right: 5px;
 }
 
 .btn_take{
-  margin-right: 75%;
+  margin-right: 45%;
   margin-top: 15px;
   color: #ffffff;
   border-radius: 20px;
@@ -65,9 +73,10 @@
 
 .flex {
   display: flex;
-  display: inline;
+  /* display: inline; */
 }
 
 .det {
   font-weight: bold;
+  font-size: 16px;
 }
