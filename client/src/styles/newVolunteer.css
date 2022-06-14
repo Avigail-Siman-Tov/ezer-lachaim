@@ -4,7 +4,8 @@ body {
 }
 
 .form-wrapper {
-    padding-bottom: 20%;
+    padding-bottom: 60px;
+    /* padding-top: 85px; */
 }
 
 .label {

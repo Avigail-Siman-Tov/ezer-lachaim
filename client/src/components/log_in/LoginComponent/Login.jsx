@@ -30,7 +30,7 @@ export default function Login() {
       console.log(res.user.uid)
       const volunteerRef = doc(firestore, "newVolunteer", res.user.uid);
       const docSnap = await getDoc(volunteerRef);
-      navigate("/login/welcome2")
+      navigate("/search")
     }
     catch (e) {
       setError("סיסמא לא חוקית או משתמש לא קיים במערכת")

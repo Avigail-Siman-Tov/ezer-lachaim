@@ -6,6 +6,9 @@
     overflow: hidden;
     background-color: #ebe9eb;
     /* position: fixed; */
+    /* z-index:100; */
+    /* width: 100%; */
+    /* position: fixed; */
     /* overflow: hidden; */
 }
 
