@@ -30,7 +30,8 @@ body {
     font-size: 1.6rem;
     position: absolute;
     top: 35%;
-    left: 50px;
+    /* padding-left: 230px; */
+    left: 190px;
     height: 0;
     width: 0;
     transform: translate(-20px, -20px);
