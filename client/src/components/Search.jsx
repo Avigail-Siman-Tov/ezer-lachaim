@@ -144,7 +144,7 @@ export const Search = () => {
     // console.log("pppppppppp"+emailVol[0].email)
     function sendEmail(e){
         e.preventDefault();
-        dataSearch.forEach(e => emailjs.send('service_z788roe', 'template_a2saktz',{user_email:emailVol[0].email ,name: callData[0].name,phone: callData[0].phone,source_address: callData[0].source_address,address_destination: callData[0].address_destination,city: callData[0].city, gender: callData[0].gender, number_of_passengers:callData[0].number_of_passengers,carType:callData[0].carType, date: callData[0].date,hour:callData[0].hour}, 'acdyoJK5z31WA9GiR')
+        dataSearch.forEach(e => emailjs.send('service_z788roe', 'template_a2saktz',{user_email:emailVol[0].email ,name: callData[0].name,phone: callData[0].phone,address_source: callData[0].address_source,address_destination: callData[0].address_destination,city: callData[0].city, gender: callData[0].gender, number_of_passengers:callData[0].number_of_passengers,carType:callData[0].carType, date: callData[0].date,hour:callData[0].hour}, 'acdyoJK5z31WA9GiR')
             .then((result) => {
                 console.log(result.text);
                 alert("ההודעה נשלחה בהצלחה", result.text);

@@ -57,6 +57,7 @@ export const HomePage = () => {
                 </div>
                 <img src="/logo_ezl.png" alt="Logo image" />
             </div>
+            <div className="allHome">
             <div className="slideshow-container">
                 <img src={IMAGES[currentImageIndex]} />
             </div>
@@ -82,6 +83,7 @@ export const HomePage = () => {
                     <a className="read-more-link" onClick={contentButtonOnclick}><div>{btn}</div></a>
                     {readMore && extraContent}
                 </div>
+            </div>
             </div>
 
             <Navbar/>

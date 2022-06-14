@@ -4,7 +4,8 @@ body {
 }
 
 .form-wrapper {
-    height: 1100px;
+    padding-bottom: 60px;
+    /* padding-top: 85px; */
 }
 
 .label {
