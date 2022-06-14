@@ -9,9 +9,6 @@ import { useAuth } from "./log_in/contexts/AuthContext"
 import NewVolunteer from "./NewVolunteer";
 import { firestore } from "../firebase";
 
-
-
-
 function Profil() {
 
     // const emailRef = useRef()
@@ -45,7 +42,7 @@ function Profil() {
     console.log("ffffffffffffffffffff")
     const [volunteerDetails, setvolunteerDetails] = useState([]);
 
-    console.log(currentUser.email);
+    // console.log(currentUser.email);
     //  const result = useState(); 
 
     // const getData = async () => {
