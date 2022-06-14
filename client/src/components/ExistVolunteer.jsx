@@ -31,9 +31,9 @@ function ExistVolunteer({ setShowSpinner }) {
         console.log("ggggggggggggggg")
 
         var q = query(existVolunteerRef, where('email', '==', currentUser.email));
-        console.log("q issss" + q);
+        // console.log("q issss" + q);
         const snapshot = await getDocs(q);
-        console.log("snapshot issss" + snapshot);
+        // console.log("snapshot issss" + snapshot);
 
         var index = 0
 
@@ -74,7 +74,7 @@ function ExistVolunteer({ setShowSpinner }) {
 
         try {
             await setDoc(doc(firestore, "newVolunteer", existVolunteer.id), existVolunteer);
-              
+
         } catch (err) {
             console.log(err)
         }
@@ -120,7 +120,7 @@ function ExistVolunteer({ setShowSpinner }) {
     return (
         <div className>
             <div className="navbar">
-                <a href="/"> <div className="btn_home"><FaHome  className="spaceB"/> Home </div></a>
+                <a href="/"> <div className="btn_home"><FaHome className="spaceB" /> Home </div></a>
                 <img src="/logo_ezl.png" alt="Logo image" />
             </div>
             <Navbar />
@@ -294,7 +294,6 @@ function ExistVolunteer({ setShowSpinner }) {
                 // }}
 
                 />
-
 
                 <Select
                     options={[

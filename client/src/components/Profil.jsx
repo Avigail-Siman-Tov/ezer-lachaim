@@ -65,7 +65,7 @@ function Profil() {
 
 
     useEffect(() => {
-        return () => getData();
+        getData();
     }, [])
 
     //  result.forEach(doc =>

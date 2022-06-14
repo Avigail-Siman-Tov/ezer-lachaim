@@ -78,19 +78,20 @@ export const Search = () => {
         a.forEach(doc => {
             setEmailVol(prev => [...prev, { ...doc.data(), id: doc.id }])
         })
-        const d = new Date();
-        const mm = d.getMonth() + 1;
-        const dd = d.getDate();
-        const yy = d.getFullYear();
-        const formatted = `${yy}-${mm}-${dd}`;
-        const dataArray = await getDocs(query(callsRef, where("date", "==", formatted)));
+        // const d = new Date();
+        // const mm = d.getMonth() + 1;
+        // const dd = d.getDate();
+        // const yy = d.getFullYear();
+        // const formatted = `${yy}-${mm}-${dd}`;
+        // const dataArray = await getDocs(query(callsRef, where("date", "==", formatted)));
+        const dataArray = await getDocs(query(callsRef));
         dataArray.forEach(doc => {
             setCallData(prev => [...prev, { ...doc.data(), id: doc.id }])
         })
     }
 
     useEffect(() => {
-        return () => getData();
+        getData();
     }, [])
 
     // const newVolunteerRef = collection(firestore, "newVolunteer");

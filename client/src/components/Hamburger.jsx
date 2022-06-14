@@ -32,7 +32,7 @@ function Hamburger() {
   }
 
   useEffect(() => {
-    return () => getData();
+    getData();
   }, [])
 
 
