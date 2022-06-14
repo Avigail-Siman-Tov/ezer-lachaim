@@ -29,7 +29,7 @@ export const HomePage = () => {
     const extraContent = <div ref={extraaContentRef}>
         <br />
         <br />
-        <img src="i7.jpg" />
+        <img src="i8.jpg" />
         <br />
         <br />
         <div className="extra-content">
@@ -90,15 +90,4 @@ export const HomePage = () => {
         </div>
     );
 }
-       {/* <div className="flex-container">
-                    <div>
-                        <a href="mailto: info@ezla.org.il"><Icon icon="ci:mail-open" color="white" /></a>
-                    </div>
-                    <div>
-                        <a href="tel:03-3-730-440"><Icon icon="bxs:phone" color="white" /></a>
-                    </div>
-                    <div>
-                        <a href=""><Icon icon="akar-icons:whatsapp-fill" color="white" /></a>
-                    </div>
-                </div> */}
 
