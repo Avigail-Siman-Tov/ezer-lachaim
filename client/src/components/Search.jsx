@@ -263,36 +263,36 @@ export const Search = () => {
                         <div className="flex-container">
                             <div className="right">
                                 <div className="flex">
-                                    <div className="det">{"שם מלא:"}</div><span class="tab"></span>{object.name}
+                                    <div className="det">{"שם מלא:"}</div><span className="tab"></span>{object.name}
                                 </div>
                                 <div className="flex">
-                                    <div className="det">{"טלפון:"}</div><span class="tab"></span>{object.phone}
+                                    <div className="det">{"טלפון:"}</div><span className="tab"></span>{object.phone}
                                 </div>
                                 <div className="flex">
-                                    <div className="det">{"מקור:"}</div><span class="tab"></span>{object.address_source}
+                                    <div className="det">{"מקור:"}</div><span className="tab"></span>{object.address_source}
                                 </div>
                                 <div className="flex">
-                                    <div className="det">{"יעד:"}</div><span class="tab"></span>{object.address_destination}
+                                    <div className="det">{"יעד:"}</div><span className="tab"></span>{object.address_destination}
                                 </div>
                                 <div className="flex">
-                                    <div className="det">{" עיר:"}</div><span class="tab"></span>{object.city}
+                                    <div className="det">{" עיר:"}</div><span className="tab"></span>{object.city}
                                 </div>
                             </div>
                             <div className="left">
                                 <div className="flex">
-                                    <div className="det">{" מגדר:"}</div><span class="tab"></span>{object.gender}
+                                    <div className="det">{" מגדר:"}</div><span className="tab"></span>{object.gender}
                                 </div>
                                 <div className="flex">
-                                    <div className="det">{" מספר נוסעים:"}</div><span class="tab"></span>{object.number_of_passengers}
+                                    <div className="det">{" מספר נוסעים:"}</div><span className="tab"></span>{object.number_of_passengers}
                                 </div>
                                 <div className="flex">
-                                    <div className="det">{" סוג רכב:"}</div><span class="tab"></span>{object.carType}
+                                    <div className="det">{" סוג רכב:"}</div><span className="tab"></span>{object.carType}
                                 </div>
                                 <div className="flex">
-                                    <div className="det">{" תאריך:"}</div><span class="tab"></span>{object.date}
+                                    <div className="det">{" תאריך:"}</div><span className="tab"></span>{object.date}
                                 </div>
                                 <div className="flex">
-                                    <div className="det">{"שעה:"}</div><span class="tab"></span>{object.hour}
+                                    <div className="det">{"שעה:"}</div><span className="tab"></span>{object.hour}
                                 </div>
                             </div>
                         </div>
