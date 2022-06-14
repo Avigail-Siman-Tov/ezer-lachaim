@@ -120,7 +120,7 @@ function ExistVolunteer({ setShowSpinner }) {
     return (
         <div className>
             <div className="navbar">
-                <a href="/"> <div className="btn_home"><FaHome /> Home </div></a>
+                <a href="/"> <div className="btn_home"><FaHome  className="spaceB"/> Home </div></a>
                 <img src="/logo_ezl.png" alt="Logo image" />
             </div>
             <Navbar />

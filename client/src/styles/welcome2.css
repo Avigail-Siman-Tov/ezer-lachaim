@@ -13,30 +13,33 @@ body {
     height: 100vh;
     width: 100vw;
 }
-
-body {
+*/
+/* body {
     font-family: 'Montserrat', sans-serif;
     background: #ebe9eb;
     position: relative;
     overflow: hidden;
     font-size: 100%;
     text-align: center;
-} */
+}  */
 
 .criterion {
     /* text-align: center; */
     font-family: 'Montserrat', sans-serif;
-    background: #ebe9eb;
+    /* background-color: rgb(24, 15, 15); */
+    /* overflow: hidden; */
     font-size: 1.6rem;
     position: absolute;
     top: 35%;
-    /* padding-left: 230px; */
     left: 190px;
-    height: 0;
+     height: 0;
     width: 0;
     transform: translate(-20px, -20px);
 
 }
+/* .back{
+   background: red; 
+} */
 
 .text {
     position: absolute;

@@ -53,7 +53,7 @@
 
 .tab {
   /* display: inline-block; */
-  margin-right: 5px;
+  margin-right: 3px;
 }
 
 .btn_take{
@@ -78,7 +78,7 @@
 
 .det {
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
 }
 .screen{
   padding-bottom: 22%;
