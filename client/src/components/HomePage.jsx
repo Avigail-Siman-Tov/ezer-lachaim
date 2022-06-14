@@ -9,7 +9,6 @@ export const HomePage = () => {
     const [readMore, setReadMore] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const interval = useRef(null);
-
     const extraaContentRef = useRef();
 
     function switchImage() {
