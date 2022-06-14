@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useAuth } from "./log_in/contexts/AuthContext"
 // import * as firebase from "firebase/app"
 import { firestore } from "../firebase";
-import { collection, query, where, getDocs, doc } from "firebase/firestore";
+import { collection, query, where, getDocs, doc, setDoc } from "firebase/firestore";
 import React, { useEffect } from "react"
 import NewVolunteer from "./NewVolunteer";
 // import "../styles/input2.css";
@@ -22,35 +22,63 @@ import { SpinnerCircular } from "spinners-react";
 function ExistVolunteer({ setShowSpinner }) {
     const existVolunteerRef = collection(firestore, "newVolunteer");
     const { currentUser } = useAuth();
-    const [existVolunteer, setExistVolunteer] = useState("");
-    
+    const [existVolunteer, setExistVolunteer] = useState(null);
+
     // const details = [];
 
-        const getData = async () => {
+    const getData = async () => {
         // const dataArray = await getDocs(query(callsRef));
-        console.log("ggggggggggggggg")       
+        console.log("ggggggggggggggg")
 
         var q = query(existVolunteerRef, where('email', '==', currentUser.email));
-        console.log("q issss"+q);
+        // console.log("q issss" + q);
         const snapshot = await getDocs(q);
-        console.log("snapshot issss"+snapshot);
-        
+        // console.log("snapshot issss" + snapshot);
+
         var index = 0
 
         snapshot.forEach(doc => {
-            setExistVolunteer(prev => [...prev, doc.data()])
+            setExistVolunteer({ ...doc.data(), id: doc.id })
             // details[index] = doc.data()
             // console.log("det:"+ details[index])
             // console.log("doc"+doc.data())
             // index++
         })
         // console.log("det:"+ details)
-        console.log("existVolunteer issss"+existVolunteer[0]);
+        console.log("existVolunteer issss" + existVolunteer[0]);
     }
 
     useEffect(() => {
-        return () => getData();
+        if (existVolunteer) getData();
     }, [])
+
+    const handleClick = async () => {
+        // Object.keys(inputError).forEach((key) => {
+        //     inputError[key] = userDetails[]
+        // })
+        setInputError({
+            ...inputError,
+            cityInput: !userDetails.city,
+            carTypeInput: !userDetails.carType,
+            carNumInput: !userDetails.carNumber,
+            seatsNumInput: !userDetails.seatsNum,
+            sexInput: !userDetails.sex,
+        });
+
+        setShowSpinner(true);
+        setTimeout(
+            setShowSpinner.bind("", false),
+            3000
+        );
+        //TODO - http- backend (userDetails)
+
+        try {
+            await setDoc(doc(firestore, "newVolunteer", existVolunteer.id), existVolunteer);
+
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
 
 
@@ -92,17 +120,22 @@ function ExistVolunteer({ setShowSpinner }) {
     return (
         <div className>
             <div className="navbar">
-                <a href="/"> <div className="btn_home"><FaHome  className="spaceB"/> Home </div></a>
+                <a href="/"> <div className="btn_home"><FaHome className="spaceB" /> Home </div></a>
                 <img src="/logo_ezl.png" alt="Logo image" />
             </div>
             <Navbar />
             <div className="form-wrapper">
-                <div className="title">הפרטים שלי</div>
-                {/* { numbers.map((object, index) => (
+                <div className="title">הפרטים שלי:</div>
+                {/* { existVolunteer.map((object, index) => (
                  <div key={index}> */}
-            {/* <input value={object.email} /> */}
+                {/* <input value={object.email} /> */}
                 <Input
-                    // placeholder={existVolunteer[0].name}
+                    value={existVolunteer.name}
+                    onChange={(e) => setExistVolunteer(prev => {
+                        prev.name = e.target.value;
+                        return { ...prev }
+                    })}
+                // placeholder=OB.name}
                 // placeholder={existVolunteer[0].name}
                 // hasError={inputError.nameInput}
                 // changeHandler={(name) => {
@@ -113,9 +146,9 @@ function ExistVolunteer({ setShowSpinner }) {
                 // }}
                 // }}
                 />
-                 <Input
-                    // placeholder={existVolunteer[0].email}
-                                        // placeholder={existVolunteer[0].email}
+                <Input
+                // placeholder={existVolunteer[0].email}
+                // placeholder={existVolunteer[0].email}
 
                 // hasError={inputError.nameInput}
                 // changeHandler={(name) => {
@@ -126,11 +159,11 @@ function ExistVolunteer({ setShowSpinner }) {
                 // }}
                 // }}
                 />
-                        
 
-                <Input 
-                    // placeholder={numbers[2]}
-                    // placeholder={existVolunteer[0].phone}
+
+                <Input
+                // placeholder={numbers[2]}
+                // placeholder={existVolunteer[0].phone}
 
                 // hasError={inputError.phoneNumInput}
                 // changeHandler={(phoneNum) => {
@@ -164,7 +197,7 @@ function ExistVolunteer({ setShowSpinner }) {
                     }}
                 /> */}
                 <div className="label" ></div>
-                <Select 
+                <Select
                     options={[
 
                         "אום אל פחם",
@@ -247,8 +280,8 @@ function ExistVolunteer({ setShowSpinner }) {
 
 
                     ]}
-                    // placeHolder={numbers[3]}
-                    // placeHolder={existVolunteer[0].city}
+                // placeHolder={numbers[3]}
+                // placeHolder={existVolunteer[0].city}
 
                 // value={cityInput} onChange={(e) => setCityInput(e.target.value)}
                 // type="text"
@@ -262,8 +295,7 @@ function ExistVolunteer({ setShowSpinner }) {
 
                 />
 
-
-                <Select 
+                <Select
                     options={[
                         "רכב פרטי",
                         "רכב מסחרי",
@@ -272,8 +304,8 @@ function ExistVolunteer({ setShowSpinner }) {
                         "דו גלגלי",
                         "אוטובוס",
                     ]}
-                    // placeHolder={doc.data().carType}
-                    // placeHolder={existVolunteer[0].carType}
+                // placeHolder={doc.data().carType}
+                // placeHolder={existVolunteer[0].carType}
 
                 />
                 {/* <Input
@@ -284,8 +316,8 @@ function ExistVolunteer({ setShowSpinner }) {
                     }}
                 /> */}
                 <Input
-                    // placeholder={doc.data().number_of_seets}
-                                        // placeholder={NewVolunteer[0].number_of_seets}
+                // placeholder={doc.data().number_of_seets}
+                // placeholder={NewVolunteer[0].number_of_seets}
 
                 // hasError={inputError.carNumInput}
                 // changeHandler={(carNum) => {
@@ -296,7 +328,7 @@ function ExistVolunteer({ setShowSpinner }) {
                 // }}
                 // }}
                 />
-                    {/* </div>
+                {/* </div>
             ))}  */}
                 {/* <Input placeholder="הערות" /> */}
                 <div className="btn-wrapper">
@@ -306,26 +338,7 @@ function ExistVolunteer({ setShowSpinner }) {
                     <Link to="/search">
                         <Button onClick={notify}
                             text="שמירה"
-                            clickHandler={() => {
-                                // Object.keys(inputError).forEach((key) => {
-                                //     inputError[key] = userDetails[]
-                                // })
-                                setInputError({
-                                    ...inputError,
-                                    cityInput: !userDetails.city,
-                                    carTypeInput: !userDetails.carType,
-                                    carNumInput: !userDetails.carNumber,
-                                    seatsNumInput: !userDetails.seatsNum,
-                                    sexInput: !userDetails.sex,
-                                });
-
-                                setShowSpinner(true);
-                                setTimeout(
-                                    setShowSpinner.bind("", false),
-                                    3000
-                                );
-                                //TODO - http- backend (userDetails)
-                            }}
+                            clickHandler={handleClick}
                         />   <ToastContainer />
                     </Link>
                 </div>
@@ -345,9 +358,9 @@ function ExistVolunteer({ setShowSpinner }) {
                         }}
                     />
                 </Link> */}
-                
+
             </div>
-            
+
         </div>
     );
 }
