@@ -23,18 +23,18 @@ function ExistVolunteer({ setShowSpinner }) {
     const existVolunteerRef = collection(firestore, "newVolunteer");
     const { currentUser } = useAuth();
     const [existVolunteer, setExistVolunteer] = useState("");
-
+    
     // const details = [];
 
-    const getData = async () => {
+        const getData = async () => {
         // const dataArray = await getDocs(query(callsRef));
-        console.log("ggggggggggggggg")
+        console.log("ggggggggggggggg")       
 
         var q = query(existVolunteerRef, where('email', '==', currentUser.email));
-        console.log("q issss" + q);
+        console.log("q issss"+q);
         const snapshot = await getDocs(q);
-        console.log("snapshot issss" + snapshot);
-
+        console.log("snapshot issss"+snapshot);
+        
         var index = 0
 
         snapshot.forEach(doc => {
@@ -45,7 +45,7 @@ function ExistVolunteer({ setShowSpinner }) {
             // index++
         })
         // console.log("det:"+ details)
-        console.log("existVolunteer issss" + existVolunteer[0]);
+        console.log("existVolunteer issss"+existVolunteer[0]);
     }
 
     useEffect(() => {
@@ -96,52 +96,52 @@ function ExistVolunteer({ setShowSpinner }) {
                 <img src="/logo_ezl.png" alt="Logo image" />
             </div>
             <Navbar />
-            <React.Fragment>
+            <div className="form-wrapper">
                 <div className="title">הפרטים שלי:</div>
-                {existVolunteer.map((object, index) => (
-                    <div key={index}>
-                        {/* <input value={object.email} /> */}
-                        <Input
-                            placeholder={object.name}
-                        // placeholder={existVolunteer[0].name}
-                        // hasError={inputError.nameInput}
-                        // changeHandler={(name) => {
-                        //     userDetails.name = name;
-                        // hasError={inputError.nameInput}
-                        // changeHandler={(name) => {
-                        //     userDetails.name = name;
-                        // }}
-                        // }}
-                        />
-                        <Input
-                            placeholder={object.email}
-                        // placeholder={existVolunteer[0].email}
+                {/* { numbers.map((object, index) => (
+                 <div key={index}> */}
+            {/* <input value={object.email} /> */}
+                <Input
+                    // placeholder={existVolunteer[0].name}
+                // placeholder={existVolunteer[0].name}
+                // hasError={inputError.nameInput}
+                // changeHandler={(name) => {
+                //     userDetails.name = name;
+                // hasError={inputError.nameInput}
+                // changeHandler={(name) => {
+                //     userDetails.name = name;
+                // }}
+                // }}
+                />
+                 <Input
+                    // placeholder={existVolunteer[0].email}
+                                        // placeholder={existVolunteer[0].email}
 
-                        // hasError={inputError.nameInput}
-                        // changeHandler={(name) => {
-                        //     userDetails.name = name;
-                        // hasError={inputError.nameInput}
-                        // changeHandler={(name) => {
-                        //     userDetails.name = name;
-                        // }}
-                        // }}
-                        />
+                // hasError={inputError.nameInput}
+                // changeHandler={(name) => {
+                //     userDetails.name = name;
+                // hasError={inputError.nameInput}
+                // changeHandler={(name) => {
+                //     userDetails.name = name;
+                // }}
+                // }}
+                />
+                        
 
+                <Input 
+                    // placeholder={numbers[2]}
+                    // placeholder={existVolunteer[0].phone}
 
-                        <Input
-                            placeholder={object.phone}
-                        // placeholder={existVolunteer[0].phone}
-
-                        // hasError={inputError.phoneNumInput}
-                        // changeHandler={(phoneNum) => {
-                        //     userDetails.phoneNum = phoneNum;
-                        // hasError={inputError.phoneNumInput}
-                        // changeHandler={(phoneNum) => {
-                        //     userDetails.phoneNum = phoneNum;
-                        // }}
-                        // }}
-                        />
-                        {/* <Input
+                // hasError={inputError.phoneNumInput}
+                // changeHandler={(phoneNum) => {
+                //     userDetails.phoneNum = phoneNum;
+                // hasError={inputError.phoneNumInput}
+                // changeHandler={(phoneNum) => {
+                //     userDetails.phoneNum = phoneNum;
+                // }}
+                // }}
+                />
+                {/* <Input
                     placeholder="אימייל"
                     hasError={inputError.emailInput}
                     changeHandler={(email) => {
@@ -156,144 +156,148 @@ function ExistVolunteer({ setShowSpinner }) {
                     }}
                 
                 /> */}
-                        {/* <Input
+                {/* <Input
                     placeholder="עיר מגורים" value={cityInput} onChange={(e) => setCityInput(e.target.value)}
                      hasError={inputError.cityInput}
                      changeHandler={(city) => {
                          userDetails.city = city;
                     }}
                 /> */}
-                        <div className="label" ></div>
-                        <Select
-                            options={[
+                <div className="label" ></div>
+                <Select 
+                    options={[
 
-                                "אום אל פחם",
-                                "אופקים",
-                                "אור יהודה",
-                                "אור עקיבא",
-                                "אילת",
-                                "אריאל",
-                                "אשדוד",
-                                "אשקלון",
-                                "באקה אל-גרבייה",
-                                "באר יעקב",
-                                "באר שבע",
-                                "ביתר עלית",
-                                "בית שאן",
-                                "בית שמש",
-                                "בני ברק",
-                                "בת ים",
-                                "גבעת שמואל",
-                                "גבעתיים",
-                                "דימונה",
-                                "הוד השרון",
-                                "הרצליה",
-                                "חדרה",
-                                "חולון",
-                                "חיפה",
-                                "חריש",
-                                "טבריה",
-                                "טייבה",
-                                "טירה",
-                                "טירת הכרמל",
-                                "טמרה",
-                                "יבנה",
-                                "יהוד מונסון",
-                                "יקנעם",
-                                "ירושלים",
-                                "כפר יונה", "כפר סבא",
-                                "כפר קאסם",
-                                "כרמיאל",
-                                "לוד",
-                                "מגדל העמק",
-                                "מודיעין מכבים רעות",
-                                "מע'אר",
-                                "מעלה אדומים",
-                                "מעלות תרשיחא",
-                                "נהריה",
-                                "נוף הגליל",
-                                "נס ציונה",
-                                "נצרת",
-                                "נשר",
-                                "נתיבות",
-                                "נתניה",
-                                "סח'נין",
-                                "עכו",
-                                "עפולה",
-                                "עראבה",
-                                "ערד",
-                                "פתח תקווה",
-                                "צפת",
-                                "קלנסווה",
-                                "קריית אונו",
-                                "קריית אתא",
-                                "קריית ביאליק",
-                                "קריית גת",
-                                "קריית ים",
-                                "קריית מוצקין",
-                                "קריית מלאכי",
-                                "קריית שמונה",
-                                "ראש העין",
-                                "ראשון לציון",
-                                "רהט",
-                                "רחובות",
-                                "רמלה",
-                                "רמת גן",
-                                "רמת השרון",
-                                "רעננה",
-                                "שדרות",
-                                "שפרעם",
-                                "תל אביב יפו",
-                            ]}
-                            // placeHolder={numbers[3]}
-                            placeHolder={object.city}
+                        "אום אל פחם",
+                        "אופקים",
+                        "אור יהודה",
+                        "אור עקיבא",
+                        "אילת",
+                        "אריאל",
+                        "אשדוד",
+                        "אשקלון",
+                        "באקה אל-גרבייה",
+                        "באר יעקב",
+                        "באר שבע",
+                        "ביתר עלית",
+                        "בית שאן",
+                        "בית שמש",
+                        "בני ברק",
+                        "בת ים",
+                        "גבעת שמואל",
+                        "גבעתיים",
+                        "דימונה",
+                        "הוד השרון",
+                        "הרצליה",
+                        "חדרה",
+                        "חולון",
+                        "חיפה",
+                        "חריש",
+                        "טבריה",
+                        "טייבה",
+                        "טירה",
+                        "טירת הכרמל",
+                        "טמרה",
+                        "יבנה",
+                        "יהוד מונסון",
+                        "יקנעם",
+                        "ירושלים",
+                        "כפר יונה", "כפר סבא",
+                        "כפר קאסם",
+                        "כרמיאל",
+                        "לוד",
+                        "מגדל העמק",
+                        "מודיעין מכבים רעות",
+                        "מע'אר",
+                        "מעלה אדומים",
+                        "מעלות תרשיחא",
+                        "נהריה",
+                        "נוף הגליל",
+                        "נס ציונה",
+                        "נצרת",
+                        "נשר",
+                        "נתיבות",
+                        "נתניה",
+                        "סח'נין",
+                        "עכו",
+                        "עפולה",
+                        "עראבה",
+                        "ערד",
+                        "פתח תקווה",
+                        "צפת",
+                        "קלנסווה",
+                        "קריית אונו",
+                        "קריית אתא",
+                        "קריית ביאליק",
+                        "קריית גת",
+                        "קריית ים",
+                        "קריית מוצקין",
+                        "קריית מלאכי",
+                        "קריית שמונה",
+                        "ראש העין",
+                        "ראשון לציון",
+                        "רהט",
+                        "רחובות",
+                        "רמלה",
+                        "רמת גן",
+                        "רמת השרון",
+                        "רעננה",
+                        "שדרות",
+                        "שפרעם",
+                        "תל אביב יפו",
 
-                        // value={cityInput} onChange={(e) => setCityInput(e.target.value)}
-                        // type="text"
-                        // value={city}
-                        // name="city"
-                        // onChange={handleChange}   
-                        // hasError={inputError.cityInput}
-                        // changeHandler={(city) => {
-                        //     userDetails.city = city;
-                        // }}
 
-                        />
-                        <Select
-                            options={[
-                                "רכב פרטי",
-                                "רכב מסחרי",
-                                "רכה נכה",
-                                "משאית",
-                                "דו גלגלי",
-                                "אוטובוס",
-                            ]}
-                            placeHolder={object.carType}
-                        // placeHolder={NewVolunteer[0].carType}
+                    ]}
+                    // placeHolder={numbers[3]}
+                    // placeHolder={existVolunteer[0].city}
 
-                        />
-                        {/* <Input
+                // value={cityInput} onChange={(e) => setCityInput(e.target.value)}
+                // type="text"
+                // value={city}
+                // name="city"
+                // onChange={handleChange}   
+                // hasError={inputError.cityInput}
+                // changeHandler={(city) => {
+                //     userDetails.city = city;
+                // }}
+
+                />
+
+
+                <Select 
+                    options={[
+                        "רכב פרטי",
+                        "רכב מסחרי",
+                        "רכה נכה",
+                        "משאית",
+                        "דו גלגלי",
+                        "אוטובוס",
+                    ]}
+                    // placeHolder={doc.data().carType}
+                    // placeHolder={existVolunteer[0].carType}
+
+                />
+                {/* <Input
                     placeholder="מספר רכב"
                     hasError={inputError.carNumInput}
                     changeHandler={(carNum) => {
                         userDetails.carNum = carNum;
                     }}
                 /> */}
-                        <Input
-                            placeholder={object.number_of_seets}
-                        // placeholder={NewVolunteer[0].number_of_seets}
+                <Input
+                    // placeholder={doc.data().number_of_seets}
+                                        // placeholder={NewVolunteer[0].number_of_seets}
 
-                        // hasError={inputError.carNumInput}
-                        // changeHandler={(carNum) => {
-                        //     userDetails.carNum = carNum;
-                        // hasError={inputError.carNumInput}
-                        // changeHandler={(carNum) => {
-                        //     userDetails.carNum = carNum;
-                        // }}
-                        // }}
-                        />
-                    </div>
-                ))}
+                // hasError={inputError.carNumInput}
+                // changeHandler={(carNum) => {
+                //     userDetails.carNum = carNum;
+                // hasError={inputError.carNumInput}
+                // changeHandler={(carNum) => {
+                //     userDetails.carNum = carNum;
+                // }}
+                // }}
+                />
+                    {/* </div>
+            ))}  */}
                 {/* <Input placeholder="הערות" /> */}
                 <div className="btn-wrapper">
                     {/* <Link to="/exist-volunteer">
@@ -324,8 +328,8 @@ function ExistVolunteer({ setShowSpinner }) {
                             }}
                         />   <ToastContainer />
                     </Link>
-           
-            {/* <Link to="/exist-volunteer2">
+                </div>
+                {/* <Link to="/exist-volunteer2">
                     <Button
                         text="הבא"
                         clickHandler={() => {
@@ -341,11 +345,10 @@ function ExistVolunteer({ setShowSpinner }) {
                         }}
                     />
                 </Link> */}
-
-        </div>
-        </React.Fragment>
+                
+            </div>
             
-        </div >
+        </div>
     );
 }
 export default ExistVolunteer;
