@@ -19,17 +19,14 @@ import NewVolunteer from "./NewVolunteer";
 import "../styles/spinner.css";
 import { SpinnerCircular } from "spinners-react";
 
-
-
- 
-
-
 function ExistVolunteer({ setShowSpinner }) {
     const existVolunteerRef = collection(firestore, "newVolunteer");
     const { currentUser } = useAuth();
-    const [existVolunteer, setExistVolunteer] = useState([]);
-   
-    async function getData() {
+    const [existVolunteer, setExistVolunteer] = useState("");
+    
+    // const details = [];
+
+        const getData = async () => {
         // const dataArray = await getDocs(query(callsRef));
         console.log("ggggggggggggggg")       
 
@@ -37,12 +34,18 @@ function ExistVolunteer({ setShowSpinner }) {
         console.log("q issss"+q);
         const snapshot = await getDocs(q);
         console.log("snapshot issss"+snapshot);
+        
+        var index = 0
 
         snapshot.forEach(doc => {
             setExistVolunteer(prev => [...prev, doc.data()])
+            // details[index] = doc.data()
+            // console.log("det:"+ details[index])
+            // console.log("doc"+doc.data())
+            // index++
         })
+        // console.log("det:"+ details)
         console.log("existVolunteer issss"+existVolunteer[0]);
-
     }
 
     useEffect(() => {
@@ -95,11 +98,11 @@ function ExistVolunteer({ setShowSpinner }) {
             <Navbar />
             <div className="form-wrapper">
                 <div className="title">הפרטים שלי:</div>
-                {/* { existVolunteer.map((object, index) => (
+                {/* { numbers.map((object, index) => (
                  <div key={index}> */}
             {/* <input value={object.email} /> */}
                 <Input
-                    placeholder={doc.data().name}
+                    // placeholder={existVolunteer[0].name}
                 // placeholder={existVolunteer[0].name}
                 // hasError={inputError.nameInput}
                 // changeHandler={(name) => {
@@ -111,7 +114,7 @@ function ExistVolunteer({ setShowSpinner }) {
                 // }}
                 />
                  <Input
-                    placeholder={doc.data().email}
+                    // placeholder={existVolunteer[0].email}
                                         // placeholder={existVolunteer[0].email}
 
                 // hasError={inputError.nameInput}
@@ -126,7 +129,7 @@ function ExistVolunteer({ setShowSpinner }) {
                         
 
                 <Input 
-                    placeholder={doc.data().phone}
+                    // placeholder={numbers[2]}
                     // placeholder={existVolunteer[0].phone}
 
                 // hasError={inputError.phoneNumInput}
@@ -244,8 +247,8 @@ function ExistVolunteer({ setShowSpinner }) {
 
 
                     ]}
-                    placeHolder={doc.data().city}
-                                        // placeHolder={existVolunteer[0].city}
+                    // placeHolder={numbers[3]}
+                    // placeHolder={existVolunteer[0].city}
 
                 // value={cityInput} onChange={(e) => setCityInput(e.target.value)}
                 // type="text"
@@ -269,8 +272,8 @@ function ExistVolunteer({ setShowSpinner }) {
                         "דו גלגלי",
                         "אוטובוס",
                     ]}
-                    placeHolder={doc.data().carType}
-                                        // placeHolder={NewVolunteer[0].carType}
+                    // placeHolder={doc.data().carType}
+                    // placeHolder={existVolunteer[0].carType}
 
                 />
                 {/* <Input
@@ -281,7 +284,7 @@ function ExistVolunteer({ setShowSpinner }) {
                     }}
                 /> */}
                 <Input
-                    placeholder={doc.data().number_of_seets}
+                    // placeholder={doc.data().number_of_seets}
                                         // placeholder={NewVolunteer[0].number_of_seets}
 
                 // hasError={inputError.carNumInput}
