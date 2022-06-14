@@ -14,8 +14,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Link, Navigate } from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 import emailjs from '@emailjs/browser';
-
-
+import NewVolunteer from "./NewVolunteer";
+import { useAuth } from "./log_in/contexts/AuthContext"
+import { where } from "firebase/firestore";
 
 
 export const Search = () => {
@@ -34,28 +35,32 @@ export const Search = () => {
 
     const navigate = useNavigate();
 
-    const sendEmail = (e) => {
-        console.log("I am here");
-        e.preventDefault();
-        console.log("after");
-        emailjs.sendForm('service_z788roe', 'template_a2saktz', e.target, 'acdyoJK5z31WA9GiR')
-            .then((result) => {
-                console.log(result.text);
-                alert("ההודעה נשלחה בהצלחה", result.text);
-                navigate("/");
-            }, (error) => {
-                console.log(error.text);
-                alert("ארעה שגיאה נסה שנית", error.text);
+    // const sendEmail = (e) => {
+    //     console.log("I am here");
+    //     e.preventDefault();
+    //     console.log("after");
+    //     emailjs.sendForm('service_z788roe', 'template_a2saktz', e.target, 'acdyoJK5z31WA9GiR')
+    //         .then((result) => {
+    //             console.log(result.text);
+    //             alert("ההודעה נשלחה בהצלחה", result.text);
+    //             navigate("/");
+    //         }, (error) => {
+    //             console.log(error.text);
+    //             alert("ארעה שגיאה נסה שנית", error.text);
 
-            });
-        e.target.reset()
-    };
+    //         });
+    //     e.target.reset()
+    // };
 
     const [callData, setCallData] = useState([]);
+    const [emailVol, setEmailVol] = useState("");
     const [inputValue, setInputValue] = useState("");
     const [blogs, Setblogs] = useState("");
     const [search, setSearch] = useState("");
     const [filter, setFilter] = useState('');
+    const { currentUser } = useAuth();
+    const newVolunteerRef = collection(firestore, "newVolunteer");
+
 
 
     const callsRef = collection(firestore, "calls");
@@ -68,6 +73,11 @@ export const Search = () => {
     // });index.js 
    
     async function getData() {
+        var q = query(newVolunteerRef, where('email', '==', currentUser.email));
+        const a = await getDocs(q);
+        a.forEach(doc => {
+            setEmailVol(prev => [...prev, { ...doc.data(), id: doc.id }])
+        })
         const dataArray = await getDocs(query(callsRef));
         dataArray.forEach(doc => {
             setCallData(prev => [...prev, { ...doc.data(), id: doc.id }])
@@ -130,6 +140,22 @@ export const Search = () => {
     //         blogs.Title.toLowerCase().includes(search.toLocaleLowerCase) || blogs.Body.toLowerCase().includes(search.toLocaleLowerCase) 
     //         )); 
     // }; 
+
+    // console.log("pppppppppp"+emailVol[0].email)
+    function sendEmail(e){
+        e.preventDefault();
+        dataSearch.forEach(e => emailjs.send('service_z788roe', 'template_a2saktz',{user_email:emailVol[0].email ,name: callData[0].name,phone: callData[0].phone,source_address: callData[0].source_address,address_destination: callData[0].address_destination,city: callData[0].city, gender: callData[0].gender, number_of_passengers:callData[0].number_of_passengers,carType:callData[0].carType, date: callData[0].date,hour:callData[0].hour}, 'acdyoJK5z31WA9GiR')
+            .then((result) => {
+                console.log(result.text);
+                alert("ההודעה נשלחה בהצלחה", result.text);
+                // navigate("/");
+            }, (error) => {
+                console.log(error.text);
+                alert("ארעה שגיאה נסה שנית", error.text);
+
+            }));
+        // e.target.reset()
+    }
 
     return (
         <div>
@@ -271,7 +297,7 @@ export const Search = () => {
                             </div>
                         </div>
                         <div className='container'>
-                            <form onSubmit={sendEmail}>
+                            <form onSubmit={ sendEmail}>
                                 {/* <div className="detailsPtient">
                                     {dataSearch.map((object, index) => (
                                         <div key={index}>
