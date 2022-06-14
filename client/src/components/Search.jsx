@@ -263,7 +263,7 @@ export const Search = () => {
                         <div className="flex-container">
                             <div className="right">
                                 <div className="flex">
-                                    <div className="det">{"שם מלא:"}</div><span class="tab"></span>{object.name}
+                                    <div className="det">{" שם מלא:"}</div><span class="tab"></span>{object.name}
                                 </div>
                                 <div className="flex">
                                     <div className="det">{"טלפון:"}</div><span class="tab"></span>{object.phone}
