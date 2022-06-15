@@ -30,14 +30,9 @@ function NewVolunteer({ setShowSpinner }) {
     const newVolunteerRef = collection(firestore, "newVolunteer");
     const [inputValue, setInputValue] = useState({ name: "", phone: "", email: "", password: "", confirm_password: "", city: "", carType: "", carNumber: "", number_of_seets: "", gender: "", remarks: "" });
     const { name, phone, email, password, confirm_password, city, carType, carNumber, number_of_seets, gender, remarks } = inputValue;
-
-    // const emailRef = useRef()
-    // const passwordRef = useRef()
-    // const passwordConfirmRef = useRef()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
-
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -46,8 +41,9 @@ function NewVolunteer({ setShowSpinner }) {
             ...prev,
             [name]: value,
         }));
-        console.log(inputValue);
+        console.log("bbbbbbbbbbb"+inputValue);
     };
+
     async function handleSubmit(e) {
         e.preventDefault()
         console.log(inputValue)
@@ -117,255 +113,251 @@ function NewVolunteer({ setShowSpinner }) {
     return (
         <div >
             {/* <div>{error}</div> */}
-
             <div className="navbar">
-
                 <a href="/"> <div className="btn_home"><FaHome className="spaceB" />Home </div></a>
                 <img src="/logo_ezl.png" alt="Logo image" />
             </div>
             <Navbar />
             <div>
-                {/* <div className="reka "> */}
-                    {/* <img src="reka1.jpg" alt="reka" /> */}
-                    <div className="form-wrapper">
-                        <div className="title1">טופס הצטרפות למתנדבים</div>
-                        {/* <Example/> */}
-                        <Input
-                            type="text"
-                            value={name}
-                            placeholder="שם פרטי ומשפחה"
-                            name="name"
-                            onChange={handleChange}
-                        // hasError={inputError.nameInput}
-                        // changeHandler={(name) => {
-                        //     userDetails.name = name;
-                        // }}
-                        />
-                        <Input
-                            type="text"
-                            value={phone}
-                            placeholder="טלפון/נייד"
-                            name="phone"
-                            onChange={handleChange}
-                        // hasError={inputError.phoneNumInput}
-                        // changeHandler={(phoneNum) => {
-                        //     userDetails.phoneNum = phoneNum;
-                        // }}
-                        />
-                        <Input
-                            type="text"
-                            value={email}
-                            placeholder="אימייל"
-                            name="email"
-                            onChange={handleChange}
-                        // hasError={inputError.emailInput}
-                        // changeHandler={(email) => {
-                        //     userDetails.email = email;
-                        // }}
-                        />
+                <div className="form-wrapper">
+                    <div className="title1">טופס הצטרפות למתנדבים</div>
+                    {/* <Example/> */}
+                    <Input
+                        type="text"
+                        value={name}
+                        placeholder="שם פרטי ומשפחה"
+                        name="name"
+                        onChange={handleChange}
+                    // hasError={inputError.nameInput}
+                    // changeHandler={(name) => {
+                    //     userDetails.name = name;
+                    // }}
+                    />
+                    <Input
+                        type="text"
+                        value={phone}
+                        placeholder="טלפון/נייד"
+                        name="phone"
+                        onChange={handleChange}
+                    // hasError={inputError.phoneNumInput}
+                    // changeHandler={(phoneNum) => {
+                    //     userDetails.phoneNum = phoneNum;
+                    // }}
+                    />
+                    <Input
+                        type="text"
+                        value={email}
+                        placeholder="אימייל"
+                        name="email"
+                        onChange={handleChange}
+                    // hasError={inputError.emailInput}
+                    // changeHandler={(email) => {
+                    //     userDetails.email = email;
+                    // }}
+                    />
+                    <Input
+                        type="password"
+                        value={password}
+                        placeholder="סיסמא"
+                        name="password"
+                        onChange={handleChange}
+                    // hasError={inputError.passwordInput}
+                    // changeHandler={(password) => {
+                    //     userDetails.password = password;
+                    // }}
+                    />
+                    <div className="error">
                         <Input
                             type="password"
-                            value={password}
-                            placeholder="סיסמא"
-                            name="password"
+                            // value={confirm_password}
+                            placeholder="אימות סיסמא"
+                            name="confirm_password"
                             onChange={handleChange}
-                        // hasError={inputError.passwordInput}
-                        // changeHandler={(password) => {
-                        //     userDetails.password = password;
+                        // onChange={handleSubmit} 
+                        // hasError={inputError.confirmPasswordInput}
+                        // changeHandler={(confirmPassword) => {
+                        //     userDetails.confirmPassword = confirmPassword;
                         // }}
                         />
-                        <div className="error">
-                            <Input
-                                type="password"
-                                // value={confirm_password}
-                                placeholder="אימות סיסמא"
-                                name="confirm_password"
-                                onChange={handleChange}
-                            // onChange={handleSubmit} 
-                            // hasError={inputError.confirmPasswordInput}
-                            // changeHandler={(confirmPassword) => {
-                            //     userDetails.confirmPassword = confirmPassword;
-                            // }}
-                            />
-                            {error}</div>
-                        {/* <Input
+                        {error}</div>
+                    {/* <Input
                     placeholder="עיר מגורים" value={cityInput} onChange={(e) => setCityInput(e.target.value)}
                      hasError={inputError.cityInput}
                      changeHandler={(city) => {
                          userDetails.city = city;
                     }}
                 /> */}
-                        <div className="label" >עיר מגורים</div>
-                        <Select
-                            options={[
-                                "אום אל פחם",
-                                "אופקים",
-                                "אור יהודה",
-                                "אור עקיבא",
-                                "אילת",
-                                "אריאל",
-                                "אשדוד",
-                                "אשקלון",
-                                "באקה אל-גרבייה",
-                                "באר יעקב",
-                                "באר שבע",
-                                "ביתר עלית",
-                                "בית שאן",
-                                "בית שמש",
-                                "בני ברק",
-                                "בת ים",
-                                "גבעת שמואל",
-                                "גבעתיים",
-                                "דימונה",
-                                "הוד השרון",
-                                "הרצליה",
-                                "חדרה",
-                                "חולון",
-                                "חיפה",
-                                "חריש",
-                                "טבריה",
-                                "טייבה",
-                                "טירה",
-                                "טירת הכרמל",
-                                "טמרה",
-                                "יבנה",
-                                "יהוד מונסון",
-                                "יקנעם",
-                                "ירושלים",
-                                "כפר יונה", "כפר סבא",
-                                "כפר קאסם",
-                                "כרמיאל",
-                                "לוד",
-                                "מגדל העמק",
-                                "מודיעין מכבים רעות",
-                                "מע'אר",
-                                "מעלה אדומים",
-                                "מעלות תרשיחא",
-                                "נהריה",
-                                "נוף הגליל",
-                                "נס ציונה",
-                                "נצרת",
-                                "נשר",
-                                "נתיבות",
-                                "נתניה",
-                                "סח'נין",
-                                "עכו",
-                                "עפולה",
-                                "עראבה",
-                                "ערד",
-                                "פתח תקווה",
-                                "צפת",
-                                "קלנסווה",
-                                "קריית אונו",
-                                "קריית אתא",
-                                "קריית ביאליק",
-                                "קריית גת",
-                                "קריית ים",
-                                "קריית מוצקין",
-                                "קריית מלאכי",
-                                "קריית שמונה",
-                                "ראש העין",
-                                "ראשון לציון",
-                                "רהט",
-                                "רחובות",
-                                "רמלה",
-                                "רמת גן",
-                                "רמת השרון",
-                                "רעננה",
-                                "שדרות",
-                                "שפרעם",
-                                "תל אביב יפו",
-                            ]}
-                            type="text"
-                            value={city}
-                            placeHolder="בחירת עיר מגורים"
-                            name="city"
-                            onChange={handleChange}
-                        />
-                        <div className="label">איזה רכב יש ברשותך?</div>
-                        <Select
-                            options={[
-                                "רכב פרטי",
-                                "רכב מסחרי",
-                                "רכה נכה",
-                                "משאית",
-                                "דו גלגלי",
-                                "אוטובוס",
-                            ]}
-                            type="text"
-                            value={carType}
-                            placeHolder="בחירת סוג רכב"
-                            name="carType"
-                            onChange={handleChange}
-                        // hasError={inputError.carTypeInput}
-                        // changeHandler={(carType) => {
-                        //     userDetails.carType = carType;
-                        // }}
-                        />
-                        <Input
-                            type="text"
-                            value={carNumber}
-                            placeholder="מספר רכב"
-                            name="carNumber"
-                            onChange={handleChange}
-                        // hasError={inputError.carNumInput}
-                        // changeHandler={(carNum) => {
-                        //     userDetails.carNum = carNum;
-                        // }}
-                        />
-                        <Input
-                            type="text"
-                            value={number_of_seets}
-                            placeholder="מספר מקומות ישיבה"
-                            name="number_of_seets"
-                            onChange={handleChange}
-                        // hasError={inputError.carNumInput}
-                        // changeHandler={(carNum) => {
-                        //     userDetails.carNum = carNum;
-                        // }}
-                        />
-                        <Select options={["אשה", "גבר"]}
-                            placeHolder="מגדר"
-                            type="text"
-                            value={gender}
-                            name="gender"
-                            onChange={handleChange}
-                        />
+                    <div className="label" >עיר מגורים</div>
+                    <Select
+                        options={[
+                            "אום אל פחם",
+                            "אופקים",
+                            "אור יהודה",
+                            "אור עקיבא",
+                            "אילת",
+                            "אריאל",
+                            "אשדוד",
+                            "אשקלון",
+                            "באקה אל-גרבייה",
+                            "באר יעקב",
+                            "באר שבע",
+                            "ביתר עלית",
+                            "בית שאן",
+                            "בית שמש",
+                            "בני ברק",
+                            "בת ים",
+                            "גבעת שמואל",
+                            "גבעתיים",
+                            "דימונה",
+                            "הוד השרון",
+                            "הרצליה",
+                            "חדרה",
+                            "חולון",
+                            "חיפה",
+                            "חריש",
+                            "טבריה",
+                            "טייבה",
+                            "טירה",
+                            "טירת הכרמל",
+                            "טמרה",
+                            "יבנה",
+                            "יהוד מונסון",
+                            "יקנעם",
+                            "ירושלים",
+                            "כפר יונה", "כפר סבא",
+                            "כפר קאסם",
+                            "כרמיאל",
+                            "לוד",
+                            "מגדל העמק",
+                            "מודיעין מכבים רעות",
+                            "מע'אר",
+                            "מעלה אדומים",
+                            "מעלות תרשיחא",
+                            "נהריה",
+                            "נוף הגליל",
+                            "נס ציונה",
+                            "נצרת",
+                            "נשר",
+                            "נתיבות",
+                            "נתניה",
+                            "סח'נין",
+                            "עכו",
+                            "עפולה",
+                            "עראבה",
+                            "ערד",
+                            "פתח תקווה",
+                            "צפת",
+                            "קלנסווה",
+                            "קריית אונו",
+                            "קריית אתא",
+                            "קריית ביאליק",
+                            "קריית גת",
+                            "קריית ים",
+                            "קריית מוצקין",
+                            "קריית מלאכי",
+                            "קריית שמונה",
+                            "ראש העין",
+                            "ראשון לציון",
+                            "רהט",
+                            "רחובות",
+                            "רמלה",
+                            "רמת גן",
+                            "רמת השרון",
+                            "רעננה",
+                            "שדרות",
+                            "שפרעם",
+                            "תל אביב יפו",
+                        ]}
+                        type="text"
+                        value={city}
+                        placeHolder="בחירת עיר מגורים"
+                        name="city"
+                        onChange={handleChange}
+                    />
+                    <div className="label">איזה רכב יש ברשותך?</div>
+                    <Select
+                        options={[
+                            "רכב פרטי",
+                            "רכב מסחרי",
+                            "רכה נכה",
+                            "משאית",
+                            "דו גלגלי",
+                            "אוטובוס",
+                        ]}
+                        type="text"
+                        value={carType}
+                        placeHolder="בחירת סוג רכב"
+                        name="carType"
+                        onChange={handleChange}
+                    // hasError={inputError.carTypeInput}
+                    // changeHandler={(carType) => {
+                    //     userDetails.carType = carType;
+                    // }}
+                    />
+                    <Input
+                        type="text"
+                        value={carNumber}
+                        placeholder="מספר רכב"
+                        name="carNumber"
+                        onChange={handleChange}
+                    // hasError={inputError.carNumInput}
+                    // changeHandler={(carNum) => {
+                    //     userDetails.carNum = carNum;
+                    // }}
+                    />
+                    <Input
+                        type="text"
+                        value={number_of_seets}
+                        placeholder="מספר מקומות ישיבה"
+                        name="number_of_seets"
+                        onChange={handleChange}
+                    // hasError={inputError.carNumInput}
+                    // changeHandler={(carNum) => {
+                    //     userDetails.carNum = carNum;
+                    // }}
+                    />
+                    <Select options={["אשה", "גבר"]}
+                        placeHolder="מגדר"
+                        type="text"
+                        value={gender}
+                        name="gender"
+                        onChange={handleChange}
+                    />
 
-                        <Input
-                            type="text"
-                            value={remarks}
-                            placeholder="הערות"
-                            name="remarks"
-                            onChange={handleChange}
-                        />
-                        {/* <Link to="/login"> */}
-                        <Button
-                            text="שלח"
-                            onClick={handleSubmit}
-                        // {/* // clickHandler={() => {
-                        // //     setInputError({
-                        // //         ...inputError,
-                        // //         cityInput: !userDetails.city,
-                        // //         carTypeInput: !userDetails.carType,
-                        // //         carNumInput: !userDetails.carNumber,
-                        // //         seatsNumInput: !userDetails.seatsNum,
-                        // //         sexInput: !userDetails.sex,
-                        // //     });
-                        // //     setShowSpinner(true);
-                        // //     setTimeout(setShowSpinner.bind("", false), 3000);
-                        // // }} */}
-                        /><ToastContainer />
-                        {/* </Link> */}
-                        {/* /> */}
+                    <Input
+                        type="text"
+                        value={remarks}
+                        placeholder="הערות"
+                        name="remarks"
+                        onChange={handleChange}
+                    />
+                    {/* <Link to="/login"> */}
+                    <Button
+                        text="שלח"
+                        onClick={handleSubmit}
+                    // {/* // clickHandler={() => {
+                    // //     setInputError({
+                    // //         ...inputError,
+                    // //         cityInput: !userDetails.city,
+                    // //         carTypeInput: !userDetails.carType,
+                    // //         carNumInput: !userDetails.carNumber,
+                    // //         seatsNumInput: !userDetails.seatsNum,
+                    // //         sexInput: !userDetails.sex,
+                    // //     });
+                    // //     setShowSpinner(true);
+                    // //     setTimeout(setShowSpinner.bind("", false), 3000);
+                    // // }} */}
+                    /><ToastContainer />
+                    {/* </Link> */}
+                    {/* /> */}
 
 
-                        {/* // <Link to="/new-volunteer-details">
+                    {/* // <Link to="/new-volunteer-details">
                     //     <Button 
                     //     text="הבא" */}
 
-                        {/* //         clickHandler={() => { */}
-                        {/* //             setInputError({
+                    {/* //         clickHandler={() => { */}
+                    {/* //             setInputError({
                     //                 ...inputError,
                     //                 nameInput: !userDetails.name,
                     //                 phoneNumInput: !userDetails.phoneNum,
@@ -380,8 +372,8 @@ function NewVolunteer({ setShowSpinner }) {
                     // </Link>                  
 
                     // <link to="/NewVolunteerDetails" > */}
-                    </div>
                 </div>
+            </div>
             {/* </div> */}
         </div>
     );
