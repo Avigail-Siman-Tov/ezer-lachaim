@@ -76,7 +76,6 @@ function ExistVolunteer({ setShowSpinner }) {
         sex: "",
         notes: "",
     };
-    // console.log("llllllllllllll"+existVolunteer.name)
     return (
         <div className>
             <div className="navbar">
@@ -86,25 +85,12 @@ function ExistVolunteer({ setShowSpinner }) {
             <Navbar />
             <div className="form-wrapper">
                 <div className="title">הפרטים שלי</div>
-                {/* { existVolunteer.map((object, index) => (
-                 <div key={index}> */}
-                {/* <input value={object.email} /> */}
                 <Input
                     value={existVolunteer.name}
                     onChange={(e) => setExistVolunteer(prev => {
                         prev.name = e.target.value;
                         return { ...prev }
                     })}
-                // placeholder=OB.name}
-                // placeholder={existVolunteer[0].name}
-                // hasError={inputError.nameInput}
-                // changeHandler={(name) => {
-                //     userDetails.name = name;
-                // hasError={inputError.nameInput}
-                // changeHandler={(name) => {
-                //     userDetails.name = name;
-                // }}
-                // }}
                 />
 
                 <Input
@@ -113,40 +99,7 @@ function ExistVolunteer({ setShowSpinner }) {
                         prev.phone = e.target.value;
                         return { ...prev }
                     })}
-                // placeholder={numbers[2]}
-                // placeholder={existVolunteer[0].phone}
-
-                // hasError={inputError.phoneNumInput}
-                // changeHandler={(phoneNum) => {
-                //     userDetails.phoneNum = phoneNum;
-                // hasError={inputError.phoneNumInput}
-                // changeHandler={(phoneNum) => {
-                //     userDetails.phoneNum = phoneNum;
-                // }}
-                // }}
                 />
-                {/* <Input
-                    placeholder="אימייל"
-                    hasError={inputError.emailInput}
-                    changeHandler={(email) => {
-                        userDetails.email = email;
-                    }}
-                />
-                <Input
-                    placeholder="סיסמא"
-                    hasError={inputError.passwordInput}
-                    changeHandler={(password) => {
-                        userDetails.password = password;
-                    }}
-                
-                /> */}
-                {/* <Input
-                    placeholder="עיר מגורים" value={cityInput} onChange={(e) => setCityInput(e.target.value)}
-                     hasError={inputError.cityInput}
-                     changeHandler={(city) => {
-                         userDetails.city = city;
-                    }}
-                /> */}
                 <div className="label" ></div>
                 <Select
                     options={[
@@ -233,18 +186,6 @@ function ExistVolunteer({ setShowSpinner }) {
                         prev.city = e.target.value;
                         return { ...prev }
                     })}
-                // placeHolder={numbers[3]}
-                // placeHolder={existVolunteer[0].city}
-
-                // value={cityInput} onChange={(e) => setCityInput(e.target.value)}
-                // type="text"
-                // value={city}
-                // name="city"
-                // onChange={handleChange}   
-                // hasError={inputError.cityInput}
-                // changeHandler={(city) => {
-                //     userDetails.city = city;
-                // }}
                 />
 
                 <Select
@@ -261,67 +202,25 @@ function ExistVolunteer({ setShowSpinner }) {
                         prev.carType = e.target.value;
                         return { ...prev }
                     })}
-                // placeHolder={doc.data().carType}
-                // placeHolder={existVolunteer[0].carType}
 
                 />
-                {/* <Input
-                    placeholder="מספר רכב"
-                    hasError={inputError.carNumInput}
-                    changeHandler={(carNum) => {
-                        userDetails.carNum = carNum;
-                    }}
-                /> */}
                 <Input
                     value={existVolunteer.number_of_seets}
                     onChange={(e) => setExistVolunteer(prev => {
                         prev.number_of_seets = e.target.value;
                         return { ...prev }
                     })}
-                // placeholder={doc.data().number_of_seets}
-                // placeholder={NewVolunteer[0].number_of_seets}
-
-                // hasError={inputError.carNumInput}
-                // changeHandler={(carNum) => {
-                //     userDetails.carNum = carNum;
-                // hasError={inputError.carNumInput}
-                // changeHandler={(carNum) => {
-                //     userDetails.carNum = carNum;
-                // }}
-                // }}
                 />
-                {/* </div>
-            ))}  */}
-                {/* <Input placeholder="הערות" /> */}
+               
                 <div className="btn-wrapper">
-                    {/* <Link to="/exist-volunteer">
-                        <Button text="הקודם" />
-                    </Link> */}
                     <Link to="/search">
                         <Button
                             onClick={handleClick}
                             text="שמירה"
-                        // clickHandler={handleClick()}
                         />
                         <ToastContainer />
                     </Link>
                 </div>
-                {/* <Link to="/exist-volunteer2">
-                    <Button
-                        text="הבא"
-                        clickHandler={() => {
-                            setInputError({
-                                ...inputError,
-                                nameInput: !userDetails.name,
-                                phoneNumInput: !userDetails.phoneNum,
-                                emailInput: !userDetails.email,
-                                PasswordInput: !userDetails.password,
-                                confirmPasswordInput:
-                                    !userDetails.confirmPassword,
-                            });
-                        }}
-                    />
-                </Link> */}
 
             </div>
 

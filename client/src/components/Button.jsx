@@ -5,8 +5,7 @@ function Button({ text, onClick }) {
     return (
             <button className='btn' onClick={onClick}>
                 {text}
-            </button>
-        
+            </button>   
     );
 }
 export default Button;

@@ -17,7 +17,6 @@ export const HomePage = () => {
 
     function contentButtonOnclick() {
         setReadMore(prev => !prev);
-        // extraaContentRef.current?.scrollIntoView();
     }
 
     useEffect(() => {
@@ -52,7 +51,6 @@ export const HomePage = () => {
                         <a href="/welcome">מתנדב חדש</a>
                         <a href="/login">מתנדב קיים</a>
                         <a href="/BookingShuttle">מטופל</a>
-                        {/* <a href="/login">מנהל</a> */}
                     </div>
                 </div>
                 <img src="/logo_ezl.png" alt="Logo image" />

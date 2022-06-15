@@ -56,14 +56,11 @@ export default function Login() {
             <div className="error1">{error && <Alert variant="danger">{error}</Alert>}</div>
             <Form onSubmit={handleSubmit}>
               <Form.Group id="email">
-                {/* <Form.Label>Email</Form.Label> */}
                 <br />
-                {/* <br /> */}
                 <Icon icon="bxs:lock" color="#ea6b4c" />
                 <input className="designInput" placeholder="Enter your email" type="email" ref={emailRef} required />
               </Form.Group>
               <Form.Group id="password">
-                {/* <Form.Label>Password</Form.Label> */}
                 <Icon icon="bi:person" color="#ea6b4c" />
                 <input className="designInput" placeholder="Enter your password" type="password"  ref={passwordRef} required />
               </Form.Group>
@@ -77,9 +74,6 @@ export default function Login() {
 
           </Card.Body>
         </Card>
-        {/* <div className="w-100 text-center mt-2">
-            Need an account? <Link to="/signup">Sign Up</Link>
-          </div> */}
       </div>
     </div>
   )

@@ -6,9 +6,6 @@ import "../styles/search.css"
 import { useEffect, useState } from "react";
 import { collection, doc, getDocs, query, setDoc, deleteDoc } from "firebase/firestore";
 import { React } from "react";
-import { Button } from "bootstrap";
-import { Icon } from '@iconify/react';
-import { Form } from "react-bootstrap"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link, Navigate } from "react-router-dom"

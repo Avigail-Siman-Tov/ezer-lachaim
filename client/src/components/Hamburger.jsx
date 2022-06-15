@@ -6,12 +6,9 @@ import { useAuth } from "./log_in/contexts/AuthContext"
 import { auth, firestore } from "../firebase";
 import { getAuth, signOut } from "firebase/auth";
 import "./log_in/contexts/AuthContext.jsx";
-// import { logout } from "./log_in/contexts/AuthContext"
 import { useNavigate } from "react-router-dom"
-
-
-// import ImgUpload from "../components";
 import { Icon } from '@iconify/react';
+
 function Hamburger() {
   const profileDetailsRef = collection(firestore, "newVolunteer");
   const { currentUser, logout } = useAuth();
