@@ -30,14 +30,9 @@ function NewVolunteer({ setShowSpinner }) {
     const newVolunteerRef = collection(firestore, "newVolunteer");
     const [inputValue, setInputValue] = useState({ name: "", phone: "", email: "", password: "", confirm_password: "", city: "", carType: "", carNumber: "", number_of_seets: "", gender: "", remarks: "" });
     const { name, phone, email, password, confirm_password, city, carType, carNumber, number_of_seets, gender, remarks } = inputValue;
-
-    // const emailRef = useRef()
-    // const passwordRef = useRef()
-    // const passwordConfirmRef = useRef()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
-
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -46,8 +41,9 @@ function NewVolunteer({ setShowSpinner }) {
             ...prev,
             [name]: value,
         }));
-        console.log(inputValue);
+        console.log("bbbbbbbbbbb"+inputValue);
     };
+
     async function handleSubmit(e) {
         e.preventDefault()
         console.log(inputValue)
@@ -117,77 +113,74 @@ function NewVolunteer({ setShowSpinner }) {
     return (
         <div >
             {/* <div>{error}</div> */}
-
             <div className="navbar">
-
                 <a href="/"> <div className="btn_home"><FaHome className="spaceB" />Home </div></a>
                 <img src="/logo_ezl.png" alt="Logo image" />
             </div>
             <Navbar />
             <div>
-           
-                    <div className="form-wrapper">
-                        <div className="title1">טופס הצטרפות למתנדבים</div>
-                        {/* <Example/> */}
-                        <Input
-                            type="text"
-                            value={name}
-                            placeholder="שם פרטי ומשפחה"
-                            name="name"
-                            onChange={handleChange}
-                        // hasError={inputError.nameInput}
-                        // changeHandler={(name) => {
-                        //     userDetails.name = name;
-                        // }}
-                        />
-                        <Input
-                            type="text"
-                            value={phone}
-                            placeholder="טלפון/נייד"
-                            name="phone"
-                            onChange={handleChange}
-                        // hasError={inputError.phoneNumInput}
-                        // changeHandler={(phoneNum) => {
-                        //     userDetails.phoneNum = phoneNum;
-                        // }}
-                        />
-                        <Input
-                            type="text"
-                            value={email}
-                            placeholder="אימייל"
-                            name="email"
-                            onChange={handleChange}
-                        // hasError={inputError.emailInput}
-                        // changeHandler={(email) => {
-                        //     userDetails.email = email;
-                        // }}
-                        />
+                <div className="form-wrapper">
+                    <div className="title1">טופס הצטרפות למתנדבים</div>
+                    {/* <Example/> */}
+                    <Input
+                        type="text"
+                        value={name}
+                        placeholder="שם פרטי ומשפחה"
+                        name="name"
+                        onChange={handleChange}
+                    // hasError={inputError.nameInput}
+                    // changeHandler={(name) => {
+                    //     userDetails.name = name;
+                    // }}
+                    />
+                    <Input
+                        type="text"
+                        value={phone}
+                        placeholder="טלפון/נייד"
+                        name="phone"
+                        onChange={handleChange}
+                    // hasError={inputError.phoneNumInput}
+                    // changeHandler={(phoneNum) => {
+                    //     userDetails.phoneNum = phoneNum;
+                    // }}
+                    />
+                    <Input
+                        type="text"
+                        value={email}
+                        placeholder="אימייל"
+                        name="email"
+                        onChange={handleChange}
+                    // hasError={inputError.emailInput}
+                    // changeHandler={(email) => {
+                    //     userDetails.email = email;
+                    // }}
+                    />
+                    <Input
+                        type="password"
+                        value={password}
+                        placeholder="סיסמא"
+                        name="password"
+                        onChange={handleChange}
+                    // hasError={inputError.passwordInput}
+                    // changeHandler={(password) => {
+                    //     userDetails.password = password;
+                    // }}
+                    />
+                    <div className="error">
                         <Input
                             type="password"
-                            value={password}
-                            placeholder="סיסמא"
-                            name="password"
+                            // value={confirm_password}
+                            placeholder="אימות סיסמא"
+                            name="confirm_password"
                             onChange={handleChange}
-                        // hasError={inputError.passwordInput}
-                        // changeHandler={(password) => {
-                        //     userDetails.password = password;
+                        // onChange={handleSubmit} 
+                        // hasError={inputError.confirmPasswordInput}
+                        // changeHandler={(confirmPassword) => {
+                        //     userDetails.confirmPassword = confirmPassword;
                         // }}
                         />
-                        <div className="error">
-                            <Input
-                                type="password"
-                                // value={confirm_password}
-                                placeholder="אימות סיסמא"
-                                name="confirm_password"
-                                onChange={handleChange}
-                            // onChange={handleSubmit} 
-                            // hasError={inputError.confirmPasswordInput}
-                            // changeHandler={(confirmPassword) => {
-                            //     userDetails.confirmPassword = confirmPassword;
-                            // }}
-                            />
-                            {error}</div>
-                        {/* <Input
+                        {error}</div>
+                    {/* <Input
                     placeholder="עיר מגורים" value={cityInput} onChange={(e) => setCityInput(e.target.value)}
                      hasError={inputError.cityInput}
                      changeHandler={(city) => {
@@ -342,11 +335,29 @@ function NewVolunteer({ setShowSpinner }) {
                         {/* /> */}
 
 
-    
-                  
-                  
+                    {/* // <Link to="/new-volunteer-details">
+                    //     <Button 
+                    //     text="הבא" */}
+
+                    {/* //         clickHandler={() => { */}
+                    {/* //             setInputError({
+                    //                 ...inputError,
+                    //                 nameInput: !userDetails.name,
+                    //                 phoneNumInput: !userDetails.phoneNum,
+                    //                 emailInput: !userDetails.email,
+                    //                 PasswordInput: !userDetails.Password,
+                    //                 confirmPasswordInput:
+                    //                     !userDetails.confirmPassword,
+                    //             });
+
+                            // }} 
+                            // />
+                    // </Link>                  
+
+                    // <link to="/NewVolunteerDetails" > */}
                 </div>
             </div>
+            {/* </div> */}
         </div>
     );
 }
