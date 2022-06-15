@@ -113,7 +113,7 @@ function ExistVolunteer({ setShowSpinner }) {
             </div>
             <Navbar />
             <div className="form-wrapper">
-                <div className="title">הפרטים שלי:</div>
+                <div className="title">הפרטים שלי</div>
                 {/* { existVolunteer.map((object, index) => (
                  <div key={index}> */}
                 {/* <input value={object.email} /> */}
