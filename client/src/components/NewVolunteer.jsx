@@ -125,8 +125,8 @@ function NewVolunteer({ setShowSpinner }) {
             </div>
             <Navbar />
             <div>
-                {/* <div className="reka "> */}
-                    {/* <img src="reka1.jpg" alt="reka" /> */}
+                <div className="reka ">
+                    {/* <img src="reka1.png" alt="reka" /> */}
                     <div className="form-wrapper">
                         <div className="title1">טופס הצטרפות למתנדבים</div>
                         {/* <Example/> */}
@@ -382,7 +382,7 @@ function NewVolunteer({ setShowSpinner }) {
                     // <link to="/NewVolunteerDetails" > */}
                     </div>
                 </div>
-            {/* </div> */}
+            </div>
         </div>
     );
 }
