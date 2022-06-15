@@ -125,8 +125,7 @@ function NewVolunteer({ setShowSpinner }) {
             </div>
             <Navbar />
             <div>
-                <div className="reka ">
-                    {/* <img src="reka1.png" alt="reka" /> */}
+           
                     <div className="form-wrapper">
                         <div className="title1">טופס הצטרפות למתנדבים</div>
                         {/* <Example/> */}
@@ -302,7 +301,7 @@ function NewVolunteer({ setShowSpinner }) {
                         //     userDetails.carType = carType;
                         // }}
                         />
-                        <Input
+                        {/* <Input
                             type="text"
                             value={carNumber}
                             placeholder="מספר רכב"
@@ -312,7 +311,7 @@ function NewVolunteer({ setShowSpinner }) {
                         // changeHandler={(carNum) => {
                         //     userDetails.carNum = carNum;
                         // }}
-                        />
+                        /> */}
                         <Input
                             type="text"
                             value={number_of_seets}
@@ -332,13 +331,13 @@ function NewVolunteer({ setShowSpinner }) {
                             onChange={handleChange}
                         />
 
-                        <Input
+                        {/* <Input
                             type="text"
                             value={remarks}
                             placeholder="הערות"
                             name="remarks"
                             onChange={handleChange}
-                        />
+                        /> */}
                         {/* <Link to="/login"> */}
                         <Button
                             text="שלח"
@@ -380,7 +379,7 @@ function NewVolunteer({ setShowSpinner }) {
                     // </Link>                  
 
                     // <link to="/NewVolunteerDetails" > */}
-                    </div>
+                  
                 </div>
             </div>
         </div>

@@ -34,11 +34,7 @@ body {
     right: 0;
     z-index: 99;
 }
-.reka{
-    /* opacity: 80%; */
-    /* background-image: url('reka1.png'); */
-    /* opacity: 50%; */
-}
+
 
 .select-items div,
 .select-selected {
