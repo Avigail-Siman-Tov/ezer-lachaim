@@ -301,17 +301,7 @@ function NewVolunteer({ setShowSpinner }) {
                         //     userDetails.carType = carType;
                         // }}
                         />
-                        {/* <Input
-                            type="text"
-                            value={carNumber}
-                            placeholder="מספר רכב"
-                            name="carNumber"
-                            onChange={handleChange}
-                        // hasError={inputError.carNumInput}
-                        // changeHandler={(carNum) => {
-                        //     userDetails.carNum = carNum;
-                        // }}
-                        /> */}
+                    
                         <Input
                             type="text"
                             value={number_of_seets}
@@ -331,13 +321,6 @@ function NewVolunteer({ setShowSpinner }) {
                             onChange={handleChange}
                         />
 
-                        {/* <Input
-                            type="text"
-                            value={remarks}
-                            placeholder="הערות"
-                            name="remarks"
-                            onChange={handleChange}
-                        /> */}
                         {/* <Link to="/login"> */}
                         <Button
                             text="שלח"
@@ -359,26 +342,8 @@ function NewVolunteer({ setShowSpinner }) {
                         {/* /> */}
 
 
-                        {/* // <Link to="/new-volunteer-details">
-                    //     <Button 
-                    //     text="הבא" */}
-
-                        {/* //         clickHandler={() => { */}
-                        {/* //             setInputError({
-                    //                 ...inputError,
-                    //                 nameInput: !userDetails.name,
-                    //                 phoneNumInput: !userDetails.phoneNum,
-                    //                 emailInput: !userDetails.email,
-                    //                 PasswordInput: !userDetails.Password,
-                    //                 confirmPasswordInput:
-                    //                     !userDetails.confirmPassword,
-                    //             });
-
-                            // }} 
-                            // />
-                    // </Link>                  
-
-                    // <link to="/NewVolunteerDetails" > */}
+    
+                  
                   
                 </div>
             </div>

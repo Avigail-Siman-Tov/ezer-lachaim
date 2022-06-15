@@ -79,7 +79,7 @@ function Profil() {
 
         <div>
             <div className="navbar">
-                <a href="/search"> <div className="btn_home"><FaHome className="spaceB"/>Back </div></a>
+                <a href="/search"> <div className="btn_home" > <Icon className="spaceC" icon="eva:arrow-back-outline" rotate={2} />Back </div></a>
                 <img src="/logo_ezl.png" alt="Logo image" />
             </div>
             <Navbar />
