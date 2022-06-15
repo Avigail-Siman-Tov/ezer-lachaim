@@ -22,7 +22,7 @@ import { SpinnerCircular } from "spinners-react";
 function ExistVolunteer({ setShowSpinner }) {
     const existVolunteerRef = collection(firestore, "newVolunteer");
     const { currentUser } = useAuth();
-    const [existVolunteer, setExistVolunteer] = useState(null);
+    const [existVolunteer, setExistVolunteer] = useState();
 
     // const details = [];
 
@@ -49,7 +49,7 @@ function ExistVolunteer({ setShowSpinner }) {
     }
 
     useEffect(() => {
-        if (existVolunteer) getData();
+        getData();
     }, [])
 
     const handleClick = async () => {

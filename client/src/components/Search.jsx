@@ -78,13 +78,21 @@ export const Search = () => {
         a.forEach(doc => {
             setEmailVol(prev => [...prev, { ...doc.data(), id: doc.id }])
         })
+        const today = new Date();
+        const dateA = today.getFullYear()+ "-" + parseInt(today.getMonth() + 1) + "-" + today.getDate();
+        console.log(dateA);
         // const d = new Date();
         // const mm = d.getMonth() + 1;
         // const dd = d.getDate();
         // const yy = d.getFullYear();
+        // const formatted = `${dd}-${mm}-${yy}`;
         // const formatted = `${yy}-${mm}-${dd}`;
+        // console.log("format is:" + formatted);
+        // console.log("date is"+dataSearch.data);
+        const dataArray = await getDocs(query(callsRef, where("date", "==", dateA)));
         // const dataArray = await getDocs(query(callsRef, where("date", "==", formatted)));
-        const dataArray = await getDocs(query(callsRef));
+
+        // const dataArray = await getDocs(query(callsRef));
         dataArray.forEach(doc => {
             setCallData(prev => [...prev, { ...doc.data(), id: doc.id }])
         })
@@ -166,16 +174,16 @@ export const Search = () => {
     return (
         <div>
             <div className="screen">
-            <Hamburger />
-            <div className="navbar">
-                <img src="/logo_ezl.png" alt="Logo image" />
-            </div>
-            <Navbar />
-            <form
-            // onSubmit={(e)=>(SearchBlog(e))} 
-            >
-                <img className="image_travel" src="i8.jpg" />
-                {/* <Form.Group id="search_input">
+                <Hamburger />
+                <div className="navbar">
+                    <img src="/logo_ezl.png" alt="Logo image" />
+                </div>
+                <Navbar />
+                <form
+                // onSubmit={(e)=>(SearchBlog(e))} 
+                >
+                    <img className="image_travel" src="i8.jpg" />
+                    {/* <Form.Group id="search_input">
                         <Icon icon="fluent:search-square-24-filled"  color="#ea6b4c" width="100" height="100" /> */}
                     <input className="box-search " placeholder="הזן עיר לחיפוש" list="places" type="text" id="city" name="search" value={filter} onChange={searchText.bind(this)} required autoComplete="off" pattern="בני ברק|באר יעקב|קריית ים|באקה אל-גרבייה|ביתר עילית|מע'אר|חריש|פתח תקווה|צפת|קנסווה|קריית ביאליק|קריית אונו|קריית מוצקין|קריית אתא|קריית גת|קריית ים| קריית שמונה|קריית מלאכי|ראש העין|ראשון לציון|רהט|רחובות|רמלה|רמת גן|רמת השרון|רעננה|שדרות|תל אביב |שפרעם| עראבה|ערד|עפולה|כפר יונה|כפר סבא|כפר קאסם|כרמיאל|לוד|מגדל העמק|מודיעין מכבים רעות|אום אל פחם|אופקים|אור יהודה|אור עקיבא|אילת|אריאל|אשדוד|אשקלון|באר שבע|בית שאן|בית שמש|בת ים|גבעת שמואל|גבעתיים|דימונה|הרצליה|הוד השרון|חדרה |חולון|חיפה |טבריה|טייבה|טירה |טירת הכרמל|טמרה|יבנה|יהוד מונסון|יקנעם|ירושלים|מעלה אדומים|מעלות תרשיחא|נהריה|נתניה|נס ציונה|נוף הגליל|נצרת|נשר|נתיבות|סח'נין|עכו" />
                     {/* </Form.Group> */}
