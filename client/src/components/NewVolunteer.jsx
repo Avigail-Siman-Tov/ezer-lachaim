@@ -187,169 +187,169 @@ function NewVolunteer({ setShowSpinner }) {
                          userDetails.city = city;
                     }}
                 /> */}
-                    <div className="label" >עיר מגורים</div>
-                    <Select
-                        options={[
-                            "אום אל פחם",
-                            "אופקים",
-                            "אור יהודה",
-                            "אור עקיבא",
-                            "אילת",
-                            "אריאל",
-                            "אשדוד",
-                            "אשקלון",
-                            "באקה אל-גרבייה",
-                            "באר יעקב",
-                            "באר שבע",
-                            "ביתר עלית",
-                            "בית שאן",
-                            "בית שמש",
-                            "בני ברק",
-                            "בת ים",
-                            "גבעת שמואל",
-                            "גבעתיים",
-                            "דימונה",
-                            "הוד השרון",
-                            "הרצליה",
-                            "חדרה",
-                            "חולון",
-                            "חיפה",
-                            "חריש",
-                            "טבריה",
-                            "טייבה",
-                            "טירה",
-                            "טירת הכרמל",
-                            "טמרה",
-                            "יבנה",
-                            "יהוד מונסון",
-                            "יקנעם",
-                            "ירושלים",
-                            "כפר יונה", "כפר סבא",
-                            "כפר קאסם",
-                            "כרמיאל",
-                            "לוד",
-                            "מגדל העמק",
-                            "מודיעין מכבים רעות",
-                            "מע'אר",
-                            "מעלה אדומים",
-                            "מעלות תרשיחא",
-                            "נהריה",
-                            "נוף הגליל",
-                            "נס ציונה",
-                            "נצרת",
-                            "נשר",
-                            "נתיבות",
-                            "נתניה",
-                            "סח'נין",
-                            "עכו",
-                            "עפולה",
-                            "עראבה",
-                            "ערד",
-                            "פתח תקווה",
-                            "צפת",
-                            "קלנסווה",
-                            "קריית אונו",
-                            "קריית אתא",
-                            "קריית ביאליק",
-                            "קריית גת",
-                            "קריית ים",
-                            "קריית מוצקין",
-                            "קריית מלאכי",
-                            "קריית שמונה",
-                            "ראש העין",
-                            "ראשון לציון",
-                            "רהט",
-                            "רחובות",
-                            "רמלה",
-                            "רמת גן",
-                            "רמת השרון",
-                            "רעננה",
-                            "שדרות",
-                            "שפרעם",
-                            "תל אביב יפו",
-                        ]}
-                        type="text"
-                        value={city}
-                        placeHolder="בחירת עיר מגורים"
-                        name="city"
-                        onChange={handleChange}
-                    />
-                    <div className="label">איזה רכב יש ברשותך?</div>
-                    <Select
-                        options={[
-                            "רכב פרטי",
-                            "רכב מסחרי",
-                            "רכה נכה",
-                            "משאית",
-                            "דו גלגלי",
-                            "אוטובוס",
-                        ]}
-                        type="text"
-                        value={carType}
-                        placeHolder="בחירת סוג רכב"
-                        name="carType"
-                        onChange={handleChange}
-                    // hasError={inputError.carTypeInput}
-                    // changeHandler={(carType) => {
-                    //     userDetails.carType = carType;
-                    // }}
-                    />
-                    <Input
-                        type="text"
-                        value={carNumber}
-                        placeholder="מספר רכב"
-                        name="carNumber"
-                        onChange={handleChange}
-                    // hasError={inputError.carNumInput}
-                    // changeHandler={(carNum) => {
-                    //     userDetails.carNum = carNum;
-                    // }}
-                    />
-                    <Input
-                        type="text"
-                        value={number_of_seets}
-                        placeholder="מספר מקומות ישיבה"
-                        name="number_of_seets"
-                        onChange={handleChange}
-                    // hasError={inputError.carNumInput}
-                    // changeHandler={(carNum) => {
-                    //     userDetails.carNum = carNum;
-                    // }}
-                    />
-                    <Select options={["אשה", "גבר"]}
-                        placeHolder="מגדר"
-                        type="text"
-                        value={gender}
-                        name="gender"
-                        onChange={handleChange}
-                    />
+                        <div className="label" >עיר מגורים</div>
+                        <Select
+                            options={[
+                                "אום אל פחם",
+                                "אופקים",
+                                "אור יהודה",
+                                "אור עקיבא",
+                                "אילת",
+                                "אריאל",
+                                "אשדוד",
+                                "אשקלון",
+                                "באקה אל-גרבייה",
+                                "באר יעקב",
+                                "באר שבע",
+                                "ביתר עלית",
+                                "בית שאן",
+                                "בית שמש",
+                                "בני ברק",
+                                "בת ים",
+                                "גבעת שמואל",
+                                "גבעתיים",
+                                "דימונה",
+                                "הוד השרון",
+                                "הרצליה",
+                                "חדרה",
+                                "חולון",
+                                "חיפה",
+                                "חריש",
+                                "טבריה",
+                                "טייבה",
+                                "טירה",
+                                "טירת הכרמל",
+                                "טמרה",
+                                "יבנה",
+                                "יהוד מונסון",
+                                "יקנעם",
+                                "ירושלים",
+                                "כפר יונה", "כפר סבא",
+                                "כפר קאסם",
+                                "כרמיאל",
+                                "לוד",
+                                "מגדל העמק",
+                                "מודיעין מכבים רעות",
+                                "מע'אר",
+                                "מעלה אדומים",
+                                "מעלות תרשיחא",
+                                "נהריה",
+                                "נוף הגליל",
+                                "נס ציונה",
+                                "נצרת",
+                                "נשר",
+                                "נתיבות",
+                                "נתניה",
+                                "סח'נין",
+                                "עכו",
+                                "עפולה",
+                                "עראבה",
+                                "ערד",
+                                "פתח תקווה",
+                                "צפת",
+                                "קלנסווה",
+                                "קריית אונו",
+                                "קריית אתא",
+                                "קריית ביאליק",
+                                "קריית גת",
+                                "קריית ים",
+                                "קריית מוצקין",
+                                "קריית מלאכי",
+                                "קריית שמונה",
+                                "ראש העין",
+                                "ראשון לציון",
+                                "רהט",
+                                "רחובות",
+                                "רמלה",
+                                "רמת גן",
+                                "רמת השרון",
+                                "רעננה",
+                                "שדרות",
+                                "שפרעם",
+                                "תל אביב יפו",
+                            ]}
+                            type="text"
+                            value={city}
+                            placeHolder="בחירת עיר מגורים"
+                            name="city"
+                            onChange={handleChange}
+                        />
+                        <div className="label">איזה רכב יש ברשותך?</div>
+                        <Select
+                            options={[
+                                "רכב פרטי",
+                                "רכב מסחרי",
+                                "רכה נכה",
+                                "משאית",
+                                "דו גלגלי",
+                                "אוטובוס",
+                            ]}
+                            type="text"
+                            value={carType}
+                            placeHolder="בחירת סוג רכב"
+                            name="carType"
+                            onChange={handleChange}
+                        // hasError={inputError.carTypeInput}
+                        // changeHandler={(carType) => {
+                        //     userDetails.carType = carType;
+                        // }}
+                        />
+                        {/* <Input
+                            type="text"
+                            value={carNumber}
+                            placeholder="מספר רכב"
+                            name="carNumber"
+                            onChange={handleChange}
+                        // hasError={inputError.carNumInput}
+                        // changeHandler={(carNum) => {
+                        //     userDetails.carNum = carNum;
+                        // }}
+                        /> */}
+                        <Input
+                            type="text"
+                            value={number_of_seets}
+                            placeholder="מספר מקומות ישיבה"
+                            name="number_of_seets"
+                            onChange={handleChange}
+                        // hasError={inputError.carNumInput}
+                        // changeHandler={(carNum) => {
+                        //     userDetails.carNum = carNum;
+                        // }}
+                        />
+                        <Select options={["אשה", "גבר"]}
+                            placeHolder="מגדר"
+                            type="text"
+                            value={gender}
+                            name="gender"
+                            onChange={handleChange}
+                        />
 
-                    <Input
-                        type="text"
-                        value={remarks}
-                        placeholder="הערות"
-                        name="remarks"
-                        onChange={handleChange}
-                    />
-                    {/* <Link to="/login"> */}
-                    <Button
-                        text="שלח"
-                        onClick={handleSubmit}
-                    // {/* // clickHandler={() => {
-                    // //     setInputError({
-                    // //         ...inputError,
-                    // //         cityInput: !userDetails.city,
-                    // //         carTypeInput: !userDetails.carType,
-                    // //         carNumInput: !userDetails.carNumber,
-                    // //         seatsNumInput: !userDetails.seatsNum,
-                    // //         sexInput: !userDetails.sex,
-                    // //     });
-                    // //     setShowSpinner(true);
-                    // //     setTimeout(setShowSpinner.bind("", false), 3000);
-                    // // }} */}
-                    /><ToastContainer />
-                    {/* </Link> */}
-                    {/* /> */}
+                        {/* <Input
+                            type="text"
+                            value={remarks}
+                            placeholder="הערות"
+                            name="remarks"
+                            onChange={handleChange}
+                        /> */}
+                        {/* <Link to="/login"> */}
+                        <Button
+                            text="שלח"
+                            onClick={handleSubmit}
+                        // {/* // clickHandler={() => {
+                        // //     setInputError({
+                        // //         ...inputError,
+                        // //         cityInput: !userDetails.city,
+                        // //         carTypeInput: !userDetails.carType,
+                        // //         carNumInput: !userDetails.carNumber,
+                        // //         seatsNumInput: !userDetails.seatsNum,
+                        // //         sexInput: !userDetails.sex,
+                        // //     });
+                        // //     setShowSpinner(true);
+                        // //     setTimeout(setShowSpinner.bind("", false), 3000);
+                        // // }} */}
+                        /><ToastContainer />
+                        {/* </Link> */}
+                        {/* /> */}
 
 
                     {/* // <Link to="/new-volunteer-details">
