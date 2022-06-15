@@ -3,10 +3,11 @@ import styled, { createGlobalStyle } from "styled-components";
 import "../styles/hamburger.css";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { useAuth } from "./log_in/contexts/AuthContext"
-import { firestore } from "../firebase";
-// import { getAuth, signOut } from "firebase/auth";
-
-
+import { auth, firestore } from "../firebase";
+import { getAuth, signOut } from "firebase/auth";
+import "./log_in/contexts/AuthContext.jsx";
+// import { logout } from "./log_in/contexts/AuthContext"
+import { useNavigate } from "react-router-dom"
 
 
 // import ImgUpload from "../components";
@@ -15,8 +16,22 @@ function Hamburger() {
   const profileDetailsRef = collection(firestore, "newVolunteer");
   const { currentUser, logout } = useAuth();
   const [profileDetails, setProfileDetails] = useState([]);
-  // const auth = getAuth();
-  // const navigate = useNavigate()
+  const auth = getAuth();
+  const navigate = useNavigate()
+
+  async function handleLogout(index) {
+    if (index === 1) {
+      return
+    }
+    try {
+      await logout()
+      navigate("/login")
+    }
+    catch (err) {
+      // setError("Failed to log out: "+ err)
+      console.log(err)
+    }
+  }
 
 
   async function getData() {
@@ -35,9 +50,9 @@ function Hamburger() {
     getData();
   }, [])
 
-
   const [openDrawer, toggleDrawer] = useState(false);
   const drawerRef = useRef(null);
+
 
   useEffect(() => {
     /* Close the drawer when the user clicks outside of it */
@@ -51,8 +66,19 @@ function Hamburger() {
     document.addEventListener("mousedown", closeDrawer);
     return () => document.removeEventListener("mousedown", closeDrawer);
   }, []);
+  const auth2 = getAuth();
+
+  // signOut(auth2).then(() => {
+  //   console.log("aaaaaa")
+  //   // Sign-out successful.
+  // }).catch((error) => {
+  //   // An error happened.
+  // });
+
 
   return (
+
+
     <Styles.Wrapper>
       <CSSReset />
       <Navbar.Wrapper>
@@ -66,8 +92,8 @@ function Hamburger() {
             <Navbar.Item> <div className="img_hamburgerup"><Icon icon="healthicons:ui-user-profile" color="#ebe9eb" width="80" height="80" /> </div></Navbar.Item>
             {profileDetails.map((object, index) => (
               <div key={index}>
-                <Navbar.Item><a href="/login"> <div className="home_hamburgerup" >  {object.name}</div></a></Navbar.Item>
-                <Navbar.Item><a href="/"> <div className="home_hamburgerup" >  {object.email} </div></a></Navbar.Item>
+                <Navbar.Item><a > <div className="home_hamburgerup" >  {object.name}</div></a></Navbar.Item>
+                <Navbar.Item><a > <div className="home_hamburgerup" >  {object.email} </div></a></Navbar.Item>
                 <Navbar.Item> <div className="line"></div></Navbar.Item>
 
               </div>
@@ -75,8 +101,8 @@ function Hamburger() {
 
           </div></Navbar.Item>
 
-          <Navbar.Item><a href="profil"> <div className="home_hamburger" ><Icon icon="et:profile-male" className="space" color="#356d9c" /> לאזור האישי </div></a></Navbar.Item>
-          <Navbar.Item><a href="/"> <div className="home_hamburger1" ><Icon icon="uit:signout"  className="space" color="#356d9c" rotate={2} inline={true} /> התנתקות </div></a></Navbar.Item>
+          <Navbar.Item><a href="profil" onClick={() => handleLogout(1)}> <div className="home_hamburger" ><Icon icon="et:profile-male" className="space" color="#356d9c" /> לאזור האישי </div></a></Navbar.Item>
+          <Navbar.Item><a href="/" onClick={() => handleLogout(0)} > <div className="home_hamburger1" ><Icon icon="uit:signout" className="space" color="#356d9c" rotate={2} inline={true} /> התנתקות </div></a></Navbar.Item>
 
         </Navbar.Items>
 

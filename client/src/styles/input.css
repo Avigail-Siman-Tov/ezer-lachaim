@@ -19,7 +19,8 @@
     color: var(--e-global-color-secondary);
 }
 .input::placeholder{
-    color: var(--e-global-color-secondary);
+    /* color: var(--e-global-color-secondary); */
+    color: black;
 }
 .error{
     margin-right: 25px;
@@ -43,4 +44,3 @@ input:focus {
 .input[type=password]{
     text-align: right;
 }
-

@@ -1,102 +1,87 @@
-/* .text {
-  color: #356D9C;
-  font-size: 45px;
-  margin-top: 80%;
-  animation-delay: 5s;
-  text-align: center;
-  animation: mymove 20s infinite;
-  font-weight: 0.8px;
+.screenBackground {
+  background-color: #356d9c;
+  /* font-family: 'Poppins', sans-serif; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 915px;
+  /* width: 100%; */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
 }
 
-body {
-  margin: 0;
-  font: normal 75% Arial, Helvetica, sans-serif;
-}
-
-canvas {
-  display: block;
-  vertical-align: bottom; 
-}
-
-#tsparticles {
+.btn-shine {
   position: absolute;
-  width: 100%;
-  height: 100%;
-}  */
-
- /* .animate-charcter
-{
-   text-transform: uppercase;
-  background-image: linear-gradient(
-    -225deg,
-    #4a7945 0%,
-    #356D9C 29%,
-    #b03e3e 67%,
-    #ea6b4c 100%
-  );
-  background-size: auto auto;
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 12px 48px;
+  /* color: red; */
+  background: linear-gradient(to right, #808080 0, #ffff 10%, #808080 20%);
+  background-position: 0;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: textclip 2s linear infinite;
-  display: inline-block;
-  font-size: 70px;
-  text-align: center;
-  margin-top: 70%;
-  padding-left: 2%;
-  padding-right: 2%;
+  animation: shine 3s infinite linear;
+  animation-fill-mode: forwards;
+  -webkit-text-size-adjust: none;
+  font-weight: 600;
+  font-size: 60px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-@keyframes textclip {
-  to {
-    background-position: 200% center;
-  }
-} */
-
-/* * {
-  margin: 0;
-  padding: 0;
-}
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: rgb(224, 217, 217);
-}
-a {
   text-decoration: none;
-  color: inherit;
-  font-size: 24px;
+  white-space: nowrap;
 }
 
-p {
-  font-weight: 700;
-  text-align: center;
-  font-size: 40px;
-  font-family: Hack, sans-serif;
-  text-transform: uppercase;
-  background: linear-gradient(90deg, #000, #fff, #000);
-  letter-spacing: 5px;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-repeat: no-repeat;
-  background-size: 80%;
-  animation: shine 5s linear infinite;
-  position: relative;
+@-moz-keyframes shine {
+  0% {
+    background-position: 0;
+  }
+
+  60% {
+    background-position: 180px;
+  }
+
+  100% {
+    background-position: 180px;
+  }
+}
+
+@-webkit-keyframes shine {
+  0% {
+    background-position: 0;
+  }
+
+  60% {
+    background-position: 180px;
+  }
+
+  100% {
+    background-position: 180px;
+  }
+}
+
+@-o-keyframes shine {
+  0% {
+    background-position: 0;
+  }
+
+  60% {
+    background-position: 180px;
+  }
+
+  100% {
+    background-position: 180px;
+  }
 }
 
 @keyframes shine {
   0% {
-    background-position-x: -500%;
+    background-position: 0;
   }
+
+  60% {
+    background-position: 180px;
+  }
+
   100% {
-    background-position-x: 500%;
+    background-position: 180px;
   }
-} */
+}

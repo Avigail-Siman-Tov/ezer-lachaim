@@ -1,8 +1,9 @@
 import '../styles/select.css';
+// function Select({ options, placeHolder, hasError, changeHandler, onChange, type, name, value }) {
 
-function Select({ options, placeHolder, hasError, changeHandler, onChange, type, name, value }) {
+function Select({ options, placeHolder, hasError,onChange, name, value }) {
     return (
-        <select className='select' defaultValue={placeHolder}
+        <select className='select'
             // onChange={(event) => {
             //     changeHandler(event.target.value)
             //     const newValue = event.target.value;

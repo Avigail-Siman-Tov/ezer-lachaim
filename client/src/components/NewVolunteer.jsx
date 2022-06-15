@@ -3,8 +3,6 @@ import "../styles/newVolunteer.css";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link, Navigate } from "react-router-dom";
-import NewVolunteerDetails from "./NewVolunteerDetails";
 import { useState } from "react";
 import { useAuth } from "./log_in/contexts/AuthContext"
 import Navbar from "../components/Navbar";
@@ -15,29 +13,18 @@ import { FaHome } from "react-icons/fa"
 import { useRef } from "react"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Example } from "./Example";
 import { useNavigate } from "react-router-dom"
-
-
-
-
-// import { useNavigate } from "react-router-dom"
 
 
 function NewVolunteer({ setShowSpinner }) {
     const notify = () => toast.success("!פרטיך נשמרו בהצלחה! מודים על הצטרפותך ", { position: "top-center", autoClose: 5000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, });
     const { signup } = useAuth();
     const newVolunteerRef = collection(firestore, "newVolunteer");
-    const [inputValue, setInputValue] = useState({ name: "", phone: "", email: "", password: "", confirm_password: "", city: "", carType: "", carNumber: "", number_of_seets: "", gender: "", remarks: "" });
-    const { name, phone, email, password, confirm_password, city, carType, carNumber, number_of_seets, gender, remarks } = inputValue;
-
-    // const emailRef = useRef()
-    // const passwordRef = useRef()
-    // const passwordConfirmRef = useRef()
+    const [inputValue, setInputValue] = useState({ name: "", phone: "", email: "", password: "", city: "", carType: "",  number_of_seets: "", gender: ""});
+    const { name, phone, email, password, city, carType, number_of_seets, gender} = inputValue;
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
-
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -46,8 +33,8 @@ function NewVolunteer({ setShowSpinner }) {
             ...prev,
             [name]: value,
         }));
-        console.log(inputValue);
     };
+
     async function handleSubmit(e) {
         e.preventDefault()
         console.log(inputValue)
@@ -57,6 +44,11 @@ function NewVolunteer({ setShowSpinner }) {
             return
         }
 
+        else if (inputValue.password.length < 6) {
+                setError('סיסמא צריכה להכיל לפחות 6 תווים')
+                return
+            }
+        
         // 6 תווים
 
         try {
@@ -117,78 +109,76 @@ function NewVolunteer({ setShowSpinner }) {
     return (
         <div >
             {/* <div>{error}</div> */}
-
             <div className="navbar">
-
                 <a href="/"> <div className="btn_home"><FaHome className="spaceB" />Home </div></a>
                 <img src="/logo_ezl.png" alt="Logo image" />
             </div>
             <Navbar />
             <div>
-                {/* <div className="reka "> */}
-                    {/* <img src="reka1.jpg" alt="reka" /> */}
-                    <div className="form-wrapper">
-                        <div className="title1">טופס הצטרפות למתנדבים</div>
-                        {/* <Example/> */}
-                        <Input
-                            type="text"
-                            value={name}
-                            placeholder="שם פרטי ומשפחה"
-                            name="name"
-                            onChange={handleChange}
-                        // hasError={inputError.nameInput}
-                        // changeHandler={(name) => {
-                        //     userDetails.name = name;
-                        // }}
-                        />
-                        <Input
-                            type="text"
-                            value={phone}
-                            placeholder="טלפון/נייד"
-                            name="phone"
-                            onChange={handleChange}
-                        // hasError={inputError.phoneNumInput}
-                        // changeHandler={(phoneNum) => {
-                        //     userDetails.phoneNum = phoneNum;
-                        // }}
-                        />
-                        <Input
-                            type="text"
-                            value={email}
-                            placeholder="אימייל"
-                            name="email"
-                            onChange={handleChange}
-                        // hasError={inputError.emailInput}
-                        // changeHandler={(email) => {
-                        //     userDetails.email = email;
-                        // }}
-                        />
+                <div className="form-wrapper">
+                    <div className="title1">טופס הצטרפות למתנדבים</div>
+                    {/* <Example/> */}
+                    <Input
+                        type="text"
+                        value={name}
+                        placeholder="שם פרטי ומשפחה"
+                        name="name"
+                        onChange={handleChange}
+                    // hasError={inputError.nameInput}
+                    // changeHandler={(name) => {
+                    //     userDetails.name = name;
+                    // }}
+                    />
+                    <Input
+                        type="text"
+                        value={phone}
+                        placeholder="טלפון/נייד"
+                        name="phone"
+                        onChange={handleChange}
+                    // hasError={inputError.phoneNumInput}
+                    // changeHandler={(phoneNum) => {
+                    //     userDetails.phoneNum = phoneNum;
+                    // }}
+                    />
+                    <Input
+                        type="text"
+                        value={email}
+                        placeholder="אימייל"
+                        name="email"
+                        onChange={handleChange}
+                    // hasError={inputError.emailInput}
+                    // changeHandler={(email) => {
+                    //     userDetails.email = email;
+                    // }}
+                    />
+                   
+                    <Input
+                        type="password"
+                        value={password}
+                        placeholder="סיסמא"
+                        name="password"
+                        onChange={handleChange}
+                    // hasError={inputError.passwordInput}
+                    // changeHandler={(password) => {
+                    //     userDetails.password = password;
+                    // }}
+                    />
+                    
+                    <div className="error">
                         <Input
                             type="password"
-                            value={password}
-                            placeholder="סיסמא"
-                            name="password"
+                            // value={confirm_password}
+                            placeholder="אימות סיסמא"
+                            name="confirm_password"
                             onChange={handleChange}
-                        // hasError={inputError.passwordInput}
-                        // changeHandler={(password) => {
-                        //     userDetails.password = password;
+                        // onChange={handleSubmit} 
+                        // hasError={inputError.confirmPasswordInput}
+                        // changeHandler={(confirmPassword) => {
+                        //     userDetails.confirmPassword = confirmPassword;
                         // }}
                         />
-                        <div className="error">
-                            <Input
-                                type="password"
-                                // value={confirm_password}
-                                placeholder="אימות סיסמא"
-                                name="confirm_password"
-                                onChange={handleChange}
-                            // onChange={handleSubmit} 
-                            // hasError={inputError.confirmPasswordInput}
-                            // changeHandler={(confirmPassword) => {
-                            //     userDetails.confirmPassword = confirmPassword;
-                            // }}
-                            />
-                            {error}</div>
-                        {/* <Input
+                        {error}</div>
+                    {/* <Input
                     placeholder="עיר מגורים" value={cityInput} onChange={(e) => setCityInput(e.target.value)}
                      hasError={inputError.cityInput}
                      changeHandler={(city) => {
@@ -287,7 +277,7 @@ function NewVolunteer({ setShowSpinner }) {
                             options={[
                                 "רכב פרטי",
                                 "רכב מסחרי",
-                                "רכה נכה",
+                                "רכב נכה",
                                 "משאית",
                                 "דו גלגלי",
                                 "אוטובוס",
@@ -302,17 +292,7 @@ function NewVolunteer({ setShowSpinner }) {
                         //     userDetails.carType = carType;
                         // }}
                         />
-                        <Input
-                            type="text"
-                            value={carNumber}
-                            placeholder="מספר רכב"
-                            name="carNumber"
-                            onChange={handleChange}
-                        // hasError={inputError.carNumInput}
-                        // changeHandler={(carNum) => {
-                        //     userDetails.carNum = carNum;
-                        // }}
-                        />
+                    
                         <Input
                             type="text"
                             value={number_of_seets}
@@ -332,13 +312,6 @@ function NewVolunteer({ setShowSpinner }) {
                             onChange={handleChange}
                         />
 
-                        <Input
-                            type="text"
-                            value={remarks}
-                            placeholder="הערות"
-                            name="remarks"
-                            onChange={handleChange}
-                        />
                         {/* <Link to="/login"> */}
                         <Button
                             text="שלח"
@@ -360,12 +333,12 @@ function NewVolunteer({ setShowSpinner }) {
                         {/* /> */}
 
 
-                        {/* // <Link to="/new-volunteer-details">
+                    {/* // <Link to="/new-volunteer-details">
                     //     <Button 
                     //     text="הבא" */}
 
-                        {/* //         clickHandler={() => { */}
-                        {/* //             setInputError({
+                    {/* //         clickHandler={() => { */}
+                    {/* //             setInputError({
                     //                 ...inputError,
                     //                 nameInput: !userDetails.name,
                     //                 phoneNumInput: !userDetails.phoneNum,
@@ -380,8 +353,8 @@ function NewVolunteer({ setShowSpinner }) {
                     // </Link>                  
 
                     // <link to="/NewVolunteerDetails" > */}
-                    </div>
                 </div>
+            </div>
             {/* </div> */}
         </div>
     );

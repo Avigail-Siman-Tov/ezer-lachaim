@@ -1,3 +1,4 @@
+
 import "../styles/welcome.css"
 // import Navbar from "./Navbar";
 // import { FaHome } from "react-icons/fa"
@@ -7,7 +8,7 @@ import "../styles/welcome.css"
 //   return (
 //     <div>
 //         <p>Welcome</p>
-      {/* <div className="navbar">
+{/* <div className="navbar">
         <a href="/"> <div className="btn_home"><FaHome />Home </div></a>
         <img src="/logo_ezl.png" alt="Logo image" />
       </div>
@@ -22,3 +23,18 @@ import "../styles/welcome.css"
 //     </div>
 //   );
 // }
+export const Welcome = () => {
+  setTimeout(function () { window.location = "/new-volunteer" }, 2000);
+  return (
+    <div>
+      <div className="screenBackground">
+      <a href="https://usecheck.com/"
+       className="btn-shine" target="_blank">welcome </a>
+      </div>
+    </div>
+  );
+}
+
+
+
+

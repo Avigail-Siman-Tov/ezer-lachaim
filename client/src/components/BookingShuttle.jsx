@@ -24,7 +24,6 @@ function BookingShuttle() {
             ...prev,
             [name]: value,
         }));
-        console.log(inputValue);
     };
     function sendCall() {
         setDoc(doc(callsRef), inputValue, {
@@ -78,7 +77,7 @@ function BookingShuttle() {
                         options={[
                             "רכב פרטי",
                             "רכב מסחרי",
-                            "רכה נכה",
+                            "רכב נכה",
                             "משאית",
                             "דו גלגלי",
                             "אוטובוס",

@@ -22,15 +22,37 @@ import { where } from "firebase/firestore";
 export const Search = () => {
 
     const notify = async (id) => {
-        const res = await deleteDoc(doc(firestore, "calls", id));
-        console.log(res)
-        setCallData(prev => {
-            const index = prev.findIndex(item => item.id === id);
-            prev.splice(index, 1);
-            return [...prev];
-        })
-        // sendEmail();
-        toast.success("תודה שלקחת את הנסיעה! פרטי החולה נשלחו אליך במייל ", { position: "top-center", autoClose: 5000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, });
+        var i, found;
+        console.log("I am here");
+        console.log("length" + callData.length);
+        for (i = 0; i < callData.length; i++) {
+            if (callData[i].id == id) {
+                found = i;
+                console.log("id is:" + id);
+                console.log("i is" + i);
+                emailjs.send('service_z788roe', 'template_a2saktz', { user_email: currentUser.email, name: callData[found].name, phone: callData[found].phone, address_source: callData[found].address_source, address_destination: callData[found].address_destination, city: callData[found].city, gender: callData[found].gender, number_of_passengers: callData[found].number_of_passengers, carType: callData[found].carType, date: callData[found].date, hour: callData[found].hour }, 'acdyoJK5z31WA9GiR')
+                    .then((result) => {
+                        console.log(result.text);
+                        alert("ההודעה נשלחה בהצלחה", result.text);
+                        // navigate("/");
+                    }, (error) => {
+                        console.log(error.text);
+                        alert("ארעה שגיאה נסה שנית", error.text);
+
+                    });
+                const res = await deleteDoc(doc(firestore, "calls", id));
+                // console.log(res)
+                setCallData(prev => {
+                    const index = prev.findIndex(item => item.id === id);
+                    prev.splice(index, 1);
+                    return [...prev];
+                })
+
+                toast.success("תודה שלקחת את הנסיעה! פרטי החולה נשלחו אליך במייל ", { position: "top-center", autoClose: 5000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, });
+                return;
+            }
+        }
+
     }
 
     const navigate = useNavigate();
@@ -73,14 +95,19 @@ export const Search = () => {
     // });index.js 
 
     async function getData() {
-        var q = query(newVolunteerRef, where('email', '==', currentUser.email));
-        const a = await getDocs(q);
-        a.forEach(doc => {
-            setEmailVol(prev => [...prev, { ...doc.data(), id: doc.id }])
-        })
-        const today = new Date();
-        const dateA = today.getFullYear()+ "-" + parseInt(today.getMonth() + 1) + "-" + today.getDate();
-        console.log(dateA);
+        // var q = query(newVolunteerRef, where('email', '==', currentUser.email));
+        // const a = await getDocs(q);
+        // a.forEach(doc => {
+        //     setEmailVol(prev => [...prev, { ...doc.data(), id: doc.id }])
+        // })
+
+        //Avigail
+        // const today = new Date();
+        // const dateA = today.getFullYear()+ "-" + parseInt(today.getMonth() + 1) + "-" + today.getDate();
+        // console.log(dateA);
+        // const dataArray = await getDocs(query(callsRef, where("date", "==", dateA)));
+
+        //yara
         // const d = new Date();
         // const mm = d.getMonth() + 1;
         // const dd = d.getDate();
@@ -89,10 +116,10 @@ export const Search = () => {
         // const formatted = `${yy}-${mm}-${dd}`;
         // console.log("format is:" + formatted);
         // console.log("date is"+dataSearch.data);
-        const dataArray = await getDocs(query(callsRef, where("date", "==", dateA)));
+        
         // const dataArray = await getDocs(query(callsRef, where("date", "==", formatted)));
 
-        // const dataArray = await getDocs(query(callsRef));
+        const dataArray = await getDocs(query(callsRef));
         dataArray.forEach(doc => {
             setCallData(prev => [...prev, { ...doc.data(), id: doc.id }])
         })
@@ -155,21 +182,19 @@ export const Search = () => {
     //         )); 
     // }; 
 
-    // console.log("pppppppppp"+emailVol[0].email)
-    function sendEmail(e) {
-        e.preventDefault();
-        dataSearch.forEach(e => emailjs.send('service_z788roe', 'template_a2saktz', { user_email: emailVol[0].email, name: callData[0].name, phone: callData[0].phone, address_source: callData[0].address_source, address_destination: callData[0].address_destination, city: callData[0].city, gender: callData[0].gender, number_of_passengers: callData[0].number_of_passengers, carType: callData[0].carType, date: callData[0].date, hour: callData[0].hour }, 'acdyoJK5z31WA9GiR')
-            .then((result) => {
-                console.log(result.text);
-                alert("ההודעה נשלחה בהצלחה", result.text);
-                // navigate("/");
-            }, (error) => {
-                console.log(error.text);
-                alert("ארעה שגיאה נסה שנית", error.text);
+    // function sendEmail(e) {
+    //     e.preventDefault();
+    //     dataSearch.forEach(e => emailjs.send('service_z788roe', 'template_a2saktz', { user_email: currentUser.email, name: callData[0].name, phone: callData[0].phone, address_source: callData[0].address_source, address_destination: callData[0].address_destination, city: callData[0].city, gender: callData[0].gender, number_of_passengers: callData[0].number_of_passengers, carType: callData[0].carType, date: callData[0].date, hour: callData[0].hour }, 'acdyoJK5z31WA9GiR')
+    //         .then((result) => {
+    //             console.log(result.text);
+    //             alert("ההודעה נשלחה בהצלחה", result.text);
+    //             // navigate("/");
+    //         }, (error) => {
+    //             console.log(error.text);
+    //             alert("ארעה שגיאה נסה שנית", error.text);
 
-            }));
-        // e.target.reset()
-    }
+    //         }));
+    // }
 
     return (
         <div>
@@ -311,8 +336,8 @@ export const Search = () => {
                                 </div>
                             </div>
                             <div className='container'>
-                                <form onSubmit={sendEmail}>
-                                    {/* <div className="detailsPtient">
+                                {/* <form onSubmit={sendEmail}> */}
+                                {/* <div className="detailsPtient">
                                     {dataSearch.map((object, index) => (
                                         <div key={index}>
                                             {"שם פרטי:  " + object.name}
@@ -328,9 +353,9 @@ export const Search = () => {
                                         </div>
                                     ))}
                                 </div> */}
-                                    <button className="btn_take" onClick={() => notify(object.id)}>לקחתי </button>
+                                <button className="btn_take" onClick={() => notify(object.id)}>לקחתי </button>
 
-                                </form>
+                                {/* </form> */}
 
                             </div>
 

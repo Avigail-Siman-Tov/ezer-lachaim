@@ -49,7 +49,7 @@ export const HomePage = () => {
                         <Icon icon="ic:baseline-arrow-drop-down" />
                     </button>
                     <div className="dropdown-content">
-                        <a href="/welcome2">מתנדב חדש</a>
+                        <a href="/welcome">מתנדב חדש</a>
                         <a href="/login">מתנדב קיים</a>
                         <a href="/BookingShuttle">מטופל</a>
                         {/* <a href="/login">מנהל</a> */}
