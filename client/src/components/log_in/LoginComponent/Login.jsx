@@ -20,24 +20,19 @@ export default function Login() {
   const [message, setMessage] = useState("")
 
   async function handleSubmit(e) {
-    e.preventDefault()
-
+    e.preventDefault();
     try {
       setMessage("")
       setError("")
       setLoading(true)
       const res = await login(emailRef.current.value, passwordRef.current.value)
-      console.log(res.user.uid)
       const volunteerRef = doc(firestore, "newVolunteer", res.user.uid);
       const docSnap = await getDoc(volunteerRef);
-      // <div className="loader"></div>
       navigate("/search")
     }
     catch (e) {
       setError("סיסמא לא חוקית או משתמש לא קיים במערכת")
-      //  setError(e.message)
     }
-
     setLoading(false)
   }
 
@@ -69,10 +64,11 @@ export default function Login() {
               <div className="remmeber">
                 <Link to="/forgot-password">?forget password</Link>
               </div>
-              <button disabled={loading} className="submitBtn" type="submit">
+              <button disabled={loading} className="submitBtn" type="submit" >
                 Log In
               </button>
-              
+              <div className="loader"></div>
+             
             </Form>
 
           </Card.Body>

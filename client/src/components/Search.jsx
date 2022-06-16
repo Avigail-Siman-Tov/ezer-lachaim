@@ -59,25 +59,24 @@ export const Search = () => {
 
     async function getData() {
 
-        //Avigail
-        // const today = new Date();
-        // const dateA = today.getFullYear()+ "-" + parseInt(today.getMonth() + 1) + "-" + today.getDate();
-        // console.log(dateA);
-        // const dataArray = await getDocs(query(callsRef, where("date", "==", dateA)));
+        var month,day;
+        const today = new Date();
+        if(today.getMonth()<10){
+            month="0"+parseInt(today.getMonth() + 1)
+        }
+        else{
+            month=parseInt(today.getMonth() + 1);
+        }
+        if(today.getDate()<10){
+            day="0"+today.getDate();
+        }
+        else{
+            day=today.getDate();
+        }
+        const dateA = today.getFullYear()+ "-" + month + "-" + day;
+        console.log(dateA);
+        const dataArray = await getDocs(query(callsRef, where("date", "==", dateA)));
 
-        //Yara
-        // const d = new Date();
-        // const mm = d.getMonth() + 1;
-        // const dd = d.getDate();
-        // const yy = d.getFullYear();
-        // const formatted = `${dd}-${mm}-${yy}`;
-        // const formatted = `${yy}-${mm}-${dd}`;
-        // console.log("format is:" + formatted);
-        // console.log("date is"+dataSearch.data);
-        
-        // const dataArray = await getDocs(query(callsRef, where("date", "==", formatted)));
-
-        const dataArray = await getDocs(query(callsRef));
         dataArray.forEach(doc => {
             setCallData(prev => [...prev, { ...doc.data(), id: doc.id }])
         })
