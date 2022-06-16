@@ -20,25 +20,18 @@ export const Search = () => {
 
     const notify = async (id) => {
         var i, found;
-        console.log("I am here");
-        console.log("length" + callData.length);
         for (i = 0; i < callData.length; i++) {
             if (callData[i].id == id) {
                 found = i;
-                console.log("id is:" + id);
-                console.log("i is" + i);
                 emailjs.send('service_z788roe', 'template_a2saktz', { user_email: currentUser.email, name: callData[found].name, phone: callData[found].phone, address_source: callData[found].address_source, address_destination: callData[found].address_destination, city: callData[found].city, gender: callData[found].gender, number_of_passengers: callData[found].number_of_passengers, carType: callData[found].carType, date: callData[found].date, hour: callData[found].hour }, 'acdyoJK5z31WA9GiR')
                     .then((result) => {
-                        console.log(result.text);
                         alert("ההודעה נשלחה בהצלחה", result.text);
-                        // navigate("/");
                     }, (error) => {
                         console.log(error.text);
                         alert("ארעה שגיאה נסה שנית", error.text);
 
                     });
                 const res = await deleteDoc(doc(firestore, "calls", id));
-                // console.log(res)
                 setCallData(prev => {
                     const index = prev.findIndex(item => item.id === id);
                     prev.splice(index, 1);
@@ -54,23 +47,6 @@ export const Search = () => {
 
     const navigate = useNavigate();
 
-    // const sendEmail = (e) => {
-    //     console.log("I am here");
-    //     e.preventDefault();
-    //     console.log("after");
-    //     emailjs.sendForm('service_z788roe', 'template_a2saktz', e.target, 'acdyoJK5z31WA9GiR')
-    //         .then((result) => {
-    //             console.log(result.text);
-    //             alert("ההודעה נשלחה בהצלחה", result.text);
-    //             navigate("/");
-    //         }, (error) => {
-    //             console.log(error.text);
-    //             alert("ארעה שגיאה נסה שנית", error.text);
-
-    //         });
-    //     e.target.reset()
-    // };
-
     const [callData, setCallData] = useState([]);
     const [emailVol, setEmailVol] = useState("");
     const [inputValue, setInputValue] = useState("");
@@ -79,24 +55,9 @@ export const Search = () => {
     const [filter, setFilter] = useState('');
     const { currentUser } = useAuth();
     const newVolunteerRef = collection(firestore, "newVolunteer");
-
-
-
     const callsRef = collection(firestore, "calls");
 
-    // const queryRef = citiesRef.where('state', '==', ''); 
-
-    //     const querySnapshot = await db.collectionGroup('landmarks').where('type', '==', 'museum').get(); 
-    // querySnapshot.forEach((doc) => { 
-    //   console.log(doc.id, ' => ', doc.data()); 
-    // });index.js 
-
     async function getData() {
-        // var q = query(newVolunteerRef, where('email', '==', currentUser.email));
-        // const a = await getDocs(q);
-        // a.forEach(doc => {
-        //     setEmailVol(prev => [...prev, { ...doc.data(), id: doc.id }])
-        // })
 
         //Avigail
         // const today = new Date();
@@ -104,7 +65,7 @@ export const Search = () => {
         // console.log(dateA);
         // const dataArray = await getDocs(query(callsRef, where("date", "==", dateA)));
 
-        //yara
+        //Yara
         // const d = new Date();
         // const mm = d.getMonth() + 1;
         // const dd = d.getDate();
@@ -126,43 +87,6 @@ export const Search = () => {
         getData();
     }, [])
 
-    // const newVolunteerRef = collection(firestore, "newVolunteer");
-    // const [detailsOfPatient, SetDetailsOfPatient] = useState([]);
-    // async function getData() {
-    //     var q = query(newVolunteerRef, where('email', '==', currentUser.email));
-    //     const snapshot = await getDocs();
-    //     snapshot.forEach(doc => {
-    //         SetDetailsOfPatient(prev => [...prev, doc.data()])
-    //     })
-    // }
-
-    // useEffect(() => {
-    //     return () => getData();
-    // }, [])
-
-    // function myFunction() { 
-    //     var x = document.getElementById("myLinks"); 
-    //     if (x.style.display === "block") { 
-    //         x.style.display = "none"; 
-    //     } else { 
-    //         x.style.display = "block"; 
-    //     } 
-    // } 
-
-    // function openRightMenu() { 
-    //     document.getElementById("rightMenu").style.display = "block"; 
-    // } 
-
-    // function closeRightMenu() { 
-    //     document.getElementById("rightMenu").style.display = "none"; 
-    // } 
-    // const [inputText, setInputText] = useState(""); 
-    // let inputHandler = (e) => { 
-    //     //convert input text to lower case 
-    //     var lowerCase = e.target.value.toLowerCase(); 
-    //     setInputText(lowerCase); 
-    // }; 
-
     const searchText = (event) => {
         setFilter(event.target.value);
     }
@@ -172,27 +96,7 @@ export const Search = () => {
             item[key].toString().toLowerCase().includes(filter.toString().toLowerCase())
         )
     })
-    // const SearchBlog=(e)=>{ 
-    //     e.preventDefault(); 
-    //     Setblogs(blogs.filter((blog)=> 
-    //         blogs.Title.toLowerCase().includes(search.toLocaleLowerCase) || blogs.Body.toLowerCase().includes(search.toLocaleLowerCase) 
-    //         )); 
-    // }; 
-
-    // function sendEmail(e) {
-    //     e.preventDefault();
-    //     dataSearch.forEach(e => emailjs.send('service_z788roe', 'template_a2saktz', { user_email: currentUser.email, name: callData[0].name, phone: callData[0].phone, address_source: callData[0].address_source, address_destination: callData[0].address_destination, city: callData[0].city, gender: callData[0].gender, number_of_passengers: callData[0].number_of_passengers, carType: callData[0].carType, date: callData[0].date, hour: callData[0].hour }, 'acdyoJK5z31WA9GiR')
-    //         .then((result) => {
-    //             console.log(result.text);
-    //             alert("ההודעה נשלחה בהצלחה", result.text);
-    //             // navigate("/");
-    //         }, (error) => {
-    //             console.log(error.text);
-    //             alert("ארעה שגיאה נסה שנית", error.text);
-
-    //         }));
-    // }
-
+    
     return (
         <div>
             <div className="screen">
@@ -202,13 +106,9 @@ export const Search = () => {
                 </div>
                 <Navbar />
                 <form
-                // onSubmit={(e)=>(SearchBlog(e))} 
                 >
                     <img className="image_travel" src="i8.jpg" />
-                    {/* <Form.Group id="search_input">
-                        <Icon icon="fluent:search-square-24-filled"  color="#ea6b4c" width="100" height="100" /> */}
                     <input className="box-search " placeholder="הזן עיר לחיפוש" list="places" type="text" id="city" name="search" value={filter} onChange={searchText.bind(this)} required autoComplete="off" pattern="בני ברק|באר יעקב|קריית ים|באקה אל-גרבייה|ביתר עילית|מע'אר|חריש|פתח תקווה|צפת|קנסווה|קריית ביאליק|קריית אונו|קריית מוצקין|קריית אתא|קריית גת|קריית ים| קריית שמונה|קריית מלאכי|ראש העין|ראשון לציון|רהט|רחובות|רמלה|רמת גן|רמת השרון|רעננה|שדרות|תל אביב |שפרעם| עראבה|ערד|עפולה|כפר יונה|כפר סבא|כפר קאסם|כרמיאל|לוד|מגדל העמק|מודיעין מכבים רעות|אום אל פחם|אופקים|אור יהודה|אור עקיבא|אילת|אריאל|אשדוד|אשקלון|באר שבע|בית שאן|בית שמש|בת ים|גבעת שמואל|גבעתיים|דימונה|הרצליה|הוד השרון|חדרה |חולון|חיפה |טבריה|טייבה|טירה |טירת הכרמל|טמרה|יבנה|יהוד מונסון|יקנעם|ירושלים|מעלה אדומים|מעלות תרשיחא|נהריה|נתניה|נס ציונה|נוף הגליל|נצרת|נשר|נתיבות|סח'נין|עכו" />
-                    {/* </Form.Group> */}
                     <datalist id="places">
                         <option>אום אל פחם</option>
                         <option>אופקים</option>
@@ -290,8 +190,6 @@ export const Search = () => {
                         <option>תל אביב</option>
 
                     </datalist>
-                    {/* <button className="btn_submit">Submit</button> */}
-                    {/* <input type="text" name="search" placeholder="Search.."/> */}
                 </form>
                 {dataSearch.map((object, index) => (
                     <div className="req" key={index}>
@@ -333,27 +231,7 @@ export const Search = () => {
                                 </div>
                             </div>
                             <div className='container'>
-                                {/* <form onSubmit={sendEmail}> */}
-                                {/* <div className="detailsPtient">
-                                    {dataSearch.map((object, index) => (
-                                        <div key={index}>
-                                            {"שם פרטי:  " + object.name}
-                                            <br />
-                                            {"טלפון/נייד:  " + object.phone}
-                                            <br />
-                                            {"סוג רכב:  " + object.carType}
-                                            <br />
-                                            {"מספר מקומות ישיבה:  " + object.number_of_seets}
-                                            <br />
-                                            {"מגדר:  " + object.gender}
-
-                                        </div>
-                                    ))}
-                                </div> */}
                                 <button className="btn_take" onClick={() => notify(object.id)}>לקחתי </button>
-
-                                {/* </form> */}
-
                             </div>
 
                         </div>

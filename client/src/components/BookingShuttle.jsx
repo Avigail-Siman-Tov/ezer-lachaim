@@ -12,7 +12,7 @@ import Navbar from "../components/Navbar";
 import { FaHome } from "react-icons/fa";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// function BookingShuttle({ setShowSpinner }) {
+
 function BookingShuttle() {
     const notify = () => toast.success("הזמנתך התקבלה במידה ויימצא מתנדב הוא יצור איתך קשר בהקדם ", { position: "top-center", autoClose: 5000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, });
     const callsRef = collection(firestore, "calls");

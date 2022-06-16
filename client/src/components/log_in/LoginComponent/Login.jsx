@@ -30,6 +30,7 @@ export default function Login() {
       console.log(res.user.uid)
       const volunteerRef = doc(firestore, "newVolunteer", res.user.uid);
       const docSnap = await getDoc(volunteerRef);
+      // <div className="loader"></div>
       navigate("/search")
     }
     catch (e) {
@@ -49,7 +50,7 @@ export default function Login() {
       <Navbar />
       <div className="allLogin">
         <Icon className="profileImg" icon="healthicons:ui-user-profile" color="#6c6c6c" />
-              <Card>
+        <Card>
           <Card.Body>
             <h2 className="enter">שלום!</h2>
             <h4 className="enter1">נא להקיש כתובת מייל וסיסמא להתחברות</h4>
@@ -57,12 +58,13 @@ export default function Login() {
             <Form onSubmit={handleSubmit}>
               <Form.Group id="email">
                 <br />
-                <Icon icon="bxs:lock" color="#ea6b4c" />
+                <Icon icon="bi:person" color="#ea6b4c" />
                 <input className="designInput" placeholder="Enter your email" type="email" ref={emailRef} required />
               </Form.Group>
               <Form.Group id="password">
-                <Icon icon="bi:person" color="#ea6b4c" />
-                <input className="designInput" placeholder="Enter your password" type="password"  ref={passwordRef} required />
+                <Icon icon="bxs:lock" color="#ea6b4c" />
+
+                <input className="designInput" placeholder="Enter your password" type="password" ref={passwordRef} required />
               </Form.Group>
               <div className="remmeber">
                 <Link to="/forgot-password">?forget password</Link>
@@ -70,6 +72,7 @@ export default function Login() {
               <button disabled={loading} className="submitBtn" type="submit">
                 Log In
               </button>
+              
             </Form>
 
           </Card.Body>

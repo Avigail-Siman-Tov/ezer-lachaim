@@ -25,15 +25,12 @@ function Hamburger() {
       navigate("/login")
     }
     catch (err) {
-      // setError("Failed to log out: "+ err)
       console.log(err)
     }
   }
 
 
   async function getData() {
-    // const dataArray = await getDocs(query(callsRef));
-
     var q = query(profileDetailsRef, where('email', '==', currentUser.email));
     const snapshot = await getDocs(q);
 
@@ -52,7 +49,6 @@ function Hamburger() {
 
 
   useEffect(() => {
-    /* Close the drawer when the user clicks outside of it */
     const closeDrawer = event => {
       if (drawerRef.current && drawerRef.current.contains(event.target)) {
         return;
@@ -65,14 +61,6 @@ function Hamburger() {
   }, []);
   const auth2 = getAuth();
 
-  // signOut(auth2).then(() => {
-  //   console.log("aaaaaa")
-  //   // Sign-out successful.
-  // }).catch((error) => {
-  //   // An error happened.
-  // });
-
-
   return (
 
 
@@ -82,7 +70,6 @@ function Hamburger() {
         <HamburgerButton.Wrapper onClick={() => toggleDrawer(true)}>
           <HamburgerButton.Lines />
         </HamburgerButton.Wrapper>
-        {/* <Navbar.Item> <div className="has">  */}
         <Navbar.Items ref={drawerRef} openDrawer={openDrawer}>
           <Navbar.Item> <div className="img_hamburger1">
 
@@ -138,10 +125,7 @@ const Navbar = {
       top: 0;
     }
   `,
-  // Logo: styled.h1`
-  //   border: 1px solid gray;
-  //   padding: 0.5rem 1rem;
-  // `,
+  
   Items: styled.ul`
     display: flex;
    

@@ -49,12 +49,9 @@ function NewVolunteer({ setShowSpinner }) {
                 return
             }
         
-        // 6 תווים
-
         try {
             setError("")
             setLoading(true)
-            // await signup(emailRef.current.value, passwordRef.current.value)
             await sendNewVolunteer();
             notify();
             navigate("/login")
@@ -76,7 +73,6 @@ function NewVolunteer({ setShowSpinner }) {
             console.log(err)
         }
     }
-
 
 
     const [inputError, setInputError] = useState({
@@ -108,7 +104,6 @@ function NewVolunteer({ setShowSpinner }) {
     };
     return (
         <div >
-            {/* <div>{error}</div> */}
             <div className="navbar">
                 <a href="/"> <div className="btn_home"><FaHome className="spaceB" />Home </div></a>
                 <img src="/logo_ezl.png" alt="Logo image" />
@@ -117,7 +112,6 @@ function NewVolunteer({ setShowSpinner }) {
             <div>
                 <div className="form-wrapper">
                     <div className="title1">טופס הצטרפות למתנדבים</div>
-                    {/* <Example/> */}
                     <Input
                         type="text"
                         value={name}
@@ -167,7 +161,6 @@ function NewVolunteer({ setShowSpinner }) {
                     <div className="error">
                         <Input
                             type="password"
-                            // value={confirm_password}
                             placeholder="אימות סיסמא"
                             name="confirm_password"
                             onChange={handleChange}
@@ -178,13 +171,6 @@ function NewVolunteer({ setShowSpinner }) {
                         // }}
                         />
                         {error}</div>
-                    {/* <Input
-                    placeholder="עיר מגורים" value={cityInput} onChange={(e) => setCityInput(e.target.value)}
-                     hasError={inputError.cityInput}
-                     changeHandler={(city) => {
-                         userDetails.city = city;
-                    }}
-                /> */}
                         <div className="label" >עיר מגורים</div>
                         <Select
                             options={[
@@ -312,7 +298,6 @@ function NewVolunteer({ setShowSpinner }) {
                             onChange={handleChange}
                         />
 
-                        {/* <Link to="/login"> */}
                         <Button
                             text="שלח"
                             onClick={handleSubmit}
@@ -329,33 +314,9 @@ function NewVolunteer({ setShowSpinner }) {
                         // //     setTimeout(setShowSpinner.bind("", false), 3000);
                         // // }} */}
                         /><ToastContainer />
-                        {/* </Link> */}
-                        {/* /> */}
 
-
-                    {/* // <Link to="/new-volunteer-details">
-                    //     <Button 
-                    //     text="הבא" */}
-
-                    {/* //         clickHandler={() => { */}
-                    {/* //             setInputError({
-                    //                 ...inputError,
-                    //                 nameInput: !userDetails.name,
-                    //                 phoneNumInput: !userDetails.phoneNum,
-                    //                 emailInput: !userDetails.email,
-                    //                 PasswordInput: !userDetails.Password,
-                    //                 confirmPasswordInput:
-                    //                     !userDetails.confirmPassword,
-                    //             });
-
-                            // }} 
-                            // />
-                    // </Link>                  
-
-                    // <link to="/NewVolunteerDetails" > */}
                 </div>
             </div>
-            {/* </div> */}
         </div>
     );
 }
