@@ -28,7 +28,7 @@ function NewVolunteer({ setShowSpinner }) {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        console.log(name, value)
+        // console.log(name, value)
         setInputValue((prev) => ({
             ...prev,
             [name]: value,
@@ -37,7 +37,7 @@ function NewVolunteer({ setShowSpinner }) {
 
     async function handleSubmit(e) {
         e.preventDefault()
-        console.log(inputValue)
+        // console.log(inputValue)
 
         if (inputValue.password !== inputValue.confirm_password) {
             setError('סיסמא לא תואמת')
@@ -179,6 +179,7 @@ function NewVolunteer({ setShowSpinner }) {
                                 "אור יהודה",
                                 "אור עקיבא",
                                 "אילת",
+                                "אלעד",
                                 "אריאל",
                                 "אשדוד",
                                 "אשקלון",
@@ -198,6 +199,7 @@ function NewVolunteer({ setShowSpinner }) {
                                 "חדרה",
                                 "חולון",
                                 "חיפה",
+                                "חצור הגלילית",
                                 "חריש",
                                 "טבריה",
                                 "טייבה",
@@ -214,6 +216,7 @@ function NewVolunteer({ setShowSpinner }) {
                                 "לוד",
                                 "מגדל העמק",
                                 "מודיעין מכבים רעות",
+                                "מודיעין עילית",
                                 "מע'אר",
                                 "מעלה אדומים",
                                 "מעלות תרשיחא",
@@ -239,6 +242,7 @@ function NewVolunteer({ setShowSpinner }) {
                                 "קריית ים",
                                 "קריית מוצקין",
                                 "קריית מלאכי",
+                                "קרית ספר",
                                 "קריית שמונה",
                                 "ראש העין",
                                 "ראשון לציון",

@@ -18,7 +18,7 @@ import { SpinnerCircular } from "spinners-react";
 function ExistVolunteer({ setShowSpinner }) {
     const existVolunteerRef = collection(firestore, "newVolunteer");
     const { currentUser } = useAuth();
-    const [existVolunteer, setExistVolunteer] = useState("");
+    const [existVolunteer, setExistVolunteer] = useState({ name: "", phone: "", city: "", carType: "", number_of_seets: "" });
     const notify = () => toast.success("!פרטיך עודכנו בהצלחה", {
         position: "top-center", autoClose: 5000,
         hideProgressBar: false,
@@ -77,7 +77,7 @@ function ExistVolunteer({ setShowSpinner }) {
         notes: "",
     };
     return (
-        <div className>
+        <div>
             <div className="navbar">
                 <a href="/"> <div className="btn_home"><FaHome className="spaceB" /> Home </div></a>
                 <img src="/logo_ezl.png" alt="Logo image" />
@@ -108,6 +108,7 @@ function ExistVolunteer({ setShowSpinner }) {
                         "אור יהודה",
                         "אור עקיבא",
                         "אילת",
+                        "אלעד",
                         "אריאל",
                         "אשדוד",
                         "אשקלון",
@@ -127,6 +128,7 @@ function ExistVolunteer({ setShowSpinner }) {
                         "חדרה",
                         "חולון",
                         "חיפה",
+                        "חצור הגלילית",
                         "חריש",
                         "טבריה",
                         "טייבה",
@@ -143,6 +145,7 @@ function ExistVolunteer({ setShowSpinner }) {
                         "לוד",
                         "מגדל העמק",
                         "מודיעין מכבים רעות",
+                        "מודיעין עילית",
                         "מע'אר",
                         "מעלה אדומים",
                         "מעלות תרשיחא",
@@ -168,6 +171,7 @@ function ExistVolunteer({ setShowSpinner }) {
                         "קריית ים",
                         "קריית מוצקין",
                         "קריית מלאכי",
+                        "קרית ספר",
                         "קריית שמונה",
                         "ראש העין",
                         "ראשון לציון",
@@ -180,6 +184,7 @@ function ExistVolunteer({ setShowSpinner }) {
                         "שדרות",
                         "שפרעם",
                         "תל אביב יפו",
+
                     ]}
                     value={existVolunteer.city}
                     onChange={(e) => setExistVolunteer(prev => {
@@ -211,7 +216,7 @@ function ExistVolunteer({ setShowSpinner }) {
                         return { ...prev }
                     })}
                 />
-               
+
                 <div className="btn-wrapper">
                     <Link to="/search">
                         <Button

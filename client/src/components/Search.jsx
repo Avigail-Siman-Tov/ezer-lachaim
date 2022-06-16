@@ -27,7 +27,7 @@ export const Search = () => {
                     .then((result) => {
                         alert("ההודעה נשלחה בהצלחה", result.text);
                     }, (error) => {
-                        console.log(error.text);
+                        // console.log(error.text);
                         alert("ארעה שגיאה נסה שנית", error.text);
 
                     });
@@ -59,22 +59,21 @@ export const Search = () => {
 
     async function getData() {
 
-        var month,day;
+        var month, day;
         const today = new Date();
-        if(today.getMonth()<10){
-            month="0"+parseInt(today.getMonth() + 1)
+        if (today.getMonth() < 10) {
+            month = "0" + parseInt(today.getMonth() + 1)
         }
-        else{
-            month=parseInt(today.getMonth() + 1);
+        else {
+            month = parseInt(today.getMonth() + 1);
         }
-        if(today.getDate()<10){
-            day="0"+today.getDate();
+        if (today.getDate() < 10) {
+            day = "0" + today.getDate();
         }
-        else{
-            day=today.getDate();
+        else {
+            day = today.getDate();
         }
-        const dateA = today.getFullYear()+ "-" + month + "-" + day;
-        console.log(dateA);
+        const dateA = today.getFullYear() + "-" + month + "-" + day;
         const dataArray = await getDocs(query(callsRef, where("date", "==", dateA)));
 
         dataArray.forEach(doc => {
@@ -95,7 +94,7 @@ export const Search = () => {
             item[key].toString().toLowerCase().includes(filter.toString().toLowerCase())
         )
     })
-    
+
     return (
         <div>
             <div className="screen">
@@ -107,13 +106,14 @@ export const Search = () => {
                 <form
                 >
                     <img className="image_travel" src="i8.jpg" />
-                    <input className="box-search " placeholder="הזן עיר לחיפוש" list="places" type="text" id="city" name="search" value={filter} onChange={searchText.bind(this)} required autoComplete="off" pattern="בני ברק|באר יעקב|קריית ים|באקה אל-גרבייה|ביתר עילית|מע'אר|חריש|פתח תקווה|צפת|קנסווה|קריית ביאליק|קריית אונו|קריית מוצקין|קריית אתא|קריית גת|קריית ים| קריית שמונה|קריית מלאכי|ראש העין|ראשון לציון|רהט|רחובות|רמלה|רמת גן|רמת השרון|רעננה|שדרות|תל אביב |שפרעם| עראבה|ערד|עפולה|כפר יונה|כפר סבא|כפר קאסם|כרמיאל|לוד|מגדל העמק|מודיעין מכבים רעות|אום אל פחם|אופקים|אור יהודה|אור עקיבא|אילת|אריאל|אשדוד|אשקלון|באר שבע|בית שאן|בית שמש|בת ים|גבעת שמואל|גבעתיים|דימונה|הרצליה|הוד השרון|חדרה |חולון|חיפה |טבריה|טייבה|טירה |טירת הכרמל|טמרה|יבנה|יהוד מונסון|יקנעם|ירושלים|מעלה אדומים|מעלות תרשיחא|נהריה|נתניה|נס ציונה|נוף הגליל|נצרת|נשר|נתיבות|סח'נין|עכו" />
+                    <input className="box-search " placeholder="הזן עיר לחיפוש" list="places" type="text" id="city" name="search" value={filter} onChange={searchText.bind(this)} required autoComplete="off" pattern=" מודיעין עילית|קרית ספר|חצור הגלילית|בני ברק|באר יעקב|קריית ים|באקה אל-גרבייה|ביתר עילית|מע'אר|חריש|פתח תקווה|צפת|קנסווה|קריית ביאליק|קריית אונו|קריית מוצקין|קריית אתא|קריית גת|קריית ים| קריית שמונה|קריית מלאכי|ראש העין|ראשון לציון|רהט|רחובות|רמלה|רמת גן|רמת השרון|רעננה|שדרות|תל אביב |שפרעם| עראבה|ערד|עפולה|כפר יונה|כפר סבא|כפר קאסם|כרמיאל|לוד|מגדל העמק|מודיעין מכבים רעות|אום אל פחם|אופקים|אור יהודה|אור עקיבא|אילת|אריאל|אשדוד|אשקלון|באר שבע|בית שאן|בית שמש|בת ים|גבעת שמואל|גבעתיים|דימונה|הרצליה|הוד השרון|חדרה |חולון|חיפה |טבריה|טייבה|טירה |טירת הכרמל|טמרה|יבנה|יהוד מונסון|יקנעם|ירושלים|מעלה אדומים|מעלות תרשיחא|נהריה|נתניה|נס ציונה|נוף הגליל|נצרת|נשר|נתיבות|סח'נין|עכו|אלעד" />
                     <datalist id="places">
                         <option>אום אל פחם</option>
                         <option>אופקים</option>
                         <option>אור יהודה</option>
                         <option>אור עקיבא</option>
                         <option>אילת</option>
+                        <option>אלעד</option>
                         <option>אריאל</option>
                         <option>אשדוד</option>
                         <option>אשקלון</option>
@@ -133,6 +133,7 @@ export const Search = () => {
                         <option>חדרה </option>
                         <option>חולון</option>
                         <option>חיפה</option>
+                        <option>חצור הגלילית</option>
                         <option>חריש</option>
                         <option>טבריה</option>
                         <option>טייבה</option>
@@ -150,6 +151,7 @@ export const Search = () => {
                         <option>לוד</option>
                         <option>מגדל העמק</option>
                         <option>מודיעין מכבים רעות</option>
+                        <option>מודיעין עילית</option>
                         <option>מע'אר</option>
                         <option>מעלה אדומים</option>
                         <option>מעלות תרשיחא</option>
@@ -175,6 +177,7 @@ export const Search = () => {
                         <option>קריית ים</option>
                         <option>קריית מוצקין</option>
                         <option>קריית מלאכי</option>
+                        <option>קרית ספר</option>
                         <option>קריית שמונה</option>
                         <option>ראש העין</option>
                         <option>ראשון לציון</option>

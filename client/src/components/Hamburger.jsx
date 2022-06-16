@@ -111,10 +111,7 @@ const Navbar = {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  
-
-
-
+    
     // background-color: white;
 
     // 40em == 640px
@@ -152,7 +149,6 @@ const Navbar = {
   Item: styled.li`
   list-style: none;
     padding: 0 1rem;
-    
     
     cursor: pointer;
     @media only screen and (max-width: 40em) {
