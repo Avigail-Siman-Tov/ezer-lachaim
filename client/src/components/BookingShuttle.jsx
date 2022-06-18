@@ -4,20 +4,77 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import Select from "../components/Select";
 import React from "react";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import { firestore } from "../firebase";
 import { collection, doc, setDoc } from "firebase/firestore";
 import Navbar from "../components/Navbar";
 import { FaHome } from "react-icons/fa";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 function BookingShuttle() {
-    const notify = () => toast.success("הזמנתך התקבלה במידה ויימצא מתנדב הוא יצור איתך קשר בהקדם ", { position: "top-center", autoClose: 5000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, });
+    const notify = (msg) =>
+        toast.success(
+            msg,
+            {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            }
+        );
+    const notify_error = (msg) =>
+        toast.error(msg, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
     const callsRef = collection(firestore, "calls");
-    const [inputValue, setInputValue] = useState({ name: "", phone: "", city: "", address_source: "", address_destination: "", date: "",hour: "", gender: "", number_of_passengers: "", carType: "" });
-    const { name, phone, city, address_source, address_destination, date,hour, gender, number_of_passengers, carType } = inputValue;
+    const [inputValue, setInputValue] = useState({
+        name: "",
+        phone: "",
+        city: "",
+        address_source: "",
+        address_destination: "",
+        date: "",
+        hour: "",
+        gender: "",
+        number_of_passengers: "",
+        carType: "",
+    });
+    const {
+        name,
+        phone,
+        city,
+        address_source,
+        address_destination,
+        date,
+        hour,
+        gender,
+        number_of_passengers,
+        carType,
+    } = inputValue;
+    const [inputError, setInputError] = useState({
+        name: false,
+        phone: false,
+        city: false,
+        address_source: false,
+        address_destination: false,
+        date: false,
+        hour: false,
+        gender: false,
+        number_of_passengers: false,
+        carType: false,
+    });
+    const navigate = useNavigate();
     const handleChange = (e) => {
         const { name, value } = e.target;
         setInputValue((prev) => ({
@@ -26,32 +83,43 @@ function BookingShuttle() {
         }));
     };
     function sendCall() {
-        setDoc(doc(callsRef), inputValue, {
-        })
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+        setDoc(doc(callsRef), inputValue, {})
+            .then((res) => {
+                navigate("/");
+                console.log(res);
+            })
+            .catch((err) => console.log(err));
     }
-    // const [inputError, setInputError] = useState({
-    //     carTypeInput: false,
-    //     seatsNumInput: false,
-    //     startingPointInput: false,
-    //     destinationAddressInput: false,
-    //     dateInput: false,
-    //     sexInput: false,
-    // });
-    // const userDetails = {
-    //     carType: "",
-    //     seatsNum: 0,
-    //     startingPoint: "",
-    //     destinationAddress: "",
-    //     date: "",
-    //     sex: "",
-    // };
+    async function handleSubmit(e) {
+        let isMissingRequiredFields = false;
+        Object.keys(inputError).forEach((key) => {
+            setInputError((prev) => ({
+                ...prev,
+                [key]: !inputValue[key],
+            }));
+            if (!inputValue[key]) {
+                isMissingRequiredFields = true;
+            }
+        });
+        console.log(inputError);
+        if (isMissingRequiredFields) {
+            notify_error("יש למלא את כל השדות הנדרשים")
+            return;
+        }
+        notify("הזמנתך התקבלה במידה ויימצא מתנדב הוא יצור איתך קשר בהקדם ");
+        sendCall();
+    }
 
     return (
         <div>
             <div className="navbar">
-                <a href="/"> <div className="btn_home"><FaHome className="spaceB" />Home </div></a>
+                <a href="/">
+                    {" "}
+                    <div className="btn_home">
+                        <FaHome className="spaceB" />
+                        Home{" "}
+                    </div>
+                </a>
                 <img src="/logo_ezl.png" alt="Logo image" />
             </div>
             <Navbar />
@@ -63,6 +131,7 @@ function BookingShuttle() {
                     name="name"
                     onChange={handleChange}
                     placeholder="שם פרטי ומשפחה"
+                    hasError={inputError.name}
                 />
                 <Input
                     type="text"
@@ -70,6 +139,8 @@ function BookingShuttle() {
                     placeholder="טלפון/נייד"
                     name="phone"
                     onChange={handleChange}
+                    hasError={inputError.phone}
+
                 />
                 <div className="label">איזה רכב תצטרכו להסעה?</div>
                 {
@@ -87,16 +158,12 @@ function BookingShuttle() {
                         placeHolder="בחירת סוג רכב"
                         name="carType"
                         onChange={handleChange}
-                    // hasError={inputError.carTypeInput}
-                    // changeHandler={(carType) => {
-                    //     userDetails.carType = carType;
-                    // }}
+                        hasError={inputError.carType}
                     />
                 }
-                <div className="label" ></div>
+                <div className="label"></div>
                 <Select
                     options={[
-
                         "אום אל פחם",
                         "אופקים",
                         "אור יהודה",
@@ -131,7 +198,8 @@ function BookingShuttle() {
                         "יהוד מונסון",
                         "יקנעם",
                         "ירושלים",
-                        "כפר יונה", "כפר סבא",
+                        "כפר יונה",
+                        "כפר סבא",
                         "כפר קאסם",
                         "כרמיאל",
                         "לוד",
@@ -174,14 +242,14 @@ function BookingShuttle() {
                         "שדרות",
                         "שפרעם",
                         "תל אביב יפו",
-
-
                     ]}
                     type="text"
                     value={city}
                     placeHolder="העיר בה אתה נמצא"
                     name="city"
                     onChange={handleChange}
+                    hasError={inputError.city}
+
                 />
                 <Input
                     type="text"
@@ -189,10 +257,7 @@ function BookingShuttle() {
                     placeholder="כתובת מקור"
                     name="address_source"
                     onChange={handleChange}
-                // hasError={inputError.startingPointInput}
-                // changeHandler={(startingPoint) => {
-                //     userDetails.startingPoint = startingPoint;
-                // }}
+                    hasError={inputError.address_source}
                 />
                 <Input
                     type="text"
@@ -200,10 +265,7 @@ function BookingShuttle() {
                     name="address_destination"
                     onChange={handleChange}
                     placeholder="כתובת יעד"
-                // hasError={inputError.destinationAddressInput}
-                // changeHandler={(destinationAddress) => {
-                //     userDetails.destinationAddress = destinationAddress;
-                // }}
+                    hasError={inputError.address_destination}
                 />
                 <Input
                     type="text"
@@ -211,10 +273,7 @@ function BookingShuttle() {
                     name="number_of_passengers"
                     onChange={handleChange}
                     placeholder=" מספר מקומות ישיבה להסעה"
-                // hasError={inputError.seatsNumInput}
-                // changeHandler={(seatsNum) => {
-                //     userDetails.seatsNum = seatsNum;
-                // }}
+                    hasError={inputError.number_of_passengers}
                 />
 
                 <div className="label">בחירת תאריך לנסיעה:</div>
@@ -224,60 +283,40 @@ function BookingShuttle() {
                     name="date"
                     onChange={handleChange}
                     placeholder="תאריך"
-                // hasError={inputError.dateInput}
-                // changeHandler={(date) => {
-                //     userDetails.date = date;
-                // }}
+                    hasError={inputError.date}
                 />
                 <div className="label">בחירת שעה לנסיעה:</div>
-                <Input 
-                type="time" 
-                 min="09:00" max="18:00" required
-                 value={hour}
-                 name="hour"
-                 onChange={handleChange}
-                 placeholder="שעה"
-                 />
+                <Input
+                    type="time"
+                    min="09:00"
+                    max="18:00"
+                    required
+                    value={hour}
+                    name="hour"
+                    onChange={handleChange}
+                    placeholder="שעה"
+                    hasError={inputError.hour}
 
-
+                />
                 <Select
-                    options={["אשה", "גבר", "לא משנה לי"]}
+                    options={["אישה", "גבר"]}
                     type="text"
                     value={gender}
                     name="gender"
                     onChange={handleChange}
-                    placeHolder="האם ישנה העדפה למגדר המתנדב?"
+                    placeHolder="מגדר"
+                    hasError={inputError.gender}
+
                 />
 
                 <div className="btn-wrapper">
-                    <Link to="/">
-                        <Button
-                            text="שלח"
-                            onClick={() => {
-                                notify();
-                                sendCall();
-                            }}
-                        // onClick={sendCall}
-                        // clickHandler={() => {
-                        //     Object.keys(inputError).forEach((key) => {
-                        //         inputError[key] = userDetails[]
-                        //     })
-                        //     setInputError({
-                        //         ...inputError,
-                        //         carTypeInput: !userDetails.carType,
-                        //         seatsNumInput: !userDetails.seatsNum,
-                        //         startingPointInput: !userDetails.startingPoint,
-                        //         destinationAddressInput:
-                        //             !userDetails.destinationAddress,
-                        //         dateInput: !userDetails.date,
-                        //         sexInput: !userDetails.sex,
-                        //     });
-                        //     setShowSpinner(true);
-                        //     setTimeout(setShowSpinner.bind("", false), 3000);
-                        //     TODO - http- backend (userDetails)
-                        // }}
-                        /><ToastContainer />
-                    </Link>
+                    <Button
+                        text="שלח"
+                        onClick={() => {
+                            handleSubmit();
+                        }}
+                    />
+                    <ToastContainer />
                 </div>
             </div>
         </div>

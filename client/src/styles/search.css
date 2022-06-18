@@ -1,7 +1,3 @@
-/* .image_travel {
-
-} */
-
 .box-search {
   width: 100%;
   margin-bottom: 30px;
@@ -28,7 +24,6 @@
   background-color: rgb(255, 255, 255);
   border-style: solid;
   border-color: #ebe9eb;
-  /* border-color: #6c6c6c; */
   border-width: 3px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -52,7 +47,6 @@
 }
 
 .tab {
-  /* display: inline-block; */
   margin-right: 3px;
 }
 
@@ -73,7 +67,6 @@
 
 .flex {
   display: flex;
-  /* display: inline; */
 }
 
 .det {

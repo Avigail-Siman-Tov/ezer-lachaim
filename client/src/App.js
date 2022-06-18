@@ -6,7 +6,6 @@ import { useState } from "react";
 import NewVolunteer from "./components/NewVolunteer";
 import ExistVolunteer from "./components/ExistVolunteer";
 import BookingShuttle from "./components/BookingShuttle";
-import Spinner from "./components/Spinner";
 import {Welcome} from './components/Welcome';
 import { Container } from "react-bootstrap"
 import { BrowserRouter as Router } from "react-router-dom"
@@ -19,12 +18,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import ForgotPassword from './components/log_in/LoginComponent/ForgotPassword';
 
 function App() {
-  const [showSpinner, setShowSpinner] = useState(false);
   return (
     <div className="App">
       
       <ToastContainer/> 
-      {showSpinner ? <Spinner /> : undefined}
       <Container className="d-flex align-items-center justify-content-center"
         style={{ minHeight: "100vh", alignContent: 'center' }}>
         <div className="w-100">
@@ -38,7 +35,7 @@ function App() {
                 <Route exact path="/welcome" element={<Welcome/>} />
                 <Route exact path="/new-volunteer" element={<NewVolunteer />} />
                 <Route exact path="/exist-volunteer" element={<ExistVolunteer />} />
-                <Route exact path="/bookingShuttle" setShowSpinner={setShowSpinner} element={<BookingShuttle />} />
+                <Route exact path="/bookingShuttle" element={<BookingShuttle />} />
                 <Route path="search" element={<Search />} />
                 <Route exact path="/profil" element={<Profil />} />    
               </Routes>

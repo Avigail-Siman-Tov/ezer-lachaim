@@ -6,8 +6,10 @@
   margin-right: 0%;
   border: solid 2px #356d9c;
   background-color: #356d9c;
+  text-align: center;
 }
 
 .btn:hover {
   opacity: 0.7;
 }
+

@@ -40,25 +40,27 @@ function Hamburger() {
 
   }
 
-  useEffect(() => {
-    getData();
-  }, [])
+  // useEffect(() => {
+  //   getData();
+  // }, [])
 
   const [openDrawer, toggleDrawer] = useState(false);
   const drawerRef = useRef(null);
 
 
   useEffect(() => {
+    getData();
     const closeDrawer = event => {
       if (drawerRef.current && drawerRef.current.contains(event.target)) {
         return;
       }
       toggleDrawer(false);
     };
-
     document.addEventListener("mousedown", closeDrawer);
     return () => document.removeEventListener("mousedown", closeDrawer);
+    
   }, []);
+
   const auth2 = getAuth();
 
   return (
@@ -71,7 +73,7 @@ function Hamburger() {
           <HamburgerButton.Lines />
         </HamburgerButton.Wrapper>
         <Navbar.Items ref={drawerRef} openDrawer={openDrawer}>
-          <Navbar.Item> <div className="img_hamburger1">
+          <div className="img_hamburger1">
 
             <Navbar.Item> <div className="img_hamburgerup"><Icon icon="healthicons:ui-user-profile" color="#ebe9eb" width="80" height="80" /> </div></Navbar.Item>
             {profileDetails.map((object, index) => (
@@ -83,7 +85,7 @@ function Hamburger() {
               </div>
             ))}
 
-          </div></Navbar.Item>
+          </div>
 
           <Navbar.Item><a href="profil" onClick={() => handleLogout(1)}> <div className="home_hamburger" ><Icon icon="et:profile-male" className="space" color="#356d9c" /> לאזור האישי </div></a></Navbar.Item>
           <Navbar.Item><a href="/" onClick={() => handleLogout(0)} > <div className="home_hamburger1" ><Icon icon="uit:signout" className="space" color="#356d9c" rotate={2} inline={true} /> התנתקות </div></a></Navbar.Item>
@@ -122,7 +124,7 @@ const Navbar = {
       top: 0;
     }
   `,
-  
+
   Items: styled.ul`
     display: flex;
    

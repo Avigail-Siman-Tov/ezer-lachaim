@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react"
-import { Form, Button, Card, Alert } from "react-bootstrap"
+import { Form, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
 import Navbar from "../../Navbar";
@@ -7,7 +7,7 @@ import "../../../styles/login.css"
 import { FaHome } from "react-icons/fa"
 import { Icon } from '@iconify/react';
 import { firestore } from "../../../firebase";
-import { collection, doc, getDocs, query, setDoc, getDoc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 
 
 export default function Login() {

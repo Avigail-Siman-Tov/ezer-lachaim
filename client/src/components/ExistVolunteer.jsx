@@ -1,85 +1,114 @@
 import "../styles/newVolunteer.css";
 import Input from "../components/Input";
 import Button from "../components/Button";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Select from "../components/Select";
-import { FaHome } from "react-icons/fa"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { useAuth } from "./log_in/contexts/AuthContext"
+import { FaHome } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useAuth } from "./log_in/contexts/AuthContext";
 import { firestore } from "../firebase";
-import { collection, query, where, getDocs, doc, setDoc } from "firebase/firestore";
-import React, { useEffect } from "react"
-import "../styles/spinner.css";
-import { SpinnerCircular } from "spinners-react";
+import {
+    collection,
+    query,
+    where,
+    getDocs,
+    doc,
+    setDoc,
+} from "firebase/firestore";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-function ExistVolunteer({ setShowSpinner }) {
+function ExistVolunteer() {
     const existVolunteerRef = collection(firestore, "newVolunteer");
     const { currentUser } = useAuth();
     const [existVolunteer, setExistVolunteer] = useState({ name: "", phone: "", city: "", carType: "", number_of_seets: "" });
-    const notify = () => toast.success("!פרטיך עודכנו בהצלחה", {
-        position: "top-center", autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
+    const notify = (msg) =>
+        toast.success(msg, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+        const notify_error = (msg) =>
+        toast.error(msg, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    const navigate = useNavigate();
+    const [inputError, setInputError] = useState({
+        name: false,
+        phone: false,
+        city: false,
+        carType: false,
+        number_of_seets: false,
     });
 
     const getData = async () => {
-        var q = query(existVolunteerRef, where('email', '==', currentUser.email));
+        var q = query(
+            existVolunteerRef,
+            where("email", "==", currentUser.email)
+        );
         const snapshot = await getDocs(q);
-        snapshot.forEach(doc => {
-            setExistVolunteer({ ...doc.data(), id: doc.id })
-        })
-    }
+        snapshot.forEach((doc) => {
+            setExistVolunteer({ ...doc.data(), id: doc.id });
+        });
+    };
 
     useEffect(() => {
         getData();
-    }, [])
-
+    }, []);
 
     const handleClick = async () => {
         try {
-            await setDoc(doc(firestore, "newVolunteer", existVolunteer.id), existVolunteer);
-            notify();
+            await setDoc(
+                doc(firestore, "newVolunteer", existVolunteer.id),
+                existVolunteer
+            );
+            notify("!פרטיך עודכנו בהצלחה");
+            navigate("/search");
         } catch (err) {
-            console.log(err)
+            console.log(err);
         }
+    };
+    async function handleSubmit(e) {
+        e.preventDefault();
+        let isMissingRequiredFields = false;
+        Object.keys(inputError).forEach((key) => {
+            setInputError((prev) => ({
+                ...prev,
+                [key]: !existVolunteer[key],
+            }));
+            if (!existVolunteer[key]) {
+                isMissingRequiredFields = true;
+            }
+        });
+
+        if (isMissingRequiredFields) {
+            notify_error("יש למלא את כל השדות הנדרשים");
+            return;
+        }
+        handleClick();
     }
 
-    const [inputError, setInputError] = useState({
-        nameInput: false,
-        phoneNumInput: false,
-        emailInput: false,
-        passwordInput: false,
-        confirmPasswordInput: false,
-        cityInput: false,
-        carTypeInput: false,
-        carNumInput: false,
-        seatsNumInput: false,
-        sexInput: false,
-        notesInput: false,
-    });
-    const userDetails = {
-        name: "",
-        phoneNum: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-        city: "",
-        carType: "",
-        carNum: "",
-        seatsNum: 1,
-        sex: "",
-        notes: "",
-    };
     return (
         <div>
             <div className="navbar">
-                <a href="/"> <div className="btn_home"><FaHome className="spaceB" /> Home </div></a>
+                <a href="/">
+                    {" "}
+                    <div className="btn_home">
+                        <FaHome className="spaceB" /> Home{" "}
+                    </div>
+                </a>
                 <img src="/logo_ezl.png" alt="Logo image" />
             </div>
             <Navbar />
@@ -87,20 +116,26 @@ function ExistVolunteer({ setShowSpinner }) {
                 <div className="title">הפרטים שלי</div>
                 <Input
                     value={existVolunteer.name}
-                    onChange={(e) => setExistVolunteer(prev => {
-                        prev.name = e.target.value;
-                        return { ...prev }
-                    })}
+                    onChange={(e) =>
+                        setExistVolunteer((prev) => {
+                            prev.name = e.target.value;
+                            return { ...prev };
+                        })
+                    }
+                    hasError={inputError.name}
                 />
 
                 <Input
                     value={existVolunteer.phone}
-                    onChange={(e) => setExistVolunteer(prev => {
-                        prev.phone = e.target.value;
-                        return { ...prev }
-                    })}
+                    onChange={(e) =>
+                        setExistVolunteer((prev) => {
+                            prev.phone = e.target.value;
+                            return { ...prev };
+                        })
+                    }
+                    hasError={inputError.phone}
                 />
-                <div className="label" ></div>
+                <div className="label"></div>
                 <Select
                     options={[
                         "אום אל פחם",
@@ -139,7 +174,8 @@ function ExistVolunteer({ setShowSpinner }) {
                         "יהוד מונסון",
                         "יקנעם",
                         "ירושלים",
-                        "כפר יונה", "כפר סבא",
+                        "כפר יונה",
+                        "כפר סבא",
                         "כפר קאסם",
                         "כרמיאל",
                         "לוד",
@@ -187,10 +223,13 @@ function ExistVolunteer({ setShowSpinner }) {
 
                     ]}
                     value={existVolunteer.city}
-                    onChange={(e) => setExistVolunteer(prev => {
-                        prev.city = e.target.value;
-                        return { ...prev }
-                    })}
+                    onChange={(e) =>
+                        setExistVolunteer((prev) => {
+                            prev.city = e.target.value;
+                            return { ...prev };
+                        })
+                    }
+                    hasError={inputError.city}
                 />
 
                 <Select
@@ -203,32 +242,29 @@ function ExistVolunteer({ setShowSpinner }) {
                         "אוטובוס",
                     ]}
                     value={existVolunteer.carType}
-                    onChange={(e) => setExistVolunteer(prev => {
-                        prev.carType = e.target.value;
-                        return { ...prev }
-                    })}
-
+                    onChange={(e) =>
+                        setExistVolunteer((prev) => {
+                            prev.carType = e.target.value;
+                            return { ...prev };
+                        })
+                    }
+                    hasError={inputError.carType}
                 />
                 <Input
                     value={existVolunteer.number_of_seets}
-                    onChange={(e) => setExistVolunteer(prev => {
-                        prev.number_of_seets = e.target.value;
-                        return { ...prev }
-                    })}
+                    onChange={(e) =>
+                        setExistVolunteer((prev) => {
+                            prev.number_of_seets = e.target.value;
+                            return { ...prev };
+                        })
+                    }
+                    hasError={inputError.number_of_seets}
                 />
-
                 <div className="btn-wrapper">
-                    <Link to="/search">
-                        <Button
-                            onClick={handleClick}
-                            text="שמירה"
-                        />
-                        <ToastContainer />
-                    </Link>
+                    <Button onClick={handleSubmit} text="שמירה" />
+                    <ToastContainer />
                 </div>
-
             </div>
-
         </div>
     );
 }

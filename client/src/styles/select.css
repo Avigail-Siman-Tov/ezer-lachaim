@@ -2,17 +2,11 @@
     color: var(--e-global-color-31c6fe03)
 }
 .select{
-    /* outline: none; */
     border: solid 2px var(--e-global-color-secondary);
     height: 50px;
-    /* padding-right: 20px; */
     border-radius: 8px; 
-    /* padding-top: 13px;
-    padding-bottom: 13px; */
-    /* color: var(--e-global-color-secondary); */
     width: 93%;
     padding: 3px;
-    /* line-height: 10;    */
 }
 .select option{
     width: 93%;
@@ -20,10 +14,11 @@
 
 .error{
     border-color: var(--e-global-color-6fff166d);
-    color: var(--e-global-color-6fff166d);
+    color: black;
 }
 .error::placeholder{
     color: var(--e-global-color-6fff166d);    
+    color: black;
 }
 select:focus { 
     outline: none !important;
@@ -34,3 +29,4 @@ select:focus {
  #widthTempOption{
     display : none;
 }
+

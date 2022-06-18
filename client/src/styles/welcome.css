@@ -1,10 +1,8 @@
 .screenBackground {
   background-color: #356d9c;
-  /* font-family: 'Poppins', sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 915px;
-  /* width: 100%; */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
 }
@@ -15,7 +13,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 12px 48px;
-  /* color: red; */
   background: linear-gradient(to right, #808080 0, #ffff 10%, #808080 20%);
   background-position: 0;
   -webkit-background-clip: text;

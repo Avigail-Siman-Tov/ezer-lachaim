@@ -1,15 +1,8 @@
 import '../styles/select.css';
-// function Select({ options, placeHolder, hasError, changeHandler, onChange, type, name, value }) {
 
 function Select({ options, placeHolder, hasError,onChange, name, value }) {
     return (
-        <select className='select'
-            // onChange={(event) => {
-            //     changeHandler(event.target.value)
-            //     const newValue = event.target.value;
-            //     changeHandler && changeHandler(newValue);
-            // }}
-
+        <select className={`select ${hasError ? "error" : ""}`}
             onChange={onChange}
             name={name}
             value={value}
@@ -24,4 +17,7 @@ function Select({ options, placeHolder, hasError,onChange, name, value }) {
 
 }
 export default Select;
+
+
+
 

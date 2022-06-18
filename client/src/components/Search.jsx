@@ -4,14 +4,12 @@ import Navbar from "./Navbar";
 import Hamburger from "./Hamburger";
 import "../styles/search.css"
 import { useEffect, useState } from "react";
-import { collection, doc, getDocs, query, setDoc, deleteDoc } from "firebase/firestore";
+import { collection, doc, getDocs, query, deleteDoc } from "firebase/firestore";
 import { React } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Link, Navigate } from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 import emailjs from '@emailjs/browser';
-import NewVolunteer from "./NewVolunteer";
 import { useAuth } from "./log_in/contexts/AuthContext"
 import { where } from "firebase/firestore";
 
@@ -23,11 +21,11 @@ export const Search = () => {
         for (i = 0; i < callData.length; i++) {
             if (callData[i].id == id) {
                 found = i;
-                emailjs.send('service_z788roe', 'template_a2saktz', { user_email: currentUser.email, name: callData[found].name, phone: callData[found].phone, address_source: callData[found].address_source, address_destination: callData[found].address_destination, city: callData[found].city, gender: callData[found].gender, number_of_passengers: callData[found].number_of_passengers, carType: callData[found].carType, date: callData[found].date, hour: callData[found].hour }, 'acdyoJK5z31WA9GiR')
+                emailjs.send('service_0hwgmkp', 'template_bslxuyw', { user_email: currentUser.email, name: callData[found].name, phone: callData[found].phone, address_source: callData[found].address_source, address_destination: callData[found].address_destination, city: callData[found].city, gender: callData[found].gender, number_of_passengers: callData[found].number_of_passengers, carType: callData[found].carType, date: callData[found].date, hour: callData[found].hour }, '2PWEZiPmXDvlgwGPs')
                     .then((result) => {
-                        alert("ההודעה נשלחה בהצלחה", result.text);
+
                     }, (error) => {
-                        // console.log(error.text);
+                        console.log(error.text);
                         alert("ארעה שגיאה נסה שנית", error.text);
 
                     });
